@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net", "Neosmartpen.Net\Neosmartpen.Net.csproj", "{16297E2B-052F-4A7E-BCB0-9B52C6420F34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net.Protocol.v1", "Neosmartpen.Net.Protocol.v1\Neosmartpen.Net.Protocol.v1.csproj", "{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net.Protocol.v2", "Neosmartpen.Net.Protocol.v2\Neosmartpen.Net.Protocol.v2.csproj", "{63FE81C9-53F4-4D52-BECE-40EAA0D31998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Demo", "Neosmartpen.Demo\Neosmartpen.Demo.csproj", "{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{16297E2B-052F-4A7E-BCB0-9B52C6420F34} = {16297E2B-052F-4A7E-BCB0-9B52C6420F34}
+		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B} = {8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}
+		{63FE81C9-53F4-4D52-BECE-40EAA0D31998} = {63FE81C9-53F4-4D52-BECE-40EAA0D31998}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16297E2B-052F-4A7E-BCB0-9B52C6420F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16297E2B-052F-4A7E-BCB0-9B52C6420F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16297E2B-052F-4A7E-BCB0-9B52C6420F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16297E2B-052F-4A7E-BCB0-9B52C6420F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FE81C9-53F4-4D52-BECE-40EAA0D31998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FE81C9-53F4-4D52-BECE-40EAA0D31998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FE81C9-53F4-4D52-BECE-40EAA0D31998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FE81C9-53F4-4D52-BECE-40EAA0D31998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
