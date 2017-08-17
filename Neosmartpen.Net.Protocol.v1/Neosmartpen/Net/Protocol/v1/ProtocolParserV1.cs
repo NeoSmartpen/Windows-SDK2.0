@@ -75,34 +75,86 @@ namespace Neosmartpen.Net.Protocol.v1
         private const int PKT_END            = 0xC1;
         private const int PKT_EMPTY          = 0x00;
         private const int PKT_HEADER_LEN     = 3;
-        private const int PKT_LENGTH_POS1    = 2;
-        private const int PKT_LENGTH_POS2    = 3;
+        private const int PKT_LENGTH_POS1    = 1;
+        private const int PKT_LENGTH_POS2    = 2;
         private const int PKT_MAX_LEN        = 8200;
 
-        public void Put( byte[] buff, int size )
-        {
-            for ( int i = 0; i < size; i++ )
-            {
-                if ( buff[i] != PKT_START )
-                {
-                    continue;
-                }
+        private int counter = 0;
+        private int dataLength = 0;
 
+        // length
+        private byte[] lbuffer = new byte[2];
+
+        private static int buffer_size = PKT_MAX_LEN + 1;
+
+        private ByteUtil nbuffer = new ByteUtil(buffer_size);
+
+        private bool isStart = true;
+
+        public void Put(byte[] buff, int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                ParseOneByte(buff[i]);
+            }
+        }
+
+        private void ParseOneByte(byte data)
+        {
+            int int_data = (int)(data & 0xFF);
+            //int int_data = data;
+
+            if (int_data == PKT_START && isStart)
+            {
+                //System.Console.WriteLine( "ProtocolParser : PKT_START" );
+                counter = 0;
+                isStart = false;
+            }
+            else if (int_data == PKT_END && counter == dataLength + PKT_HEADER_LEN)
+            {
                 Packet.Builder builder = new Packet.Builder();
 
-                int cmd = buff[i + 1];
+                // 커맨드를 뽑는다.
+                int cmd = nbuffer.GetByteToInt();
 
-                int length = ByteConverter.ByteToShort( new byte[] { buff[i + PKT_LENGTH_POS1], buff[i + PKT_LENGTH_POS2] } );
+                // 길이를 뽑는다.
+                int length = nbuffer.GetShort();
 
-                byte[] rs = new byte[length];
+                // 커맨드, 길이를 제외한 나머지 바이트를 컨텐트로 지정
+                byte[] content = nbuffer.GetBytes();
 
-                Array.Copy( buff, i + 1 + PKT_HEADER_LEN, rs, 0, length );
+                PacketCreated(this, new PacketEventArgs(builder.cmd(cmd).data(content).Build()));
 
-                //System.Console.WriteLine( "buffer : {0}", BitConverter.ToString( rs, 0 ) );
+                dataLength = 0;
+                counter = 10;
+                nbuffer.Clear();
+                isStart = true;
+            }
+            else if (counter > PKT_MAX_LEN)
+            {
+                //System.Console.WriteLine( "ProtocolParser : PKT_MAX_LEN" );
+                counter = 10;
+                dataLength = 0;
+                isStart = true;
+            }
+            else
+            {
+                if (counter == PKT_LENGTH_POS1)
+                {
+                    lbuffer[0] = data;
+                }
+                else if (counter == PKT_LENGTH_POS2)
+                {
+                    //System.Console.WriteLine( "ProtocolParser : PKT_LENGTH_POS2" );
+                    lbuffer[1] = data;
+                    dataLength = ByteConverter.ByteToShort(lbuffer);
+                }
 
-                PacketCreated( this, new PacketEventArgs( builder.cmd( cmd ).data( rs ).Build() ) );
-
-                i += PKT_HEADER_LEN + length;
+                if (!isStart)
+                {
+                    nbuffer.Put(data);
+                    counter++;
+                }
             }
         }
     }
