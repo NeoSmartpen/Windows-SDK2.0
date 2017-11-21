@@ -33,6 +33,11 @@ namespace Neosmartpen.Net
             return GetChecksum( Data.Length - mIndex );
         }
 
+		public bool CheckMoreData()
+		{
+			return Data.Length > mIndex;
+		}
+
         public int GetInt()
         {
             return BitConverter.ToInt32( GetBytes(4), 0 );
