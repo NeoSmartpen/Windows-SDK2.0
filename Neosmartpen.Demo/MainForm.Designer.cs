@@ -110,7 +110,7 @@
             this.txtMacAddress.Name = "txtMacAddress";
             this.txtMacAddress.Size = new System.Drawing.Size(178, 21);
             this.txtMacAddress.TabIndex = 19;
-            this.txtMacAddress.Text = "9C7BD2FFF014";
+            this.txtMacAddress.Text = "9C7BD2FFF128";
             this.txtMacAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnConnect

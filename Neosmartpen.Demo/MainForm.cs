@@ -533,10 +533,9 @@ namespace PenDemo
             CloseProgress();
         }
 
-        void PenCommV2Callbacks.onReceiveDot( IPenComm sender, Dot dot )
+        void PenCommV2Callbacks.onReceiveDot(IPenComm sender, Dot dot, ImageProcessingInfo info)
         {
-            System.Console.WriteLine( "sender : {0}", sender.Name );
-            ProcessDot( dot );
+            ProcessDot(dot);
         }
 
         void PenCommV2Callbacks.onReceiveOfflineDataList( IPenComm sender, params OfflineDataInfo[] offlineNotes )
@@ -580,7 +579,7 @@ namespace PenDemo
             mPenCommV2.ReqOfflineDataList();
         }
 
-        void PenCommV2Callbacks.onReceivePenStatus( IPenComm sender, bool locked, int passwdMaxReTryCount, int passwdRetryCount, long timestamp, short autoShutdownTime, int maxForce, int battery, int usedmem, bool useOfflineData, bool autoPowerOn, bool penCapPower, bool hoverMode, bool beep, short penSensitivity )
+        void PenCommV2Callbacks.onReceivePenStatus( IPenComm sender, bool locked, int passwdMaxReTryCount, int passwdRetryCount, long timestamp, short autoShutdownTime, int maxForce, int battery, int usedmem, bool useOfflineData, bool autoPowerOn, bool penCapPower, bool hoverMode, bool beep, short penSensitivity, PenCommV2.UsbMode usbmode, bool downsampling, string btLocalName, PenCommV2.DataTransmissionType dataTransmissionType )
         {
             this.BeginInvoke( new MethodInvoker( delegate()
             {
@@ -811,6 +810,31 @@ namespace PenDemo
             {
                 tbFirmwarePath.Text = openFileDialog1.FileName;
             }
+        }
+
+        void PenCommV2Callbacks.onPenUsbModeSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenDownSamplingSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenBtLocalNameSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenFscSensitivitySetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
         }
     }
 }
