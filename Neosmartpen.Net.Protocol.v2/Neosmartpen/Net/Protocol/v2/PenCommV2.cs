@@ -61,6 +61,14 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private int mTotalOfflineStroke = -1, mReceivedOfflineStroke = 0, mTotalOfflineDataSize = -1;
 
+        private int mPrevIndex = -1;
+        private byte mPrevCount = 0;
+        private Dot mPrevDot = null;
+
+        public enum UsbMode : byte { Disk = 0, Bulk = 1 };
+
+        public enum DataTransmissionType : byte { Event = 0, RequestResponse = 1 };
+
         public bool HoverMode
         {
             get;
@@ -100,6 +108,7 @@ namespace Neosmartpen.Net.Protocol.v2
         protected override void OnConnected()
         {
             Thread.Sleep( 500 );
+            mPrevIndex = -1;
             ReqVersion();
         }
 
@@ -129,6 +138,14 @@ namespace Neosmartpen.Net.Protocol.v2
                         ReqPenStatus();
                     }
                     break;
+
+                #region request pen data
+                case Cmd.ONLINE_PEN_DATA_REQUEST:
+                    {
+                        ParseOnlineDataRequest(pk);
+                    }
+                    break;
+                #endregion
 
                 #region event
                 case Cmd.SHUTDOWN_EVENT:
@@ -199,6 +216,14 @@ namespace Neosmartpen.Net.Protocol.v2
                     // 필압 단계 설정 (0~4) 0이 가장 민감
                     short fsrStep = (short)pk.GetByteToInt();
 
+                    UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+
+                    bool downsampling = pk.GetByteToInt() == 1;
+
+                    string btLocalName = pk.GetString(16).Trim();
+
+                    DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+
                     // 최초 연결시
                     if ( MaxForce == -1 )
                     {
@@ -217,7 +242,7 @@ namespace Neosmartpen.Net.Protocol.v2
                     }
                     else
                     {
-                        Callback.onReceivePenStatus( this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep );
+                        Callback.onReceivePenStatus( this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep, usbmode, downsampling, btLocalName, dataTransmissionType);
                     }
                 }
                     break;
@@ -232,6 +257,10 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         switch ( stype )
                         {
+                            case SettingType.Timestamp:
+                                Callback.onPenTimestampSetUpResponse(this, result);
+                                break;
+
                             case SettingType.AutoPowerOffTime:
                                 Callback.onPenAutoShutdownTimeSetUpResponse( this, result );
                                 break;
@@ -264,8 +293,24 @@ namespace Neosmartpen.Net.Protocol.v2
                                 Callback.onPenSensitivitySetUpResponse( this, result );
                                 break;
 
-                            case SettingType.Timestamp:
-                                Callback.onPenTimestampSetUpResponse( this, result );
+                            case SettingType.UsbMode:
+                                Callback.onPenUsbModeSetUpResponse( this, result );
+                                break;
+
+                            case SettingType.DownSampling:
+                                Callback.onPenDownSamplingSetUpResponse( this, result );
+                                break;
+
+                            case SettingType.BtLocalName:
+                                Callback.onPenBtLocalNameSetUpResponse( this, result );
+                                break;
+
+                            case SettingType.FscSensitivity:
+                                Callback.onPenFscSensitivitySetUpResponse( this, result );
+                                break;
+
+                            case SettingType.DataTransmissionType:
+                                Callback.onPenDataTransmissionTypeSetUpResponse( this, result );
                                 break;
                         }
                     }
@@ -591,26 +636,136 @@ namespace Neosmartpen.Net.Protocol.v2
             }
         }
 
-        private void ParseDot( Packet mPack, DotTypes type )
+        private void ParseDot( Packet packet, DotTypes type )
         {
-            int timeadd = mPack.GetByte();
+            int timeadd = packet.GetByte();
 
             mTime += timeadd;
 
-            int force = mPack.GetShort();
+            int force = packet.GetShort();
 
-            int x = mPack.GetShort();
-            int y = mPack.GetShort();
+            int x = packet.GetShort();
+            int y = packet.GetShort();
 
-            int fx = mPack.GetByte();
-            int fy = mPack.GetByte();
+            int fx = packet.GetByte();
+            int fy = packet.GetByte();
 
-            int tx = mPack.GetByte();
-            int ty = mPack.GetByte();
+            int tx = packet.GetByte();
+            int ty = packet.GetByte();
 
-            int twist = mPack.GetShort();
+            int twist = packet.GetShort();
 
-            Callback.onReceiveDot( this, new Dot( mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor ) );
+            Callback.onReceiveDot( this, new Dot( mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor ), null );
+        }
+
+        private void ParseOnlineDataRequest(Packet pk)
+        {
+            int index = pk.GetInt();
+            byte count = pk.GetByte();
+
+            // 과거에 받았던 인덱스가 다시 올경우 무시
+            if (index <= mPrevIndex)
+            {
+                ResponseOnlineData(index, count);
+                return;
+            }
+
+            mPrevCount = count;
+            mPrevIndex = index;
+
+            for (int i = 0; i < mPrevCount; i++)
+            {
+                byte type = pk.GetByte();
+
+                switch (type)
+                {
+                    case 0x10:
+                        IsStartWithDown = true;
+                        mDotCount = 0;
+                        mTime = pk.GetLong();
+                        mPenTipType = pk.GetByte() == 0x00 ? PenTipType.Normal : PenTipType.Eraser;
+                        mPenTipColor = pk.GetInt();
+                        break;
+
+                    case 0x20:
+                        long penuptime = pk.GetLong();
+                        int total = pk.GetShort();
+                        int processed = pk.GetShort();
+                        int success = pk.GetShort();
+                        int transferred = pk.GetShort();
+                        if (mPrevDot != null)
+                        {
+                            mPrevDot.DotType = DotTypes.PEN_UP;
+                            ImageProcessingInfo info = new ImageProcessingInfo { Total = total, Processed = processed, Success = success, Transferred = transferred };
+                            Callback.onReceiveDot(this, mPrevDot, info);
+                        }
+                        break;
+
+                    case 0x30:
+                        byte[] rb = pk.GetBytes(4);
+                        mCurSection = (int)(rb[3] & 0xFF);
+                        mCurOwner = ByteConverter.ByteToInt(new byte[] { rb[0], rb[1], rb[2], (byte)0x00 });
+                        mCurNote = pk.GetInt();
+                        mCurPage = pk.GetInt();
+                        break;
+
+                    case 0x40:
+
+                        int timeadd = pk.GetByte();
+
+                        mTime += timeadd;
+
+                        int force = pk.GetShort();
+
+                        int x = pk.GetShort();
+                        int y = pk.GetShort();
+
+                        int fx = pk.GetByte();
+                        int fy = pk.GetByte();
+
+                        Dot dot = null;
+
+                        if (HoverMode && !IsStartWithDown)
+                        {
+                            dot = new Dot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_HOVER, mPenTipColor);
+                        }
+                        else if (IsStartWithDown)
+                        {
+                            dot = new Dot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
+                        }
+                        else
+                        {
+                            //오류
+                        }
+
+                        if (dot != null)
+                        {
+                            Callback.onReceiveDot(this, dot, null);
+                        }
+
+                        mPrevDot = dot;
+                        mDotCount++;
+                        break;
+                }
+            }
+
+            //애크를 던지자
+            ResponseOnlineData(mPrevIndex, mPrevCount);
+        }
+
+        private void ResponseOnlineData(int index, byte count)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+
+            bf.Put(Const.PK_STX, false)
+              .Put((byte)Cmd.ONLINE_PEN_DATA_RESPONSE)
+              .Put((byte)0x00)
+              .PutShort(5)
+              .PutInt(index)
+              .Put(count)
+              .Put(Const.PK_ETX, false);
+
+            Send(bf);
         }
 
         private byte[] Escape( byte input )
@@ -721,7 +876,7 @@ namespace Neosmartpen.Net.Protocol.v2
             return Send( bf );
         }
 
-        public enum SettingType : byte { Timestamp = 1, AutoPowerOffTime = 2, PenCapOff = 3, AutoPowerOn = 4, Beep = 5, Hover = 6, OfflineData = 7, LedColor = 8, Sensitivity = 9 };
+        public enum SettingType : byte { Timestamp = 1, AutoPowerOffTime = 2, PenCapOff = 3, AutoPowerOn = 4, Beep = 5, Hover = 6, OfflineData = 7, LedColor = 8, Sensitivity = 9, UsbMode = 10, DownSampling = 11, BtLocalName = 12, FscSensitivity = 13, DataTransmissionType = 14 };
 
         private bool RequestChangeSetting( SettingType stype, object value )
         {
@@ -748,10 +903,24 @@ namespace Neosmartpen.Net.Protocol.v2
                 case SettingType.Beep:
                 case SettingType.Hover:
                 case SettingType.OfflineData:
+                case SettingType.DownSampling:
                     bf.PutShort( 2 ).Put( (byte)stype ).Put( (byte)( (bool)value ? 1 : 0 ) );
                     break;
                 case SettingType.Sensitivity:
                     bf.PutShort( 2 ).Put( (byte)stype ).Put( (byte)( (short)value ) );
+                    break;
+                case SettingType.UsbMode:
+                    bf.PutShort( 2 ).Put( (byte)stype ).Put((byte)value );
+                    break;
+                case SettingType.BtLocalName:
+                    byte[] StrByte = Encoding.UTF8.GetBytes( (string)value );
+                    bf.PutShort(17).Put((byte)stype).Put(StrByte, 16);
+                    break;
+                case SettingType.FscSensitivity:
+                    bf.PutShort(2).Put( (byte)stype ).Put((byte)( (short)value) );
+                    break;
+                case SettingType.DataTransmissionType:
+                    bf.PutShort(2).Put( (byte)stype ).Put( (byte)value );
                     break;
             }
 
@@ -841,13 +1010,65 @@ namespace Neosmartpen.Net.Protocol.v2
         }
 
         /// <summary>
-        /// Sets the value of the pen's sensitivity property that controls the force sensor of pen.
+        /// Sets the value of the pen's sensitivity property that controls the force sensor(r-type) of pen.
         /// </summary>
         /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetupPenSensitivity( short step )
         {
             return RequestChangeSetting( SettingType.Sensitivity, step );
+        }
+
+        /// <summary>
+        /// Sets the status of usb mode property that determine if usb mode is disk or bulk.
+        /// You can choose between Disk mode, which is used as a removable disk, and Bulk mode, which is capable of high volume data communication, when connected with usb
+        /// </summary>
+        /// <param name="mode">enum of UsbMode</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqSetupUsbMode( UsbMode mode )
+        {
+            return RequestChangeSetting( SettingType.UsbMode, mode );
+        }
+
+        /// <summary>
+        /// Sets the status of the down sampling property.
+        /// Downsampling is a function of avoiding unnecessary data communication by omitting coordinates at the same position.
+        /// </summary>
+        /// <param name="enable">true if you want to enable down sampling, otherwise false.</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqSetupDownSampling( bool enable)
+        {
+            return RequestChangeSetting( SettingType.DownSampling, enable );
+        }
+
+        /// <summary>
+        /// Sets the local name of the bluetooth device property.
+        /// </summary>
+        /// <param name="btLocalName">Bluetooth local name to set</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqSetupBtLocalName( string btLocalName )
+        {
+            return RequestChangeSetting( SettingType.BtLocalName, btLocalName );
+        }
+
+        /// <summary>
+        /// Sets the value of the pen's sensitivity property that controls the force sensor(c-type) of pen.
+        /// </summary>
+        /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqSetupPenFscSensitivity( short step )
+        {
+            return RequestChangeSetting( SettingType.FscSensitivity, step );
+        }
+
+        /// <summary>
+        /// Sets the status of data transmission type property that determine if data transmission type is event or request-response.
+        /// </summary>
+        /// <param name="type">enum of DataTransmissionType</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqSetupDataTransmissionType( DataTransmissionType type )
+        {
+            return RequestChangeSetting( SettingType.DataTransmissionType, type );
         }
 
         #endregion

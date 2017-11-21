@@ -186,7 +186,7 @@ void PenCommV1Callbacks.onReceiveDot( IPenComm sender, Dot dot )
 }
 
 // PenCommV2
-void PenCommV2Callbacks.onReceiveDot( IPenComm sender, Dot dot )
+void PenCommV2Callbacks.onReceiveDot( IPenComm sender, Dot dot, ImageProcessingInfo info )
 {
 // TODO : You should implements code using coordinate data.
 }

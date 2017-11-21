@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Neosmartpen\Net\Protocol\v2\ImageProcessingInfo.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\PenCommV2.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\PenCommV2Callbacks.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\Protocol.cs" />

@@ -1,5 +1,4 @@
-﻿
-namespace Neosmartpen.Net.Protocol.v2
+﻿namespace Neosmartpen.Net.Protocol.v2
 {
     /// <summary>
     /// The PenCommV2Callbacks interface models a callback used when the the Neo smartpen needs to notify the client side.
@@ -37,7 +36,8 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="dot">model object of dot</param>
-        void onReceiveDot( IPenComm sender, Dot dot );
+        /// <param name="info">model object of image processing. if data transmission type is request-response, you can get image processing info</param>
+        void onReceiveDot( IPenComm sender, Dot dot, ImageProcessingInfo info );
 
         /// <summary>
         /// Fired when receive offline data list in Neo smartpen.
@@ -94,7 +94,11 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="hoverMode">the status of the hover mode property</param>
         /// <param name="beep">the status of the beep property</param>
         /// <param name="penSensitivity">the status of pen's sensitivity property</param>
-        void onReceivePenStatus( IPenComm sender, bool locked, int passwdMaxReTryCount, int passwdRetryCount, long timestamp, short autoShutdownTime, int maxForce, int battery, int usedmem, bool useOfflineData, bool autoPowerOn, bool penCapPower, bool hoverMode, bool beep, short penSensitivity );
+        /// <param name="usbmode">the status of the usb mode</param>
+        /// <param name="downsampling">true if enable to down sampling, otherwise false</param>
+        /// <param name="btLocalName">the local name of device</param>
+        /// <param name="dataTransmissionType">the type of data transmission</param>
+        void onReceivePenStatus( IPenComm sender, bool locked, int passwdMaxReTryCount, int passwdRetryCount, long timestamp, short autoShutdownTime, int maxForce, int battery, int usedmem, bool useOfflineData, bool autoPowerOn, bool penCapPower, bool hoverMode, bool beep, short penSensitivity, PenCommV2.UsbMode usbmode, bool downsampling, string btLocalName, PenCommV2.DataTransmissionType dataTransmissionType );
 
         /// <summary>
         /// Fired when pen request a password to client side.
@@ -174,6 +178,41 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="result">true if your request is successfully applied, otherwise false</param>
         void onPenColorSetUpResponse( IPenComm sender, bool result );
+
+        /// <summary>
+        /// Fired when pen response to your request that Sets the status of usb mode by PenCommV2.ReqSetupUsbMode method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenUsbModeSetUpResponse( IPenComm sender, bool result );
+
+        /// <summary>
+        /// Fired when pen response to your request that Sets the state of down sampling by PenCommV2.ReqSetupDownSampling method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenDownSamplingSetUpResponse(IPenComm sender, bool result);
+
+        /// <summary>
+        /// Fired when pen response to your request that Sets the local name of device by PenCommV2.ReqSetupBtLocalName method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenBtLocalNameSetUpResponse(IPenComm sender, bool result);
+
+        /// <summary>
+        /// Fired when pen response to your request that Sets the level of sensitivity(force sensor c-type) by PenCommV2.ReqSetupPenFscSensitivity method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenFscSensitivitySetUpResponse(IPenComm sender, bool result);
+
+        /// <summary>
+        /// Fired when pen response to your request that Sets the type of data transmission by PenCommV2.ReqSetupDataTransmissionType method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result);
 
         /// <summary>
         /// This method is invoked by the PenCommV2 when it needs to notify the client side about the status of an firmware update operation being performed.
