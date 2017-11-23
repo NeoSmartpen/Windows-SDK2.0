@@ -1,4 +1,5 @@
 ﻿using Ionic.Zip;
+using Neosmartpen.Net.Filter;
 using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,12 @@ namespace Neosmartpen.Net.Protocol.v1
         private const int BYTE_DOT_SIZE    = 8;
         private const int BYTE_HEADER_SIZE = 64;
 
+		private FilterForPaper offlineFilterForPaper;
+
         public OfflineDataParser( string fullpath )
         {
             mTarget = fullpath;
+			offlineFilterForPaper = new FilterForPaper(AddOfflineFilteredDot);
         }
 
         public Dot[] Parse()
@@ -197,7 +201,7 @@ namespace Neosmartpen.Net.Protocol.v1
             int lineColor = 0x000000;
 
             // 현재 라인의 도트
-            List<Dot> tempDots = new List<Dot>();
+            offlineDots = new List<Dot>();
 
             int i = 0;
 
@@ -205,7 +209,7 @@ namespace Neosmartpen.Net.Protocol.v1
             {
                 if ( ByteConverter.SingleByteToInt( mBody[i] ) == LINE_MARK_1 && ByteConverter.SingleByteToInt( mBody[i + 1] ) == LINE_MARK_2 )
                 {
-                    tempDots = new List<Dot>();
+                    offlineDots = new List<Dot>();
 
                     penDownTime = ByteConverter.ByteToLong( CopyOfRange( mBody, i + 2, 8 ) );
                     penUpTime = ByteConverter.ByteToLong( CopyOfRange( mBody, i + 10, 8 ) );
@@ -272,7 +276,7 @@ namespace Neosmartpen.Net.Protocol.v1
                         isPenUp = true;
                     }
 
-                    tempDots.Add(
+					offlineFilterForPaper.Put(
                         new Dot.Builder()
                             .section( mSectionId )
                             .owner( mOwnerId )
@@ -282,7 +286,7 @@ namespace Neosmartpen.Net.Protocol.v1
                             .force( force )
                             .color( color )
                             .timestamp( timestamp )
-                            .dotType( dotType ).Build()
+                            .dotType( dotType ).Build(), null
                      );
 
                     dotSize += 8;
@@ -293,9 +297,9 @@ namespace Neosmartpen.Net.Protocol.v1
 
                         if ( dotCalcCs == lineCheckSum )
                         {
-                            for ( int j = 0; j < tempDots.Count; j++ )
+                            for ( int j = 0; j < offlineDots.Count; j++ )
                             {
-                                mDots.Add( tempDots[j] );
+                                mDots.Add( offlineDots[j] );
                             }
                         }
                         else
@@ -303,12 +307,19 @@ namespace Neosmartpen.Net.Protocol.v1
                             System.Console.WriteLine( "[OfflineDataParser] invalid CheckSum cs : " + lineCheckSum + ", calc : " + dotCalcCs );
                         }
 
-                        tempDots = new List<Dot>();
+                        offlineDots = new List<Dot>();
                     }
 
                     i += BYTE_DOT_SIZE;
                 }
             }
         }
-    }
+
+		private List<Dot> offlineDots;
+		private void AddOfflineFilteredDot(Dot dot, object obj)
+		{
+			offlineDots.Add(dot);
+		}
+
+	}
 }

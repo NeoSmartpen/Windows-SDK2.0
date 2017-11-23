@@ -1,4 +1,5 @@
-﻿using Neosmartpen.Net.Support;
+﻿using Neosmartpen.Net.Filter;
+using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -69,10 +70,13 @@ namespace Neosmartpen.Net.Protocol.v2
 		private bool reCheckPassword = false;
 		private string newPassword;
 
+		private FilterForPaper dotFilterForPaper = null;
+		private FilterForPaper offlineFillterForPaper = null;
+
 		public enum UsbMode : byte { Disk = 0, Bulk = 1 };
 
         public enum DataTransmissionType : byte { Event = 0, RequestResponse = 1 };
-
+		
         public bool HoverMode
         {
             get;
@@ -101,6 +105,8 @@ namespace Neosmartpen.Net.Protocol.v2
         public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null  ) : base( parser == null ? new ProtocolParserV2() : parser )
         {
             Callback = handler;
+			dotFilterForPaper = new FilterForPaper(SendDotReceiveEvent);
+			offlineFillterForPaper = new FilterForPaper(AddOfflineFilteredDot);
             Parser.PacketCreated += mParser_PacketCreated;
         }
 
@@ -496,7 +502,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
                             //System.Console.WriteLine( "pageId : {0}, timeStart : {1}, timeEnd : {2}, penTipType : {3}, color : {4}, dotCount : {5}, time : {6},", pageId, timeStart, timeEnd, penTipType, color, dotCount, time );
 
-                            Stroke stroke = new Stroke( section, owner, note, pageId );
+                            offlineStroke = new Stroke( section, owner, note, pageId );
 
                             for ( int j = 0; j < dotCount; j++ )
                             {
@@ -547,10 +553,12 @@ namespace Neosmartpen.Net.Protocol.v2
                                     dotType = DotTypes.PEN_MOVE;
                                 }
 
-                                stroke.Add( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ) );
+                                //offlineStroke.Add( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ) );
+								offlineFillterForPaper.Put( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ), null );
+
                             }
 
-                            result.Add( stroke );
+                            result.Add( offlineStroke );
                         }
 
                         SendOfflinePacketResponse( packetId );
@@ -719,12 +727,23 @@ namespace Neosmartpen.Net.Protocol.v2
             Callback.onReceiveDot( this, new Dot( mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor ), null );
         }
 
-		private void ProcessDot(Dot dot)
+		private void ProcessDot(Dot dot, object obj = null)
 		{
-            Callback.onReceiveDot( this, dot, null );
+			dotFilterForPaper.Put(dot, obj);
+		}
+		private void SendDotReceiveEvent(Dot dot, object obj)
+		{
+            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo);
 		}
 
-        private void ParseOnlineDataRequest(Packet pk)
+		private Stroke offlineStroke;
+		private void AddOfflineFilteredDot(Dot dot, object obj)
+		{
+			offlineStroke.Add(dot);
+		}
+
+
+		private void ParseOnlineDataRequest(Packet pk)
         {
             int index = pk.GetInt();
             byte count = pk.GetByte();
@@ -763,7 +782,8 @@ namespace Neosmartpen.Net.Protocol.v2
                         {
                             mPrevDot.DotType = DotTypes.PEN_UP;
                             ImageProcessingInfo info = new ImageProcessingInfo { Total = total, Processed = processed, Success = success, Transferred = transferred };
-                            Callback.onReceiveDot(this, mPrevDot, info);
+							ProcessDot(mPrevDot, info);
+                            //Callback.onReceiveDot(this, mPrevDot, info);
                         }
                         break;
 
@@ -806,7 +826,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         if (dot != null)
                         {
-                            Callback.onReceiveDot(this, dot, null);
+							ProcessDot(mPrevDot);
+                            //Callback.onReceiveDot(this, dot, null);
                         }
 
                         mPrevDot = dot;

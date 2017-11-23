@@ -1,4 +1,5 @@
 ﻿using Neosmartpen.Net.Support;
+using Neosmartpen.Net.Filter;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,6 +50,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
 		private readonly string DEFAULT_PASSWORD = "0000";
 		private bool needToInputDefaultPassword;
+		private FilterForPaper dotFilterForPage = null;
 
 		private void Reset()
         {
@@ -87,6 +89,8 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             Callback = callback;
             Parser.PacketCreated += Parser_PacketCreated;
+
+			dotFilterForPage = new FilterForPaper(SendDotReceiveEvent);
 
             // 오프라인 데이터 처리
             if ( mOfflineworker == null )
@@ -547,12 +551,18 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             Callback.onReceiveDot( this, new Dot( ownerId, sectionId, noteId, pageId, timeLong, x, y, fx, fy, force, type, color ) );
         }
-		private void ProcessDot(Dot dot)
+		private void ProcessDot(Dot dot, object obj = null)
         {
-			Callback.onReceiveDot(this, dot);
+			dotFilterForPage.Put(dot, obj);
         }
 
-        private void SendPenOnOffData()
+		private void SendDotReceiveEvent(Dot dot, object obj)
+		{
+			Callback.onReceiveDot(this, dot);
+		}
+
+
+		private void SendPenOnOffData()
         {
             ByteUtil bf = new ByteUtil();
 
