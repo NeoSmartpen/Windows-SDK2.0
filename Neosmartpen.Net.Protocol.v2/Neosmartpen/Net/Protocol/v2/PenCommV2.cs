@@ -183,79 +183,80 @@ namespace Neosmartpen.Net.Protocol.v2
 
                 #region setting response
                 case Cmd.SETTING_INFO_RESPONSE:
-                {
-                    // 비밀번호 사용 여부
-                    bool lockyn = pk.GetByteToInt() == 1;
+					{
+						// 비밀번호 사용 여부
+						bool lockyn = pk.GetByteToInt() == 1;
 
-                    // 비밀번호 입력 최대 시도 횟수
-                    int pwdMaxRetryCount = pk.GetByteToInt();
-                    
-                    // 비밀번호 입력 시도 횟수
-                    int pwdRetryCount = pk.GetByteToInt();
+						// 비밀번호 입력 최대 시도 횟수
+						int pwdMaxRetryCount = pk.GetByteToInt();
 
-                    // 1970년 1월 1일부터 millisecond tick
-                    long time = pk.GetLong();
-                    
-                    // 사용하지 않을때 자동으로 전원이 종료되는 시간 (단위:분)
-                    short autoPowerOffTime = pk.GetShort();
-                    
-                    // 최대 필압
-                    short maxForce = pk.GetShort();
-                    
-                    // 현재 메모리 사용량
-                    int usedStorage = pk.GetByteToInt();
-                    
-                    // 펜의 뚜껑을 닫아서 펜의 전원을 차단하는 기능 사용 여부
-                    bool penCapOff = pk.GetByteToInt() == 1;
-                    
-                    // 전원이 꺼진 펜에 필기를 시작하면 자동으로 펜의 켜지는 옵션 사용 여부
-                    bool autoPowerON = pk.GetByteToInt() == 1;
-                    
-                    // 사운드 사용여부
-                    bool beep = pk.GetByteToInt() == 1;
-                    
-                    // 호버기능 사용여부
-                    bool hover = pk.GetByteToInt() == 1;
-                    
-                    // 남은 배터리 수치
-                    int batteryLeft = pk.GetByteToInt();
-                    
-                    // 오프라인 데이터 저장 기능 사용 여부
-                    bool useOffline = pk.GetByteToInt() == 1;
-                    
-                    // 필압 단계 설정 (0~4) 0이 가장 민감
-                    short fsrStep = (short)pk.GetByteToInt();
+						// 비밀번호 입력 시도 횟수
+						int pwdRetryCount = pk.GetByteToInt();
 
-                    UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+						// 1970년 1월 1일부터 millisecond tick
+						long time = pk.GetLong();
 
-                    bool downsampling = pk.GetByteToInt() == 1;
+						// 사용하지 않을때 자동으로 전원이 종료되는 시간 (단위:분)
+						short autoPowerOffTime = pk.GetShort();
 
-                    string btLocalName = pk.GetString(16).Trim();
+						// 최대 필압
+						short maxForce = pk.GetShort();
 
-                    DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+						// 현재 메모리 사용량
+						int usedStorage = pk.GetByteToInt();
 
-                    // 최초 연결시
-                    if ( MaxForce == -1 )
-                    {
-                        MaxForce = maxForce;
+						// 펜의 뚜껑을 닫아서 펜의 전원을 차단하는 기능 사용 여부
+						bool penCapOff = pk.GetByteToInt() == 1;
 
-                        Callback.onConnected( this, MacAddress, DeviceName, FirmwareVersion, ProtocolVersion, SubName, MaxForce );
+						// 전원이 꺼진 펜에 필기를 시작하면 자동으로 펜의 켜지는 옵션 사용 여부
+						bool autoPowerON = pk.GetByteToInt() == 1;
 
-                        if ( lockyn )
-                        {
-                            Callback.onPenPasswordRequest( this, pwdRetryCount, pwdMaxRetryCount );
-                        }
-                        else
-                        {
-                            Callback.onPenAuthenticated( this );
-                        }
-                    }
-                    else
-                    {
-                        Callback.onReceivePenStatus( this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep, usbmode, downsampling, btLocalName, dataTransmissionType);
-                    }
-                }
-                    break;
+						// 사운드 사용여부
+						bool beep = pk.GetByteToInt() == 1;
+
+						// 호버기능 사용여부
+						bool hover = pk.GetByteToInt() == 1;
+
+						// 남은 배터리 수치
+						int batteryLeft = pk.GetByteToInt();
+
+						// 오프라인 데이터 저장 기능 사용 여부
+						bool useOffline = pk.GetByteToInt() == 1;
+
+						// 필압 단계 설정 (0~4) 0이 가장 민감
+						short fsrStep = (short)pk.GetByteToInt();
+
+						UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+
+						bool downsampling = pk.GetByteToInt() == 1;
+
+						string btLocalName = pk.GetString(16).Trim();
+
+						DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+
+						// 최초 연결시
+						if (MaxForce == -1)
+						{
+							MaxForce = maxForce;
+
+							Callback.onConnected(this, MacAddress, DeviceName, FirmwareVersion, ProtocolVersion, SubName, MaxForce);
+
+							if (lockyn)
+							{
+								Callback.onPenPasswordRequest(this, pwdRetryCount, pwdMaxRetryCount);
+							}
+							else
+							{
+								ReqSetupTime(Time.GetUtcTimeStamp());
+								Callback.onPenAuthenticated(this);
+							}
+						}
+						else
+						{
+							Callback.onReceivePenStatus(this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep, usbmode, downsampling, btLocalName, dataTransmissionType);
+						}
+					}
+					break;
 
                 case Cmd.SETTING_CHANGE_RESPONSE:
                     {
@@ -343,7 +344,8 @@ namespace Neosmartpen.Net.Protocol.v2
 								break;
 							}
 
-                            Callback.onPenAuthenticated( this );
+							ReqSetupTime(Time.GetUtcTimeStamp());
+							Callback.onPenAuthenticated( this );
 						}
 						else
                         {
