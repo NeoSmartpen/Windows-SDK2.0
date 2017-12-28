@@ -18,22 +18,22 @@ namespace Neosmartpen.Net
         /// <summary>
         /// The Section Id of the NCode paper
         /// </summary>
-        public int Section { get; private set; }
+        public int Section { get; set; }
 
         /// <summary>
         /// The Owner Id of the NCode paper
         /// </summary>
-        public int Owner { get;  private set; }
+        public int Owner { get;  set; }
 
         /// <summary>
         /// The Note Id of the NCode paper
         /// </summary>
-        public int Note { get;  private set; }
+        public int Note { get;  set; }
 
         /// <summary>
         /// The Page Number of the NCode paper
         /// </summary>
-        public int Page { get; private set; }
+        public int Page { get; set; }
 
         /// <summary>
         /// Gets or sets the x coordinates of NCode cell.
@@ -156,7 +156,30 @@ namespace Neosmartpen.Net
             Twist = twist;
         }
 
-        public override string ToString()
+		public Dot Clone()
+		{
+			Dot newDot = new Net.Dot();
+
+			newDot.Owner = Owner;
+			newDot.Section = Section;
+			newDot.Note = Note;
+			newDot.Page = Page;
+			newDot.X = X;
+			newDot.Y = Y;
+			newDot.Fx = Fx;
+			newDot.Fy = Fy;
+			newDot.Force = Force;
+			newDot.Timestamp = Timestamp;
+			newDot.DotType = DotType;
+			newDot.Color = Color;
+			newDot.TiltX = TiltX;
+			newDot.TiltY = TiltY;
+			newDot.Twist = Twist;
+
+			return newDot;
+		}
+
+		public override string ToString()
         {
             return String.Format( "o:{0}, s:{1}, b:{2}, p:{3}, time:{4}, x:{5}, y:{6}, fx:{7}, fy:{8}, force:{9}, type:{10}", Owner, Section, Note, Page, Timestamp, X, Y, Fx, Fy, Force, DotType.ToString() );
         }

@@ -322,7 +322,7 @@ namespace PenDemo
         {
         }
 
-        void PenCommV1Callbacks.onReceivedPenStatus( IPenComm sender, int timeoffset, long timetick, int forcemax, int battery, int usedmem, int pencolor, bool autopower, bool accel, bool hovermode, bool beep, short autoshutdownTime, short penSensitivity )
+        void PenCommV1Callbacks.onReceivedPenStatus( IPenComm sender, int timeoffset, long timetick, int forcemax, int battery, int usedmem, int pencolor, bool autopower, bool accel, bool hovermode, bool beep, short autoshutdownTime, short penSensitivity, string modelName )
         {
             this.BeginInvoke( new MethodInvoker( delegate()
             {

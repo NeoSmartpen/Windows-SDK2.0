@@ -33,5 +33,6 @@ namespace Neosmartpen.Net
         int Result { get; }
         
         string ToString();
+		bool CheckMoreData();
     }
 }

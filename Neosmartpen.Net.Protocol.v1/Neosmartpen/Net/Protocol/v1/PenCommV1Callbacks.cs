@@ -96,7 +96,7 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <param name="beep">the status of the beep property</param>
         /// <param name="autoshutdownTime">the status of the auto shutdown time property</param>
         /// <param name="penSensitivity">the status of pen's sensitivity property</param>
-        void onReceivedPenStatus( IPenComm sender, int timeoffset, long timetick, int maxForce, int battery, int usedmem, int pencolor, bool autopowerMode, bool accelerationMode, bool hoverMode, bool beep, short autoshutdownTime, short penSensitivity );
+        void onReceivedPenStatus( IPenComm sender, int timeoffset, long timetick, int maxForce, int battery, int usedmem, int pencolor, bool autopowerMode, bool accelerationMode, bool hoverMode, bool beep, short autoshutdownTime, short penSensitivity, string modelName );
 
         /// <summary>
         /// Fired when pen request a password to client side.

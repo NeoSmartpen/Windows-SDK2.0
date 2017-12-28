@@ -1,4 +1,5 @@
-﻿using Neosmartpen.Net.Support;
+﻿using Neosmartpen.Net.Filter;
+using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -57,7 +58,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private int mCurSection = -1, mCurOwner = -1, mCurNote = -1, mCurPage = -1;
 
-        private Packet mPrevPacket = null;
+        //private Packet mPrevPacket = null;
 
         private int mTotalOfflineStroke = -1, mReceivedOfflineStroke = 0, mTotalOfflineDataSize = -1;
 
@@ -65,10 +66,17 @@ namespace Neosmartpen.Net.Protocol.v2
         private byte mPrevCount = 0;
         private Dot mPrevDot = null;
 
-        public enum UsbMode : byte { Disk = 0, Bulk = 1 };
+		private readonly string DEFAULT_PASSWORD = "0000";
+		private bool reCheckPassword = false;
+		private string newPassword;
+
+		private FilterForPaper dotFilterForPaper = null;
+		private FilterForPaper offlineFillterForPaper = null;
+
+		public enum UsbMode : byte { Disk = 0, Bulk = 1 };
 
         public enum DataTransmissionType : byte { Event = 0, RequestResponse = 1 };
-
+		
         public bool HoverMode
         {
             get;
@@ -97,6 +105,8 @@ namespace Neosmartpen.Net.Protocol.v2
         public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null  ) : base( parser == null ? new ProtocolParserV2() : parser )
         {
             Callback = handler;
+			dotFilterForPaper = new FilterForPaper(SendDotReceiveEvent);
+			offlineFillterForPaper = new FilterForPaper(AddOfflineFilteredDot);
             Parser.PacketCreated += mParser_PacketCreated;
         }
 
@@ -173,79 +183,80 @@ namespace Neosmartpen.Net.Protocol.v2
 
                 #region setting response
                 case Cmd.SETTING_INFO_RESPONSE:
-                {
-                    // 비밀번호 사용 여부
-                    bool lockyn = pk.GetByteToInt() == 1;
+					{
+						// 비밀번호 사용 여부
+						bool lockyn = pk.GetByteToInt() == 1;
 
-                    // 비밀번호 입력 최대 시도 횟수
-                    int pwdMaxRetryCount = pk.GetByteToInt();
-                    
-                    // 비밀번호 입력 시도 횟수
-                    int pwdRetryCount = pk.GetByteToInt();
+						// 비밀번호 입력 최대 시도 횟수
+						int pwdMaxRetryCount = pk.GetByteToInt();
 
-                    // 1970년 1월 1일부터 millisecond tick
-                    long time = pk.GetLong();
-                    
-                    // 사용하지 않을때 자동으로 전원이 종료되는 시간 (단위:분)
-                    short autoPowerOffTime = pk.GetShort();
-                    
-                    // 최대 필압
-                    short maxForce = pk.GetShort();
-                    
-                    // 현재 메모리 사용량
-                    int usedStorage = pk.GetByteToInt();
-                    
-                    // 펜의 뚜껑을 닫아서 펜의 전원을 차단하는 기능 사용 여부
-                    bool penCapOff = pk.GetByteToInt() == 1;
-                    
-                    // 전원이 꺼진 펜에 필기를 시작하면 자동으로 펜의 켜지는 옵션 사용 여부
-                    bool autoPowerON = pk.GetByteToInt() == 1;
-                    
-                    // 사운드 사용여부
-                    bool beep = pk.GetByteToInt() == 1;
-                    
-                    // 호버기능 사용여부
-                    bool hover = pk.GetByteToInt() == 1;
-                    
-                    // 남은 배터리 수치
-                    int batteryLeft = pk.GetByteToInt();
-                    
-                    // 오프라인 데이터 저장 기능 사용 여부
-                    bool useOffline = pk.GetByteToInt() == 1;
-                    
-                    // 필압 단계 설정 (0~4) 0이 가장 민감
-                    short fsrStep = (short)pk.GetByteToInt();
+						// 비밀번호 입력 시도 횟수
+						int pwdRetryCount = pk.GetByteToInt();
 
-                    UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+						// 1970년 1월 1일부터 millisecond tick
+						long time = pk.GetLong();
 
-                    bool downsampling = pk.GetByteToInt() == 1;
+						// 사용하지 않을때 자동으로 전원이 종료되는 시간 (단위:분)
+						short autoPowerOffTime = pk.GetShort();
 
-                    string btLocalName = pk.GetString(16).Trim();
+						// 최대 필압
+						short maxForce = pk.GetShort();
 
-                    DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+						// 현재 메모리 사용량
+						int usedStorage = pk.GetByteToInt();
 
-                    // 최초 연결시
-                    if ( MaxForce == -1 )
-                    {
-                        MaxForce = maxForce;
+						// 펜의 뚜껑을 닫아서 펜의 전원을 차단하는 기능 사용 여부
+						bool penCapOff = pk.GetByteToInt() == 1;
 
-                        Callback.onConnected( this, MacAddress, DeviceName, FirmwareVersion, ProtocolVersion, SubName, MaxForce );
+						// 전원이 꺼진 펜에 필기를 시작하면 자동으로 펜의 켜지는 옵션 사용 여부
+						bool autoPowerON = pk.GetByteToInt() == 1;
 
-                        if ( lockyn )
-                        {
-                            Callback.onPenPasswordRequest( this, pwdRetryCount, pwdMaxRetryCount );
-                        }
-                        else
-                        {
-                            Callback.onPenAuthenticated( this );
-                        }
-                    }
-                    else
-                    {
-                        Callback.onReceivePenStatus( this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep, usbmode, downsampling, btLocalName, dataTransmissionType);
-                    }
-                }
-                    break;
+						// 사운드 사용여부
+						bool beep = pk.GetByteToInt() == 1;
+
+						// 호버기능 사용여부
+						bool hover = pk.GetByteToInt() == 1;
+
+						// 남은 배터리 수치
+						int batteryLeft = pk.GetByteToInt();
+
+						// 오프라인 데이터 저장 기능 사용 여부
+						bool useOffline = pk.GetByteToInt() == 1;
+
+						// 필압 단계 설정 (0~4) 0이 가장 민감
+						short fsrStep = (short)pk.GetByteToInt();
+
+						UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+
+						bool downsampling = pk.GetByteToInt() == 1;
+
+						string btLocalName = pk.GetString(16).Trim();
+
+						DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+
+						// 최초 연결시
+						if (MaxForce == -1)
+						{
+							MaxForce = maxForce;
+
+							Callback.onConnected(this, MacAddress, DeviceName, FirmwareVersion, ProtocolVersion, SubName, MaxForce);
+
+							if (lockyn)
+							{
+								Callback.onPenPasswordRequest(this, pwdRetryCount, pwdMaxRetryCount);
+							}
+							else
+							{
+								ReqSetupTime(Time.GetUtcTimeStamp());
+								Callback.onPenAuthenticated(this);
+							}
+						}
+						else
+						{
+							Callback.onReceivePenStatus(this, lockyn, pwdMaxRetryCount, pwdRetryCount, time, autoPowerOffTime, MaxForce, batteryLeft, usedStorage, useOffline, autoPowerON, penCapOff, hover, beep, fsrStep, usbmode, downsampling, btLocalName, dataTransmissionType);
+						}
+					}
+					break;
 
                 case Cmd.SETTING_CHANGE_RESPONSE:
                     {
@@ -324,13 +335,29 @@ namespace Neosmartpen.Net.Protocol.v2
                         int cntRetry = pk.GetByteToInt();
                         int cntMax = pk.GetByteToInt();
 
-                        if ( status == 0 )
+                        if ( status == 1 )
                         {
-                            Callback.onPenPasswordRequest( this, cntRetry, cntMax );
-                        }
-                        else
+							if (reCheckPassword)
+							{
+								Callback.onPenPasswordSetUpResponse(this, true);
+								reCheckPassword = false;
+								break;
+							}
+
+							ReqSetupTime(Time.GetUtcTimeStamp());
+							Callback.onPenAuthenticated( this );
+						}
+						else
                         {
-                            Callback.onPenAuthenticated( this );
+							if (reCheckPassword)
+							{
+								reCheckPassword = false;
+								Callback.onPenPasswordSetUpResponse(this, false);
+							}
+							else
+							{
+								Callback.onPenPasswordRequest(this, cntRetry, cntMax);
+							}
                         }
                     }
                     break;
@@ -339,9 +366,18 @@ namespace Neosmartpen.Net.Protocol.v2
                     {
                         int cntRetry = pk.GetByteToInt();
                         int cntMax = pk.GetByteToInt();
-
-                        Callback.onPenPasswordSetUpResponse( this, pk.Result == 0x00 );
-                    }
+						
+						if (pk.Result == 0x00)
+						{
+							reCheckPassword = true;
+							ReqInputPassword(newPassword);
+						}
+						else
+						{
+							newPassword = string.Empty;
+							Callback.onPenPasswordSetUpResponse(this, false);
+						}
+					}
                     break;
                 #endregion
 
@@ -468,7 +504,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
                             //System.Console.WriteLine( "pageId : {0}, timeStart : {1}, timeEnd : {2}, penTipType : {3}, color : {4}, dotCount : {5}, time : {6},", pageId, timeStart, timeEnd, penTipType, color, dotCount, time );
 
-                            Stroke stroke = new Stroke( section, owner, note, pageId );
+                            offlineStroke = new Stroke( section, owner, note, pageId );
 
                             for ( int j = 0; j < dotCount; j++ )
                             {
@@ -519,10 +555,12 @@ namespace Neosmartpen.Net.Protocol.v2
                                     dotType = DotTypes.PEN_MOVE;
                                 }
 
-                                stroke.Add( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ) );
+                                //offlineStroke.Add( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ) );
+								offlineFillterForPaper.Put( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ), null );
+
                             }
 
-                            result.Add( stroke );
+                            result.Add( offlineStroke );
                         }
 
                         SendOfflinePacketResponse( packetId );
@@ -578,65 +616,98 @@ namespace Neosmartpen.Net.Protocol.v2
             System.Console.WriteLine();    
         }
 
+		private bool IsBeforeMiddle = false;
+
         private void ParseDotPacket( Cmd cmd, Packet pk )
-        {
-            switch( cmd )
-            {
-                case Cmd.ONLINE_PEN_UPDOWN_EVENT:
+		{
+			switch (cmd)
+			{
+				case Cmd.ONLINE_PEN_UPDOWN_EVENT:
 
-                IsStartWithDown = pk.GetByte() == 0x00;
+					IsStartWithDown = pk.GetByte() == 0x00;
 
-                mDotCount = 0;
+					IsBeforeMiddle = false;
 
-                mTime = pk.GetLong();
+					mDotCount = 0;
 
-                mPenTipType = pk.GetByte() == 0x00 ? PenTipType.Normal : PenTipType.Eraser;
+					mTime = pk.GetLong();
 
-                mPenTipColor = pk.GetInt();
+					mPenTipType = pk.GetByte() == 0x00 ? PenTipType.Normal : PenTipType.Eraser;
 
-                if ( mPrevPacket != null && !IsStartWithDown )
-                {
-                    mPrevPacket.Reset();
-                    ParseDot( mPrevPacket, DotTypes.PEN_UP );
-                }
+					mPenTipColor = pk.GetInt();
 
-                break;
+					if (mPrevDot != null && !IsStartWithDown)
+					{
+						var udot = mPrevDot.Clone();
+						udot.DotType = DotTypes.PEN_UP;
+						ProcessDot(udot);
+                        mPrevDot = null;
+					}
 
-            case Cmd.ONLINE_PEN_DOT_EVENT:
+					break;
 
-                if ( HoverMode && !IsStartWithDown )
-                {
-                    // 호버모드 처리
-                    ParseDot( pk, DotTypes.PEN_HOVER );
-                }
-                else if ( IsStartWithDown )
-                {
-                    ParseDot( pk, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE );
-                }
-                else
-                {
-                    //오류
-                }
+				case Cmd.ONLINE_PEN_DOT_EVENT:
+					int timeadd = pk.GetByte();
 
-                mPrevPacket = pk;
-                mDotCount++;
+					mTime += timeadd;
 
-                break;
+					int force = pk.GetShort();
 
-            case Cmd.ONLINE_PAPER_INFO_EVENT:
+					int x = pk.GetShort();
+					int y = pk.GetShort();
 
-                byte[] rb = pk.GetBytes( 4 );
+					int fx = pk.GetByte();
+					int fy = pk.GetByte();
 
-                mCurSection = (int)( rb[3] & 0xFF );
-                mCurOwner = ByteConverter.ByteToInt( new byte[] { rb[0], rb[1], rb[2], (byte)0x00 } );
-                mCurNote = pk.GetInt();
-                mCurPage = pk.GetInt();
+					Dot dot = null;
 
-                break;
-            }
-        }
+					if (HoverMode && !IsStartWithDown)
+					{
+						dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_HOVER, mPenTipColor);
+					}
+					else if (IsStartWithDown)
+					{
+						dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
+					}
+					else
+					{
+						//오류
+					}
 
-        private void ParseDot( Packet packet, DotTypes type )
+					if (dot != null)
+					{
+						ProcessDot(dot);
+					}
+					IsBeforeMiddle = true;
+                    mPrevDot = dot;
+					//mPrevPacket = pk;
+					mDotCount++;
+
+					break;
+
+				case Cmd.ONLINE_PAPER_INFO_EVENT:
+
+					// 미들도트 중에 페이지가 바뀐다면 강제로 펜업을 만들어 준다.
+					if (IsBeforeMiddle)
+					{
+						var audot = mPrevDot.Clone();
+						audot.DotType = DotTypes.PEN_UP;
+						ProcessDot(audot);
+					}
+
+					byte[] rb = pk.GetBytes(4);
+
+					mCurSection = (int)(rb[3] & 0xFF);
+					mCurOwner = ByteConverter.ByteToInt(new byte[] { rb[0], rb[1], rb[2], (byte)0x00 });
+					mCurNote = pk.GetInt();
+					mCurPage = pk.GetInt();
+					mDotCount = 0;
+
+					break;
+			}
+		}
+
+		private void ParseDot( Packet packet, DotTypes type )
         {
             int timeadd = packet.GetByte();
 
@@ -658,7 +729,23 @@ namespace Neosmartpen.Net.Protocol.v2
             Callback.onReceiveDot( this, new Dot( mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor ), null );
         }
 
-        private void ParseOnlineDataRequest(Packet pk)
+		private void ProcessDot(Dot dot, object obj = null)
+		{
+			dotFilterForPaper.Put(dot, obj);
+		}
+		private void SendDotReceiveEvent(Dot dot, object obj)
+		{
+            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo);
+		}
+
+		private Stroke offlineStroke;
+		private void AddOfflineFilteredDot(Dot dot, object obj)
+		{
+			offlineStroke.Add(dot);
+		}
+
+
+		private void ParseOnlineDataRequest(Packet pk)
         {
             int index = pk.GetInt();
             byte count = pk.GetByte();
@@ -697,7 +784,8 @@ namespace Neosmartpen.Net.Protocol.v2
                         {
                             mPrevDot.DotType = DotTypes.PEN_UP;
                             ImageProcessingInfo info = new ImageProcessingInfo { Total = total, Processed = processed, Success = success, Transferred = transferred };
-                            Callback.onReceiveDot(this, mPrevDot, info);
+							ProcessDot(mPrevDot, info);
+                            //Callback.onReceiveDot(this, mPrevDot, info);
                         }
                         break;
 
@@ -740,7 +828,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         if (dot != null)
                         {
-                            Callback.onReceiveDot(this, dot, null);
+							ProcessDot(mPrevDot);
+                            //Callback.onReceiveDot(this, dot, null);
                         }
 
                         mPrevDot = dot;
@@ -821,7 +910,17 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetUpPassword( string oldPassword, string newPassword = "" )
         {
-            byte[] oPassByte = Encoding.UTF8.GetBytes( oldPassword );
+			if (oldPassword == null || newPassword == null)
+				return false;
+
+			if (oldPassword.Equals(DEFAULT_PASSWORD))
+				return false;
+			if (newPassword.Equals(DEFAULT_PASSWORD))
+				return false;
+
+			this.newPassword = newPassword;
+
+			byte[] oPassByte = Encoding.UTF8.GetBytes( oldPassword );
             byte[] nPassByte = Encoding.UTF8.GetBytes( newPassword );
 
             ByteUtil bf = new ByteUtil( Escape );
@@ -843,6 +942,12 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqInputPassword( string password )
         {
+			if (password == null)
+				return false;
+
+			if (password.Equals(DEFAULT_PASSWORD))
+				return false;
+
             byte[] bStrByte = Encoding.UTF8.GetBytes( password );
 
             ByteUtil bf = new ByteUtil( Escape );
@@ -880,9 +985,9 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private bool RequestChangeSetting( SettingType stype, object value )
         {
-            ByteUtil bf = new ByteUtil();
+            ByteUtil bf = new ByteUtil(Escape);
 
-            bf.Put( Const.PK_STX ).Put( (byte)Cmd.SETTING_CHANGE_REQUEST );
+            bf.Put( Const.PK_STX, false ).Put( (byte)Cmd.SETTING_CHANGE_REQUEST );
 
             switch ( stype )
             {
@@ -924,7 +1029,7 @@ namespace Neosmartpen.Net.Protocol.v2
                     break;
             }
 
-            bf.Put( Const.PK_ETX );
+            bf.Put( Const.PK_ETX, false );
 
             return Send( bf );
         }
@@ -1077,9 +1182,9 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private bool SendAddUsingNote( int sectionId = -1, int ownerId = -1, int[] noteIds = null )
         {
-            ByteUtil bf = new ByteUtil();
+            ByteUtil bf = new ByteUtil(Escape);
 
-            bf.Put( Const.PK_STX )
+            bf.Put( Const.PK_STX, false )
               .Put( (byte)Cmd.ONLINE_DATA_REQUEST );
 
             if ( sectionId > 0 && ownerId > 0 && noteIds == null )
@@ -1109,7 +1214,7 @@ namespace Neosmartpen.Net.Protocol.v2
                   .Put( 0xFF );
             }
 
-            bf.Put( Const.PK_ETX );
+            bf.Put( Const.PK_ETX, false );
 
             return Send( bf );
         }
@@ -1392,6 +1497,22 @@ namespace Neosmartpen.Net.Protocol.v2
             return ownerByte;
         }
 
-        #endregion
-    }
+		private Dot MakeDot(int owner, int section, int note, int page, long timestamp, int x, int y, int fx, int fy, int force, DotTypes type, int color)
+		{
+			Dot.Builder builder = new Dot.Builder();
+
+			builder.owner(owner)
+				.section(section)
+				.note(note)
+				.page(page)
+				.timestamp(timestamp)
+				.coord(x, fx, y, fy)
+				.force(force)
+				.dotType(type)
+				.color(color);
+			return builder.Build();
+		}
+
+		#endregion
+	}
 }
