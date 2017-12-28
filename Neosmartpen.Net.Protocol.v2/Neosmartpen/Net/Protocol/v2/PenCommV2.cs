@@ -616,8 +616,8 @@ namespace Neosmartpen.Net.Protocol.v2
             System.Console.WriteLine();    
         }
 
-		private Dot mPreviousDot = null;
 		private bool IsBeforeMiddle = false;
+
         private void ParseDotPacket( Cmd cmd, Packet pk )
 		{
 			switch (cmd)
@@ -636,12 +636,12 @@ namespace Neosmartpen.Net.Protocol.v2
 
 					mPenTipColor = pk.GetInt();
 
-					if (mPreviousDot != null && !IsStartWithDown)
+					if (mPrevDot != null && !IsStartWithDown)
 					{
 						var udot = mPrevDot.Clone();
 						udot.DotType = DotTypes.PEN_UP;
 						ProcessDot(udot);
-						mPreviousDot = null;
+                        mPrevDot = null;
 					}
 
 					break;
@@ -679,7 +679,7 @@ namespace Neosmartpen.Net.Protocol.v2
 						ProcessDot(dot);
 					}
 					IsBeforeMiddle = true;
-					mPreviousDot = dot;
+                    mPrevDot = dot;
 					//mPrevPacket = pk;
 					mDotCount++;
 
@@ -985,9 +985,9 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private bool RequestChangeSetting( SettingType stype, object value )
         {
-            ByteUtil bf = new ByteUtil();
+            ByteUtil bf = new ByteUtil(Escape);
 
-            bf.Put( Const.PK_STX ).Put( (byte)Cmd.SETTING_CHANGE_REQUEST );
+            bf.Put( Const.PK_STX, false ).Put( (byte)Cmd.SETTING_CHANGE_REQUEST );
 
             switch ( stype )
             {
@@ -1029,7 +1029,7 @@ namespace Neosmartpen.Net.Protocol.v2
                     break;
             }
 
-            bf.Put( Const.PK_ETX );
+            bf.Put( Const.PK_ETX, false );
 
             return Send( bf );
         }
@@ -1182,9 +1182,9 @@ namespace Neosmartpen.Net.Protocol.v2
 
         private bool SendAddUsingNote( int sectionId = -1, int ownerId = -1, int[] noteIds = null )
         {
-            ByteUtil bf = new ByteUtil();
+            ByteUtil bf = new ByteUtil(Escape);
 
-            bf.Put( Const.PK_STX )
+            bf.Put( Const.PK_STX, false )
               .Put( (byte)Cmd.ONLINE_DATA_REQUEST );
 
             if ( sectionId > 0 && ownerId > 0 && noteIds == null )
@@ -1214,7 +1214,7 @@ namespace Neosmartpen.Net.Protocol.v2
                   .Put( 0xFF );
             }
 
-            bf.Put( Const.PK_ETX );
+            bf.Put( Const.PK_ETX, false );
 
             return Send( bf );
         }
