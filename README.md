@@ -284,7 +284,7 @@ You can get help in [Official Forum](http://forum.neosmartpen.com/) for Neo smar
 
 ## Ncode™ SERVICE DEVELOPMENT GETTING STARTED GUIDE
 
-<< [https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf](https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf) >>
+<< [https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf](https://github.com/NeoSmartpen/Documentations/blob/master/Ncode%E2%84%A2%20Service%20Development%20Getting%20Started%20Guide%20v1.01.pdf) >>
  
 ## LICENSE
 
