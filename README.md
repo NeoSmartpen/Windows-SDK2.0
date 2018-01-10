@@ -284,7 +284,7 @@ You can get help in [Official Forum](http://forum.neosmartpen.com/) for Neo smar
 
 ## Ncode™ SERVICE DEVELOPMENT GETTING STARTED GUIDE
 
-<< https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf >>
+<< [https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf](https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf) >>
  
 ## LICENSE
 
@@ -312,5 +312,6 @@ That does not require the source code open to be released, and technical support
 
 Please contact following to get more information:
 
-- Korea: _dombiz@neolab.net
 - Global: _globiz@neolab.net
+- Korea: _dombiz@neolab.net
+
