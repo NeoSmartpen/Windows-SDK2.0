@@ -278,9 +278,9 @@ It is fractional part of NCode Coordinates. ( maximum value is 100 )
 + **How to get millimeter unit from NCode unit**
 ( Dot.X + Dot.Fx  x 0.01) x 2.371 = millimeter unit
 
-## Getting Help
+## Give Feedback
 
-You can get help in [Official Forum](http://forum.neosmartpen.com/) for Neo smartpen.
+Please reports bugs or issues to [link](https://github.com/NeoSmartpen/UWPSDK/issues)
 
 ## Ncode™ SERVICE DEVELOPMENT GETTING STARTED GUIDE
 
