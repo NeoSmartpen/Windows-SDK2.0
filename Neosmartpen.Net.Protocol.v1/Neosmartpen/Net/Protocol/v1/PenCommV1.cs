@@ -639,13 +639,22 @@ namespace Neosmartpen.Net.Protocol.v1
             return SendAddUsingNote( section, owner, alnoteIds );
         }
 
-        /// <summary>
-        /// Sets the available notebook type
-        /// </summary>
-        /// <param name="section">The Section Id of the paper</param>
-        /// <param name="owner">The Owner Id of the paper</param>
-        /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqAddUsingNote( int section, int owner )
+		public bool ReqAddUsingNote(int[] section, int[] owner)
+		{
+			for (int i = 0; i < section.Length; ++i)
+			{
+				ReqAddUsingNote(section[i], owner[i]);
+			}
+			return true;
+		}
+
+		/// <summary>
+		/// Sets the available notebook type
+		/// </summary>
+		/// <param name="section">The Section Id of the paper</param>
+		/// <param name="owner">The Owner Id of the paper</param>
+		/// <returns>true if the request is accepted; otherwise, false.</returns>
+		public bool ReqAddUsingNote( int section, int owner )
         {
             byte[] ownerByte = ByteConverter.IntToByte( owner );
 
