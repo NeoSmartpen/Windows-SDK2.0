@@ -801,7 +801,7 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             byte[] ownerByte = ByteConverter.IntToByte( ownerId );
 
-            short length = (short)( 5 + 4 );
+            short length = (short)( 5 + 40 );
 
             ByteUtil bf = new ByteUtil();
 
@@ -814,6 +814,7 @@ namespace Neosmartpen.Net.Protocol.v1
               .Put( (byte)sectionId )
               .Put( (byte)1 )
               .PutInt( noteId )
+			  .PutNull(36)
               .Put( (byte)0xC1 );
 
             bool result = Write( bf.ToArray() );
