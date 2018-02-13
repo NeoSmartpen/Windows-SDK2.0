@@ -834,7 +834,7 @@ namespace Neosmartpen.Net.Protocol.v2
                             //오류
                         }
 
-                        if (dot != null && mPrevDot != null)
+                        if (dot != null)
                         {
 							ProcessDot(mPrevDot);
                             //Callback.onReceiveDot(this, dot, null);
