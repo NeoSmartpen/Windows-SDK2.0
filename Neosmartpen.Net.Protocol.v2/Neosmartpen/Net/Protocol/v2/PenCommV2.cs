@@ -67,6 +67,10 @@ namespace Neosmartpen.Net.Protocol.v2
         private Dot mPrevDot = null;
 
 		private readonly string DEFAULT_PASSWORD = "0000";
+		public static readonly float PEN_PROFILE_SUPPORT_PROTOCOL_VERSION = 2.10f;
+		private readonly string F121 = "NWP-F121";
+		private readonly string F121MG = "NWP-F121MG";
+
 		private bool reCheckPassword = false;
 		private string newPassword;
 
@@ -144,8 +148,12 @@ namespace Neosmartpen.Net.Protocol.v2
                         DeviceType = pk.GetShort();
                         MaxForce = -1;
                         MacAddress = BitConverter.ToString( pk.GetBytes( 6 ) ).Replace( "-", "" );
+						bool isMG = isF121MG(MacAddress);
+						if (isMG && DeviceName.Equals(F121) && SubName.Equals("Mbest_smartpenS"))
+							DeviceName = F121MG;
 
-                        ReqPenStatus();
+						IsUploading = false;
+						ReqPenStatus();
                     }
                     break;
 
@@ -1512,6 +1520,21 @@ namespace Neosmartpen.Net.Protocol.v2
 				.color(color);
 			return builder.Build();
 		}
+
+		private bool isF121MG(string macAddress)
+		{
+			const string MG_F121_MAC_START = "9C:7B:D2:22:00:00";
+			const string MG_F121_MAC_END = "9C:7B:D2:22:18:06";
+			ulong address = Convert.ToUInt64(macAddress.Replace(":", ""), 16);
+			ulong mgStart = Convert.ToUInt64(MG_F121_MAC_START.Replace(":", ""), 16);
+			ulong mgEnd = Convert.ToUInt64(MG_F121_MAC_END.Replace(":", ""), 16);
+
+			if (address >= mgStart && address <= mgEnd)
+				return true;
+			else
+				return false;
+		}
+
 
 		#endregion
 	}
