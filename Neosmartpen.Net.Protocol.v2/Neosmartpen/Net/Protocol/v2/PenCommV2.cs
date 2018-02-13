@@ -1449,7 +1449,11 @@ namespace Neosmartpen.Net.Protocol.v2
 
             byte[] StrVersionByte = Encoding.UTF8.GetBytes( version );
 
-            byte[] StrDeviceByte = Encoding.UTF8.GetBytes( DeviceName );
+			string deviceName = DeviceName;
+			if (deviceName.Equals(F121MG))
+				deviceName = F121;
+
+			byte[] StrDeviceByte = Encoding.UTF8.GetBytes( deviceName );
 
             System.Console.WriteLine( "[FileUploadWorker] file upload => filesize : {0}, packet count : {1}, packet size {2}", file_size, chunk_count, chunk_size );
 
