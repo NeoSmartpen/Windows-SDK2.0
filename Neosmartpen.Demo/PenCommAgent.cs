@@ -379,6 +379,23 @@ namespace Neosmartpen.Net
         }
 
         /// <summary>
+        /// Notify pen of using note.
+        /// </summary>
+        /// <param name="sectionId">section id list of note</param>
+        /// <param name="ownerId">owner id list of note</param>
+        public void AddUsingNote( int[] sectionId, int[] ownerId )
+        {
+            if ( IsV1Comm )
+            {
+                mCommV1.ReqAddUsingNote( sectionId, ownerId );
+            }
+            else
+            {
+                mCommV2.ReqAddUsingNote( sectionId, ownerId );
+            }
+        }
+
+        /// <summary>
         /// Notify pen that use every note.
         /// </summary>
         public void AddUsingNoteAll()

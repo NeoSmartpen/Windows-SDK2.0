@@ -639,13 +639,22 @@ namespace Neosmartpen.Net.Protocol.v1
             return SendAddUsingNote( section, owner, alnoteIds );
         }
 
-        /// <summary>
-        /// Sets the available notebook type
-        /// </summary>
-        /// <param name="section">The Section Id of the paper</param>
-        /// <param name="owner">The Owner Id of the paper</param>
-        /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqAddUsingNote( int section, int owner )
+		public bool ReqAddUsingNote(int[] section, int[] owner)
+		{
+			for (int i = 0; i < section.Length; ++i)
+			{
+				ReqAddUsingNote(section[i], owner[i]);
+			}
+			return true;
+		}
+
+		/// <summary>
+		/// Sets the available notebook type
+		/// </summary>
+		/// <param name="section">The Section Id of the paper</param>
+		/// <param name="owner">The Owner Id of the paper</param>
+		/// <returns>true if the request is accepted; otherwise, false.</returns>
+		public bool ReqAddUsingNote( int section, int owner )
         {
             byte[] ownerByte = ByteConverter.IntToByte( owner );
 
@@ -698,27 +707,32 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <param name="notes">The array of Note Id list</param>
         public void ReqAddUsingNote( int section, int owner, int[] notes )
         {
-            ArrayList alnoteIds = new ArrayList();
+			if (notes == null || notes.Length == 0)
+				SendAddUsingNote(section, owner);
+			else
+			{
+				ArrayList alnoteIds = new ArrayList();
 
-            for ( int i = 0; i < notes.Length; i++ )
-            {
-                alnoteIds.Add( notes[i] );
+				for (int i = 0; i < notes.Length; i++)
+				{
+					alnoteIds.Add(notes[i]);
 
-                if ( i > 0 && i % 8 == 0 )
-                {
-                    SendAddUsingNote( section, owner, alnoteIds );
-                    alnoteIds.Clear();
-                }
-            }
+					if (i > 0 && i % 8 == 0)
+					{
+						SendAddUsingNote(section, owner, alnoteIds);
+						alnoteIds.Clear();
+					}
+				}
 
-            if ( alnoteIds.Count > 0 )
-            {
-                SendAddUsingNote( section, owner, alnoteIds );
-                alnoteIds.Clear();
-            }
-        }
+				if (alnoteIds.Count > 0)
+				{
+					SendAddUsingNote(section, owner, alnoteIds);
+					alnoteIds.Clear();
+				}
+			}
+		}
 
-        private bool SendAddUsingNote( int sectionId, int ownerId, ArrayList noteIds )
+		private bool SendAddUsingNote( int sectionId, int ownerId, ArrayList noteIds )
         {
             byte[] ownerByte = ByteConverter.IntToByte( ownerId );
 
@@ -751,11 +765,40 @@ namespace Neosmartpen.Net.Protocol.v1
             return result;
         }
 
-        /// <summary>
-        /// Requests the list of Offline data.
-        /// </summary>
-        /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqOfflineDataList()
+		private bool SendAddUsingNote(int sectionId, int ownerId)
+		{
+			byte[] ownerByte = ByteConverter.IntToByte(ownerId);
+
+			short length = 42;
+
+			ByteUtil bf = new ByteUtil();
+
+			bf.Put((byte)0xC0)
+			  .Put((byte)Cmd.P_UsingNoteNotify)
+			  .PutShort(length)
+			  .Put((byte)2)
+			  .Put((byte)1)
+			  .Put(ownerByte[0])
+			  .Put(ownerByte[1])
+			  .Put(ownerByte[2])
+			  .Put((byte)sectionId)
+			  .PutNull(36)
+			  .Put((byte)0xC1);
+
+            bool result = Write( bf.ToArray() );
+
+			bf.Clear();
+			bf = null;
+
+			return true;
+		}
+
+
+		/// <summary>
+		/// Requests the list of Offline data.
+		/// </summary>
+		/// <returns>true if the request is accepted; otherwise, false.</returns>
+		public bool ReqOfflineDataList()
         {
             ByteUtil bf = new ByteUtil();
 
@@ -801,7 +844,7 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             byte[] ownerByte = ByteConverter.IntToByte( ownerId );
 
-            short length = (short)( 5 + 4 );
+            short length = (short)( 5 + 40 );
 
             ByteUtil bf = new ByteUtil();
 
@@ -814,6 +857,7 @@ namespace Neosmartpen.Net.Protocol.v1
               .Put( (byte)sectionId )
               .Put( (byte)1 )
               .PutInt( noteId )
+			  .PutNull(36)
               .Put( (byte)0xC1 );
 
             bool result = Write( bf.ToArray() );

@@ -67,6 +67,10 @@ namespace Neosmartpen.Net.Protocol.v2
         private Dot mPrevDot = null;
 
 		private readonly string DEFAULT_PASSWORD = "0000";
+		public static readonly float PEN_PROFILE_SUPPORT_PROTOCOL_VERSION = 2.10f;
+		private readonly string F121 = "NWP-F121";
+		private readonly string F121MG = "NWP-F121MG";
+
 		private bool reCheckPassword = false;
 		private string newPassword;
 
@@ -144,8 +148,12 @@ namespace Neosmartpen.Net.Protocol.v2
                         DeviceType = pk.GetShort();
                         MaxForce = -1;
                         MacAddress = BitConverter.ToString( pk.GetBytes( 6 ) ).Replace( "-", "" );
+						bool isMG = isF121MG(MacAddress);
+						if (isMG && DeviceName.Equals(F121) && SubName.Equals("Mbest_smartpenS"))
+							DeviceName = F121MG;
 
-                        ReqPenStatus();
+						IsUploading = false;
+						ReqPenStatus();
                     }
                     break;
 
@@ -1187,14 +1195,14 @@ namespace Neosmartpen.Net.Protocol.v2
             bf.Put( Const.PK_STX, false )
               .Put( (byte)Cmd.ONLINE_DATA_REQUEST );
 
-            if ( sectionId > 0 && ownerId > 0 && noteIds == null )
+            if ( sectionId >= 0 && ownerId > 0 && noteIds == null )
             {
                 bf.PutShort( 2 + 8 )
                   .PutShort( 1 )
                   .Put( GetSectionOwnerByte( sectionId, ownerId ) )
                   .Put( 0xFF ).Put( 0xFF ).Put( 0xFF ).Put( 0xFF );
             }
-            else if ( sectionId > 0 && ownerId > 0 && noteIds != null )
+            else if ( sectionId >= 0 && ownerId > 0 && noteIds != null )
             {
                 short length = (short)( 2 + ( noteIds.Length * 8 ) );
 
@@ -1219,11 +1227,32 @@ namespace Neosmartpen.Net.Protocol.v2
             return Send( bf );
         }
 
-        /// <summary>
-        /// Sets the available notebook type
-        /// </summary>
-        /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqAddUsingNote()
+		private bool SendAddUsingNote(int[] sectionId, int[] ownerId)
+		{
+			ByteUtil bf = new ByteUtil(Escape);
+
+			bf.Put(Const.PK_STX, false)
+			  .Put((byte)Cmd.ONLINE_DATA_REQUEST);
+
+			bf.PutShort((short)(2 + sectionId.Length * 8))
+				.PutShort((short)sectionId.Length);
+			for (int i = 0; i < sectionId.Length; ++i)
+			{
+				bf.Put(GetSectionOwnerByte(sectionId[i], ownerId[i]))
+				  .Put(0xFF).Put(0xFF).Put(0xFF).Put(0xFF);
+			}
+
+			bf.Put(Const.PK_ETX, false);
+
+			return Send(bf);
+		}
+
+
+		/// <summary>
+		/// Sets the available notebook type
+		/// </summary>
+		/// <returns>true if the request is accepted; otherwise, false.</returns>
+		public bool ReqAddUsingNote()
         {
             return SendAddUsingNote();
         }
@@ -1239,17 +1268,28 @@ namespace Neosmartpen.Net.Protocol.v2
             return SendAddUsingNote( section, owner, notes );
         }
 
-        #endregion
+		/// <summary>
+		/// Set the available notebook type lits
+		/// </summary>
+		/// <param name="section">The array of section Id of the paper list</param>
+		/// <param name="owner">The array of owner Id of the paper list</param>
+		/// <returns></returns>
+		public bool ReqAddUsingNote(int[] section, int[] owner)
+		{
+			return SendAddUsingNote(section, owner);
+		}
 
-        #region offline
+		#endregion
 
-        /// <summary>
-        /// Requests the list of Offline data.
-        /// </summary>
-        /// <param name="section">The Section Id of the paper</param>
-        /// <param name="owner">The Owner Id of the paper</param>
-        /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqOfflineDataList( int section = -1, int owner = -1 )
+		#region offline
+
+		/// <summary>
+		/// Requests the list of Offline data.
+		/// </summary>
+		/// <param name="section">The Section Id of the paper</param>
+		/// <param name="owner">The Owner Id of the paper</param>
+		/// <returns>true if the request is accepted; otherwise, false.</returns>
+		public bool ReqOfflineDataList( int section = -1, int owner = -1 )
         {
             ByteUtil bf = new ByteUtil( Escape );
 
@@ -1409,7 +1449,11 @@ namespace Neosmartpen.Net.Protocol.v2
 
             byte[] StrVersionByte = Encoding.UTF8.GetBytes( version );
 
-            byte[] StrDeviceByte = Encoding.UTF8.GetBytes( DeviceName );
+			string deviceName = DeviceName;
+			if (deviceName.Equals(F121MG))
+				deviceName = F121;
+
+			byte[] StrDeviceByte = Encoding.UTF8.GetBytes( deviceName );
 
             System.Console.WriteLine( "[FileUploadWorker] file upload => filesize : {0}, packet count : {1}, packet size {2}", file_size, chunk_count, chunk_size );
 
@@ -1512,6 +1556,21 @@ namespace Neosmartpen.Net.Protocol.v2
 				.color(color);
 			return builder.Build();
 		}
+
+		private bool isF121MG(string macAddress)
+		{
+			const string MG_F121_MAC_START = "9C:7B:D2:22:00:00";
+			const string MG_F121_MAC_END = "9C:7B:D2:22:18:06";
+			ulong address = Convert.ToUInt64(macAddress.Replace(":", ""), 16);
+			ulong mgStart = Convert.ToUInt64(MG_F121_MAC_START.Replace(":", ""), 16);
+			ulong mgEnd = Convert.ToUInt64(MG_F121_MAC_END.Replace(":", ""), 16);
+
+			if (address >= mgStart && address <= mgEnd)
+				return true;
+			else
+				return false;
+		}
+
 
 		#endregion
 	}
