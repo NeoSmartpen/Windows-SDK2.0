@@ -1195,14 +1195,14 @@ namespace Neosmartpen.Net.Protocol.v2
             bf.Put( Const.PK_STX, false )
               .Put( (byte)Cmd.ONLINE_DATA_REQUEST );
 
-            if ( sectionId > 0 && ownerId > 0 && noteIds == null )
+            if ( sectionId >= 0 && ownerId > 0 && noteIds == null )
             {
                 bf.PutShort( 2 + 8 )
                   .PutShort( 1 )
                   .Put( GetSectionOwnerByte( sectionId, ownerId ) )
                   .Put( 0xFF ).Put( 0xFF ).Put( 0xFF ).Put( 0xFF );
             }
-            else if ( sectionId > 0 && ownerId > 0 && noteIds != null )
+            else if ( sectionId >= 0 && ownerId > 0 && noteIds != null )
             {
                 short length = (short)( 2 + ( noteIds.Length * 8 ) );
 
