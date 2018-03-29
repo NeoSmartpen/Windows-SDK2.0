@@ -189,6 +189,8 @@ namespace Neosmartpen.Net.Protocol.v1
 								builder.dotType(DotTypes.PEN_ERROR);
 								var errorDot = builder.Build();
 								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null);
+								IsStartWithDown = true;
+								builder.timestamp(Time.GetUtcTimeStamp());
 							}
 						}
 
