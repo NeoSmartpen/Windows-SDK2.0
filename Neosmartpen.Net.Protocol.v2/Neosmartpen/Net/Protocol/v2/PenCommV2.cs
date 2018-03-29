@@ -702,9 +702,11 @@ namespace Neosmartpen.Net.Protocol.v2
 						if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 						{
 							// 펜업이 넘어오지 않음
-							var errorDot = mPrevDot.Clone();
-							errorDot.DotType = DotTypes.PEN_ERROR;
-							Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
+							//var errorDot = mPrevDot.Clone();
+							//errorDot.DotType = DotTypes.PEN_ERROR;
+							//Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
+
+							MakeUpDot();
 						}
 
 						int ecount = pk.GetByteToInt();
@@ -789,9 +791,11 @@ namespace Neosmartpen.Net.Protocol.v2
 						if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 						{
 							// 펜업이 넘어오지 않음
-							var errorDot = mPrevDot.Clone();
-							errorDot.DotType = DotTypes.PEN_ERROR;
-							Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
+							//var errorDot = mPrevDot.Clone();
+							//errorDot.DotType = DotTypes.PEN_ERROR;
+							//Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
+
+							MakeUpDot();
 						}
 
 						IsStartWithDown = true;
@@ -804,9 +808,7 @@ namespace Neosmartpen.Net.Protocol.v2
 					{
 						if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 						{
-							var udot = mPrevDot.Clone();
-							udot.DotType = DotTypes.PEN_UP;
-							ProcessDot(udot);
+							MakeUpDot();
 						}
 						else if (!IsStartWithDown && !IsBeforeMiddle)
 						{
@@ -921,9 +923,7 @@ namespace Neosmartpen.Net.Protocol.v2
 						// 미들도트 중에 페이지가 바뀐다면 강제로 펜업을 만들어 준다.
 						if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 						{
-							var audot = mPrevDot.Clone();
-							audot.DotType = DotTypes.PEN_UP;
-							ProcessDot(audot, null);
+							MakeUpDot();
 						}
 
 						byte[] rb = pk.GetBytes(4);
@@ -1137,7 +1137,18 @@ namespace Neosmartpen.Net.Protocol.v2
             Send(bf);
         }
 
-        private byte[] Escape( byte input )
+		private void MakeUpDot()
+		{
+			var errorDot = mPrevDot.Clone();
+			errorDot.DotType = DotTypes.PEN_ERROR;
+			Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
+
+			var audot = mPrevDot.Clone();
+			audot.DotType = DotTypes.PEN_UP;
+			ProcessDot(audot, null);
+		}
+
+		private byte[] Escape( byte input )
         {
             if ( input == Const.PK_STX || input == Const.PK_ETX || input == Const.PK_DLE  )
             {
