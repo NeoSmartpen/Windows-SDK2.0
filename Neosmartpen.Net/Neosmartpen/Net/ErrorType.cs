@@ -11,7 +11,7 @@ namespace Neosmartpen.Net
 		MissingPenDown = 2,
 		InvalidTime = 3,
 		MissingPenDownPenMove = 4,
-		FilteredCode = 5,
-		NdacError = 6
+		ImageProcessingError = 5,
+		InvalidEventCount = 6
 	}
 }

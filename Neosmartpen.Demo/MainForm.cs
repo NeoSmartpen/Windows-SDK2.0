@@ -840,7 +840,7 @@ namespace PenDemo
             mPenCommV2.ReqPenStatus();
         }
 
-		void PenCommV2Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData)
+		void PenCommV2Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo)
 		{
 		}
 	}

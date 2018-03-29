@@ -5,10 +5,11 @@
     /// </summary>
     public class ImageProcessingInfo
     {
-        /// <summary>
-        /// Number of images received from the image sensor
-        /// </summary>
-        public int Total { get; set; }
+		public int DotCount { get; set; }
+		/// <summary>
+		/// Number of images received from the image sensor
+		/// </summary>
+		public int Total { get; set; }
 
         /// <summary>
         /// Number of images delivered to the data processor

@@ -242,6 +242,6 @@
 		/// <param name="sender">sender refers to the object that invoked the callback method</param>
 		/// <param name="errorType">Error Message Type</param>
 		/// <param name="timestamp">Timestamp</param>
-		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData);
+		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo);
 	}
 }
