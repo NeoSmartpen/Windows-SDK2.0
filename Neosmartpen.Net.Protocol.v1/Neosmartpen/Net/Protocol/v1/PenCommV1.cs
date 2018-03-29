@@ -272,9 +272,11 @@ namespace Neosmartpen.Net.Protocol.v1
 							if (IsBeforeMiddle && mPrevDot != null)
 							{
 								// 펜업이 넘어오지 않는 경우
-								var errorDot = mPrevDot.Clone();
-								errorDot.DotType = DotTypes.PEN_ERROR;
-								Callback.onErrorDetected(this, ErrorType.MissingPenUp, PenDownTime, errorDot, null);
+								//var errorDot = mPrevDot.Clone();
+								//errorDot.DotType = DotTypes.PEN_ERROR;
+								//Callback.onErrorDetected(this, ErrorType.MissingPenUp, PenDownTime, errorDot, null);
+
+								MakeUpDot();
 							}
 
                             IsStartWithDown = true;
@@ -288,9 +290,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
 							if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 							{
-								var udot = mPrevDot.Clone();
-								udot.DotType = DotTypes.PEN_UP;
-								ProcessDot(udot);
+								MakeUpDot(false);
 							}
 							else if(!IsStartWithDown && !IsBeforeMiddle)
 							{
@@ -318,9 +318,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
 					if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 					{
-						var audot = mPrevDot.Clone();
-						audot.DotType = DotTypes.PEN_UP;
-						ProcessDot(audot);
+						MakeUpDot(false);
 					}
 
 					byte[] rb = pk.GetBytes(4);
@@ -634,7 +632,21 @@ namespace Neosmartpen.Net.Protocol.v1
             }
         }
 
-        private void ProcessDot( int ownerId, int sectionId, int noteId, int pageId, long timeLong, int x, int y, int fx, int fy, int force, DotTypes type, int color )
+		private void MakeUpDot(bool isError = true)
+		{
+			if (isError)
+			{
+				var errorDot = mPrevDot.Clone();
+				errorDot.DotType = DotTypes.PEN_ERROR;
+				Callback.onErrorDetected(this, ErrorType.MissingPenUp, PenDownTime, errorDot, null);
+			}
+
+			var udot = mPrevDot.Clone();
+			udot.DotType = DotTypes.PEN_UP;
+			ProcessDot(udot);
+		}
+
+		private void ProcessDot( int ownerId, int sectionId, int noteId, int pageId, long timeLong, int x, int y, int fx, int fy, int force, DotTypes type, int color )
         {
             Callback.onReceiveDot( this, new Dot( ownerId, sectionId, noteId, pageId, timeLong, x, y, fx, fy, force, type, color ) );
         }
