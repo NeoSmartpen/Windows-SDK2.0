@@ -12,7 +12,10 @@ namespace Neosmartpen.Net.Protocol.v1
     /// </summary>
     public class PenCommV1 : PenComm, OfflineWorkResponseHandler
     {
-        private PenCommV1Callbacks Callback;
+		[System.Runtime.InteropServices.DllImport("Kernel32.dll")]
+		private static extern bool GetDiskFreeSpace(string lpRootPathName, ref ulong lpSectorsPerCluster, ref ulong lpBytesPerSector, ref ulong lpNumberOfFreeClusters, ref ulong lpTotalNumberOfClusters);
+
+		private PenCommV1Callbacks Callback;
 
         //private IPacket mPrevPacket;
 
@@ -823,7 +826,14 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqOfflineData( OfflineDataInfo note )
         {
-            mOfflineworker.Put( note );
+			ulong freeCapacity = 0;
+			if (GetAvailableCapacity(ref freeCapacity))
+			{
+				if (freeCapacity < 50) // 50MB
+					return false;
+			}
+
+			mOfflineworker.Put( note );
 
             return true;
         }
@@ -835,7 +845,14 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqOfflineData( OfflineDataInfo[] notes )
         {
-            mOfflineworker.Put( notes );
+			ulong freeCapacity = 0;
+			if (GetAvailableCapacity(ref freeCapacity))
+			{
+				if (freeCapacity < 50) // 50MB
+					return false;
+			}
+
+			mOfflineworker.Put( notes );
 
             return true;
         }
@@ -1254,5 +1271,13 @@ namespace Neosmartpen.Net.Protocol.v1
             mFwChunk = null;
             return true;
         }
-    }
+
+		private bool GetAvailableCapacity(ref ulong capacity)
+		{
+			ulong sectionPerCluster = 0, bytesPerSection = 0, freeClusters = 0, totalClusters = 0;
+			var ret = GetDiskFreeSpace(System.IO.Directory.GetCurrentDirectory(), ref sectionPerCluster, ref bytesPerSection, ref freeClusters, ref totalClusters);
+			capacity = ((sectionPerCluster * bytesPerSection * freeClusters) / 1024) / 1024;
+			return ret;
+		}
+	}
 }
