@@ -130,7 +130,23 @@ namespace Neosmartpen.Net.Protocol.v2
 
         protected override void OnDisconnected()
         {
-            Callback.onDisconnected( this );
+			if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
+			{
+				MakeUpDot();
+
+				mTime = -1;
+				SessionTs = -1;
+
+				IsStartWithDown = false;
+				IsBeforeMiddle = false;
+				IsStartWithPaperInfo = false;
+
+				mDotCount = 0;
+
+				mPrevDot = null;
+			}
+
+			Callback.onDisconnected( this );
         }
 
 		int offlineDataPacketRetryCount = 0;
@@ -703,11 +719,6 @@ namespace Neosmartpen.Net.Protocol.v2
 					{
 						if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 						{
-							// 펜업이 넘어오지 않음
-							//var errorDot = mPrevDot.Clone();
-							//errorDot.DotType = DotTypes.PEN_ERROR;
-							//Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null, null);
-
 							MakeUpDot();
 						}
 

@@ -132,7 +132,12 @@ namespace Neosmartpen.Net.Protocol.v1
 
         protected override void OnDisconnected()
         {
-            mOfflineworker.Reset();
+			if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
+			{
+				MakeUpDot();
+			}
+
+			mOfflineworker.Reset();
             Callback.onDisconnected( this );
         }
 
