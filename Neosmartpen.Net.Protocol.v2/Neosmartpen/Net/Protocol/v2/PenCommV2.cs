@@ -157,6 +157,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						IsUploading = false;
 
+						EventCount = 0;
+
 						ReqPenStatus();
                     }
                     break;
@@ -187,7 +189,13 @@ namespace Neosmartpen.Net.Protocol.v2
                 case Cmd.ONLINE_PEN_UPDOWN_EVENT:
                 case Cmd.ONLINE_PEN_DOT_EVENT:
                 case Cmd.ONLINE_PAPER_INFO_EVENT:
-                    {
+				case Cmd.ONLINE_PEN_ERROR_EVENT:
+				case Cmd.ONLINE_NEW_PEN_DOWN_EVENT:
+				case Cmd.ONLINE_NEW_PEN_UP_EVENT:
+				case Cmd.ONLINE_NEW_PEN_DOT_EVENT:
+				case Cmd.ONLINE_NEW_PAPER_INFO_EVENT:
+				case Cmd.ONLINE_NEW_PEN_ERROR_EVENT:
+					{
                         ParseDotPacket( cmd, pk );
                     }
                     break;
@@ -654,11 +662,11 @@ namespace Neosmartpen.Net.Protocol.v2
 
 		private long SessionTs = -1;
 
-		private int EventCount = 0;
+		private int EventCount = -1;
 
 		private void CheckEventCount(int ecount)
 		{
-			if (ecount != 0 && ecount - EventCount != 1)
+			if (ecount - EventCount != 1 && (ecount != 0 || EventCount != 255))
 			{
 				// 이벤트 카운트 오류
 				Dot errorDot = null;
@@ -671,12 +679,12 @@ namespace Neosmartpen.Net.Protocol.v2
 
 				if (ecount - EventCount > 1)
 				{
-					string extraData = string.Format("missed event count {0} - {1}", EventCount + 1, ecount - 1);
+					string extraData = string.Format("missed event count {0}-{1}", EventCount + 1, ecount - 1);
 					Callback.onErrorDetected(this, ErrorType.InvalidEventCount, SessionTs, errorDot, extraData, null);
 				}
 				else if (ecount < EventCount)
 				{
-					string extraData = string.Format("invalid event count {0}, {1}", EventCount, ecount);
+					string extraData = string.Format("invalid event count {0},{1}", EventCount, ecount);
 					Callback.onErrorDetected(this, ErrorType.InvalidEventCount, SessionTs, errorDot, extraData, null);
 				}
 			}
