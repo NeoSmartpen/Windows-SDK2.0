@@ -12,6 +12,7 @@ namespace Neosmartpen.Net
 		InvalidTime = 3,
 		MissingPenDownPenMove = 4,
 		ImageProcessingError = 5,
-		InvalidEventCount = 6
+		InvalidEventCount = 6,
+		MissingPageChange = 7
 	}
 }

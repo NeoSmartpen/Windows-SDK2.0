@@ -194,6 +194,33 @@ namespace Neosmartpen.Net.Protocol.v1
 							}
 						}
 
+						if (!IsStartWithDown)
+						{
+							if (!IsStartWithPaperInfo)
+							{
+								//펜 다운 없이 페이퍼 정보 없고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, null, null);
+							}
+							else
+							{
+								timeLong = Time.GetUtcTimeStamp();
+								SessionTs = timeLong;
+								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								builder.dotType(DotTypes.PEN_ERROR);
+								var errorDot = builder.Build();
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, SessionTs, errorDot, null);
+								IsStartWithDown = true;
+								builder.timestamp(timeLong);
+							}
+						}
+
+						if (timeLong < 10000)
+						{
+							// 타임스템프가 10000보다 작을 경우 도트 필터링
+							builder.dotType(DotTypes.PEN_ERROR);
+							var errorDot = builder.Build();
+							Callback.onErrorDetected(this, ErrorType.InvalidTime, SessionTs, errorDot, null);
+						}
 
 						Dot dot = null;
 
@@ -207,31 +234,10 @@ namespace Neosmartpen.Net.Protocol.v1
 							// 펜다운이 아닌 경우 미들 도트로 저장
 							dot = builder.dotType(DotTypes.PEN_MOVE).Build();
 						}
-						else
+						else if (IsStartWithDown && !IsStartWithPaperInfo)
 						{
-							if (!IsStartWithDown)
-							{
-								if (!IsStartWithPaperInfo)
-								{
-									//펜 다운 없이 페이퍼 정보 없고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
-									Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, null, null);
-								}
-								else
-								{
-									//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
-									builder.dotType(DotTypes.PEN_ERROR);
-									var errorDot = builder.Build();
-									Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null);
-								}
-							}
-
-							if (timeLong < 10000)
-							{
-								// 타임스템프가 10000보다 작을 경우 도트 필터링
-								builder.dotType(DotTypes.PEN_ERROR);
-								var errorDot = builder.Build();
-								Callback.onErrorDetected(this, ErrorType.InvalidTime, SessionTs, errorDot,  null);
-							}
+							//펜 다운 이후 페이지 체인지 없이 도트가 들어왔을 경우
+							Callback.onErrorDetected(this, ErrorType.MissingPageChange, SessionTs, null, null);
 						}
 
 						if (dot != null)

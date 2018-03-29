@@ -860,11 +860,13 @@ namespace Neosmartpen.Net.Protocol.v2
 							}
 							else
 							{
-								var errorDot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_ERROR, mPenTipColor);
-								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
-								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null, null);
-								IsStartWithDown = true;
 								mTime = Time.GetUtcTimeStamp();
+
+								SessionTs = mTime;
+								var errorDot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_ERROR, mPenTipColor);
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, SessionTs, errorDot, null, null);
+								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								IsStartWithDown = true;
 							}
 						}
 
@@ -872,9 +874,17 @@ namespace Neosmartpen.Net.Protocol.v2
 						{
 							dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_HOVER, mPenTipColor);
 						}
-						else if (IsStartWithDown && IsStartWithPaperInfo)
+						else if (IsStartWithDown)
 						{
-							dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
+							if (IsStartWithPaperInfo)
+							{
+								dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
+							}
+							else
+							{
+								//펜 다운 이후 페이지 체인지 없이 도트가 들어왔을 경우
+								Callback.onErrorDetected(this, ErrorType.MissingPageChange, SessionTs, null, null, null);
+							}
 						}
 
 						if (dot != null)
