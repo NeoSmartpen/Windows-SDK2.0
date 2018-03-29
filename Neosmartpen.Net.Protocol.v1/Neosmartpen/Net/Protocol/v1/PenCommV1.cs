@@ -266,7 +266,7 @@ namespace Neosmartpen.Net.Protocol.v1
 								// 펜업이 넘어오지 않는 경우
 								var errorDot = mPrevDot.Clone();
 								errorDot.DotType = DotTypes.PEN_ERROR;
-								Callback.onErrorDetected(this, ErrorType.InvalidTime, SessionTs, errorDot, null);
+								Callback.onErrorDetected(this, ErrorType.MissingPenUp, SessionTs, errorDot, null);
 							}
 
                             IsStartWithDown = true;
