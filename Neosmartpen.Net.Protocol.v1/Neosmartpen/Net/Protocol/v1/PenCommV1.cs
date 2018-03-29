@@ -188,7 +188,7 @@ namespace Neosmartpen.Net.Protocol.v1
 								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
 								builder.dotType(DotTypes.PEN_ERROR);
 								var errorDot = builder.Build();
-								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null));
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null);
 							}
 						}
 
@@ -286,7 +286,7 @@ namespace Neosmartpen.Net.Protocol.v1
 							}
 							else
 							{
-								Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, SessionTs, null, null));
+								Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, SessionTs, null, null);
 							}
 
                             IsStartWithDown = false;
