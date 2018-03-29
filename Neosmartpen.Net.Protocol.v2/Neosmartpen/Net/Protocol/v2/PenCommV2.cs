@@ -763,6 +763,11 @@ namespace Neosmartpen.Net.Protocol.v2
 							// 즉 다운업(무브없이) 혹은 업만 들어올 경우 UP dot을 보내지 않음
 							Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, -1, null, null, null);
 						}
+						else if (!IsBeforeMiddle)
+						{
+							// 무브없이 다운-업만 들어올 경우 UP dot을 보내지 않음
+							Callback.onErrorDetected(this, ErrorType.MissingPenMove, SessionTs, null, null, null);
+						}
 
 						mTime = -1;
 						SessionTs = -1;
@@ -806,6 +811,11 @@ namespace Neosmartpen.Net.Protocol.v2
 						else if (!IsStartWithDown && !IsBeforeMiddle)
 						{
 							Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, -1, null, null, null);
+						}
+						else if (!IsBeforeMiddle)
+						{
+							// 무브없이 다운-업만 들어올 경우 UP dot을 보내지 않음
+							Callback.onErrorDetected(this, ErrorType.MissingPenMove, SessionTs, null, null, null);
 						}
 
 						IsStartWithDown = false;
