@@ -23,7 +23,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
         private long mPrevDotTime = 0;
 
-        private bool IsPrevDotDown = false;
+        //private bool IsPrevDotDown = false;
 
         private bool IsStartWithDown = false;
 
@@ -59,8 +59,11 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             System.Console.WriteLine( "[PenCommCore] Reset" );
 
-            IsPrevDotDown = false;
+            //IsPrevDotDown = false;
             IsStartWithDown = false;
+			IsBeforeMiddle = false;
+			IsStartWithPaperInfo = false;
+			IsBeforePaperInfo = false;
 
             Authenticated = false;
 
@@ -69,8 +72,8 @@ namespace Neosmartpen.Net.Protocol.v1
             IsStartOfflineTask = false;
         }
 
-        /// <inheritdoc/>
-        public override string Version
+		/// <inheritdoc/>
+		public override string Version
         {
             get { return "1.03" ; }
         }
@@ -141,6 +144,11 @@ namespace Neosmartpen.Net.Protocol.v1
 		Dot mPrevDot;
 		bool IsBeforeMiddle = false;
 
+		private bool IsStartWithPaperInfo = false;
+		private bool IsBeforePaperInfo = false;
+
+		private long sessionTs = -1;
+
 		private void ParsePacket( IPacket pk )
         {
             switch ( (Cmd)pk.Cmd )
@@ -156,12 +164,6 @@ namespace Neosmartpen.Net.Protocol.v1
 
                         long timeLong = mPrevDotTime + time;
 
-                        if ( !IsStartWithDown || timeLong < 10000 )
-                        {
-                            System.Console.WriteLine( "[PenCommCore] this stroke start with middle dot." );
-                            return;
-                        }
-
 						Dot.Builder builder = new Dot.Builder();
 
 						builder.owner(mOwnerId)
@@ -173,25 +175,54 @@ namespace Neosmartpen.Net.Protocol.v1
 							.force(force)
 							.color(mCurrentColor);
 
-						if (IsPrevDotDown)
+						Dot dot = null;
+
+						if (IsStartWithDown && IsStartWithPaperInfo && IsBeforePaperInfo)
 						{
-							// 펜업의 경우 시작 도트로 저장
-							builder.dotType(DotTypes.PEN_DOWN);
-							IsPrevDotDown = false;
+							// 펜다운의 경우 시작 도트로 저장
+							dot = builder.dotType(DotTypes.PEN_DOWN).Build();
+						}
+						else if (IsStartWithDown && IsStartWithPaperInfo && !IsBeforePaperInfo && IsBeforeMiddle)
+						{
+							// 펜다운이 아닌 경우 미들 도트로 저장
+							dot = builder.dotType(DotTypes.PEN_MOVE).Build();
 						}
 						else
 						{
-							// 펜업이 아닌 경우 미들 도트로 저장
-							builder.dotType(DotTypes.PEN_MOVE);
+							if (!IsStartWithDown)
+							{
+								if (!IsStartWithPaperInfo)
+								{
+									//펜 다운 없이 페이퍼 정보 없고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+									Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, null, null);
+								}
+								else
+								{
+									//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+									builder.dotType(DotTypes.PEN_ERROR);
+									var errorDot = builder.Build();
+									Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null);
+								}
+							}
+
+							if (timeLong < 10000)
+							{
+								// 타임스템프가 10000보다 작을 경우 도트 필터링
+								builder.dotType(DotTypes.PEN_ERROR);
+								var errorDot = builder.Build();
+								Callback.onErrorDetected(this, ErrorType.InvalidTime, sessionTs, errorDot,  null);
+							}
 						}
 
-						Dot dot = builder.Build();
-
-						ProcessDot(dot);
+						if (dot != null)
+						{
+							ProcessDot(dot);
+						}
 
 						mPrevDot = dot;
 						mPrevDotTime = timeLong;
 						IsBeforeMiddle = true;
+						IsBeforePaperInfo = false;
 					}
                     break;
 
@@ -210,11 +241,20 @@ namespace Neosmartpen.Net.Protocol.v1
                         {
                             // 펜 다운 일 경우 Start Dot의 timestamp 설정
                             mPrevDotTime = updownTime;
-                            IsPrevDotDown = true;
+                            //IsPrevDotDown = true;
                             IsStartWithDown = true;
 
-                            //Callback.onUpDown( this, false );
-                        }
+							if (IsBeforeMiddle && mPrevDot != null)
+							{
+								// 펜업이 넘어오지 않는 경우
+								var errorDot = mPrevDot.Clone();
+								errorDot.DotType = DotTypes.PEN_ERROR;
+								Callback.onErrorDetected(this, ErrorType.InvalidTime, sessionTs, errorDot, null);
+							}
+
+							sessionTs = updownTime;
+							//Callback.onUpDown( this, false );
+						}
                         else if ( updown == 0x01 )
                         {
 							if (mPrevDot != null)
@@ -223,12 +263,19 @@ namespace Neosmartpen.Net.Protocol.v1
 								udot.DotType = DotTypes.PEN_UP;
 								ProcessDot(udot);
 							}
+							else
+							{
+								Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, sessionTs, null, null));
+							}
 
                             IsStartWithDown = false;
                         }
 
 						IsBeforeMiddle = false;
+						IsStartWithPaperInfo = false;
+
 						mPrevDot = null;
+						sessionTs = -1;
                     }
                     break;
 
@@ -249,7 +296,10 @@ namespace Neosmartpen.Net.Protocol.v1
                     mNoteId = pk.GetInt();
                     mPageId = pk.GetInt();
 
-					IsPrevDotDown = true;
+					//IsPrevDotDown = true;
+
+					IsBeforePaperInfo = true;
+					IsStartWithPaperInfo = true;
 
                     break;
 

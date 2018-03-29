@@ -235,5 +235,13 @@
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="battery">percentage of battery</param>
         void onReceiveBatteryAlarm( IPenComm sender, int battery );
-    }
+
+		/// <summary>
+		/// Occur when error received
+		/// </summary>
+		/// <param name="sender">sender refers to the object that invoked the callback method</param>
+		/// <param name="errorType">Error Message Type</param>
+		/// <param name="timestamp">Timestamp</param>
+		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData);
+	}
 }

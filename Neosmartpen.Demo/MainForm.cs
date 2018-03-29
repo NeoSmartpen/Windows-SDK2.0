@@ -481,6 +481,9 @@ namespace PenDemo
                 DrawStroke( stroke );
             }
         }
+		void PenCommV1Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp,  Dot dot, string extraData)
+		{
+		}
 
         #endregion
 
@@ -832,9 +835,13 @@ namespace PenDemo
             mPenCommV2.ReqPenStatus();
         }
 
-        void PenCommV2Callbacks.onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result)
+		void PenCommV2Callbacks.onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result)
         {
             mPenCommV2.ReqPenStatus();
         }
-    }
+
+		void PenCommV2Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData)
+		{
+		}
+	}
 }
