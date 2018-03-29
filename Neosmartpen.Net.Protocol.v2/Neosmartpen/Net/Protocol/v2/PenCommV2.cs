@@ -133,7 +133,8 @@ namespace Neosmartpen.Net.Protocol.v2
             Callback.onDisconnected( this );
         }
 
-        private void ParsePacket( Packet pk )
+		int offlineDataPacketRetryCount = 0;
+		private void ParsePacket( Packet pk )
         {
             Cmd cmd = (Cmd)pk.Cmd;
 
@@ -481,8 +482,17 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         if ( sizeAfter != (pk.Data.Length - 18) )
                         {
-                            SendOfflinePacketResponse( packetId, false );
-                            return;
+							if (offlineDataPacketRetryCount < 3)
+							{
+								SendOfflinePacketResponse(packetId, false);
+								++offlineDataPacketRetryCount;
+							}
+							else
+							{
+								offlineDataPacketRetryCount = 0;
+								Callback.onFinishedOfflineDownload(this, false);
+							}
+							return;
                         }
 
                         byte[] oData = pk.GetBytes( sizeAfter );
@@ -491,8 +501,17 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         if ( strData.Length != sizeBefore )
                         {
-                            SendOfflinePacketResponse( packetId, false );
-                            return;
+							if (offlineDataPacketRetryCount < 3)
+							{
+								SendOfflinePacketResponse(packetId, false);
+								++offlineDataPacketRetryCount;
+							}
+							else
+							{
+								offlineDataPacketRetryCount = 0;
+								Callback.onFinishedOfflineDownload(this, false);
+							}
+							return;
                         }
 
                         ByteUtil butil = new ByteUtil( strData ); 
@@ -546,9 +565,10 @@ namespace Neosmartpen.Net.Protocol.v2
 
                                 if ( dotChecksum != checksum )
                                 {
-                                    SendOfflinePacketResponse( packetId, false );
-                                    result.Clear();
-                                    return;
+									//SendOfflinePacketResponse( packetId, false );
+									//result.Clear();
+									//return;
+									continue;
                                 }
 
                                 DotTypes dotType;
@@ -576,7 +596,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         SendOfflinePacketResponse( packetId );
 
-                        Callback.onReceiveOfflineStrokes( this, mTotalOfflineStroke, mReceivedOfflineStroke, result.ToArray() );
+						offlineDataPacketRetryCount = 0;
+						Callback.onReceiveOfflineStrokes( this, mTotalOfflineStroke, mReceivedOfflineStroke, result.ToArray() );
 
                         if ( location == 2 )
                         {
