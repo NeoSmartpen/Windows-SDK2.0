@@ -957,6 +957,8 @@ namespace Neosmartpen.Net.Protocol.v2
 						int ndacProcessTime = pk.GetByteToInt();
 						int labelCount = pk.GetByteToInt();
 						int ndacErrorCode = pk.GetByteToInt();
+						int classType = pk.GetByteToInt();
+						int errorCount = pk.GetByteToInt();
 
 						ImageProcessErrorInfo newInfo = new ImageProcessErrorInfo
 						{
@@ -966,7 +968,9 @@ namespace Neosmartpen.Net.Protocol.v2
 							ExposureTime = exposureTime,
 							ProcessTime = ndacProcessTime,
 							LabelCount = labelCount,
-							ErrorCode = ndacErrorCode
+							ErrorCode = ndacErrorCode,
+							ClassType = classType,
+							ErrorCount = errorCount
 						};
 
 						Dot errorDot = null;
