@@ -359,6 +359,10 @@ namespace Neosmartpen.Net.Protocol.v2
                             case SettingType.DataTransmissionType:
                                 Callback.onPenDataTransmissionTypeSetUpResponse( this, result );
                                 break;
+
+                            case SettingType.BeepAndLight:
+                                Callback.onPenBeepAndLightResponse( this, result );
+                                break;
                         }
                     }
                     break;
@@ -1300,7 +1304,7 @@ namespace Neosmartpen.Net.Protocol.v2
             return Send( bf );
         }
 
-        public enum SettingType : byte { Timestamp = 1, AutoPowerOffTime = 2, PenCapOff = 3, AutoPowerOn = 4, Beep = 5, Hover = 6, OfflineData = 7, LedColor = 8, Sensitivity = 9, UsbMode = 10, DownSampling = 11, BtLocalName = 12, FscSensitivity = 13, DataTransmissionType = 14 };
+        public enum SettingType : byte { Timestamp = 1, AutoPowerOffTime = 2, PenCapOff = 3, AutoPowerOn = 4, Beep = 5, Hover = 6, OfflineData = 7, LedColor = 8, Sensitivity = 9, UsbMode = 10, DownSampling = 11, BtLocalName = 12, FscSensitivity = 13, DataTransmissionType = 14, BeepAndLight = 16 };
 
         private bool RequestChangeSetting( SettingType stype, object value )
         {
@@ -1345,6 +1349,9 @@ namespace Neosmartpen.Net.Protocol.v2
                     break;
                 case SettingType.DataTransmissionType:
                     bf.PutShort(2).Put( (byte)stype ).Put( (byte)value );
+                    break;
+                case SettingType.BeepAndLight:
+                    bf.PutShort(2).Put((byte)stype).Put((byte)0);
                     break;
             }
 
@@ -1493,6 +1500,15 @@ namespace Neosmartpen.Net.Protocol.v2
         public bool ReqSetupDataTransmissionType( DataTransmissionType type )
         {
             return RequestChangeSetting( SettingType.DataTransmissionType, type );
+        }
+
+        /// <summary>
+        /// Request Beeps and light on.
+        /// </summary>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqBeepAndLight()
+        {
+            return RequestChangeSetting(SettingType.BeepAndLight, null);
         }
 
         #endregion

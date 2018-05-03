@@ -215,6 +215,13 @@
         void onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result);
 
         /// <summary>
+        /// Fired when the request for operation of the beep and light is complete, override to handle in your own code.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenBeepAndLightResponse(IPenComm sender, bool result);
+
+        /// <summary>
         /// This method is invoked by the PenCommV2 when it needs to notify the client side about the status of an firmware update operation being performed.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>

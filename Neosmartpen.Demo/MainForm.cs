@@ -843,5 +843,9 @@ namespace PenDemo
 		void PenCommV2Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo)
 		{
 		}
-	}
+
+        void PenCommV2Callbacks.onPenBeepAndLightResponse(IPenComm sender, bool result)
+        {
+        }
+    }
 }
