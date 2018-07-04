@@ -315,7 +315,11 @@ Please contact following to get more information:
 - Global: _globalbiz@neolab.net
 - Korea: _koreabiz@neolab.net
 
-### inthehand/32feet (https://github.com/inthehand/32feet/blob/master/LICENSE)
+## Opensource Library
+
+Please refer to the details of the open source library used below.
+
+### 1. inthehand/32feet (https://github.com/inthehand/32feet/blob/master/LICENSE)
 
 MIT License
 
@@ -339,7 +343,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-### Ionic.Zip.Reduced (https://www.nuget.org/packages/DotNetZip.Reduced/)
+### 2. Ionic.Zip.Reduced (https://www.nuget.org/packages/DotNetZip.Reduced/)
 
 Microsoft Public License (MS-PL)
 This license governs use of the accompanying software. If you use the software, you
