@@ -32,6 +32,13 @@
         void onDisconnected( IPenComm sender );
 
         /// <summary>
+        /// Occurs when the note information to be used is accepted
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onAvailableNoteAccepted(IPenComm sender, bool result);
+
+        /// <summary>
         /// Fired when receive a dot successfully, override to handle in your own code.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -215,6 +222,13 @@
         void onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result);
 
         /// <summary>
+        /// Fired when the request for operation of the beep and light is complete, override to handle in your own code.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onPenBeepAndLightResponse(IPenComm sender, bool result);
+
+        /// <summary>
         /// This method is invoked by the PenCommV2 when it needs to notify the client side about the status of an firmware update operation being performed.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -235,5 +249,13 @@
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="battery">percentage of battery</param>
         void onReceiveBatteryAlarm( IPenComm sender, int battery );
+
+		/// <summary>
+		/// Occur when error received
+		/// </summary>
+		/// <param name="sender">sender refers to the object that invoked the callback method</param>
+		/// <param name="errorType">Error Message Type</param>
+		/// <param name="timestamp">Timestamp</param>
+		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo);
     }
 }

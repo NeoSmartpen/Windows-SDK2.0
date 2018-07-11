@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net", "Neosmartpen.Net\Neosmartpen.Net.csproj", "{16297E2B-052F-4A7E-BCB0-9B52C6420F34}"
 EndProject
@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Demo", "Neosmar
 		{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B} = {8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}
 		{63FE81C9-53F4-4D52-BECE-40EAA0D31998} = {63FE81C9-53F4-4D52-BECE-40EAA0D31998}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.UnitTest", "Neosmartpen.UnitTest\Neosmartpen.UnitTest.csproj", "{B4CAC855-E02B-475E-8BB8-F6B03F851976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,8 +58,19 @@ Global
 		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Release|x64.ActiveCfg = Release|x64
 		{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}.Release|x64.Build.0 = Release|x64
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Debug|x64.Build.0 = Debug|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Release|x64.ActiveCfg = Release|Any CPU
+		{B4CAC855-E02B-475E-8BB8-F6B03F851976}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33256A1E-1F42-4E47-B76E-3558B1F956A6}
 	EndGlobalSection
 EndGlobal

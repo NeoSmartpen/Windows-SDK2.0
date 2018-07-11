@@ -12,7 +12,10 @@ namespace Neosmartpen.Net.Protocol.v1
     /// </summary>
     public class PenCommV1 : PenComm, OfflineWorkResponseHandler
     {
-        private PenCommV1Callbacks Callback;
+		[System.Runtime.InteropServices.DllImport("Kernel32.dll")]
+		private static extern bool GetDiskFreeSpace(string lpRootPathName, ref ulong lpSectorsPerCluster, ref ulong lpBytesPerSector, ref ulong lpNumberOfFreeClusters, ref ulong lpTotalNumberOfClusters);
+
+		private PenCommV1Callbacks Callback;
 
         //private IPacket mPrevPacket;
 
@@ -20,7 +23,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
         private long mPrevDotTime = 0;
 
-        private bool IsPrevDotDown = false;
+        //private bool IsPrevDotDown = false;
 
         private bool IsStartWithDown = false;
 
@@ -56,8 +59,11 @@ namespace Neosmartpen.Net.Protocol.v1
         {
             System.Console.WriteLine( "[PenCommCore] Reset" );
 
-            IsPrevDotDown = false;
+            //IsPrevDotDown = false;
             IsStartWithDown = false;
+			IsBeforeMiddle = false;
+			IsStartWithPaperInfo = false;
+			IsBeforePaperInfo = false;
 
             Authenticated = false;
 
@@ -66,8 +72,8 @@ namespace Neosmartpen.Net.Protocol.v1
             IsStartOfflineTask = false;
         }
 
-        /// <inheritdoc/>
-        public override string Version
+		/// <inheritdoc/>
+		public override string Version
         {
             get { return "1.03" ; }
         }
@@ -126,7 +132,12 @@ namespace Neosmartpen.Net.Protocol.v1
 
         protected override void OnDisconnected()
         {
-            mOfflineworker.Reset();
+			if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
+			{
+				MakeUpDot();
+			}
+
+			mOfflineworker.Reset();
             Callback.onDisconnected( this );
         }
 
@@ -137,6 +148,11 @@ namespace Neosmartpen.Net.Protocol.v1
 
 		Dot mPrevDot;
 		bool IsBeforeMiddle = false;
+
+		private bool IsStartWithPaperInfo = false;
+		private bool IsBeforePaperInfo = false;
+
+		private long PenDownTime = -1;
 
 		private void ParsePacket( IPacket pk )
         {
@@ -153,12 +169,6 @@ namespace Neosmartpen.Net.Protocol.v1
 
                         long timeLong = mPrevDotTime + time;
 
-                        if ( !IsStartWithDown || timeLong < 10000 )
-                        {
-                            System.Console.WriteLine( "[PenCommCore] this stroke start with middle dot." );
-                            return;
-                        }
-
 						Dot.Builder builder = new Dot.Builder();
 
 						builder.owner(mOwnerId)
@@ -170,25 +180,80 @@ namespace Neosmartpen.Net.Protocol.v1
 							.force(force)
 							.color(mCurrentColor);
 
-						if (IsPrevDotDown)
+
+						if (!IsStartWithDown)
 						{
-							// 펜업의 경우 시작 도트로 저장
-							builder.dotType(DotTypes.PEN_DOWN);
-							IsPrevDotDown = false;
-						}
-						else
-						{
-							// 펜업이 아닌 경우 미들 도트로 저장
-							builder.dotType(DotTypes.PEN_MOVE);
+							if (!IsStartWithPaperInfo)
+							{
+								//펜 다운 없이 페이퍼 정보 없고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, null, null);
+							}
+							else
+							{
+								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								builder.dotType(DotTypes.PEN_ERROR);
+								var errorDot = builder.Build();
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, errorDot, null);
+								IsStartWithDown = true;
+								builder.timestamp(Time.GetUtcTimeStamp());
+							}
 						}
 
-						Dot dot = builder.Build();
+						if (!IsStartWithDown)
+						{
+							if (!IsStartWithPaperInfo)
+							{
+								//펜 다운 없이 페이퍼 정보 없고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, -1, null, null);
+							}
+							else
+							{
+								timeLong = Time.GetUtcTimeStamp();
+								PenDownTime = timeLong;
+								//펜 다운 없이 페이퍼 정보 있고 무브가 오는 현상(다운 - 무브 - 업 - 다운X - 무브)
+								builder.dotType(DotTypes.PEN_ERROR);
+								var errorDot = builder.Build();
+								Callback.onErrorDetected(this, ErrorType.MissingPenDown, PenDownTime, errorDot, null);
+								IsStartWithDown = true;
+								builder.timestamp(timeLong);
+							}
+						}
 
-						ProcessDot(dot);
+						if (timeLong < 10000)
+						{
+							// 타임스템프가 10000보다 작을 경우 도트 필터링
+							builder.dotType(DotTypes.PEN_ERROR);
+							var errorDot = builder.Build();
+							Callback.onErrorDetected(this, ErrorType.InvalidTime, PenDownTime, errorDot, null);
+						}
+
+						Dot dot = null;
+
+						if (IsStartWithDown && IsStartWithPaperInfo && IsBeforePaperInfo)
+						{
+							// 펜다운의 경우 시작 도트로 저장
+							dot = builder.timestamp(PenDownTime).dotType(DotTypes.PEN_DOWN).Build();
+						}
+						else if (IsStartWithDown && IsStartWithPaperInfo && !IsBeforePaperInfo && IsBeforeMiddle)
+						{
+							// 펜다운이 아닌 경우 미들 도트로 저장
+							dot = builder.dotType(DotTypes.PEN_MOVE).Build();
+						}
+						else if (IsStartWithDown && !IsStartWithPaperInfo)
+						{
+							//펜 다운 이후 페이지 체인지 없이 도트가 들어왔을 경우
+							Callback.onErrorDetected(this, ErrorType.MissingPageChange, PenDownTime, null, null);
+						}
+
+						if (dot != null)
+						{
+							ProcessDot(dot);
+						}
 
 						mPrevDot = dot;
 						mPrevDotTime = timeLong;
 						IsBeforeMiddle = true;
+						IsBeforePaperInfo = false;
 					}
                     break;
 
@@ -207,36 +272,58 @@ namespace Neosmartpen.Net.Protocol.v1
                         {
                             // 펜 다운 일 경우 Start Dot의 timestamp 설정
                             mPrevDotTime = updownTime;
-                            IsPrevDotDown = true;
-                            IsStartWithDown = true;
+                            //IsPrevDotDown = true;
 
-                            //Callback.onUpDown( this, false );
-                        }
-                        else if ( updown == 0x01 )
-                        {
-							if (mPrevDot != null)
+							if (IsBeforeMiddle && mPrevDot != null)
 							{
-								var udot = mPrevDot.Clone();
-								udot.DotType = DotTypes.PEN_UP;
-								ProcessDot(udot);
+								// 펜업이 넘어오지 않는 경우
+								//var errorDot = mPrevDot.Clone();
+								//errorDot.DotType = DotTypes.PEN_ERROR;
+								//Callback.onErrorDetected(this, ErrorType.MissingPenUp, PenDownTime, errorDot, null);
+
+								MakeUpDot();
 							}
 
-                            IsStartWithDown = false;
+                            IsStartWithDown = true;
+
+							PenDownTime = updownTime;
+							//Callback.onUpDown( this, false );
+						}
+                        else if ( updown == 0x01 )
+                        {
+							mPrevDotTime = -1;
+
+							if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
+							{
+								MakeUpDot(false);
+							}
+							else if(!IsStartWithDown && !IsBeforeMiddle)
+							{
+								Callback.onErrorDetected(this, ErrorType.MissingPenDownPenMove, PenDownTime, null, null);
+							}
+							else if (!IsBeforeMiddle)
+							{
+								// 무브없이 다운-업만 들어올 경우 UP dot을 보내지 않음
+								Callback.onErrorDetected(this, ErrorType.MissingPenMove, PenDownTime, null, null);
+							}
+
+							IsStartWithDown = false;
+
+							PenDownTime = -1;
                         }
 
 						IsBeforeMiddle = false;
+						IsStartWithPaperInfo = false;
+
 						mPrevDot = null;
                     }
                     break;
 
                 case Cmd.A_DotIDChange:
 
-					// 미들도트 중에 페이지가 바뀐다면 강제로 펜업을 만들어 준다.
-					if (IsBeforeMiddle)
+					if (IsStartWithDown && IsBeforeMiddle && mPrevDot != null)
 					{
-						var audot = mPrevDot.Clone();
-						audot.DotType = DotTypes.PEN_UP;
-						ProcessDot(audot);
+						MakeUpDot(false);
 					}
 
 					byte[] rb = pk.GetBytes(4);
@@ -246,7 +333,10 @@ namespace Neosmartpen.Net.Protocol.v1
                     mNoteId = pk.GetInt();
                     mPageId = pk.GetInt();
 
-					IsPrevDotDown = true;
+					//IsPrevDotDown = true;
+
+					IsBeforePaperInfo = true;
+					IsStartWithPaperInfo = true;
 
                     break;
 
@@ -420,7 +510,11 @@ namespace Neosmartpen.Net.Protocol.v1
                     break;
 
                 case Cmd.A_UsingNoteNotifyResponse:
-                    //System.Console.WriteLine( "[PenCommCore] CMD.A_UsingNoteNotifyResponse" );
+                    {
+                        bool accepted = pk.GetByteToInt() == 0x01;
+
+                        Callback.onAvailableNoteAccepted(this, accepted);
+                    }
                     break;
 
                 case Cmd.A_OfflineNoteListResponse:
@@ -547,7 +641,21 @@ namespace Neosmartpen.Net.Protocol.v1
             }
         }
 
-        private void ProcessDot( int ownerId, int sectionId, int noteId, int pageId, long timeLong, int x, int y, int fx, int fy, int force, DotTypes type, int color )
+		private void MakeUpDot(bool isError = true)
+		{
+			if (isError)
+			{
+				var errorDot = mPrevDot.Clone();
+				errorDot.DotType = DotTypes.PEN_ERROR;
+				Callback.onErrorDetected(this, ErrorType.MissingPenUp, PenDownTime, errorDot, null);
+			}
+
+			var udot = mPrevDot.Clone();
+			udot.DotType = DotTypes.PEN_UP;
+			ProcessDot(udot);
+		}
+
+		private void ProcessDot( int ownerId, int sectionId, int noteId, int pageId, long timeLong, int x, int y, int fx, int fy, int force, DotTypes type, int color )
         {
             Callback.onReceiveDot( this, new Dot( ownerId, sectionId, noteId, pageId, timeLong, x, y, fx, fy, force, type, color ) );
         }
@@ -823,7 +931,14 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqOfflineData( OfflineDataInfo note )
         {
-            mOfflineworker.Put( note );
+			ulong freeCapacity = 0;
+			if (GetAvailableCapacity(ref freeCapacity))
+			{
+				if (freeCapacity < 50) // 50MB
+					return false;
+			}
+
+			mOfflineworker.Put( note );
 
             return true;
         }
@@ -835,7 +950,14 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqOfflineData( OfflineDataInfo[] notes )
         {
-            mOfflineworker.Put( notes );
+			ulong freeCapacity = 0;
+			if (GetAvailableCapacity(ref freeCapacity))
+			{
+				if (freeCapacity < 50) // 50MB
+					return false;
+			}
+
+			mOfflineworker.Put( notes );
 
             return true;
         }
@@ -1222,6 +1344,7 @@ namespace Neosmartpen.Net.Protocol.v1
         private void ResponseChunkRequest( short index )
         {
 			byte[] data = null;
+
 			if (mFwChunk == null || (data = mFwChunk.Get(index)) == null)
             {
 				IsUploading = false;
@@ -1242,7 +1365,7 @@ namespace Neosmartpen.Net.Protocol.v1
               .Put( (byte)0xC1 );
             Write( bf.ToArray() );
 
-            Callback.onReceivedFirmwareUpdateStatus( this, mFwChunk.GetChunkLength(), (int)index );
+            Callback.onReceivedFirmwareUpdateStatus( this, mFwChunk.GetChunkLength(), (int)index + 1 );
         }
 
         /// <summary>
@@ -1254,5 +1377,13 @@ namespace Neosmartpen.Net.Protocol.v1
             mFwChunk = null;
             return true;
         }
-    }
+
+		private bool GetAvailableCapacity(ref ulong capacity)
+		{
+			ulong sectionPerCluster = 0, bytesPerSection = 0, freeClusters = 0, totalClusters = 0;
+			var ret = GetDiskFreeSpace(System.IO.Directory.GetCurrentDirectory(), ref sectionPerCluster, ref bytesPerSection, ref freeClusters, ref totalClusters);
+			capacity = ((sectionPerCluster * bytesPerSection * freeClusters) / 1024) / 1024;
+			return ret;
+		}
+	}
 }

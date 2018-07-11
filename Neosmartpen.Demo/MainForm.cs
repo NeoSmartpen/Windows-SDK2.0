@@ -313,6 +313,10 @@ namespace PenDemo
             mPenCommV1.ReqPenStatus();
         }
 
+        void PenCommV1Callbacks.onAvailableNoteAccepted(IPenComm sender, bool result)
+        {
+        }
+
         void PenCommV1Callbacks.onReceiveDot( IPenComm sender, Dot dot )
         {
             ProcessDot( dot );
@@ -481,17 +485,11 @@ namespace PenDemo
                 DrawStroke( stroke );
             }
         }
+		void PenCommV1Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp,  Dot dot, string extraData)
+		{
+		}
 
         #endregion
-
-        private void ToggleOption( bool enabled )
-        {
-            groupBox3.Enabled = enabled;
-            groupBox5.Enabled = enabled;
-            groupBox4.Enabled = enabled;
-            groupBox6.Enabled = enabled;
-            groupBox7.Enabled = enabled;
-        }
 
         #region PenCommV2Callbacks
 
@@ -531,6 +529,10 @@ namespace PenDemo
             } ) );
 
             CloseProgress();
+        }
+
+        void PenCommV2Callbacks.onAvailableNoteAccepted(IPenComm sender, bool result)
+        {
         }
 
         void PenCommV2Callbacks.onReceiveDot(IPenComm sender, Dot dot, ImageProcessingInfo info)
@@ -689,6 +691,39 @@ namespace PenDemo
             } ) );
         }
 
+        void PenCommV2Callbacks.onPenUsbModeSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenDownSamplingSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenBtLocalNameSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenFscSensitivitySetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result)
+        {
+            mPenCommV2.ReqPenStatus();
+        }
+
+        void PenCommV2Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo)
+        {
+        }
+
+        void PenCommV2Callbacks.onPenBeepAndLightResponse(IPenComm sender, bool result)
+        {
+        }
+
         #endregion
 
         #region pencontrol
@@ -789,6 +824,15 @@ namespace PenDemo
 
         #endregion
 
+        private void ToggleOption(bool enabled)
+        {
+            groupBox3.Enabled = enabled;
+            groupBox5.Enabled = enabled;
+            groupBox4.Enabled = enabled;
+            groupBox6.Enabled = enabled;
+            groupBox7.Enabled = enabled;
+        }
+
         private void btnUpgrade_Click( object sender, EventArgs e )
         {
             if ( tbFirmwarePath.Text == "" || tbFirmwareVersion.Text == "" )
@@ -810,31 +854,6 @@ namespace PenDemo
             {
                 tbFirmwarePath.Text = openFileDialog1.FileName;
             }
-        }
-
-        void PenCommV2Callbacks.onPenUsbModeSetUpResponse(IPenComm sender, bool result)
-        {
-            mPenCommV2.ReqPenStatus();
-        }
-
-        void PenCommV2Callbacks.onPenDownSamplingSetUpResponse(IPenComm sender, bool result)
-        {
-            mPenCommV2.ReqPenStatus();
-        }
-
-        void PenCommV2Callbacks.onPenBtLocalNameSetUpResponse(IPenComm sender, bool result)
-        {
-            mPenCommV2.ReqPenStatus();
-        }
-
-        void PenCommV2Callbacks.onPenFscSensitivitySetUpResponse(IPenComm sender, bool result)
-        {
-            mPenCommV2.ReqPenStatus();
-        }
-
-        void PenCommV2Callbacks.onPenDataTransmissionTypeSetUpResponse(IPenComm sender, bool result)
-        {
-            mPenCommV2.ReqPenStatus();
         }
     }
 }

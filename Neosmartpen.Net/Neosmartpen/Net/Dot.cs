@@ -7,7 +7,7 @@ namespace Neosmartpen.Net
     /// </summary>
     public enum DotTypes
     {
-        PEN_DOWN, PEN_MOVE, PEN_UP, PEN_HOVER
+        PEN_DOWN, PEN_MOVE, PEN_UP, PEN_HOVER, PEN_ERROR
     };
     
     /// <summary>
