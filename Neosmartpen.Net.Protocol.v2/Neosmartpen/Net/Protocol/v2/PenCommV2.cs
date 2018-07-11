@@ -191,7 +191,14 @@ namespace Neosmartpen.Net.Protocol.v2
                 case Cmd.SHUTDOWN_EVENT:
                     {
                         byte reason = pk.GetByte();
+
                         System.Console.Write( " => SHUTDOWN_EVENT : {0}", reason );
+
+                        if (reason == 2)
+                        {
+                            // 업데이트를 위해 파워가 꺼지면 업데이트 완료 콜백
+                            Callback.onReceiveFirmwareUpdateResult(this, true);
+                        }
                     }
                     break;
 
@@ -468,13 +475,22 @@ namespace Neosmartpen.Net.Protocol.v2
 
                 case Cmd.OFFLINE_DATA_RESPONSE:
                     {
+                        bool result = pk.Result == 0x00;
+
                         mTotalOfflineStroke = pk.GetInt();
                         mReceivedOfflineStroke = 0;
                         mTotalOfflineDataSize = pk.GetInt();
 
                         bool isCompressed = pk.GetByte() == 1;
 
-                        Callback.onStartOfflineDownload( this );
+                        if (mTotalOfflineStroke == 0)
+                        {
+                            Callback.onFinishedOfflineDownload(this, false);
+                        }
+                        else
+                        {
+                            Callback.onStartOfflineDownload(this);
+                        }
                     }
                     break;
 
@@ -659,14 +675,17 @@ namespace Neosmartpen.Net.Protocol.v2
                         int status = pk.GetByteToInt();
                         int offset = pk.GetInt();
 
-                        System.Console.WriteLine();  
-
                         ResponseChunkRequest( offset, status != 3 );
                     }
                     break;
                 #endregion
 
                 case Cmd.ONLINE_DATA_RESPONSE:
+                    {
+                        bool result = pk.Result == 0x00;
+
+                        Callback.onAvailableNoteAccepted(this, result);
+                    }
                     break;
 
                 default:
@@ -1342,7 +1361,7 @@ namespace Neosmartpen.Net.Protocol.v2
                     break;
                 case SettingType.BtLocalName:
                     byte[] StrByte = Encoding.UTF8.GetBytes( (string)value );
-                    bf.PutShort(17).Put((byte)stype).Put(StrByte, 16);
+                    bf.PutShort(18).Put((byte)stype).Put(16).Put(StrByte, 16);
                     break;
                 case SettingType.FscSensitivity:
                     bf.PutShort(2).Put( (byte)stype ).Put((byte)( (short)value) );
@@ -1758,6 +1777,7 @@ namespace Neosmartpen.Net.Protocol.v2
                 return false;
             }
 
+            SwUpgradeFailCallbacked = false;
             IsUploading = true;
 
             mFwChunk = new Chunk(1024);
@@ -1800,28 +1820,43 @@ namespace Neosmartpen.Net.Protocol.v2
             return Send( bf );
         }
 
+        private bool SwUpgradeFailCallbacked = false;
+            
         private void ResponseChunkRequest( int offset, bool status = true )
         {
-            byte[] data = null;
-
-            int index = (int)( offset / mFwChunk.GetChunksize() );
-
-            System.Console.WriteLine( "[FileUploadWorker] ResponseChunkRequest upload => index : {0}", index );
-
             ByteUtil bf = new ByteUtil( Escape );
 
-            if ( !status || mFwChunk == null || !IsUploading || (data = mFwChunk.Get( index )) == null )
+            if ( !status || mFwChunk == null || !IsUploading )
             {
-                bf.Put( Const.PK_STX, false )
-                  .Put( (byte)Cmd.FIRMWARE_PACKET_RESPONSE )
-                  .Put( 1 )
-                  .PutShort( 0 )
-                  .Put( Const.PK_ETX, false );
+                bf.Put(Const.PK_STX, false)
+                  .Put((byte)Cmd.FIRMWARE_PACKET_RESPONSE)
+                  .Put(0)
+                  .PutShort(14)
+                  .Put(1)
+                  .PutInt(offset)
+                  .Put(0)
+                  .PutNull(4)
+                  .PutNull(4)
+                  .Put(Const.PK_ETX, false);
 
                 IsUploading = false;
+
+                Send(bf);
+
+                if (!SwUpgradeFailCallbacked)
+                {
+                    Callback.onReceiveFirmwareUpdateResult(this, false);
+                    SwUpgradeFailCallbacked = true;
+                }
             }
             else
             {
+                int index = (int)(offset / mFwChunk.GetChunksize());
+
+                System.Console.WriteLine("[FileUploadWorker] ResponseChunkRequest upload => index : {0}", index);
+
+                byte[] data = mFwChunk.Get(index);
+
                 byte[] cdata = Ionic.Zlib.ZlibStream.CompressBuffer( data );
 
                 byte checksum = mFwChunk.GetChecksum( index );
@@ -1839,11 +1874,11 @@ namespace Neosmartpen.Net.Protocol.v2
                   .PutInt( cdata.Length )
                   .Put( cdata )
                   .Put( Const.PK_ETX, false );
+
+                Send(bf);
+
+                Callback.onReceiveFirmwareUpdateStatus(this, mFwChunk.GetChunkLength(), index + 1);
             }
-
-            Send( bf );
-
-            Callback.onReceiveFirmwareUpdateStatus( this, mFwChunk.GetChunkLength(), (int)index );
         }
 
         /// <summary>

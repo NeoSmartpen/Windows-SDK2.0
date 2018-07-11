@@ -36,6 +36,13 @@ namespace Neosmartpen.Net.Protocol.v1
         void onDisconnected( IPenComm sender );
 
         /// <summary>
+        /// Occurs when the note information to be used is accepted
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onAvailableNoteAccepted( IPenComm sender, bool result );
+
+        /// <summary>
         /// Fired when receive up or down signal from your force sensor of pen, override to handle in your own code.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -171,12 +178,12 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <param name="result">true if updating is successfully finished, otherwise false</param>
         void onReceivedFirmwareUpdateResult( IPenComm sender, bool result );
 
-		/// <summary>
-		/// Occur when error received
-		/// </summary>
-		/// <param name="sender">sender refers to the object that invoked the callback method</param>
-		/// <param name="errorType">Error Message Type</param>
-		/// <param name="timestamp">Timestamp</param>
-		void onErrorDetected( IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData);
+        /// <summary>
+        /// Occur when error received
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="errorType">Error Message Type</param>
+        /// <param name="timestamp">Timestamp</param>
+        void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData);
     }
 }

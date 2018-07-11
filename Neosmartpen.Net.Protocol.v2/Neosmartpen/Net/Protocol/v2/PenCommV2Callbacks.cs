@@ -32,6 +32,13 @@
         void onDisconnected( IPenComm sender );
 
         /// <summary>
+        /// Occurs when the note information to be used is accepted
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">true if your request is successfully applied, otherwise false</param>
+        void onAvailableNoteAccepted(IPenComm sender, bool result);
+
+        /// <summary>
         /// Fired when receive a dot successfully, override to handle in your own code.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -250,5 +257,5 @@
 		/// <param name="errorType">Error Message Type</param>
 		/// <param name="timestamp">Timestamp</param>
 		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo);
-	}
+    }
 }

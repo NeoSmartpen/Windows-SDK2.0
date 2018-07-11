@@ -510,7 +510,11 @@ namespace Neosmartpen.Net.Protocol.v1
                     break;
 
                 case Cmd.A_UsingNoteNotifyResponse:
-                    //System.Console.WriteLine( "[PenCommCore] CMD.A_UsingNoteNotifyResponse" );
+                    {
+                        bool accepted = pk.GetByteToInt() == 0x01;
+
+                        Callback.onAvailableNoteAccepted(this, accepted);
+                    }
                     break;
 
                 case Cmd.A_OfflineNoteListResponse:
@@ -1340,6 +1344,7 @@ namespace Neosmartpen.Net.Protocol.v1
         private void ResponseChunkRequest( short index )
         {
 			byte[] data = null;
+
 			if (mFwChunk == null || (data = mFwChunk.Get(index)) == null)
             {
 				IsUploading = false;
@@ -1360,7 +1365,7 @@ namespace Neosmartpen.Net.Protocol.v1
               .Put( (byte)0xC1 );
             Write( bf.ToArray() );
 
-            Callback.onReceivedFirmwareUpdateStatus( this, mFwChunk.GetChunkLength(), (int)index );
+            Callback.onReceivedFirmwareUpdateStatus( this, mFwChunk.GetChunkLength(), (int)index + 1 );
         }
 
         /// <summary>
