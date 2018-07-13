@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Neosmartpen.Net
+﻿namespace Neosmartpen.Net
 {
-	public enum ErrorType
+    public enum ErrorType
 	{
 		MissingPenUp = 1,
 		MissingPenDown = 2,

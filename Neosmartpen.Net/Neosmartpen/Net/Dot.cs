@@ -187,10 +187,19 @@ namespace Neosmartpen.Net
         public class Builder
         {
             private Dot mDot;
+            private int RefindMaxForce = 1023;
+            private int maxForce = -1;
+            private float scale = -1;
 
             public Builder()
             {
                 mDot = new Dot();
+            }
+
+            public Builder(int maxForce) : this()
+            {
+                this.maxForce = maxForce;
+                scale = RefindMaxForce / maxForce;
             }
 
             public Builder owner( int owner )
@@ -245,9 +254,18 @@ namespace Neosmartpen.Net
                 return this;
             }
 
-            public Builder force( int force )
+            public Builder force(int force)
             {
-                mDot.Force = force;
+                if (maxForce == -1)
+                    mDot.Force = force;
+                else
+                {
+                    mDot.Force = (int)((force * scale) + 0.5); // 반올림
+
+                    if (Support.PressureCalibration.Instance.Factor != null)
+                        mDot.Force = (int)Support.PressureCalibration.Instance.Factor[mDot.Force];
+                }
+
                 return this;
             }
 

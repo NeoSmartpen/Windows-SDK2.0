@@ -655,10 +655,6 @@ namespace Neosmartpen.Net.Protocol.v1
 			ProcessDot(udot);
 		}
 
-		private void ProcessDot( int ownerId, int sectionId, int noteId, int pageId, long timeLong, int x, int y, int fx, int fy, int force, DotTypes type, int color )
-        {
-            Callback.onReceiveDot( this, new Dot( ownerId, sectionId, noteId, pageId, timeLong, x, y, fx, fy, force, type, color ) );
-        }
 		private void ProcessDot(Dot dot, object obj = null)
         {
 			dotFilterForPage.Put(dot, obj);
@@ -1378,12 +1374,12 @@ namespace Neosmartpen.Net.Protocol.v1
             return true;
         }
 
-		private bool GetAvailableCapacity(ref ulong capacity)
+        private bool GetAvailableCapacity(ref ulong capacity)
 		{
 			ulong sectionPerCluster = 0, bytesPerSection = 0, freeClusters = 0, totalClusters = 0;
 			var ret = GetDiskFreeSpace(System.IO.Directory.GetCurrentDirectory(), ref sectionPerCluster, ref bytesPerSection, ref freeClusters, ref totalClusters);
 			capacity = ((sectionPerCluster * bytesPerSection * freeClusters) / 1024) / 1024;
 			return ret;
 		}
-	}
+    }
 }

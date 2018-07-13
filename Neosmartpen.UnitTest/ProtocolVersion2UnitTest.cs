@@ -2,7 +2,10 @@
 using Neosmartpen.Net.Bluetooth;
 using Neosmartpen.Net.Protocol.v2;
 using Neosmartpen.Net.Support;
+using System;
 using System.Diagnostics;
+using System.Globalization;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,7 +24,7 @@ namespace Neosmartpen.UnitTest
 
         public const int TEST_TIMEOUT = 15000;
 
-        public const string MAC = "9C7BD2FFF10E";
+        public const string MAC = "9C7BD2EEE021";
 
         public const string PASSWORD = "1234";
 
@@ -35,6 +38,8 @@ namespace Neosmartpen.UnitTest
         [TestInitialize]
         public void SetUp()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
             _btAdt = new BluetoothAdapter();
 
             _callbackObj = new PenCommV2CallbacksImpl();
@@ -752,6 +757,1277 @@ namespace Neosmartpen.UnitTest
 
             return requestResult && !result;
         }
+
+        #endregion
+
+        #region pen profile
+
+        public readonly static string PROFILE_NAME = "neolab_t";
+        public readonly static string PROFILE_NAME_LONG = "aaaaaaaaaaaa";
+        public readonly static string PROFILE_NAME_INVALID = "abcd";
+
+        public readonly static byte[] PROFILE_PASS = new byte[] { 0x3E, 0xD5, 0x95, 0x25, 0x06, 0xF7, 0x83, 0xDD };
+        public readonly static byte[] PROFILE_PASS_LONG = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        public readonly static byte[] PROFILE_PASS_INVALID = new byte[] { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
+        public readonly static string[] PROFILE_VALUE_KEYS = new string[] { "harry", "sally" };
+        public readonly static string[] PROFILE_VALUE_KEYS_INVALID = new string[] { "john", "doe" };
+        public readonly static byte[][] PROFILE_VALUE_VALUES = new byte[][] { Encoding.UTF8.GetBytes("harrys password"), Encoding.UTF8.GetBytes("sally password") };
+
+        [TestMethod]
+        public void TestPenProfile()
+        {
+            // 프로파일 생성
+            Assert.IsTrue(PenProfileCreateParamNullTest());
+            Assert.IsTrue(PenProfileCreateParamLongTest());
+            Assert.IsTrue(PenProfileCreatePermissionDeniedTest());
+            Assert.IsTrue(PenProfileCreateSuccessTest());
+            Assert.IsTrue(PenProfileCreateAlreadyExistsTest());
+
+            // 프로파일 조회
+            Assert.IsTrue(PenProfileInfoParamTest());
+            Assert.IsTrue(PenProfileInfoTest());
+
+            // 프로파일 값 생성
+            Assert.IsTrue(PenProfileWriteValueParamNullTest());
+            Assert.IsTrue(PenProfileWriteValueParamLongTest());
+            Assert.IsTrue(PenProfileWriteValuePermissionDeniedTest());
+            Assert.IsTrue(PenProfileWriteValueSuccessTest());
+
+            // 프로파일 값 조회
+            Assert.IsTrue(PenProfileReadValueParamTest());
+            Assert.IsTrue(PenProfileReadValueTest());
+
+            // 프로파일 값 삭제
+            Assert.IsTrue(PenProfileDeleteValueParamNullTest());
+            Assert.IsTrue(PenProfileDeleteValueParamLongTest());
+            Assert.IsTrue(PenProfileDeleteValueInvalidPasswordTest());
+            Assert.IsTrue(PenProfileDeleteValueProfileNotExistsTest());
+            Assert.IsTrue(PenProfileDeleteValueNotExistsTest());
+            Assert.IsTrue(PenProfileDeleteValueSuccessTest());
+
+            // 프로파일 삭제
+            Assert.IsTrue(PenProfileDeleteParamNullTest());
+            Assert.IsTrue(PenProfileDeleteParamLongTest());
+            Assert.IsTrue(PenProfileDeleteInvalidPasswordTest());    
+            Assert.IsTrue(PenProfileDeleteSuccessTest());
+            Assert.IsTrue(PenProfileDeleteNameNotExistsTest());
+        }
+
+        #region pen profile create test
+
+        private bool PenProfileCreateParamNullTest()
+        {
+            bool resultPassNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME, null);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultPassNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(null, PROFILE_PASS);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultPassNull && resultNameNull;
+        }
+
+        private bool PenProfileCreateParamLongTest()
+        {
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME_LONG, PROFILE_PASS);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultPassLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME, PROFILE_PASS_LONG);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultPassLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameLong && resultPassLong;
+        }
+
+        private bool PenProfileCreatePermissionDeniedTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME, PROFILE_PASS_INVALID);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileCreateSuccessTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_SUCCESS)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME, PROFILE_PASS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileCreateAlreadyExistsTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_EXIST_PROFILE_ALREADY)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.CreateProfile(PROFILE_NAME, PROFILE_PASS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        #endregion
+
+        #region pen profile info test
+
+        private bool PenProfileInfoParamTest()
+        {
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.GetProfileInfo(null);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.GetProfileInfo(PROFILE_NAME_LONG);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameNull && resultNameLong;
+        }
+
+        private bool PenProfileInfoTest()
+        {
+            bool resultNotExists = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
+                {
+                    resultNotExists = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.GetProfileInfo(PROFILE_NAME_INVALID);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultExists = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_SUCCESS)
+                {
+                    resultExists = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.GetProfileInfo(PROFILE_NAME);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNotExists && resultExists;
+        }
+
+        #endregion
+
+        #region pen profile delete test
+
+        private bool PenProfileDeleteParamNullTest()
+        {
+            bool resultPassNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME, null);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultPassNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(null, PROFILE_PASS);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultPassNull && resultNameNull;
+        }
+
+        private bool PenProfileDeleteParamLongTest()
+        {
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME_LONG, PROFILE_PASS);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultPassLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME, PROFILE_PASS_LONG);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultPassLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameLong && resultPassLong;
+        }
+
+        private bool PenProfileDeleteNameNotExistsTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME, PROFILE_PASS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileDeleteInvalidPasswordTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME, PROFILE_PASS_INVALID);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileDeleteSuccessTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReceivedCallbackArgs arg = args[0] as PenProfileReceivedCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success && arg.Status == PenProfile.PROFILE_STATUS_SUCCESS)
+                {
+                    result = true;
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfile(PROFILE_NAME, PROFILE_PASS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        #endregion
+
+        #region pen profile write value test
+
+        private bool PenProfileWriteValueParamNullTest()
+        {
+            bool resultPassNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(PROFILE_NAME, null, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultPassNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(null, PROFILE_PASS, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultPassNull && resultNameNull;
+        }
+
+        private bool PenProfileWriteValueParamLongTest()
+        {
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(PROFILE_NAME_LONG, PROFILE_PASS, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultPassLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(PROFILE_NAME, PROFILE_PASS_LONG, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultPassLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameLong && resultPassLong;
+        }
+
+        private bool PenProfileWriteValuePermissionDeniedTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileWriteValueCallbackArgs arg = args[0] as PenProfileWriteValueCallbackArgs;
+
+                if (arg.Result != PenProfileReceivedCallbackArgs.ResultType.Failed)
+                {
+                    foreach (var d in arg.Data)
+                    {
+                        if (d.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
+                        {
+                            result = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(PROFILE_NAME, PROFILE_PASS_INVALID, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileWriteValueSuccessTest()
+        {
+            bool result = true;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileWriteValueCallbackArgs arg = args[0] as PenProfileWriteValueCallbackArgs;
+
+                if (arg.Result != PenProfileReceivedCallbackArgs.ResultType.Failed)
+                {
+                    foreach (var d in arg.Data)
+                    {
+                        if (d.Status != PenProfile.PROFILE_STATUS_SUCCESS)
+                        {
+                            result = false;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.WriteProfileValues(PROFILE_NAME, PROFILE_PASS, PROFILE_VALUE_KEYS, PROFILE_VALUE_VALUES);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        #endregion pen profile write value test
+
+        #region pen profile read value test
+
+        private bool PenProfileReadValueParamTest()
+        {
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.ReadProfileValues(null, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.ReadProfileValues(PROFILE_NAME_LONG, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameNull && resultNameLong;
+        }
+
+        private bool PenProfileReadValueTest()
+        {
+            // 프로파일 명이 올바르지 않을때
+
+            bool resultProfileNotExists = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReadValueCallbackArgs arg = args[0] as PenProfileReadValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    foreach (var d in arg.Data)
+                    {
+                        if (d.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
+                        {
+                            resultProfileNotExists = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.ReadProfileValues(PROFILE_NAME_INVALID, PROFILE_VALUE_KEYS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+
+            // 프로파일의 키가 존재 하지 않을때
+
+            bool resultKeyNotExists = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReadValueCallbackArgs arg = args[0] as PenProfileReadValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    foreach (var d in arg.Data)
+                    {
+                        if (d.Status == PenProfile.PROFILE_STATUS_NO_EXIST_KEY)
+                        {
+                            resultKeyNotExists = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.ReadProfileValues(PROFILE_NAME, PROFILE_VALUE_KEYS_INVALID);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+
+            // 프로파일 키가 존재하여 값을 잘 얻어올때
+
+            bool resultKeyExists = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileReadValueCallbackArgs arg = args[0] as PenProfileReadValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    resultKeyExists = true;
+
+                    foreach (var d in arg.Data)
+                    {
+                        if (d.Status != PenProfile.PROFILE_STATUS_SUCCESS)
+                        {
+                            resultKeyExists = false;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.ReadProfileValues(PROFILE_NAME, PROFILE_VALUE_KEYS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultProfileNotExists && resultKeyNotExists &&resultKeyExists;
+        }
+
+        #endregion
+
+        #region pen profile delete value test
+
+        private bool PenProfileDeleteValueParamNullTest()
+        {
+            bool resultPassNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME, null, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultPassNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultNameNull = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(null, PROFILE_PASS, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentNullException)
+                {
+                    resultNameNull = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultPassNull && resultNameNull;
+        }
+
+        private bool PenProfileDeleteValueParamLongTest()
+        {
+            bool resultNameLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME_LONG, PROFILE_PASS, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultNameLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            bool resultPassLong = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME, PROFILE_PASS_LONG, PROFILE_VALUE_KEYS);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    resultPassLong = true;
+                    _autoResetEvent.Set();
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return resultNameLong && resultPassLong;
+        }
+
+        private bool PenProfileDeleteValueProfileNotExistsTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileDeleteValueCallbackArgs arg = args[0] as PenProfileDeleteValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    foreach (var v in arg.Data)
+                    {
+                        if (v.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
+                        {
+                            result = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME_INVALID, PROFILE_PASS, PROFILE_VALUE_KEYS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileDeleteValueInvalidPasswordTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileDeleteValueCallbackArgs arg = args[0] as PenProfileDeleteValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    foreach (var v in arg.Data)
+                    {
+                        if (v.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
+                        {
+                            result = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME, PROFILE_PASS_INVALID, PROFILE_VALUE_KEYS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileDeleteValueSuccessTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileDeleteValueCallbackArgs arg = args[0] as PenProfileDeleteValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    result = true;
+
+                    foreach (var v in arg.Data)
+                    {
+                        if (v.Status != PenProfile.PROFILE_STATUS_SUCCESS)
+                        {
+                            result = false;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME, PROFILE_PASS, PROFILE_VALUE_KEYS);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        private bool PenProfileDeleteValueNotExistsTest()
+        {
+            bool result = false;
+
+            _callbackObj.PenProfileReceived = delegate (object sender, object[] args)
+            {
+                PenProfileDeleteValueCallbackArgs arg = args[0] as PenProfileDeleteValueCallbackArgs;
+
+                if (arg.Result == PenProfileReceivedCallbackArgs.ResultType.Success)
+                {
+                    foreach (var v in arg.Data)
+                    {
+                        if (v.Status == PenProfile.PROFILE_STATUS_NO_EXIST_KEY)
+                        {
+                            result = true;
+                            continue;
+                        }
+                    }
+                }
+
+                _autoResetEvent.Set();
+            };
+
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    _penComm.DeleteProfileValues(PROFILE_NAME, PROFILE_PASS, PROFILE_VALUE_KEYS_INVALID);
+                }
+                catch
+                {
+                    _autoResetEvent.Set();
+                }
+            });
+
+            _autoResetEvent.WaitOne();
+
+            return result;
+        }
+
+        #endregion
 
         #endregion
     }

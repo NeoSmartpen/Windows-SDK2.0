@@ -192,6 +192,10 @@ namespace Neosmartpen.UnitTest
         {
         }
 
+        void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
+        {
+        }
+
         #endregion callback
     }
 }

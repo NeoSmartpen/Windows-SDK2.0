@@ -56,6 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileCreateCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileDeleteCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileDeleteValueCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileInfoCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileReadValueCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileReceivedCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\CallbackArgs\PenProfile\PenProfileWriteValueCallbackArgs.cs" />
+    <Compile Include="Neosmartpen\Net\Protocol\v2\PenProfile.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\ImageProcessErrorInfo.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\ImageProcessingInfo.cs" />
     <Compile Include="Neosmartpen\Net\Protocol\v2\PenCommV2.cs" />

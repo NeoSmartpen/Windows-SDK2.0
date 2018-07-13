@@ -215,6 +215,19 @@ namespace Neosmartpen.Net
             }
         }
 
+        public void SetPressureCalibrateFactor(int cPX1, int cPY1, int cPX2, int cPY2, int cPX3, int cPY3)
+        {
+            Support.PressureCalibration.Instance.MakeFactor(cPX1, cPY1, cPX2, cPY2, cPX3, cPY3);
+        }
+
+        public float GetPressureCalibrationFactor(int index)
+        {
+            if (index < 0 || index > Support.PressureCalibration.Instance.MAX_FACTOR)
+                return -1;
+
+            return Support.PressureCalibration.Instance.Factor[index];
+        }
+
         protected internal abstract void OnConnected();
 
         protected internal abstract void OnDisconnected();

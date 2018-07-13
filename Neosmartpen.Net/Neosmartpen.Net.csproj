@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Neosmartpen\ErrorType.cs" />
     <Compile Include="Neosmartpen\Net\Bluetooth\BluetoothAdapter.cs" />
     <Compile Include="Neosmartpen\Net\Chunk.cs" />
+    <Compile Include="Neosmartpen\Net\ErrorType.cs" />
     <Compile Include="Neosmartpen\Net\Filter\FilterForPaper.cs" />
     <Compile Include="Neosmartpen\Net\IPacket.cs" />
     <Compile Include="Neosmartpen\Net\IPenComm.cs" />
@@ -69,6 +69,8 @@
     <Compile Include="Neosmartpen\Net\OfflineDataStructure.cs" />
     <Compile Include="Neosmartpen\Net\Packet.cs" />
     <Compile Include="Neosmartpen\Net\PenComm.cs" />
+    <Compile Include="Neosmartpen\Net\Support\FloatConverter.cs" />
+    <Compile Include="Neosmartpen\Net\Support\PressureCalibration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Neosmartpen\Net\Support\ByteConverter.cs" />
     <Compile Include="Neosmartpen\Net\Support\ByteUtil.cs" />
