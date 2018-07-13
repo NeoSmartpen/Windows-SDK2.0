@@ -40,7 +40,7 @@ namespace Neosmartpen.Net.Protocol.v1
 			offlineFilterForPaper = new FilterForPaper(AddOfflineFilteredDot);
         }
 
-        public Dot[] Parse()
+        public Dot[] Parse(int penMaxFoce)
         {
             if ( !mTarget.EndsWith( EXT_DATA ) && !mTarget.EndsWith( EXT_ZIP )  )
             {
@@ -52,7 +52,7 @@ namespace Neosmartpen.Net.Protocol.v1
             {
                 LoadDataFromFile( mTarget );
                 ParseHeader();
-                ParseBody();
+                ParseBody(penMaxFoce);
             }
             catch ( Exception e )
             {
@@ -184,7 +184,7 @@ namespace Neosmartpen.Net.Protocol.v1
             return (byte)CheckSum;
         }
 
-        private void ParseBody()
+        private void ParseBody(int penMaxForce)
         {
             mDots.Clear();
 
@@ -277,7 +277,7 @@ namespace Neosmartpen.Net.Protocol.v1
                     }
 
 					offlineFilterForPaper.Put(
-                        new Dot.Builder()
+                        new Dot.Builder(penMaxForce)
                             .section( mSectionId )
                             .owner( mOwnerId )
                             .note( mNoteId )

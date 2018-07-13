@@ -215,11 +215,28 @@ namespace Neosmartpen.Net
             }
         }
 
+        /// <summary>
+        /// Function for adjusting pressure to user's taste.
+        /// Draw the XY curve and use the Y value corresponding to the specified point on the X axis as the pressure.
+        /// The horizontal and vertical length of the graph is 1023.
+        /// (The total points are three)
+        /// </summary>
+        /// <param name="cPX1">The X coordinate of the first point (which will be 0).</param>
+        /// <param name="cPY1">The Y coordinate of the first point (enter the value according to the user's preference)</param>
+        /// <param name="cPX2">The X coordinate of the second point (which will be 512).</param>
+        /// <param name="cPY2">The Y coordinate of the second point (enter the value according to the user's preference)</param>
+        /// <param name="cPX3">The X coordinate of the third point (which will be 1023).</param>
+        /// <param name="cPY3">The Y coordinate of the third point (enter the value according to the user's preference)</param>
         public void SetPressureCalibrateFactor(int cPX1, int cPY1, int cPX2, int cPY2, int cPX3, int cPY3)
         {
             Support.PressureCalibration.Instance.MakeFactor(cPX1, cPY1, cPX2, cPY2, cPX3, cPY3);
         }
 
+        /// <summary>
+        /// A pressure factor (corrected pressure corresponding to the actual pressure) is obtained.
+        /// </summary>
+        /// <param name="index">Actual pen pressure</param>
+        /// <returns>Calibrated pressure</returns>
         public float GetPressureCalibrationFactor(int index)
         {
             if (index < 0 || index > Support.PressureCalibration.Instance.MAX_FACTOR)
