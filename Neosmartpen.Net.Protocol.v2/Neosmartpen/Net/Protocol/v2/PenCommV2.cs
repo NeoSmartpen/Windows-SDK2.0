@@ -631,7 +631,7 @@ namespace Neosmartpen.Net.Protocol.v2
                                     dotType = DotTypes.PEN_MOVE;
                                 }
 
-                                Dot.Builder builder = new Dot.Builder();
+                                Dot.Builder builder = new Dot.Builder(MaxForce);
 
                                 Dot dot = builder.owner(owner)
                                     .section(section)
@@ -2058,7 +2058,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
 		private Dot MakeDot(int owner, int section, int note, int page, long timestamp, int x, int y, int fx, int fy, int force, DotTypes type, int color)
 		{
-			Dot.Builder builder = new Dot.Builder();
+			Dot.Builder builder = new Dot.Builder(MaxForce);
 
 			builder.owner(owner)
 				.section(section)

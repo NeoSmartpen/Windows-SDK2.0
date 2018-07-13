@@ -25,6 +25,8 @@ namespace Neosmartpen.Net.Protocol.v1
 
         private bool isRun = true;
 
+        public int PenMaxForce = 0;
+
         public OfflineWorker( OfflineWorkResponseHandler handler )
 	    {
 		    mOfflineRequestQueue = new Queue<OfflineDataInfo>();
@@ -190,7 +192,7 @@ namespace Neosmartpen.Net.Protocol.v1
             }
         }
 
-        private Stroke[] DataFileToStroke( OfflineDataFile sfile )
+        private Stroke[] DataFileToStroke( OfflineDataFile sfile, int penMaxForce)
 	    {
             if ( sfile == null )
 		    {
@@ -209,7 +211,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
 				parser = new OfflineDataParser( sfile.FilePath );
 
-                Dot[] dots = parser.Parse();
+                Dot[] dots = parser.Parse(penMaxForce);
 
                 parser.Delete();
  
@@ -239,7 +241,7 @@ namespace Neosmartpen.Net.Protocol.v1
             System.Console.WriteLine( "[OfflineWorker] processData() - begin" );
             
             // 노트 스트로크
-            Stroke[] sarr = DataFileToStroke( currentFile );
+            Stroke[] sarr = DataFileToStroke( currentFile, PenMaxForce );
 
             if ( sarr == null || sarr.Length <= 0 )
             {

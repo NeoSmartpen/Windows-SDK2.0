@@ -19,6 +19,11 @@ namespace Neosmartpen.Net.Protocol.v1
 
         //private IPacket mPrevPacket;
 
+        /// <summary>
+        /// Gets the maximum level of force sensor.
+        /// </summary>
+        public short MaxForce { get; private set; }
+
         private int mOwnerId = 0, mSectionId = 0, mNoteId = 0, mPageId = 0;
 
         private long mPrevDotTime = 0;
@@ -169,7 +174,7 @@ namespace Neosmartpen.Net.Protocol.v1
 
                         long timeLong = mPrevDotTime + time;
 
-						Dot.Builder builder = new Dot.Builder();
+						Dot.Builder builder = new Dot.Builder(MaxForce);
 
 						builder.owner(mOwnerId)
 							.section(mSectionId)
@@ -348,6 +353,8 @@ namespace Neosmartpen.Net.Protocol.v1
 
                     int FORCE_MAX = pk.GetByteToInt();
 
+                    MaxForce = (short)FORCE_MAX;
+
                     string SW_VER = pk.GetString( 5 );
 
                     if ( STATUS == 0x00 )
@@ -362,7 +369,7 @@ namespace Neosmartpen.Net.Protocol.v1
                         SendPenOnOffData();
                         SendRTCData();
 						needToInputDefaultPassword = true;
-
+                        mOfflineworker.PenMaxForce = FORCE_MAX;
                         Callback.onConnected( this, FORCE_MAX, SW_VER );
                     }
 
@@ -664,7 +671,6 @@ namespace Neosmartpen.Net.Protocol.v1
 		{
 			Callback.onReceiveDot(this, dot);
 		}
-
 
 		private void SendPenOnOffData()
         {
