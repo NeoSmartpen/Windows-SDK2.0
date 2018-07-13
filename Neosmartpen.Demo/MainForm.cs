@@ -724,6 +724,9 @@ namespace PenDemo
         {
         }
 
+        void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
+        {
+        }
         #endregion
 
         #region pencontrol

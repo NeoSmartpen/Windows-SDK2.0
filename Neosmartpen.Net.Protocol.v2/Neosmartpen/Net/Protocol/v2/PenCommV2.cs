@@ -2,6 +2,7 @@
 using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -630,8 +631,20 @@ namespace Neosmartpen.Net.Protocol.v2
                                     dotType = DotTypes.PEN_MOVE;
                                 }
 
+                                Dot.Builder builder = new Dot.Builder();
+
+                                Dot dot = builder.owner(owner)
+                                    .section(section)
+                                    .note(note)
+                                    .page(pageId)
+                                    .timestamp(time)
+                                    .coord(x, fx, y, fy)
+                                    .force(force)
+                                    .dotType(dotType)
+                                    .color(color).Build();
+
                                 //offlineStroke.Add( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ) );
-								offlineFillterForPaper.Put( new Dot( owner, section, note, pageId, time, x, y, fx, fy, force, dotType, color ), null );
+                                offlineFillterForPaper.Put(dot, null );
 
                             }
 
@@ -680,6 +693,61 @@ namespace Neosmartpen.Net.Protocol.v2
                     break;
                 #endregion
 
+                #region Pen Profile
+
+                case Cmd.PEN_PROFILE_RESPONSE:
+                    {
+                        if (pk.Result == 0x00)
+                        {
+                            string profileName = pk.GetString(8);
+
+                            byte type = pk.GetByte();
+
+                            PenProfileReceivedCallbackArgs eventArgs = null;
+
+                            if (type == PenProfile.PROFILE_CREATE)
+                            {
+                                eventArgs = PenProfileCreate(profileName, pk);
+                            }
+                            else if (type == PenProfile.PROFILE_DELETE)
+                            {
+                                eventArgs = PenProfileDelete(profileName, pk);
+                            }
+                            else if (type == PenProfile.PROFILE_INFO)
+                            {
+                                eventArgs = PenProfileInfo(profileName, pk);
+                            }
+                            else if (type == PenProfile.PROFILE_READ_VALUE)
+                            {
+                                eventArgs = PenProfileReadValue(profileName, pk);
+                            }
+                            else if (type == PenProfile.PROFILE_WRITE_VALUE)
+                            {
+                                eventArgs = PenProfileWriteValue(profileName, pk);
+                            }
+                            else if (type == PenProfile.PROFILE_DELETE_VALUE)
+                            {
+                                eventArgs = PenProfileDeleteValue(profileName, pk);
+                            }
+
+                            if (eventArgs != null)
+                            {
+                                Callback.onPenProfileReceived(this, eventArgs);
+                            }
+                            else
+                            {
+                                Callback.onPenProfileReceived(this, new PenProfileReceivedCallbackArgs(PenProfileReceivedCallbackArgs.ResultType.Failed));
+                            }
+                        }
+                        else
+                        {
+                            Callback.onPenProfileReceived(this, new PenProfileReceivedCallbackArgs(PenProfileReceivedCallbackArgs.ResultType.Failed));
+                        }
+                    }
+                    break;
+
+                #endregion
+
                 case Cmd.ONLINE_DATA_RESPONSE:
                     {
                         bool result = pk.Result == 0x00;
@@ -695,7 +763,113 @@ namespace Neosmartpen.Net.Protocol.v2
             System.Console.WriteLine();    
         }
 
-		private bool IsBeforeMiddle = false;
+        #region Pen Profile Response
+
+        private PenProfileReceivedCallbackArgs PenProfileCreate(string profileName, Packet packet)
+        {
+            byte status = packet.GetByte();
+            return new PenProfileCreateCallbackArgs(profileName, status);
+        }
+
+        private PenProfileReceivedCallbackArgs PenProfileDelete(string profileName, Packet packet)
+        {
+            byte status = packet.GetByte();
+            return new PenProfileDeleteCallbackArgs(profileName, status);
+        }
+
+        private PenProfileReceivedCallbackArgs PenProfileInfo(string profileName, Packet packet)
+        {
+            byte status = packet.GetByte();
+
+            var args = new PenProfileInfoCallbackArgs(profileName, status);
+
+            if (status == 0x00)
+            {
+                args.TotalSectionCount = packet.GetShort();
+                args.SectionSize = packet.GetShort();
+                args.UseSectionCount = packet.GetShort();
+                args.UseKeyCount = packet.GetShort();
+            }
+            return args;
+        }
+
+        private PenProfileReceivedCallbackArgs PenProfileReadValue(string profileName, Packet packet)
+        {
+            int count = packet.GetByte();
+
+            var args = new PenProfileReadValueCallbackArgs(profileName);
+
+            try
+            {
+                for (int i = 0; i < count; ++i)
+                {
+                    var result = new PenProfileReadValueCallbackArgs.ReadValueResult();
+                    result.Key = packet.GetString(16);
+                    result.Status = packet.GetByte();
+                    int dataSize = packet.GetShort();
+                    result.Data = packet.GetBytes(dataSize);
+                    args.Data.Add(result);
+                }
+            }
+            catch (Exception exp)
+            {
+                Debug.WriteLine(exp.StackTrace);
+            }
+
+            return args;
+        }
+
+        private PenProfileReceivedCallbackArgs PenProfileWriteValue(string profileName, Packet packet)
+        {
+            int count = packet.GetByte();
+
+            var args = new PenProfileWriteValueCallbackArgs(profileName);
+
+            try
+            {
+                for (int i = 0; i < count; ++i)
+                {
+                    var result = new PenProfileWriteValueCallbackArgs.WriteValueResult();
+                    result.Key = packet.GetString(16);
+                    result.Status = packet.GetByte();
+                    args.Data.Add(result);
+                }
+            }
+            catch (Exception exp)
+            {
+                Debug.WriteLine(exp.StackTrace);
+            }
+
+            return args;
+        }
+
+        private PenProfileReceivedCallbackArgs PenProfileDeleteValue(string profileName, Packet packet)
+        {
+            int count = packet.GetByte();
+
+            var args = new PenProfileDeleteValueCallbackArgs(profileName);
+
+            try
+            {
+                for (int i = 0; i < count; ++i)
+                {
+                    var result = new PenProfileDeleteValueCallbackArgs.DeleteValueResult();
+                    result.Key = packet.GetString(16);
+                    result.Status = packet.GetByte();
+                    args.Data.Add(result);
+                }
+            }
+            catch (Exception exp)
+            {
+                Debug.WriteLine(exp.StackTrace);
+            }
+
+            return args;
+        }
+
+        #endregion
+
+        private bool IsBeforeMiddle = false;
 
 		private bool IsStartWithPaperInfo = false;
 
@@ -1033,28 +1207,6 @@ namespace Neosmartpen.Net.Protocol.v2
 			}
 		}
 
-		private void ParseDot( Packet packet, DotTypes type )
-        {
-            int timeadd = packet.GetByte();
-
-            mTime += timeadd;
-
-            int force = packet.GetShort();
-
-            int x = packet.GetShort();
-            int y = packet.GetShort();
-
-            int fx = packet.GetByte();
-            int fy = packet.GetByte();
-
-            int tx = packet.GetByte();
-            int ty = packet.GetByte();
-
-            int twist = packet.GetShort();
-
-            Callback.onReceiveDot( this, new Dot( mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor ), null );
-        }
-
 		private void ProcessDot(Dot dot, object obj = null)
 		{
 			dotFilterForPaper.Put(dot, obj);
@@ -1065,6 +1217,7 @@ namespace Neosmartpen.Net.Protocol.v2
 		}
 
 		private Stroke offlineStroke;
+
 		private void AddOfflineFilteredDot(Dot dot, object obj)
 		{
 			offlineStroke.Add(dot);
@@ -1141,11 +1294,11 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         if (HoverMode && !IsStartWithDown)
                         {
-                            dot = new Dot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_HOVER, mPenTipColor);
+                            dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, DotTypes.PEN_HOVER, mPenTipColor);
                         }
                         else if (IsStartWithDown)
                         {
-                            dot = new Dot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
+                            dot = MakeDot(mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, mDotCount == 0 ? DotTypes.PEN_DOWN : DotTypes.PEN_MOVE, mPenTipColor);
                         }
                         else
                         {
@@ -1934,6 +2087,335 @@ namespace Neosmartpen.Net.Protocol.v2
 		}
 
 
-		#endregion
-	}
+        #endregion
+
+        #region Pen Profile
+
+        public bool IsSupportPenProfile()
+        {
+            string[] temp = ProtocolVersion.Split('.');
+            float ver = 0f;
+            try
+            {
+                ver = FloatConverter.ToSingle(temp[0] + "." + temp[1]);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+            }
+            if (ver >= PEN_PROFILE_SUPPORT_PROTOCOL_VERSION)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Request to create profile
+        /// </summary>
+        /// <param name="profileName">Name of the profile to be created</param>
+        /// <param name="password">Password of profile</param>
+        //public void CreateProfile(string profileName, string password)
+        public void CreateProfile(string profileName, byte[] password)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+
+                if (password == null)
+                    throw new ArgumentNullException("password");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                //byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+                else if (password.Length != PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)
+                    throw new ArgumentOutOfRangeException("password", $"password byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PASSWORD}");
+
+                ReqCreateProfile(profileNameBytes, password);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+
+        }
+
+        /// <summary>
+        /// Request to delete profile
+        /// </summary>
+        /// <param name="profileName">Name of the profile to be deleted</param>
+        /// <param name="password">password of profile</param>
+        public void DeleteProfile(string profileName, byte[] password)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+                if (password == null)
+                    throw new ArgumentNullException("password");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                //byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+                else if (password.Length != PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)
+                    throw new ArgumentOutOfRangeException("password", $"password byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PASSWORD}");
+
+                ReqDeleteProfile(profileNameBytes, password);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+        }
+
+        /// <summary>
+        /// Request information of the profile
+        /// </summary>
+        /// <param name="profileName">profile's name</param>
+        public void GetProfileInfo(string profileName)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+
+                ReqProfileInfo(profileNameBytes);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+        }
+
+        /// <summary>
+        /// Request to get data from profile
+        /// </summary>
+        /// <param name="profileName">profile name</param>
+        /// <param name="keys">key array</param>
+        public void ReadProfileValues(string profileName, string[] keys)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+                if (keys == null)
+                    throw new ArgumentNullException("keys");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+
+                byte[][] keysBytes = new byte[keys.Length][];
+                for (int i = 0; i < keys.Length; ++i)
+                {
+                    keysBytes[i] = Encoding.UTF8.GetBytes(keys[i]);
+                    if (keysBytes[i].Length > PenProfile.LIMIT_BYTE_LENGTH_KEY)
+                        throw new ArgumentOutOfRangeException("keys", $"key byte length must be {PenProfile.LIMIT_BYTE_LENGTH_KEY} or less");
+                }
+
+                ReqReadProfileValue(profileNameBytes, keysBytes);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+        }
+
+        /// <summary>
+        /// Request to write data
+        /// </summary>
+        /// <param name="profileName">profile name</param>
+        /// <param name="password">password</param>
+        /// <param name="keys">key array</param>
+        /// <param name="data">data</param>
+        public void WriteProfileValues(string profileName, byte[] password, string[] keys, byte[][] data)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+                if (password == null)
+                    throw new ArgumentNullException("password");
+                if (keys == null)
+                    throw new ArgumentNullException("keys");
+                if (data == null)
+                    throw new ArgumentNullException("data");
+                if (keys.Length != data.Length)
+                    throw new ArgumentOutOfRangeException("keys, data", "The number of keys and data does not match");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                //byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+                else if (password.Length != PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)
+                    throw new ArgumentOutOfRangeException("password", $"password byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PASSWORD}");
+
+                byte[][] keysBytes = new byte[keys.Length][];
+                for (int i = 0; i < keys.Length; ++i)
+                {
+                    keysBytes[i] = Encoding.UTF8.GetBytes(keys[i]);
+                    if (keysBytes[i].Length > PenProfile.LIMIT_BYTE_LENGTH_KEY)
+                        throw new ArgumentOutOfRangeException("keys", $"key byte length must be {PenProfile.LIMIT_BYTE_LENGTH_KEY} or less");
+                }
+
+                ReqWriteProfileValue(profileNameBytes, password, keysBytes, data);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+        }
+
+        /// <summary>
+        /// Request to delete data
+        /// </summary>
+        /// <param name="profileName">profile name</param>
+        /// <param name="password">password</param>
+        /// <param name="keys">key array</param>
+        public void DeleteProfileValues(string profileName, byte[] password, string[] keys)
+        {
+            if (IsSupportPenProfile())
+            {
+                if (string.IsNullOrEmpty(profileName))
+                    throw new ArgumentNullException("profileName");
+                if (password == null)
+                    throw new ArgumentNullException("password");
+                if (keys == null)
+                    throw new ArgumentNullException("keys");
+
+                byte[] profileNameBytes = Encoding.UTF8.GetBytes(profileName);
+                //byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                if (profileNameBytes.Length > PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)
+                    throw new ArgumentOutOfRangeException("profileName", $"profileName byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME} or less");
+                else if (password.Length != PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)
+                    throw new ArgumentOutOfRangeException("password", $"password byte length must be {PenProfile.LIMIT_BYTE_LENGTH_PASSWORD}");
+
+                byte[][] keysBytes = new byte[keys.Length][];
+                for (int i = 0; i < keys.Length; ++i)
+                {
+                    keysBytes[i] = Encoding.UTF8.GetBytes(keys[i]);
+                    if (keysBytes[i].Length > PenProfile.LIMIT_BYTE_LENGTH_KEY)
+                        throw new ArgumentOutOfRangeException("keys", $"key byte length must be {PenProfile.LIMIT_BYTE_LENGTH_KEY} or less");
+                }
+
+                ReqDeleteProfileValue(profileNameBytes, password, keysBytes);
+            }
+            else
+                throw new NotSupportedException($"CreateProfile is not supported at this pen firmware version");
+        }
+
+        private bool ReqCreateProfile(byte[] profileName, byte[] password)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST) // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1 + PenProfile.LIMIT_BYTE_LENGTH_PASSWORD + 2 + 2))        // length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)                // profile file name
+                .Put(PenProfile.PROFILE_CREATE)     // type
+                .Put(password, PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)                   // password
+                .PutShort(32)                       // section 크기 -> 32인 이유? 우선 android따라감. 확인필요
+                .PutShort(32)                        // sector 개수(2^N 현재는 고정 2^8)
+                .Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        private bool ReqDeleteProfile(byte[] profileName, byte[] password)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST) // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1 + PenProfile.LIMIT_BYTE_LENGTH_PASSWORD))                // length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)                // profile file name
+                .Put(PenProfile.PROFILE_DELETE)     // type
+                .Put(password, PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)                   // password
+                .Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        private bool ReqProfileInfo(byte[] profileName)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST) // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1))                    // length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)           // profile file name
+                .Put(PenProfile.PROFILE_INFO)       // type
+                .Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        private bool ReqWriteProfileValue(byte[] profileName, byte[] password, byte[][] keys, byte[][] data)
+        {
+            int dataLength = 0;
+            int dataCount = data.Length;
+            for (int i = 0; i < dataCount; ++i)
+            {
+                dataLength += PenProfile.LIMIT_BYTE_LENGTH_KEY;               // key
+                dataLength += 2;                // data length
+                dataLength += data[i].Length;   // data 
+            }
+
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST)             // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1 + PenProfile.LIMIT_BYTE_LENGTH_PASSWORD + 1 + dataLength))  // length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)                       // profile file name
+                .Put(PenProfile.PROFILE_WRITE_VALUE)            // type
+                .Put(password, PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)                          // password
+                .Put((byte)dataCount);                          // count
+
+            for (int i = 0; i < dataCount; ++i)
+            {
+                bf.Put(keys[i], PenProfile.LIMIT_BYTE_LENGTH_KEY)
+                    .PutShort((short)data[i].Length)
+                    .Put(data[i]);
+            }
+
+            bf.Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        private bool ReqReadProfileValue(byte[] profileName, byte[][] keys)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST)                 // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1 + 1 + PenProfile.LIMIT_BYTE_LENGTH_KEY * keys.Length))    // Length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)                           // profile file name
+                .Put(PenProfile.PROFILE_READ_VALUE)                 // Type
+                .Put((byte)keys.Length);                            // Key Count
+
+            for (int i = 0; i < keys.Length; ++i)
+            {
+                bf.Put(keys[i], PenProfile.LIMIT_BYTE_LENGTH_KEY);
+            }
+
+            bf.Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        private bool ReqDeleteProfileValue(byte[] profileName, byte[] password, byte[][] keys)
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+                .Put((byte)Cmd.PEN_PROFILE_REQUEST)                     // command
+                .PutShort((short)(PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME + 1 + PenProfile.LIMIT_BYTE_LENGTH_PASSWORD + 1 + PenProfile.LIMIT_BYTE_LENGTH_KEY * keys.Length))    // Length
+                .Put(profileName, PenProfile.LIMIT_BYTE_LENGTH_PROFILE_NAME)                               // profile file name
+                .Put(PenProfile.PROFILE_DELETE_VALUE)                   // Type
+                .Put(password, PenProfile.LIMIT_BYTE_LENGTH_PASSWORD)                                  // password
+                .Put((byte)keys.Length);                                // key count
+
+            for (int i = 0; i < keys.Length; ++i)
+            {
+                bf.Put(keys[i], PenProfile.LIMIT_BYTE_LENGTH_KEY);
+            }
+
+            bf.Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        #endregion
+    }
 }

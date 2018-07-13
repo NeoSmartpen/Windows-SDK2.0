@@ -257,5 +257,12 @@
 		/// <param name="errorType">Error Message Type</param>
 		/// <param name="timestamp">Timestamp</param>
 		void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData, ImageProcessErrorInfo imageProcessErrorInfo);
+
+        /// <summary>
+        /// Occurs when a response to a profile request is received.
+        /// </summary>
+        /// <param name="sender">Sender refers to the object that invoked the callback method</param>
+        /// <param name="args">Object containing response data for profile request</param>
+        void onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args);
     }
 }

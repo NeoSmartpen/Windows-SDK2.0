@@ -1,6 +1,5 @@
 ﻿using Neosmartpen.Net;
 using Neosmartpen.Net.Protocol.v2;
-using System;
 
 namespace Neosmartpen.UnitTest
 {
@@ -37,6 +36,7 @@ namespace Neosmartpen.UnitTest
         public CallbackDele OfflineStrokesReceived;
         public CallbackDele FirmwareUpdateProgressReceived;
         public CallbackDele FirmwareUpdateResultReceived;
+        public CallbackDele PenProfileReceived;
 
         public void Dispose()
         {
@@ -69,6 +69,7 @@ namespace Neosmartpen.UnitTest
             OfflineStrokesReceived = null;
             FirmwareUpdateProgressReceived = null;
             FirmwareUpdateResultReceived = null;
+            PenProfileReceived = null;
         }
 
         void PenCommV2Callbacks.onConnected(IPenComm sender, string macAddress, string deviceName, string fwVersion, string protocolVersion, string subName, int maxForce)
@@ -226,6 +227,11 @@ namespace Neosmartpen.UnitTest
         void PenCommV2Callbacks.onFinishedOfflineDownload(IPenComm sender, bool result)
         {
             OfflineDataDownloadingFinished?.Invoke(sender, result);
+        }
+
+        void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
+        {
+            PenProfileReceived?.Invoke(sender, args);
         }
     }
 }
