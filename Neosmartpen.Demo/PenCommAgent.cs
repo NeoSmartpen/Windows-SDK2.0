@@ -253,18 +253,6 @@ namespace Neosmartpen.Net
             }
         }
 
-        public void ReqSetupHover( bool enable )
-        {
-            if ( IsV1Comm )
-            {
-                mCommV1.ReqSetupHoverMode( enable );
-            }
-            else
-            {
-                mCommV2.ReqSetupHoverMode( enable );
-            }
-        }
-
         public void ReqSetupPenCapPower( bool enable )
         {
             if ( IsV1Comm )

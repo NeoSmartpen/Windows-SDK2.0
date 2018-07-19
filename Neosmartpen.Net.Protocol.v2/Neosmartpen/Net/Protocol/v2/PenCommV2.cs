@@ -1587,7 +1587,7 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         /// <param name="enable">true if you want to enable hover mode, otherwise false.</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqSetupHoverMode( bool enable )
+        private bool ReqSetupHoverMode( bool enable )
         {
             return RequestChangeSetting( SettingType.Hover, enable );
         }
