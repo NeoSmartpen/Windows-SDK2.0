@@ -49,7 +49,6 @@
             this.cbPenCapPower = new System.Windows.Forms.CheckBox();
             this.cbPenTipPowerOn = new System.Windows.Forms.CheckBox();
             this.cbBeep = new System.Windows.Forms.CheckBox();
-            this.cbHover = new System.Windows.Forms.CheckBox();
             this.cbOfflineData = new System.Windows.Forms.CheckBox();
             this.tbFsrStep = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -310,23 +309,11 @@
             this.cbBeep.UseVisualStyleBackColor = true;
             this.cbBeep.CheckedChanged += new System.EventHandler(this.cbBeep_CheckedChanged);
             // 
-            // cbHover
-            // 
-            this.cbHover.AutoSize = true;
-            this.cbHover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbHover.Location = new System.Drawing.Point(22, 158);
-            this.cbHover.Name = "cbHover";
-            this.cbHover.Size = new System.Drawing.Size(53, 16);
-            this.cbHover.TabIndex = 4;
-            this.cbHover.Text = "Hover";
-            this.cbHover.UseVisualStyleBackColor = true;
-            this.cbHover.CheckedChanged += new System.EventHandler(this.cbHover_CheckedChanged);
-            // 
             // cbOfflineData
             // 
             this.cbOfflineData.AutoSize = true;
             this.cbOfflineData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbOfflineData.Location = new System.Drawing.Point(22, 180);
+            this.cbOfflineData.Location = new System.Drawing.Point(22, 158);
             this.cbOfflineData.Name = "cbOfflineData";
             this.cbOfflineData.Size = new System.Drawing.Size(84, 16);
             this.cbOfflineData.TabIndex = 5;
@@ -485,7 +472,6 @@
             this.groupBox5.Controls.Add(this.tbFsrStep);
             this.groupBox5.Controls.Add(this.prgStorage);
             this.groupBox5.Controls.Add(this.cbOfflineData);
-            this.groupBox5.Controls.Add(this.cbHover);
             this.groupBox5.Controls.Add(this.cbBeep);
             this.groupBox5.Controls.Add(this.cbPenTipPowerOn);
             this.groupBox5.Controls.Add(this.nmPowerOffTime);
@@ -596,7 +582,6 @@
         private System.Windows.Forms.CheckBox cbPenCapPower;
         private System.Windows.Forms.CheckBox cbPenTipPowerOn;
         private System.Windows.Forms.CheckBox cbBeep;
-        private System.Windows.Forms.CheckBox cbHover;
         private System.Windows.Forms.CheckBox cbOfflineData;
         private System.Windows.Forms.TrackBar tbFsrStep;
         private System.Windows.Forms.Label label1;

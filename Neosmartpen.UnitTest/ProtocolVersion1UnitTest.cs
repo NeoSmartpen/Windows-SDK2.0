@@ -209,28 +209,6 @@ namespace Neosmartpen.UnitTest
 
         [TestMethod]
         [Timeout(TEST_TIMEOUT)]
-        public void TestPenHoverSetup()
-        {
-            bool result = false;
-
-            _callbackObj.PenHoverChanged = delegate (object sender, object[] args)
-            {
-                result = (bool)args[0];
-                _autoResetEvent.Set();
-            };
-
-            Task.Factory.StartNew(() =>
-            {
-                _penComm.ReqSetupHoverMode(false);
-            });
-
-            _autoResetEvent.WaitOne();
-
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        [Timeout(TEST_TIMEOUT)]
         public void TestPenSensitivitySetup()
         {
             bool result = false;

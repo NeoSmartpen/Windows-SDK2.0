@@ -595,6 +595,7 @@ namespace Neosmartpen.Net.Protocol.v1
                 case Cmd.A_AutoPowerOnResponse:
                 case Cmd.A_BeepSetResponse:
                 case Cmd.A_PenColorSetResponse:
+                case Cmd.A_HoverOnOffResponse:
                     ResPenSetup( (Cmd)pk.Cmd, pk.GetByteToInt() == 0x01 );
                     break;
 
@@ -644,6 +645,10 @@ namespace Neosmartpen.Net.Protocol.v1
 
                 case Cmd.A_PenColorSetResponse:
                     Callback.onPenColorSetUpResponse( this, result );
+                    break;
+
+                case Cmd.A_HoverOnOffResponse:
+                    Callback.onPenHoverSetUpResponse(this, result);
                     break;
             }
         }
@@ -1275,7 +1280,7 @@ namespace Neosmartpen.Net.Protocol.v1
         /// </summary>
         /// <param name="enable">true if you want to enable hover mode, otherwise false.</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqSetupHoverMode( bool enable )
+        private bool ReqSetupHoverMode( bool enable )
         {
             ByteUtil bf = new ByteUtil();
 

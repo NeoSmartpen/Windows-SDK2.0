@@ -333,7 +333,6 @@ namespace PenDemo
                 nmPowerOffTime.Value = autoshutdownTime;
                 tbFsrStep.Value = penSensitivity;
                 cbBeep.Checked = beep;
-                cbHover.Checked = hovermode;
 
                 cbOfflineData.Checked = false;
                 cbOfflineData.Enabled = false;
@@ -588,7 +587,6 @@ namespace PenDemo
                 nmPowerOffTime.Value = autoShutdownTime;
                 tbFsrStep.Value = penSensitivity;
                 cbBeep.Checked = beep;
-                cbHover.Checked = hoverMode;
                 cbOfflineData.Enabled = true;
                 cbOfflineData.Checked = useOfflineData;
                 cbPenCapPower.Enabled = true;
@@ -798,14 +796,6 @@ namespace PenDemo
             Request(
                 delegate { mPenCommV1.ReqSetupPenBeep( cbBeep.Checked ); },
                 delegate { mPenCommV2.ReqSetupPenBeep( cbBeep.Checked ); }
-                );
-        }
-
-        private void cbHover_CheckedChanged( object sender, EventArgs e )
-        {
-            Request(
-                delegate { mPenCommV1.ReqSetupHoverMode( cbHover.Checked ); },
-                delegate { mPenCommV2.ReqSetupHoverMode( cbHover.Checked ); }
                 );
         }
 
