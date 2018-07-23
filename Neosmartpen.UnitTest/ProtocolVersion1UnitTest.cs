@@ -16,7 +16,7 @@ namespace Neosmartpen.UnitTest
 
         private PenCommV1CallbacksImpl _callbackObj;
 
-        private static AutoResetEvent _autoResetEvent = new AutoResetEvent(false);
+        private AutoResetEvent _autoResetEvent = new AutoResetEvent(false);
 
         public const int TEST_TIMEOUT = 15000;
 

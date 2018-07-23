@@ -3,7 +3,6 @@ using Neosmartpen.Net;
 using Neosmartpen.Net.Bluetooth;
 using Neosmartpen.Net.Protocol.v2;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Neosmartpen.UnitTest
 {
@@ -15,6 +14,8 @@ namespace Neosmartpen.UnitTest
         private PenCommV2 _penComm;
 
         public const string MAC = "9C7BD2FFF10E";
+
+        public const int TEST_TIMEOUT = 15000;
 
         [TestInitialize]
         public void SetUp()
@@ -38,14 +39,14 @@ namespace Neosmartpen.UnitTest
         }
 
         [TestMethod]
-        [Timeout(5000)]
+        [Timeout(TEST_TIMEOUT)]
         public void TestConnectionAndBinding()
         {
             Assert.IsTrue(ConnectAndBind());
         }
 
         [TestMethod]
-        [Timeout(5000)]
+        [Timeout(TEST_TIMEOUT)]
         public void TestDisconnection()
         {
             ConnectAndBind();

@@ -4,7 +4,6 @@ using Neosmartpen.Net.Protocol.v2;
 using Neosmartpen.Net.Support;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +19,7 @@ namespace Neosmartpen.UnitTest
 
         private PenCommV2CallbacksImpl _callbackObj;
 
-        private static AutoResetEvent _autoResetEvent = new AutoResetEvent(false);
+        private AutoResetEvent _autoResetEvent = new AutoResetEvent(false);
 
         public const int TEST_TIMEOUT = 15000;
 
@@ -33,13 +32,11 @@ namespace Neosmartpen.UnitTest
         public const int DEFAULT_NOTE = 603;
 
         public const string FIRMWARE_FILEPATH = "E:\\vs_workplace\\WINSDK\\Neosmartpen.UnitTest\\NWP-F70_1.00.0105._v_";
-        public const string FIRMWARE_VERSION = "1.01";
+        public const string FIRMWARE_VERSION = "1.00.0105";
 
         [TestInitialize]
         public void SetUp()
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-
             _btAdt = new BluetoothAdapter();
 
             _callbackObj = new PenCommV2CallbacksImpl();
@@ -1479,7 +1476,7 @@ namespace Neosmartpen.UnitTest
                         if (d.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
                         {
                             result = true;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1519,7 +1516,7 @@ namespace Neosmartpen.UnitTest
                         if (d.Status != PenProfile.PROFILE_STATUS_SUCCESS)
                         {
                             result = false;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1622,7 +1619,7 @@ namespace Neosmartpen.UnitTest
                         if (d.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
                         {
                             resultProfileNotExists = true;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1660,7 +1657,7 @@ namespace Neosmartpen.UnitTest
                         if (d.Status == PenProfile.PROFILE_STATUS_NO_EXIST_KEY)
                         {
                             resultKeyNotExists = true;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1700,7 +1697,7 @@ namespace Neosmartpen.UnitTest
                         if (d.Status != PenProfile.PROFILE_STATUS_SUCCESS)
                         {
                             resultKeyExists = false;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1858,7 +1855,7 @@ namespace Neosmartpen.UnitTest
                         if (v.Status == PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE)
                         {
                             result = true;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1898,7 +1895,7 @@ namespace Neosmartpen.UnitTest
                         if (v.Status == PenProfile.PROFILE_STATUS_NO_PERMISSION)
                         {
                             result = true;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1940,7 +1937,7 @@ namespace Neosmartpen.UnitTest
                         if (v.Status != PenProfile.PROFILE_STATUS_SUCCESS)
                         {
                             result = false;
-                            continue;
+                            break;
                         }
                     }
                 }
@@ -1980,7 +1977,7 @@ namespace Neosmartpen.UnitTest
                         if (v.Status == PenProfile.PROFILE_STATUS_NO_EXIST_KEY)
                         {
                             result = true;
-                            continue;
+                            break;
                         }
                     }
                 }
