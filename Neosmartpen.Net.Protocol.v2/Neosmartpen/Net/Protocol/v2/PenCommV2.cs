@@ -1074,8 +1074,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						int force = pk.GetShort();
 
-						int x = pk.GetShort();
-						int y = pk.GetShort();
+						int x = pk.GetUShort();
+						int y = pk.GetUShort();
 
 						int fx = pk.GetByte();
 						int fy = pk.GetByte();
@@ -1284,8 +1284,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         int force = pk.GetShort();
 
-                        int x = pk.GetShort();
-                        int y = pk.GetShort();
+                        int x = pk.GetUShort();
+                        int y = pk.GetUShort();
 
                         int fx = pk.GetByte();
                         int fy = pk.GetByte();

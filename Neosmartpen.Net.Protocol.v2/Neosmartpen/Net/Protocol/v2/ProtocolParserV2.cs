@@ -44,7 +44,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
                     int result = result_size > 0 ? mBuffer.GetByteToInt() : -1;
 
-                    int length = mBuffer.GetShort();
+                    int length = mBuffer.GetUShort();
 
                     byte[] data = mBuffer.GetBytes();
 
