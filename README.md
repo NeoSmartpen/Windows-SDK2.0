@@ -280,7 +280,7 @@ It is fractional part of Ncode™ Coordinates. ( maximum value is 100 )
 
 ## Give Feedback
 
-Please report bugs or issues to [here](https://github.com/NeoSmartpen/UWPSDK/issues)
+Please report bugs or issues to [here](https://github.com/NeoSmartpen/Window-SDK2.0/issues)
 
 ## Ncode™ SERVICE DEVELOPMENT GETTING STARTED GUIDE
 
