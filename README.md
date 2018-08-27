@@ -270,7 +270,7 @@ void PenCommV2Callbacks.onFinishedOfflineDownload( IPenComm sender, bool success
 ### Ncode™ Coodinate Description
 
 + **Dot.X, Dot.Y**
-Coordinates of our NCode cell.( Ncode™'s cell size is 2.371mm )
+Coordinates of our Ncode™ cell.( Ncode™'s cell size is 2.371mm )
 
 + **Dot.Fx, Dot.Fy**
 It is fractional part of Ncode™ Coordinates. ( maximum value is 100 )
