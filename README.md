@@ -1,4 +1,4 @@
-# C# Software Development Kit for Neo Smartpen
+# C# Software Development Kit for Neo smartpen
 
 ## Requirements
 
@@ -13,10 +13,10 @@
 1. InTheHand.Net.Personal.dll ( v3.5 )
 2. Ionic.Zip.Reduced.dll ( v1.9 )
 
-## Supported Smartpen
+## Supported smartpen
 
-- F110 (N2)
-- F50, F120
+- Neo smartpen N2(F110, F120)
+- Neo smartpen M1(F50)
 
 ## SDK Structure
 
@@ -267,20 +267,20 @@ void PenCommV2Callbacks.onFinishedOfflineDownload( IPenComm sender, bool success
 }
 ```
 
-### Ncode Coodinate Description
+### Ncode™ Coodinate Description
 
 + **Dot.X, Dot.Y**
-Coordinates of our NCode cell.( NCode's cell size is 2.371mm )
+Coordinates of our NCode cell.( Ncode™'s cell size is 2.371mm )
 
 + **Dot.Fx, Dot.Fy**
-It is fractional part of NCode Coordinates. ( maximum value is 100 )
+It is fractional part of Ncode™ Coordinates. ( maximum value is 100 )
 
-+ **How to get millimeter unit from NCode unit**
++ **How to get millimeter unit from Ncode™ unit**
 ( Dot.X + Dot.Fx  x 0.01) x 2.371 = millimeter unit
 
 ## Give Feedback
 
-Please reports bugs or issues to [link](https://github.com/NeoSmartpen/UWPSDK/issues)
+Please report bugs or issues to [here](https://github.com/NeoSmartpen/UWPSDK/issues)
 
 ## Ncode™ SERVICE DEVELOPMENT GETTING STARTED GUIDE
 
@@ -288,7 +288,7 @@ Please reports bugs or issues to [link](https://github.com/NeoSmartpen/UWPSDK/is
  
 ## LICENSE
 
-NeoSmartpen SDK is Copyright (c) 2017 NeoLAB Convergence, Inc.
+Neo smartpen SDK is Copyright (c) 2017 NeoLAB Convergence, Inc.
 
 We provide two types of license for Pen SDK.
 
@@ -312,8 +312,8 @@ That does not require the source code open to be released, and technical support
 
 Please contact following to get more information:
 
-- Global: _globalbiz@neolab.net
-- Korea: _koreabiz@neolab.net
+- Global: _global1@neolab.net
+- Korea: _biz1@neolab.net
 
 ## Opensource Library
 
