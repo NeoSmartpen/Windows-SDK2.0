@@ -13,7 +13,7 @@
 1. InTheHand.Net.Personal.dll ( v3.5 )
 2. Ionic.Zip.Reduced.dll ( v1.9 )
 
-## Supported smartpen
+## Supported models
 
 - Neo smartpen N2(F110, F120)
 - Neo smartpen M1(F50)
