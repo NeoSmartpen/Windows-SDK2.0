@@ -6,7 +6,7 @@
 2.  Microsoft Visual Studio 2013 or later
 3.  Microsoft .NET Framework 4 or later
 4.  Standard Bluetooth Dongles ( Bluetooth Specification Version 2.1 + EDR or later with Microsoft Bluetooth stack )
-5.  SDK packages for Neo Smartpen
+5.  SDK packages for Neo smartpen
 
 ## Dependencies
 
