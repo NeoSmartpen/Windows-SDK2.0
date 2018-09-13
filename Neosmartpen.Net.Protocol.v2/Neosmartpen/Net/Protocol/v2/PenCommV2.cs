@@ -260,6 +260,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						// 호버기능 사용여부
 						bool hover = pk.GetByteToInt() == 1;
+						HoverMode = hover;
 
 						// 남은 배터리 수치
 						int batteryLeft = pk.GetByteToInt();
