@@ -7,7 +7,7 @@ Windows SDK for Windows. This open-source library allows you to integrate the Ne
 ## About Neo smartpen 
 
 The Neo smartpen is designed to seamlessly integrate the real and digital worlds by transforming what you write on paper - everything from sketches and designs to business meeting notes - to your iOS, Android and Windows devices. It works in tandem with N notebooks, powered by NeoLAB Convergence’s patented Ncode™ technology and the accompanying application, Neo Notes. Find out more at www.neosmartpen.com
-Tutorial video - https://goo.gl/MQaVwY
+- Tutorial video - https://goo.gl/MQaVwY
 
 ## About Ncode™: service development guide 
 
@@ -44,7 +44,7 @@ Click the link below to view a beginners guide to Ncode technology.
 | Neosmartpen.Net.Protocol.v1 | Handling data and communication with peer device ( protocol version is 1.xx )   |
 | Neosmartpen.Net.Protocol.v2 | Handling data and communication with peer device ( protocol version is 2.xx ) |
 
-## Getting started(basic) 
+## Getting started (Basic) 
 
 #### Create a BluetoothAdapter instance
 
@@ -283,12 +283,12 @@ void PenCommV2Callbacks.onFinishedOfflineDownload( IPenComm sender, bool success
 }
 ```
  
-## License
+## LICENSE
 
 Copyright©2017 by NeoLAB Convergence, Inc. All page content is property of NeoLAB Convergence Inc. <https://neolab.net> 
 
-1. GPL License v3 - for non-commercial purpose 
-
+### GPL License v3 - for non-commercial purpose
+    
 For non-commercial use, follow the terms of the GNU General Public License. 
 
 GPL License v3 is a free software: you can run, copy, redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. 
@@ -297,13 +297,15 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with the program. If not, see <https://www.gnu.org/licenses/>. 
 
-2. Commercial License - for commercial purpose 
+
+### 2. Commercial license - for commercial purpose 
 
 For commercial use, it is not necessary or required to open up your source code. Technical support from NeoLAB Convergence, inc is available upon your request. 
 
 Please contact our support team via email for the terms and conditions of this license. 
-Global: _global1@neolab.net 
-Korea: _biz1@neolab.net 
+
+- Global: _global1@neolab.net
+- Korea: _biz1@neolab.net
 
 ## Opensource Library
 
