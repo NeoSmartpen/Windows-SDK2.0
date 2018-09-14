@@ -298,7 +298,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with the program. If not, see <https://www.gnu.org/licenses/>. 
 
 
-### 2. Commercial license - for commercial purpose 
+### Commercial license - for commercial purpose 
 
 For commercial use, it is not necessary or required to open up your source code. Technical support from NeoLAB Convergence, inc is available upon your request. 
 
