@@ -1,4 +1,4 @@
-# C# Software Development Kit for Neo smartpen
+# Neo smartpen SDK 2.0 for Windows Platform
 
 ## Windows SDK 2.0 
 
