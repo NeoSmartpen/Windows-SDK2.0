@@ -560,7 +560,9 @@ namespace Neosmartpen.Net.Protocol.v2
 							return;
                         }
 
-                        ByteUtil butil = new ByteUtil( strData ); 
+                        ByteUtil butil = new ByteUtil( strData );
+
+                        int checksumErrorCount = 0;
 
                         for ( int i = 0; i < strCount; i++ )
                         {
@@ -611,10 +613,15 @@ namespace Neosmartpen.Net.Protocol.v2
 
                                 if ( dotChecksum != checksum )
                                 {
-									//SendOfflinePacketResponse( packetId, false );
-									//result.Clear();
-									//return;
-									continue;
+                                    // 체크섬 에러 3번 이상이면 에러로 전송 종료
+                                    if (checksumErrorCount++ > 1)
+                                    {
+                                        result.Clear();
+                                        Callback.onFinishedOfflineDownload(this, false);
+                                        return;
+                                    }
+
+                                    continue;
                                 }
 
                                 DotTypes dotType;
