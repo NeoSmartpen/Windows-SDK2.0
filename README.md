@@ -41,6 +41,7 @@ Click the link below to view a beginners guide to Ncode technology.
 | Neosmartpen.Net | Framework providing interface for communication |
 | Neosmartpen.Net.Bluetooth | Provide features for controlling Bluetooth communication |
 | Neosmartpen.Net.Support | Provide features except communication ( such as graphics ) |
+| Neosmartpen.Net.Metadata | Provide features processing metadata |
 | Neosmartpen.Net.Protocol.v1 | Handling data and communication with peer device ( protocol version is 1.xx )   |
 | Neosmartpen.Net.Protocol.v2 | Handling data and communication with peer device ( protocol version is 2.xx ) |
 
@@ -282,7 +283,37 @@ void PenCommV2Callbacks.onFinishedOfflineDownload( IPenComm sender, bool success
 {
 }
 ```
- 
+
+#### Metadata Processing
+```cs
+// Create MetadataManager
+mMetadataManager = new GenericMetadataManager(new NProjParser());
+
+// Bind MetadataManager to PenComm.
+mPenCommV2.MetadataManager = mMetadataManager;
+
+try
+{
+	// Load the Metadata file.
+	mMetadataManager.Load(Application.StartupPath + "\\Resources\\note_603.nproj");
+}
+catch (ParseException)
+{
+	// todo : Handling of parsing errors
+}
+catch (FileNotFoundException)
+{
+}
+catch
+{
+}
+
+void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
+{
+	// todo : Processing for detected symbols
+}
+```
+
 ## LICENSE
 
 Copyright©2017 by NeoLAB Convergence, Inc. All page content is property of NeoLAB Convergence Inc. <https://neolab.net> 
