@@ -47,6 +47,10 @@ namespace Neosmartpen.Net
         {
             return BitConverter.ToInt16( GetBytes(2), 0 );
         }
+        public ushort GetUShort()
+        {
+            return BitConverter.ToUInt16( GetBytes(2), 0 );
+        }
 
         public long GetLong()
         {
