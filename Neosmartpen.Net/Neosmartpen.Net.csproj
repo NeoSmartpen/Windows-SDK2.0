@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DocumentationFile>bin\Debug\Neosmartpen.Net.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -65,11 +66,20 @@
     <Compile Include="Neosmartpen\Net\IPenComm.cs" />
     <Compile Include="Neosmartpen\Net\IProtocolParser.cs" />
     <Compile Include="Neosmartpen\Net\Dot.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\GenericMetadataManager.cs" />
     <Compile Include="Neosmartpen\Net\Stroke.cs" />
     <Compile Include="Neosmartpen\Net\OfflineDataStructure.cs" />
     <Compile Include="Neosmartpen\Net\Packet.cs" />
     <Compile Include="Neosmartpen\Net\PenComm.cs" />
     <Compile Include="Neosmartpen\Net\Support\FloatConverter.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\Exceptions\ParseException.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\IMetadataManager.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\IMetadataParser.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\Model\Book.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\Model\Page.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\Model\Symbol.cs" />
+    <Compile Include="Neosmartpen\Net\Metadata\NprojParser.cs" />
+    <Compile Include="Neosmartpen\Net\Support\NConvert.cs" />
     <Compile Include="Neosmartpen\Net\Support\PressureCalibration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Neosmartpen\Net\Support\ByteConverter.cs" />

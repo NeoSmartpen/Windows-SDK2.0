@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Neosmartpen.Net.Metadata;
 
 namespace Neosmartpen.Net.Protocol.v1
 {
@@ -96,7 +97,7 @@ namespace Neosmartpen.Net.Protocol.v1
             set;
         }
 
-        public PenCommV1( PenCommV1Callbacks callback, IProtocolParser parser = null ) : base( parser == null ? parser = new ProtocolParserV1() : parser  )
+        public PenCommV1( PenCommV1Callbacks callback, IProtocolParser parser = null, IMetadataManager metadataManager = null ) : base( parser == null ? parser = new ProtocolParserV1() : parser, metadataManager )
         {
             Callback = callback;
             Parser.PacketCreated += Parser_PacketCreated;
@@ -672,10 +673,29 @@ namespace Neosmartpen.Net.Protocol.v1
 			dotFilterForPage.Put(dot, obj);
         }
 
-		private void SendDotReceiveEvent(Dot dot, object obj)
+        private Stroke curStroke;
+
+        private void SendDotReceiveEvent(Dot dot, object obj)
 		{
-			Callback.onReceiveDot(this, dot);
-		}
+            if (curStroke == null || dot.DotType == DotTypes.PEN_DOWN)
+            {
+                curStroke = new Stroke(dot.Section, dot.Owner, dot.Note, dot.Page);
+            }
+
+            curStroke.Add(dot);
+
+            Callback.onReceiveDot(this, dot);
+
+            if (dot.DotType == DotTypes.PEN_UP && MetadataManager != null)
+            {
+                var symbols = MetadataManager.FindApplicableSymbols(curStroke);
+
+                if (symbols != null && symbols.Count > 0)
+                {
+                    Callback.onSymbolDetected(this, symbols);
+                }
+            }
+        }
 
 		private void SendPenOnOffData()
         {

@@ -1,4 +1,7 @@
-﻿namespace Neosmartpen.Net.Protocol.v2
+﻿using Neosmartpen.Net.Metadata.Model;
+using System.Collections.Generic;
+
+namespace Neosmartpen.Net.Protocol.v2
 {
     /// <summary>
     /// The PenCommV2Callbacks interface models a callback used when the the Neo smartpen needs to notify the client side.
@@ -264,5 +267,12 @@
         /// <param name="sender">Sender refers to the object that invoked the callback method</param>
         /// <param name="args">Object containing response data for profile request</param>
         void onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args);
+
+        /// <summary>
+        /// Occur when you write on a symbol
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="symbols">The detected symbols</param>
+        void onSymbolDetected(IPenComm sender, List<Symbol> symbols);
     }
 }

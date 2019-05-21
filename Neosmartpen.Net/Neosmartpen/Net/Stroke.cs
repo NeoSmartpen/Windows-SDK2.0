@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 
 namespace Neosmartpen.Net
 {
@@ -74,6 +76,24 @@ namespace Neosmartpen.Net
             TimeEnd = dot.Timestamp;
 
             base.Add( dot );
+        }
+
+        /// <summary>
+        /// A square corresponding to the area of the stroke is obtained.
+        /// </summary>
+        /// <returns>a rectangular object of type float</returns>
+        public RectangleF GetRect()
+        {
+            // TODO 여기서 부터 Max 버그 수정하기
+            if (this.Count == 0)
+                return RectangleF.Empty;
+
+            float mx = this.Max(d => d.X);
+            float my = this.Max(d => d.Y);
+            float sx = this.Min(d => d.X);
+            float sy = this.Min(d => d.Y);
+
+            return new RectangleF(sx, sy, mx - sx, my - sy);
         }
 
         public override string ToString()

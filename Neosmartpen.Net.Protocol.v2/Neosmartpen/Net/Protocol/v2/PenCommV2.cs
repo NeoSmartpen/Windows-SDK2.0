@@ -1,4 +1,5 @@
 ﻿using Neosmartpen.Net.Filter;
+using Neosmartpen.Net.Metadata;
 using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
@@ -109,7 +110,7 @@ namespace Neosmartpen.Net.Protocol.v2
             set;
         }
 
-        public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null  ) : base( parser == null ? new ProtocolParserV2() : parser )
+        public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null, IMetadataManager metadataManager = null ) : base( parser == null ? new ProtocolParserV2() : parser, metadataManager )
         {
             Callback = handler;
 			dotFilterForPaper = new FilterForPaper(SendDotReceiveEvent);
@@ -155,7 +156,7 @@ namespace Neosmartpen.Net.Protocol.v2
         {
             Cmd cmd = (Cmd)pk.Cmd;
 
-            System.Console.Write( "Cmd : {0}", cmd.ToString() );
+            //System.Console.Write( "Cmd : {0}", cmd.ToString() );
 
             switch ( cmd )
             {
@@ -1219,10 +1220,30 @@ namespace Neosmartpen.Net.Protocol.v2
 		{
 			dotFilterForPaper.Put(dot, obj);
 		}
+
+        private Stroke curStroke;
+
 		private void SendDotReceiveEvent(Dot dot, object obj)
 		{
-            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo);
-		}
+            if (curStroke == null || dot.DotType == DotTypes.PEN_DOWN)
+            {
+                curStroke = new Stroke(dot.Section, dot.Owner, dot.Note, dot.Page);
+            }
+
+            curStroke.Add(dot);
+
+            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo );
+
+            if (dot.DotType == DotTypes.PEN_UP && MetadataManager != null)
+            {
+                var symbols = MetadataManager.FindApplicableSymbols(curStroke);
+
+                if (symbols != null && symbols.Count > 0)
+                {
+                    Callback.onSymbolDetected(this, symbols);
+                }
+            }
+        }
 
 		private Stroke offlineStroke;
 
@@ -1230,7 +1251,6 @@ namespace Neosmartpen.Net.Protocol.v2
 		{
 			offlineStroke.Add(dot);
 		}
-
 
 		private void ParseOnlineDataRequest(Packet pk)
         {

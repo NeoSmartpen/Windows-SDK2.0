@@ -1,4 +1,7 @@
 ﻿
+using Neosmartpen.Net.Metadata.Model;
+using System.Collections.Generic;
+
 namespace Neosmartpen.Net.Protocol.v1
 {
     /// <summary>
@@ -185,5 +188,12 @@ namespace Neosmartpen.Net.Protocol.v1
         /// <param name="errorType">Error Message Type</param>
         /// <param name="timestamp">Timestamp</param>
         void onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData);
+
+        /// <summary>
+        /// Occur when you write on a symbol
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="symbols">The detected symbols</param>
+        void onSymbolDetected(IPenComm sender, List<Symbol> symbols);
     }
 }
