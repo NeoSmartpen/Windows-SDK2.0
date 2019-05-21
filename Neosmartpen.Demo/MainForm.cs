@@ -1,10 +1,15 @@
 ﻿using Neosmartpen.Net;
 using Neosmartpen.Net.Bluetooth;
+using Neosmartpen.Net.Metadata;
+using Neosmartpen.Net.Metadata.Exceptions;
+using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v1;
 using Neosmartpen.Net.Protocol.v2;
 using Neosmartpen.Net.Support;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -30,14 +35,16 @@ namespace PenDemo
 
         private ProgressForm mPrgForm;
 
-        // 블루투스 통신 제어를 위한 어댑터
+        // Adapter for Bluetooth communication control
         private BluetoothAdapter mBtAdt;
 
-        // F110 과의 통신 담당
+        // Communication with F110
         private PenCommV1 mPenCommV1;
 
-        // F50 과의 통신 담당
+        // Communication with devices other than F110
         private PenCommV2 mPenCommV2;
+
+        private IMetadataManager mMetadataManager;
 
         public delegate void RequestDele();
 
@@ -47,8 +54,15 @@ namespace PenDemo
 
             mBtAdt = new BluetoothAdapter();
 
+            // Create MetadataManager
+            mMetadataManager = new GenericMetadataManager(new NProjParser());
+
             mPenCommV1 = new PenCommV1( this );
             mPenCommV2 = new PenCommV2( this );
+
+            // Bind MetadataManager to PenComm.
+            mPenCommV1.MetadataManager = mMetadataManager;
+            mPenCommV2.MetadataManager = mMetadataManager;
 
             mWidth = pictureBox1.Width;
             mHeight = pictureBox1.Height;
@@ -56,6 +70,27 @@ namespace PenDemo
             mBitmap = new Bitmap( pictureBox1.Width, pictureBox1.Height );
 
             mPwdForm = new PasswordInputForm( OnInputPassword );
+
+            LoadMetadata();
+        }
+
+        private void LoadMetadata()
+        {
+            try
+            {
+                // Load the Metadata file.
+                mMetadataManager.Load(Application.StartupPath + "\\Resources\\note_603.nproj");
+            }
+            catch (ParseException)
+            {
+                // todo : Handling of parsing errors
+            }
+            catch (FileNotFoundException)
+            {
+            }
+            catch
+            {
+            }
         }
 
         private void OnInputPassword( string password )
@@ -148,15 +183,15 @@ namespace PenDemo
 
             Thread thread = new Thread( unused =>
             {
-                // 블루투스 인터페이스로 펜과 연결하여 생성한 소켓을 Device class에 따라 바인딩
+                // Binds a socket created by connecting with pen through Bluetooth interface according to Device Class
                 bool result = mBtAdt.Connect( txtMacAddress.Text, delegate( uint deviceClass )
                 {
-                    // device class가 f110 일 경우에 바인딩
+                    // Binding when Device Class is F110
                     if ( deviceClass == mPenCommV1.DeviceClass )
                     {
                         mBtAdt.Bind( mPenCommV1 );
                     }
-                    // device class가 f50 일 경우에 바인딩
+                    // Binding if Device Class is not F110
                     else if ( deviceClass == mPenCommV2.DeviceClass )
                     {
                         mBtAdt.Bind( mPenCommV2 );
@@ -192,7 +227,7 @@ namespace PenDemo
 
         private void ProcessDot( Dot dot )
         {
-            // 필터링 된 필압
+            // Filtered pressure
             dot.Force = mFilter.Filter( dot.Force );
 
             // TODO: Drawing sample code
@@ -488,6 +523,16 @@ namespace PenDemo
 		{
 		}
 
+        void PenCommV1Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
+        {
+            foreach(var symbol in symbols)
+            {
+                System.Console.Write("Symbol : {0}", symbol.Param);
+            }
+
+            System.Console.Write("");
+        }
+
         #endregion
 
         #region PenCommV2Callbacks
@@ -724,6 +769,16 @@ namespace PenDemo
 
         void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
         {
+        }
+
+        void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
+        {
+            foreach (var symbol in symbols)
+            {
+                System.Console.Write("Symbol : {0}", symbol.Param);
+            }
+
+            System.Console.Write("");
         }
         #endregion
 

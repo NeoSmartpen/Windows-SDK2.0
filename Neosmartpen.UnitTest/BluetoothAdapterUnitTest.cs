@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Neosmartpen.Net;
 using Neosmartpen.Net.Bluetooth;
+using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v2;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Neosmartpen.UnitTest
@@ -194,6 +196,10 @@ namespace Neosmartpen.UnitTest
         }
 
         void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
+        {
+        }
+
+        void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
         {
         }
 

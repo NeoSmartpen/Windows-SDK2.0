@@ -1,4 +1,5 @@
 ﻿using Neosmartpen.Net.Filter;
+using Neosmartpen.Net.Metadata;
 using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
@@ -109,7 +110,7 @@ namespace Neosmartpen.Net.Protocol.v2
             set;
         }
 
-        public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null  ) : base( parser == null ? new ProtocolParserV2() : parser )
+        public PenCommV2( PenCommV2Callbacks handler, IProtocolParser parser = null, IMetadataManager metadataManager = null ) : base( parser == null ? new ProtocolParserV2() : parser, metadataManager )
         {
             Callback = handler;
 			dotFilterForPaper = new FilterForPaper(SendDotReceiveEvent);
@@ -155,7 +156,7 @@ namespace Neosmartpen.Net.Protocol.v2
         {
             Cmd cmd = (Cmd)pk.Cmd;
 
-            System.Console.Write( "Cmd : {0}", cmd.ToString() );
+            //System.Console.Write( "Cmd : {0}", cmd.ToString() );
 
             switch ( cmd )
             {
@@ -260,6 +261,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						// 호버기능 사용여부
 						bool hover = pk.GetByteToInt() == 1;
+						HoverMode = hover;
 
 						// 남은 배터리 수치
 						int batteryLeft = pk.GetByteToInt();
@@ -559,7 +561,9 @@ namespace Neosmartpen.Net.Protocol.v2
 							return;
                         }
 
-                        ByteUtil butil = new ByteUtil( strData ); 
+                        ByteUtil butil = new ByteUtil( strData );
+
+                        int checksumErrorCount = 0;
 
                         for ( int i = 0; i < strCount; i++ )
                         {
@@ -610,10 +614,15 @@ namespace Neosmartpen.Net.Protocol.v2
 
                                 if ( dotChecksum != checksum )
                                 {
-									//SendOfflinePacketResponse( packetId, false );
-									//result.Clear();
-									//return;
-									continue;
+                                    // 체크섬 에러 3번 이상이면 에러로 전송 종료
+                                    if (checksumErrorCount++ > 1)
+                                    {
+                                        result.Clear();
+                                        Callback.onFinishedOfflineDownload(this, false);
+                                        return;
+                                    }
+
+                                    continue;
                                 }
 
                                 DotTypes dotType;
@@ -1211,10 +1220,30 @@ namespace Neosmartpen.Net.Protocol.v2
 		{
 			dotFilterForPaper.Put(dot, obj);
 		}
+
+        private Stroke curStroke;
+
 		private void SendDotReceiveEvent(Dot dot, object obj)
 		{
-            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo);
-		}
+            if (curStroke == null || dot.DotType == DotTypes.PEN_DOWN)
+            {
+                curStroke = new Stroke(dot.Section, dot.Owner, dot.Note, dot.Page);
+            }
+
+            curStroke.Add(dot);
+
+            Callback.onReceiveDot( this, dot, obj as ImageProcessingInfo );
+
+            if (dot.DotType == DotTypes.PEN_UP && MetadataManager != null)
+            {
+                var symbols = MetadataManager.FindApplicableSymbols(curStroke);
+
+                if (symbols != null && symbols.Count > 0)
+                {
+                    Callback.onSymbolDetected(this, symbols);
+                }
+            }
+        }
 
 		private Stroke offlineStroke;
 
@@ -1222,7 +1251,6 @@ namespace Neosmartpen.Net.Protocol.v2
 		{
 			offlineStroke.Add(dot);
 		}
-
 
 		private void ParseOnlineDataRequest(Packet pk)
         {

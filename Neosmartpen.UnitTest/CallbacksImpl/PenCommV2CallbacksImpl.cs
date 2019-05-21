@@ -1,5 +1,7 @@
 ﻿using Neosmartpen.Net;
+using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v2;
+using System.Collections.Generic;
 
 namespace Neosmartpen.UnitTest
 {
@@ -232,6 +234,10 @@ namespace Neosmartpen.UnitTest
         void PenCommV2Callbacks.onPenProfileReceived(IPenComm sender, PenProfileReceivedCallbackArgs args)
         {
             PenProfileReceived?.Invoke(sender, args);
+        }
+
+        void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
+        {
         }
     }
 }

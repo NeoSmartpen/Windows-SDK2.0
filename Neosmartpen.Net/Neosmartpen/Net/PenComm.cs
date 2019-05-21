@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neosmartpen.Net.Metadata;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -43,9 +44,12 @@ namespace Neosmartpen.Net
             set;
         }
 
-        protected internal PenComm( IProtocolParser _parser )
+        public IMetadataManager MetadataManager { get; set; }
+
+        protected internal PenComm( IProtocolParser _parser, IMetadataManager metadataManager = null )
         {
             Parser = _parser;
+            MetadataManager = metadataManager;
         }
 
         public bool Alive

@@ -149,6 +149,10 @@ namespace Neosmartpen.Net.Filter
 				secondCheck = true;
 				thirdCheck = true;
 			}
+			else if ( dot.DotType == DotTypes.PEN_HOVER )
+			{
+				filteredDot(dot, obj);
+			}
 		}
 
 		private bool ValidateCode(Dot dot)

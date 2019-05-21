@@ -1,7 +1,9 @@
 ﻿using Neosmartpen.Net;
+using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v1;
 using Neosmartpen.Net.Protocol.v2;
 using System;
+using System.Collections.Generic;
 
 namespace Neosmartpen.UnitTest
 {
@@ -161,6 +163,10 @@ namespace Neosmartpen.UnitTest
         }
 
         void PenCommV1Callbacks.onErrorDetected(IPenComm sender, ErrorType errorType, long timestamp, Dot dot, string extraData)
+        {
+        }
+
+        void PenCommV1Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
         {
         }
     }
