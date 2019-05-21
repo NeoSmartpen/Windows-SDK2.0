@@ -285,6 +285,14 @@ void PenCommV2Callbacks.onFinishedOfflineDownload( IPenComm sender, bool success
 ```
 
 #### Metadata Processing
+We use Ncode™ paper information as a metadata file called nproj.
+This section describes how to load and use the nproj file.
+nproj has an object named Symbol, so when the handwriting is written in the area of the symbol, the SDK can detect it and receive the symbol information with the callback.
+
+See the link below for a detailed description of nproj.
+
+[Caster™ Lite XML format spec (english).pdf](https://github.com/NeoSmartpen/Documentations/blob/master/Caster%E2%84%A2%20Lite%20XML%20format%20spec%20(english).pdf)
+
 ```cs
 // Create MetadataManager
 mMetadataManager = new GenericMetadataManager(new NProjParser());
@@ -311,6 +319,8 @@ catch
 void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
 {
 	// todo : Processing for detected symbols
+	// Implement functions corresponding to predefined Actions.
+	// For example, if Symbol's Action is email, it sends an email.
 }
 ```
 
