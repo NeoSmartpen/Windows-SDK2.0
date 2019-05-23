@@ -59,8 +59,8 @@ namespace Neosmartpen.Net.Metadata
         /// Separates only Strokes above the Symbol area.
         /// </summary>
         /// <param name="symbol">A class representing a Symbol in metadata</param>
-        /// <param name="strokes">Stroke class with multiple dots</param>
-        /// <returns></returns>
+        /// <param name="strokes">Target Stroke to check whether it is positioned above the Symbol</param>
+        /// <returns>Strokes corresponding to Symbol area</returns>
         List<Stroke> GetStrokesInSymbol(Symbol symbol, List<Stroke> strokes);
     }
 }
