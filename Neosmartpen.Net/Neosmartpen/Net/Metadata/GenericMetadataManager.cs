@@ -17,6 +17,10 @@ namespace Neosmartpen.Net.Metadata
         /// </summary>
         public IMetadataParser Parser { get; set; }
 
+        /// <summary>
+        /// GenericMetadataManager Constructor
+        /// </summary>
+        /// <param name="parser">Associated metadata parser</param>
         public GenericMetadataManager(IMetadataParser parser)
         {
             Parser = parser;
@@ -31,7 +35,10 @@ namespace Neosmartpen.Net.Metadata
         /// <returns>A class representing a Book in metadata</returns>
         public Book GetBook(int section, int owner, int book)
         {
-            return Books[MakeKey(section, owner, book)];
+            if (Books.ContainsKey(MakeKey(section, owner, book)))
+                return Books[MakeKey(section, owner, book)];
+            else
+                return null;
         }
 
         /// <summary>
@@ -40,10 +47,11 @@ namespace Neosmartpen.Net.Metadata
         /// <param name="section">Section code value</param>
         /// <param name="owner">Owner code value</param>
         /// <param name="book">Book code value</param>
+        /// <param name="pageNumber">Number of Page</param>
         /// <returns>A class representing a Page in metadata</returns>
         public Page GetPage(int section, int owner, int book, int pageNumber)
         {
-            return Books[MakeKey(section, owner, book)]?.Pages?.Where(p => p.Number == pageNumber)?.FirstOrDefault();
+            return GetBook(section, owner, book)?.Pages?.Where(p => p.Number == pageNumber)?.FirstOrDefault();
         }
 
         /// <summary>
@@ -56,14 +64,14 @@ namespace Neosmartpen.Net.Metadata
         /// <returns>A collection of Symbol</returns>
         public List<Symbol> GetSymbols(int section, int owner, int book, int pageNumber)
         {
-            return Books[MakeKey(section, owner, book)]?.Symbols?.Where(s => s.Page == pageNumber)?.ToList();
+            return GetBook(section, owner, book)?.Symbols?.Where(s => s.Page == pageNumber)?.ToList();
         }
 
         /// <summary>
         /// Functions for finding symbols over strokes
         /// </summary>
-        /// <param name="stroke">Stroke class with multiple dots</param>
-        /// <returns>A collection of applicable Symbol</returns>
+        /// <param name="stroke">Target Stroke to check whether it is positioned above the Symbol</param>
+        /// <returns>Symbols corresponding to the position of the Stroke</returns>
         public List<Symbol> FindApplicableSymbols(Stroke stroke)
         {
             var result = new List<Symbol>();
@@ -81,6 +89,34 @@ namespace Neosmartpen.Net.Metadata
                 if (symbol.Contains(stroke, (float)book.OffsetLeft, (float)book.OffsetTop))
                 {
                     result.Add(symbol);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Separates only Strokes above the Symbol area.
+        /// </summary>
+        /// <param name="symbol">A class representing a Symbol in metadata</param>
+        /// <param name="strokes">Target Stroke to check whether it is positioned above the Symbol</param>
+        /// <returns>Strokes corresponding to Symbol area</returns>
+        public List<Stroke> GetStrokesInSymbol(Symbol symbol, List<Stroke> strokes)
+        {
+            var result = new List<Stroke>();
+
+            var book = GetBook(symbol.Section, symbol.Owner, symbol.Book);
+
+            if (book == null)
+            {
+                return result;
+            }
+
+            foreach (var stroke in strokes)
+            {
+                if (symbol.Contains(stroke, (float)book.OffsetLeft, (float)book.OffsetTop))
+                {
+                    result.Add(stroke);
                 }
             }
 
