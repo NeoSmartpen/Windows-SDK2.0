@@ -17,7 +17,7 @@ namespace Neosmartpen.Net.Metadata
         /// Load the metadata file.
         /// </summary>
         /// <param name="metadataFilePath">Path to the metadata file</param>
-        void Load(string metadataFilePath);
+        void Load(string nprojPath);
 
         /// <summary>
         /// Get the Symbols from the metadata.
@@ -35,7 +35,6 @@ namespace Neosmartpen.Net.Metadata
         /// <param name="section">Section code value</param>
         /// <param name="owner">Owner code value</param>
         /// <param name="book">Book code value</param>
-        /// <param name="pageNumber">Number of Page</param>
         /// <returns>A class representing a Page in metadata</returns>
         Page GetPage(int section, int owner, int book, int pageNumber);
 
@@ -54,13 +53,5 @@ namespace Neosmartpen.Net.Metadata
         /// <param name="stroke">Stroke class with multiple dots</param>
         /// <returns>A collection of applicable Symbol</returns>
         List<Symbol> FindApplicableSymbols(Stroke stroke);
-
-        /// <summary>
-        /// Separates only Strokes above the Symbol area.
-        /// </summary>
-        /// <param name="symbol">A class representing a Symbol in metadata</param>
-        /// <param name="strokes">Stroke class with multiple dots</param>
-        /// <returns></returns>
-        List<Stroke> GetStrokesInSymbol(Symbol symbol, List<Stroke> strokes);
     }
 }
