@@ -525,12 +525,9 @@ namespace PenDemo
 
         void PenCommV1Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
         {
-            foreach(var symbol in symbols)
-            {
-                System.Console.Write("Symbol : {0}", symbol.Param);
-            }
-
-            System.Console.Write("");
+            // TODO : Processing for detected symbols
+            // Implement functions corresponding to predefined Actions.
+            // For example, if Symbol's Action is email, it sends an email.
         }
 
         #endregion
@@ -773,12 +770,9 @@ namespace PenDemo
 
         void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
         {
-            foreach (var symbol in symbols)
-            {
-                System.Console.Write("Symbol : {0}", symbol.Param);
-            }
-
-            System.Console.Write("");
+            // TODO : Processing for detected symbols
+            // Implement functions corresponding to predefined Actions.
+            // For example, if Symbol's Action is email, it sends an email.
         }
         #endregion
 
