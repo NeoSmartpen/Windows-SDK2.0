@@ -122,6 +122,14 @@ namespace Neosmartpen.Net.Metadata.Model
                     (this.X * Pixel2DotScaleFactor) + (this.Width * Pixel2DotScaleFactor) >= dotX &&
                     (this.Y * Pixel2DotScaleFactor) + (this.Height * Pixel2DotScaleFactor) > dotY;
             }
+            else if (Type == "Ellipse")
+            {
+                return CheckPtInEllipse(dotX, dotY, X * Pixel2DotScaleFactor, (X+Width) * Pixel2DotScaleFactor, Y * Pixel2DotScaleFactor, (Y+Height) * Pixel2DotScaleFactor);
+            }
+            else if (Type == "Triangle")
+            {
+                return CheckPtInTriangle(dotX, dotY, X * Pixel2DotScaleFactor, Y * Pixel2DotScaleFactor, Width * Pixel2DotScaleFactor, Height * Pixel2DotScaleFactor);
+            }
             else if (Type == "Custom")
             {
                 var points = GetCustomShapeDotPoints();
@@ -137,6 +145,87 @@ namespace Neosmartpen.Net.Metadata.Model
             {
                 return false;
             }
+        }
+
+        private bool CheckPtInTriangle(float x, float y, float sx, float sy, float width, float height)
+        {
+            float x1 = sx + width / 2;
+            float y1 = sy;
+            float x2 = sx;
+            float y2 = sy + height;
+            float x3 = sx + width;
+            float y3 = sy + height;
+
+            //return CheckPtInTriangle(x, y, x1, x2, x3, y1, y2, y3);
+            return IsInPolygon(new PointF[] { new PointF(x1, y1), new PointF(x2, y2), new PointF(x3, y3) }, new PointF(x, y));
+        }
+
+        private bool CheckPtInTriangle(float x, float y, float x1, float x2, float x3, float y1, float y2, float y3)
+        {
+            double a = ((y2 - y3) * (x - x3) + (x3 - x2) * (y - y3)) / ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3));
+            double b = ((y3 - y1) * (x - x3) + (x1 - x3) * (y - y3)) / ((y2 - y3) * (x1 - x3) + (x3 - x2) * (y1 - y3));
+            double c = 1 - a - b;
+
+            if (a == 0 || b == 0 || c == 0) return true;
+            else if (a >= 0 && a <= 1 && b >= 0 && b <= 1 && c >= 0 && c <= 1) return true;
+            else return false;
+        }
+
+        /*
+        private bool CheckPtInTriangle(int x, int y, int x1, int x2, int y1, int y2)
+        {
+            int t = 0;
+
+            //좌우 대칭이므로, 삼각형을 반으로 쪼개서 빗변의 기울기를 구한다.
+            int halfWidth = (x2 - x1) >> 1;
+            int centerX = x1 + halfWidth;
+            int height = y2 - y1;
+            float degree = (float)height / (float)halfWidth;
+
+            //상단 y 값을 기준으로, y 좌표의 offset 좌표 값을 구한다.
+            int yOffset = y - y1;
+
+            //Y offset 좌표에 기울기를 적용하여, 비율에 따라 Y 좌표 시점일 때의 폭을 구한다.
+            int xWidth = (int)((float)yOffset / degree);
+
+            //x가 삼각형 중앙을 기준으로 왼쪽에 위치하면
+            if (x < centerX)
+            {
+                //x가 왼쪽 빗변(선) 바깥에 위치하면 0, 아니면 1
+                t = x < centerX - xWidth ? 0 : 1;
+            }
+            //x가 삼각형 중앙을 기준으로 오른쪽에 위치하면
+            else
+            {
+                //x가 오른쪽 빗변(선) 바깥에 위치하면 0, 아니면 1
+                t = x > centerX + xWidth ? 0 : 1;
+            }
+
+            //이 함수 호출 직전에 y 값의 range 체크가 이루어진 상태이므로 여기선 추가적인 검사는 하지 않는다.
+            //if( t )
+            //    t = ( y1 <= y && y <= y2 ) ? 1 : 0;
+
+            return t == 1;
+        }
+        */
+
+        private bool CheckPtInEllipse(float x, float y, float x1, float x2, float y1, float y2)
+        {
+            float a = (x2 - x1) / 2;
+            float b = (y2 - y1) / 2;
+
+            float cx = x1 + a;
+            float cy = y1 + b;
+
+            float dx = x - cx;
+            float dy = y - cy;
+
+            float result = (float)(dx * dx) / (float)(a * a) + (float)(dy * dy) / (float)(b * b);
+
+            if (result <= 1.0f)
+                return true;
+            else
+                return false;
         }
 
         private bool IsInPolygon(PointF[] poly, PointF pnt)
@@ -192,7 +281,7 @@ namespace Neosmartpen.Net.Metadata.Model
                     }
 
                     // 선으로 비교
-                    if (i != 0)
+                    if (i != 0 && Type == "Rectangle")
                     {
                         var pdot = stroke[i-1];
 
@@ -200,14 +289,6 @@ namespace Neosmartpen.Net.Metadata.Model
                         {
                             return true;
                         }
-                    }
-                }
-
-                foreach(var dot in stroke)
-                {
-                    if (Contains(dot.X + offsetX, dot.Y + offsetY))
-                    {
-                        return true;
                     }
                 }
             }
