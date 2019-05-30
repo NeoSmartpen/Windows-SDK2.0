@@ -1,31 +1,100 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
 namespace Neosmartpen.Net.Support
 {
+    /// <summary>
+    /// Utility class for drawing Stroke
+    /// </summary>
     public class Renderer
     {
+        private const float Margin = 20;
 
-        public static void draw(Bitmap bitmap, Stroke[] stroke, float scalex, float scaley, float offset_x, float offset_y, int width, Color color)
+        /// <summary>
+        /// Obtain an image of the strokes.
+        /// </summary>
+        /// <param name="strokes">Stroke to draw</param>
+        /// <param name="scalex">x scale</param>
+        /// <param name="scaley">y scale</param>
+        /// <param name="width">Thickness of Stroke</param>
+        /// <param name="color">Color of Stroke</param>
+        /// <returns>Bitmap with Stroke</returns>
+        public static Bitmap StrokesToBitmap(List<Stroke> strokes, float scalex, float scaley, int width, Color color)
         {
-            foreach (Stroke m in stroke)
+            RectangleF rect = RectangleF.Empty;
+
+            foreach(var stroke in strokes)
+            {
+                MergeBound(ref rect, stroke.GetRect());
+            }
+
+            var bitmap = new Bitmap((int)(rect.Width * scalex + Margin), (int)(rect.Height* scaley * Margin));
+
+            RectangleF newRect = RectangleF.Empty;
+
+            float offsetX = -rect.Left * scalex + Margin / 2;
+            float offsetY = -rect.Top * scaley + Margin / 2;
+
+            foreach (var stroke in strokes)
+            {
+                draw(bitmap, StroketoRenderStroke(stroke), scalex, scaley, offsetX, offsetY, width, color, ref newRect);
+            }
+
+            var newBmp = new Bitmap((int)newRect.Width, (int)newRect.Height);
+
+            using (Graphics g = Graphics.FromImage(newBmp))
+            {
+                g.DrawImage(bitmap, new Rectangle(0, 0, newBmp.Width, newBmp.Height),
+                                 newRect,
+                                 GraphicsUnit.Pixel);
+            }
+
+            return newBmp;
+        }
+
+        /// <summary>
+        /// Draw a strokes on the Bitmap.
+        /// </summary>
+        /// <param name="bitmap">Bitmap to which the stroke will be drawn</param>
+        /// <param name="strokes">Strokes to draw</param>
+        /// <param name="scalex">x scale</param>
+        /// <param name="scaley">y scale</param>
+        /// <param name="offset_x">x offset</param>
+        /// <param name="offset_y">y offset</param>
+        /// <param name="width">Thickness of Stroke</param>
+        /// <param name="color">Color of Stroke</param>
+        public static void draw(Bitmap bitmap, Stroke[] strokes, float scalex, float scaley, float offset_x, float offset_y, int width, Color color)
+        {
+            foreach (Stroke m in strokes)
             {
                 draw(bitmap, m, scalex, scaley, offset_x, offset_y, width, color);
             }
         }
 
+        /// <summary>
+        /// Draw a stroke on the Bitmap.
+        /// </summary>
+        /// <param name="bitmap">Bitmap to which the stroke will be drawn</param>
+        /// <param name="stroke">Stroke to draw</param>
+        /// <param name="scalex">x scale</param>
+        /// <param name="scaley">y scale</param>
+        /// <param name="offset_x">x offset</param>
+        /// <param name="offset_y">y offset</param>
+        /// <param name="width">Thickness of Stroke</param>
+        /// <param name="color">Color of Stroke</param>
         public static void draw(Bitmap bitmap, Stroke stroke,  float scalex, float scaley, float offset_x, float offset_y, int width, Color color)
         {
             RenderStroke m= StroketoRenderStroke(stroke);
-            draw(bitmap, m, scalex, scaley, offset_x, offset_y, width, color);
-
+            RectangleF rect = RectangleF.Empty;
+            draw(bitmap, m, scalex, scaley, offset_x, offset_y, width, color, ref rect);
         }
 
-
-        private static void draw(Bitmap bitmap, RenderStroke neoStroke, float scalex, float scaley, float offset_x, float offset_y, int width, Color color)
+        private static void draw(Bitmap bitmap, RenderStroke neoStroke, float scalex, float scaley, float offset_x, float offset_y, int width, Color color, ref RectangleF bound)
         {
-            bool outline = true;
+            bool outline = false;
+
             if (neoStroke == null || neoStroke.dotCount == 0)
                 return;
 
@@ -61,10 +130,11 @@ namespace Neosmartpen.Net.Support
                 x = new float[count + 1];
                 y = new float[count + 1];
                 p = new float[count + 1];
+
                 for (int i = 0; i < count; i++)
                 {
-                    x[i] = dotArray.fX[i] * scalex + (float)m_ptOrigin.X;
-                    y[i] = dotArray.fY[i] * scaley + (float)m_ptOrigin.Y;
+                    x[i] = (dotArray.fX[i]) * scalex + (float)m_ptOrigin.X;
+                    y[i] = (dotArray.fY[i]) * scaley + (float)m_ptOrigin.Y;
                     p[i] = dotArray.fPressureRate[i];
                 }
 
@@ -76,7 +146,6 @@ namespace Neosmartpen.Net.Support
                 {
                     graphics.DrawLine(blackPen, x[0], y[0], x[1], y[1]);
                 }
-
             }
             else
             {
@@ -85,16 +154,15 @@ namespace Neosmartpen.Net.Support
                 float norm;
                 float n_x0, n_y0, n_x2, n_y2; // the normals 
 
-
                 float thick = width;
 
                 // the first actual point is treated as a midpoint
-                x0 = dotArray.fX[0] * scalex + (float)m_ptOrigin.X + 0.1f;
-                y0 = dotArray.fY[0] * scaley + (float)m_ptOrigin.Y;
+                x0 = (dotArray.fX[0]) * scalex + (float)m_ptOrigin.X + 0.1f;
+                y0 = (dotArray.fY[0]) * scaley + (float)m_ptOrigin.Y;
                 p0 = Math.Max(fMin, dotArray.fPressureRate[0] * thick);
 
-                x1 = dotArray.fX[1] * scalex + (float)m_ptOrigin.X + 0.1f;
-                y1 = dotArray.fY[1] * scaley + (float)m_ptOrigin.Y;
+                x1 = (dotArray.fX[1]) * scalex + (float)m_ptOrigin.X + 0.1f;
+                y1 = (dotArray.fY[1]) * scaley + (float)m_ptOrigin.Y;
                 p1 = Math.Max(fMin, dotArray.fPressureRate[1] * thick);
 
                 vx01 = x1 - x0;
@@ -108,9 +176,8 @@ namespace Neosmartpen.Net.Support
 
                 for (int i = 2; i < count - 1; i++)
                 {
-
-                    x3 = dotArray.fX[i] * scalex + (float)m_ptOrigin.X;
-                    y3 = dotArray.fY[i] * scaley + (float)m_ptOrigin.Y;
+                    x3 = (dotArray.fX[i]) * scalex + (float)m_ptOrigin.X;
+                    y3 = (dotArray.fY[i]) * scaley + (float)m_ptOrigin.Y;
                     p3 = Math.Max(fMin, dotArray.fPressureRate[i] * thick);
 
                     x2 = (x1 + x3) / 2.0f;
@@ -132,16 +199,11 @@ namespace Neosmartpen.Net.Support
 
                     graphPath.AddBezier(x0 + n_x0, y0 + n_y0, (x1 + n_x0), (y1 + n_y0), (x1 + n_x2), (y1 + n_y2), (x2 + n_x2), (y2 + n_y2));
 
-
                     // round out the cap
-
                     //graphPath.AddBezier((x2 + n_x2), (y2 + n_y2), x2 + n_x2 - vx21, y2 + n_y2 - vy21, x2 - n_x2 - vx21, y2 - n_y2 - vy21, x2 - n_x2, y2 - n_y2);
 
-
                     // THe - boundary of the stroke
-
                     graphPath.AddBezier(x2 - n_x2, y2 - n_y2, x1 - n_x2, y1 - n_y2, x1 - n_x0, y1 - n_y0, x0 - n_x0, y0 - n_y0);
-
 
                     // round out the other cap
                     if (i == 2)
@@ -149,6 +211,7 @@ namespace Neosmartpen.Net.Support
 
                     graphics.FillPath(mBrush, graphPath);
                     if (outline) graphics.DrawPath(blackPen, graphPath);
+                    MergeBound(ref bound, graphPath.GetBounds());
                     //graphics.Render(strockedLineToDraw, color);
 
                     x0 = x2; y0 = y2; p0 = p2;
@@ -156,9 +219,9 @@ namespace Neosmartpen.Net.Support
                     vx01 = -vx21; vy01 = -vy21;
                     n_x0 = n_x2; n_y0 = n_y2;
                 }
-
-                x2 = dotArray.fX[count - 1] * scalex + (float)m_ptOrigin.X;
-                y2 = dotArray.fY[count - 1] * scaley + (float)m_ptOrigin.Y;
+                
+                x2 = (dotArray.fX[count - 1]) * scalex + (float)m_ptOrigin.X;
+                y2 = (dotArray.fY[count - 1]) * scaley + (float)m_ptOrigin.Y;
                 p2 = Math.Max(fMin, dotArray.fPressureRate[count - 1] * thick);
 
                 vx21 = x1 - x2;
@@ -170,11 +233,8 @@ namespace Neosmartpen.Net.Support
                 n_y2 = vx21;
 
                 graphPath.Reset();
-
                 graphPath.AddBezier(x0 + n_x0, y0 + n_y0, x1 + n_x0, y1 + n_y0, x1 + n_x2, y1 + n_y2, x2 + n_x2, y2 + n_y2);
-
                 graphPath.AddBezier(x2 + n_x2, y2 + n_y2, x2 + n_x2 - vx21, y2 + n_y2 - vy21, x2 - n_x2 - vx21, y2 - n_y2 - vy21, x2 - n_x2, y2 - n_y2);
-
                 graphPath.AddBezier(x2 - n_x2, y2 - n_y2, x1 - n_x2, y1 - n_y2, x1 - n_x0, y1 - n_y0, x0 - n_x0, y0 - n_y0);
 
                 //graphPath.AddBezier(x0 - n_x0, y0 - n_y0, x0 - n_x0 - vx01, y0 - n_y0 - vy01, x0 + n_x0 - vx01, y0 + n_y0 - vy01, x0 + n_x0, y0 + n_y0);
@@ -185,29 +245,59 @@ namespace Neosmartpen.Net.Support
                 //System.Console.WriteLine("cap2 {0},{1},{2},{3},{4},{5},{6},{7}", x0 - n_x0, y0 - n_y0, x0 - n_x0 - vx01, y0 - n_y0 - vy01, x0 + n_x0 - vx01, y0 + n_y0 - vy01, x0 + n_x0, y0 + n_y0);
                 graphics.FillPath(mBrush, graphPath);
                 if (outline) graphics.DrawPath(blackPen, graphPath);
+                MergeBound(ref bound, graphPath.GetBounds());
                 //              graphics.Render(strockedLineToDraw, color);
                 mBrush.Dispose();
                 blackPen.Dispose();
                 graphics.Dispose();
             }
-        }       
-    
-
-    private static RenderStroke StroketoRenderStroke(Stroke mStroke)
-    {
-        RenderStroke ms = new RenderStroke();
-        ms.createPointArray(mStroke.Count);
-        int i = 0;
-        foreach (Dot m in mStroke)
+        }      
+        
+        private static RectangleF MergeBound(ref RectangleF selectedRect, RectangleF boundingBox)
         {
-            ms.fX[i] = m.X  + m.Fx * 0.01f;
-            ms.fY[i] = m.Y  + m.Fy * 0.01f;
-            ms.fPressureRate[i] =(float) m.Force/255;
-            i++;
+            if (selectedRect == RectangleF.Empty)
+            {
+                selectedRect.X = boundingBox.X;
+                selectedRect.Y = boundingBox.Y;
+                selectedRect.Width = boundingBox.Width;
+                selectedRect.Height = boundingBox.Height;
+
+                return selectedRect;
+            }
+
+            if (boundingBox.X < selectedRect.X)
+            {
+                if (selectedRect.Width != float.NegativeInfinity)
+                    selectedRect.Width += selectedRect.X - boundingBox.X;
+                selectedRect.X = boundingBox.X;
+            }
+            if (boundingBox.Right > selectedRect.Right) selectedRect.Width = boundingBox.Right - selectedRect.Left;
+            if (boundingBox.Y < selectedRect.Y)
+            {
+                if (selectedRect.Height != float.NegativeInfinity)
+                    selectedRect.Height += selectedRect.Y - boundingBox.Y;
+                selectedRect.Y = boundingBox.Y;
+            }
+            if (boundingBox.Bottom > selectedRect.Bottom) selectedRect.Height = boundingBox.Bottom - selectedRect.Top;
+
+            return selectedRect;
         }
-        return ms;
+
+        private static RenderStroke StroketoRenderStroke(Stroke mStroke)
+        {
+            RenderStroke ms = new RenderStroke();
+            ms.createPointArray(mStroke.Count);
+            int i = 0;
+            foreach (Dot m in mStroke)
+            {
+                ms.fX[i] = m.X  + m.Fx * 0.01f;
+                ms.fY[i] = m.Y  + m.Fy * 0.01f;
+                ms.fPressureRate[i] =(float) m.Force/255;
+                i++;
+            }
+            return ms;
+        }
     }
-}
 
     class RenderStroke
     {
@@ -234,7 +324,6 @@ namespace Neosmartpen.Net.Support
             timestampDelta = null;
             dotCount = 0;
         }
-
     }
 
     class RenderParam
@@ -263,6 +352,4 @@ namespace Neosmartpen.Net.Support
             base_thickness = PenBallSizeInch * thickness * dpi;
         }
     }
-
-
 }

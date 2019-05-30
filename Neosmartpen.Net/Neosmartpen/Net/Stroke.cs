@@ -88,10 +88,10 @@ namespace Neosmartpen.Net
             if (this.Count == 0)
                 return RectangleF.Empty;
 
-            float mx = this.Max(d => d.X);
-            float my = this.Max(d => d.Y);
-            float sx = this.Min(d => d.X);
-            float sy = this.Min(d => d.Y);
+            float mx = this.Max(d => d.X + d.Fx * 0.01f);
+            float my = this.Max(d => d.Y + d.Fy * 0.01f);
+            float sx = this.Min(d => d.X + d.Fx * 0.01f);
+            float sy = this.Min(d => d.Y + d.Fy * 0.01f);
 
             return new RectangleF(sx, sy, mx - sx, my - sy);
         }
