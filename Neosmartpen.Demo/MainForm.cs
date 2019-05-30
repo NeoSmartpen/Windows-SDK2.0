@@ -19,8 +19,6 @@ namespace PenDemo
     {
         public PressureFilter mFilter;
 
-        public static int[] UsingNote = new int[] { 301, 302, 303 };
-
         public static string DefaultPassword = "0000";
 
         private Bitmap mBitmap;
@@ -70,7 +68,10 @@ namespace PenDemo
             mBitmap = new Bitmap( pictureBox1.Width, pictureBox1.Height );
 
             mPwdForm = new PasswordInputForm( OnInputPassword );
+        }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             LoadMetadata();
         }
 
@@ -79,7 +80,7 @@ namespace PenDemo
             try
             {
                 // Load the Metadata file.
-                mMetadataManager.Load(Application.StartupPath + "\\Resources\\note_603.nproj");
+                mMetadataManager.Load(Application.StartupPath + "\\Resources\\shapes1.nproj");
             }
             catch (ParseException)
             {
@@ -87,6 +88,15 @@ namespace PenDemo
             }
             catch (FileNotFoundException)
             {
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                // Load the Metadata file.
+                mMetadataManager.Load(Application.StartupPath + "\\Resources\\note_603.nproj");
             }
             catch
             {
