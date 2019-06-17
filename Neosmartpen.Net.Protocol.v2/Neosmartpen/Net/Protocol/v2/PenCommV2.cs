@@ -1,9 +1,11 @@
 ﻿using Neosmartpen.Net.Filter;
 using Neosmartpen.Net.Metadata;
+using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Support;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -470,9 +472,7 @@ namespace Neosmartpen.Net.Protocol.v2
                             pages[i] = pk.GetInt();
                         }
 
-                        OfflineDataInfo info = new OfflineDataInfo( section, owner, note );
-
-                        Callback.onReceiveOfflineDataList( this, info );
+                        Callback.onReceiveOfflineDataPageList( this, section, owner, note, pages);
                     }
                     break;
 
@@ -660,10 +660,31 @@ namespace Neosmartpen.Net.Protocol.v2
                             result.Add( offlineStroke );
                         }
 
+                        var resultSymbol = new List<Symbol>();
+
+                        if (MetadataManager != null)
+                        {
+                            foreach (var stroke in result)
+                            {
+                                var symbols = MetadataManager.FindApplicableSymbols(stroke);
+
+                                if (symbols != null && symbols.Count > 0)
+                                {
+                                    foreach (var symbol in symbols)
+                                    {
+                                        if (resultSymbol.Where(s => s.Id == symbol.Id).Count() <= 0)
+                                        {
+                                            resultSymbol.Add(symbol);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         SendOfflinePacketResponse( packetId );
 
 						offlineDataPacketRetryCount = 0;
-						Callback.onReceiveOfflineStrokes( this, mTotalOfflineStroke, mReceivedOfflineStroke, result.ToArray() );
+						Callback.onReceiveOfflineStrokes( this, mTotalOfflineStroke, mReceivedOfflineStroke, result.ToArray(), resultSymbol.ToArray());
 
                         if ( location == 2 )
                         {
@@ -1838,7 +1859,7 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="owner">The Owner Id of the paper</param>
         /// <param name="note">The Note Id of the paper</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqOfflineDataList( int section, int owner, int note )
+        public bool ReqOfflineDataPageList( int section, int owner, int note )
         {
             ByteUtil bf = new ByteUtil( Escape );
 
@@ -1861,36 +1882,36 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="deleteOnFinished">delete offline data when transmission is finished,</param>
         /// <param name="pages">The number of page</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqOfflineData( int section, int owner, int note, bool deleteOnFinished = true, int[] pages = null )
+        public bool ReqOfflineData(int section, int owner, int note, bool deleteOnFinished = true, int[] pages = null)
         {
-            byte[] ownerByte = ByteConverter.IntToByte( owner );
+            byte[] ownerByte = ByteConverter.IntToByte(owner);
 
             short length = 14;
 
-            length += (short)( pages == null ? 0 : pages.Length * 4 );
+            length += (short)(pages == null || pages.Length <= 0 ? 0 : pages.Length * 4);
 
-            ByteUtil bf = new ByteUtil( Escape );
+            ByteUtil bf = new ByteUtil(Escape);
 
-            bf.Put( Const.PK_STX, false )
-              .Put( (byte)Cmd.OFFLINE_DATA_REQUEST )
-              .PutShort( length )
-              .Put( (byte)( deleteOnFinished ? 1 : 2 ) )
-              .Put( (byte)1 )
-              .Put( GetSectionOwnerByte( section, owner ) )
-              .PutInt( note )
-              .PutInt( pages == null ? 0 : pages.Length );
+            bf.Put(Const.PK_STX, false)
+              .Put((byte)Cmd.OFFLINE_DATA_REQUEST)
+              .PutShort(length)
+              .Put((byte)(deleteOnFinished ? 1 : 2))
+              .Put((byte)1)
+              .Put(GetSectionOwnerByte(section, owner))
+              .PutInt(note)
+              .PutInt(pages == null || pages.Length <= 0 ? 0 : pages.Length);
 
-            if ( pages != null )
+            if (pages != null && pages.Length > 0)
             {
-                foreach ( int page in pages )
+                foreach (int page in pages)
                 {
-                    bf.PutInt( page );
+                    bf.PutInt(page);
                 }
             }
 
-            bf.Put( Const.PK_ETX, false );
+            bf.Put(Const.PK_ETX, false);
 
-            return Send( bf );
+            return Send(bf);
         }
 
         private void SendOfflinePacketResponse( short index, bool isSuccess = true )

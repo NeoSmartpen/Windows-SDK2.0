@@ -112,7 +112,7 @@ namespace Neosmartpen.UnitTest
 
             bool thirdCheck = false;
 
-            _callbackObj.OfflineDataListReceived = delegate (object sender, object[] args)
+            _callbackObj.OfflineDataPageListReceived = delegate (object sender, object[] args)
             {
                 thirdCheck = true;
                 _autoResetEvent.Set();
@@ -120,7 +120,7 @@ namespace Neosmartpen.UnitTest
 
             Task.Factory.StartNew(() =>
             {
-                _penComm.ReqOfflineDataList(DEFAULT_SECTION, DEFAULT_OWNER, DEFAULT_NOTE);
+                _penComm.ReqOfflineDataPageList(DEFAULT_SECTION, DEFAULT_OWNER, DEFAULT_NOTE);
             });
 
             _autoResetEvent.WaitOne();

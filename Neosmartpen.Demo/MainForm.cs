@@ -506,6 +506,10 @@ namespace PenDemo
             } ) );
         }
 
+        void PenCommV2Callbacks.onReceiveOfflineDataPageList(IPenComm sender, int section, int owner, int note, int[] pageNumbers)
+        {
+        }
+
         void PenCommV1Callbacks.onStartOfflineDownload( IPenComm sender )
         {
             DisplayProgress( ProgressTitleOffline, 100, 0 );
@@ -522,7 +526,7 @@ namespace PenDemo
             mPenCommV1.ReqOfflineDataList();
         }
 
-        void PenCommV1Callbacks.onReceiveOfflineStrokes( IPenComm sender, Stroke[] strokes )
+        void PenCommV1Callbacks.onReceiveOfflineStrokes( IPenComm sender, Stroke[] strokes, Symbol[] symbols )
         {
             foreach ( Stroke stroke in strokes )
             {
@@ -609,7 +613,7 @@ namespace PenDemo
             DisplayProgress( ProgressTitleOffline, 100, 0 );
         }
 
-        void PenCommV2Callbacks.onReceiveOfflineStrokes( IPenComm sender, int total, int progress, Stroke[] strokes )
+        void PenCommV2Callbacks.onReceiveOfflineStrokes( IPenComm sender, int total, int progress, Stroke[] strokes, Symbol[] symbols )
         {
             foreach ( Stroke stroke in strokes )
             {

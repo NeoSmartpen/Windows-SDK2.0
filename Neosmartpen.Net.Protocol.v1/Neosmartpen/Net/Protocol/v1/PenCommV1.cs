@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Neosmartpen.Net.Metadata;
+using Neosmartpen.Net.Metadata.Model;
+using System.Linq;
 
 namespace Neosmartpen.Net.Protocol.v1
 {
@@ -114,7 +116,28 @@ namespace Neosmartpen.Net.Protocol.v1
 
         void OfflineWorkResponseHandler.onReceiveOfflineStrokes( Stroke[] strokes )
         {
-            Callback.onReceiveOfflineStrokes( this, strokes );
+            var resultSymbol = new List<Symbol>();
+
+            if (MetadataManager != null)
+            {
+                foreach (var stroke in strokes)
+                {
+                    var symbols = MetadataManager.FindApplicableSymbols(stroke);
+
+                    if (symbols != null && symbols.Count > 0)
+                    {
+                        foreach (var symbol in symbols)
+                        {
+                            if (resultSymbol.Where(s => s.Id == symbol.Id).Count() <= 0)
+                            {
+                                resultSymbol.Add(symbol);
+                            }
+                        }
+                    }
+                }
+            }
+
+            Callback.onReceiveOfflineStrokes( this, strokes, resultSymbol.ToArray());
         }
 
         void OfflineWorkResponseHandler.onRequestDownloadOfflineData( int sectionId, int ownerId, int noteId )
