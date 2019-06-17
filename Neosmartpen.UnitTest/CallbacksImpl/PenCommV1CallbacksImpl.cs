@@ -1,8 +1,6 @@
 ﻿using Neosmartpen.Net;
 using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v1;
-using Neosmartpen.Net.Protocol.v2;
-using System;
 using System.Collections.Generic;
 
 namespace Neosmartpen.UnitTest
@@ -102,7 +100,7 @@ namespace Neosmartpen.UnitTest
             OfflineDataDownloadingFinished?.Invoke(sender, result);
         }
 
-        void PenCommV1Callbacks.onReceiveOfflineStrokes(IPenComm sender, Stroke[] strokes)
+        void PenCommV1Callbacks.onReceiveOfflineStrokes(IPenComm sender, Stroke[] strokes, Symbol[] symbols)
         {
             OfflineStrokesReceived?.Invoke(sender, strokes);
         }

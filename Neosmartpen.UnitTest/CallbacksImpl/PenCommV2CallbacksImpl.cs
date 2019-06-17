@@ -33,6 +33,7 @@ namespace Neosmartpen.UnitTest
         public CallbackDele PenUsbModeChanged;
         public CallbackDele OfflineDataRemoved;
         public CallbackDele OfflineDataListReceived;
+        public CallbackDele OfflineDataPageListReceived;
         public CallbackDele OfflineDataDownloadingStarted;
         public CallbackDele OfflineDataDownloadingFinished;
         public CallbackDele OfflineStrokesReceived;
@@ -66,6 +67,7 @@ namespace Neosmartpen.UnitTest
             PenUsbModeChanged = null;
             OfflineDataRemoved = null;
             OfflineDataListReceived = null;
+            OfflineDataPageListReceived = null;
             OfflineDataDownloadingStarted = null;
             OfflineDataDownloadingFinished = null;
             OfflineStrokesReceived = null;
@@ -206,7 +208,12 @@ namespace Neosmartpen.UnitTest
             OfflineDataListReceived?.Invoke(sender, offlineNotes);
         }
 
-        void PenCommV2Callbacks.onReceiveOfflineStrokes(IPenComm sender, int total, int amountDone, Stroke[] strokes)
+        void PenCommV2Callbacks.onReceiveOfflineDataPageList(IPenComm sender, int section, int owner, int note, int[] pageNumbers)
+        {
+            OfflineDataPageListReceived?.Invoke(sender, section, owner, note, pageNumbers);
+        }
+
+        void PenCommV2Callbacks.onReceiveOfflineStrokes(IPenComm sender, int total, int amountDone, Stroke[] strokes, Symbol[] symbols)
         {
             OfflineStrokesReceived?.Invoke(sender, total, amountDone);
         }

@@ -58,6 +58,17 @@ namespace Neosmartpen.Net.Protocol.v2
         void onReceiveOfflineDataList( IPenComm sender, params OfflineDataInfo[] offlineNotes );
 
         /// <summary>
+        /// Fired when receive offline data list in Neo smartpen.
+        /// When you received this signal, you can request offline data to PenCommV2 by ReqOfflineData method.
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="section">The Section Id of the paper</param>
+        /// <param name="owner">The Owner Id of the paper</param>
+        /// <param name="note">The Note Id of the paper</param>
+        /// <param name="pageNumbers">The Page numbers of the paper</param>
+        void onReceiveOfflineDataPageList(IPenComm sender, int section, int owner, int note, int[] pageNumbers);
+
+        /// <summary>
         /// Fired when started downloading, override to handle in your own code.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -70,7 +81,8 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="total">amount of total work</param>
         /// <param name="amountDone">amount of work done</param>
         /// <param name="strokes">array of stroke object</param>
-        void onReceiveOfflineStrokes( IPenComm sender, int total, int amountDone, Stroke[] strokes );
+        /// <param name="symbols">array of symbol object</param>
+        void onReceiveOfflineStrokes( IPenComm sender, int total, int amountDone, Stroke[] strokes, Symbol[] symbols );
 
         /// <summary>
         /// Fired when finished downloading, override to handle in your own code.

@@ -88,7 +88,8 @@ namespace Neosmartpen.Net.Protocol.v1
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="strokes">array of stroke object</param>
-        void onReceiveOfflineStrokes( IPenComm sender, Stroke[] strokes );
+        /// <param name="symbols">array of symbol object</param>
+        void onReceiveOfflineStrokes( IPenComm sender, Stroke[] strokes, Symbol[] symbols );
 
         /// <summary>
         /// Fired when received status of pen, override to handle in your own code.
