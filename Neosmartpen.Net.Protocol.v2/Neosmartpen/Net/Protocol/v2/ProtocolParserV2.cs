@@ -4,7 +4,7 @@ using System;
 namespace Neosmartpen.Net.Protocol.v2
 {
     /// <summary>
-    /// 읽어드린 바이트에 대한 파서
+    /// protocol 2.0 parser
     /// </summary>
     public class ProtocolParserV2 : IProtocolParser
     {
@@ -26,14 +26,14 @@ namespace Neosmartpen.Net.Protocol.v2
             {
                 if ( buff[i] == Const.PK_STX )
                 {
-                    // 패킷 시작
+                    // packet start
                     mBuffer = new ByteUtil();
 
                     IsEscape = false;
                 }
                 else if ( buff[i] == Const.PK_ETX )
                 {
-                    // 패킷 끝
+                    // end of packet
                     Packet.Builder builder = new Packet.Builder();
 
                     int cmd = mBuffer.GetByteToInt();
