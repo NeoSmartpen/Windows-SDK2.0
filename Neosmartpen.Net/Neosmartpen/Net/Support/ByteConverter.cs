@@ -3,7 +3,7 @@
 namespace Neosmartpen.Net.Support
 {
     /// <summary>
-    /// 바이트와 short, int, long 간 변환
+    ///Data type converter between byte[] and short, int, long
     /// </summary>
     public class ByteConverter
     {
