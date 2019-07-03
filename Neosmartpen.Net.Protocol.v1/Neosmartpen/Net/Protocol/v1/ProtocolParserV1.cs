@@ -65,7 +65,7 @@ namespace Neosmartpen.Net.Protocol.v1
     }
 
     /// <summary>
-    /// 읽어드린 바이트에 대한 파서
+    /// protocol v1.0 parser
     /// </summary>
     public class ProtocolParserV1 : IProtocolParser
     {
@@ -114,13 +114,13 @@ namespace Neosmartpen.Net.Protocol.v1
             {
                 Packet.Builder builder = new Packet.Builder();
 
-                // 커맨드를 뽑는다.
+                // extract the command element
                 int cmd = nbuffer.GetByteToInt();
 
-                // 길이를 뽑는다.
+                // packet length
                 int length = nbuffer.GetShort();
 
-                // 커맨드, 길이를 제외한 나머지 바이트를 컨텐트로 지정
+                // packet body
                 byte[] content = nbuffer.GetBytes();
 
                 PacketCreated(this, new PacketEventArgs(builder.cmd(cmd).data(content).Build()));
