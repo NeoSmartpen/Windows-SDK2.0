@@ -1,13 +1,8 @@
 ﻿using Neosmartpen.Net.Support;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Neosmartpen.Net.Usb
 {
-    /// <summary>
-    /// 오프라인 데이터 조각을 받아 파일로 완성
-    /// </summary>
     public class FileBuilder
     {
         private ByteUtil byteUtil;

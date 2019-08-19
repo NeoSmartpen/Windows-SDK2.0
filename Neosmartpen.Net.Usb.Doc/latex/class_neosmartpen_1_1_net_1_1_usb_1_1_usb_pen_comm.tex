@@ -2,14 +2,18 @@
 \label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}\index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
 
 
+A class that implements functions related to communication and control with a connected pen  
+
+
+
+
 Inherits I\+Disposable.
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a29280a40d4ae7a0b554640efe30250a1}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a29280a40d4ae7a0b554640efe30250a1}} 
-{\bfseries Usb\+Pen\+Comm} (string port\+Name)
-\item 
+\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a29280a40d4ae7a0b554640efe30250a1}{Usb\+Pen\+Comm}} (string port\+Name)
+\begin{DoxyCompactList}\small\item\em Create an instance of \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} associated with the C\+OM port. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_ab0a36f8948f5ed18dd47b532da82ee16}{Open}} ()
 \begin{DoxyCompactList}\small\item\em Open a new serial port. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a366801df9ae2de6991b4d642f1456db0}{Connect}} ()
@@ -22,7 +26,7 @@ void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a66c652
 \begin{DoxyCompactList}\small\item\em Request the current battery status of the pen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7257835ff7f20619d52b2c39396fdaa1}{Get\+Storage\+Status\+Request}} ()
 \begin{DoxyCompactList}\small\item\em Request the storage state of the current pen. (Firmware not implemented) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a08aecd1358ca22fa1ab1c1fb6ffd6cb1}{Set\+Date\+Time\+Request}} (Date\+Time local\+Date\+Time)
+void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a84e22b5ae2b2c1aa10a4895ddf369046}{Set\+Date\+Time\+Request}} (\mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3a8cf10d2341ed01492506085688270c1e}{System.\+Date\+Time}} local\+Date\+Time)
 \begin{DoxyCompactList}\small\item\em Set the date / time value of the current pen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a9ad8dfeca06b9cff3c174a6448d98b1a}{Set\+Auto\+Power\+Off\+Time\+Request}} (Time\+Span time\+Span)
 \begin{DoxyCompactList}\small\item\em Requests to set the current pen\textquotesingle{}s Auto Power Off Time value. \end{DoxyCompactList}\item 
@@ -122,6 +126,29 @@ Event\+Handler$<$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_
 \begin{DoxyCompactList}\small\item\em Event that informs progress when the pen\textquotesingle{}s firmware is updated \end{DoxyCompactList}\item 
 Event\+Handler$<$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_update_result_received_event_args}{Update\+Result\+Received\+Event\+Args}} $>$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a22acdb5f2731f1d8d3199a00c07f8cab}{Update\+Result\+Received}}
 \begin{DoxyCompactList}\small\item\em Event that informs result you when the pen\textquotesingle{}s firmware is updated \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that implements functions related to communication and control with a connected pen 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a29280a40d4ae7a0b554640efe30250a1}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a29280a40d4ae7a0b554640efe30250a1}} 
+\index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!UsbPenComm@{UsbPenComm}}
+\index{UsbPenComm@{UsbPenComm}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
+\doxysubsubsection{\texorpdfstring{UsbPenComm()}{UsbPenComm()}}
+{\footnotesize\ttfamily Neosmartpen.\+Net.\+Usb.\+Usb\+Pen\+Comm.\+Usb\+Pen\+Comm (\begin{DoxyParamCaption}\item[{string}]{port\+Name }\end{DoxyParamCaption})}
+
+
+
+Create an instance of \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} associated with the C\+OM port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+Name} & C\+OM port name to connect to\\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -308,11 +335,11 @@ Sets whether to save offline data of current pen.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a08aecd1358ca22fa1ab1c1fb6ffd6cb1}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a08aecd1358ca22fa1ab1c1fb6ffd6cb1}} 
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a84e22b5ae2b2c1aa10a4895ddf369046}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a84e22b5ae2b2c1aa10a4895ddf369046}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetDateTimeRequest@{SetDateTimeRequest}}
 \index{SetDateTimeRequest@{SetDateTimeRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
 \doxysubsubsection{\texorpdfstring{SetDateTimeRequest()}{SetDateTimeRequest()}}
-{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Pen\+Comm.\+Set\+Date\+Time\+Request (\begin{DoxyParamCaption}\item[{Date\+Time}]{local\+Date\+Time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Pen\+Comm.\+Set\+Date\+Time\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3a8cf10d2341ed01492506085688270c1e}{System.\+Date\+Time}}}]{local\+Date\+Time }\end{DoxyParamCaption})}
 
 
 

@@ -5,8 +5,9 @@ var indexSectionsWithContent =
   2: "n",
   3: "cdfgopsu",
   4: "cfr",
-  5: "abcdfimprstu",
-  6: "abcdflopsu"
+  5: "abdlps",
+  6: "abcdfimprstu",
+  7: "abcdflopsu"
 };
 
 var indexSectionNames =
@@ -16,8 +17,9 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "enums",
-  5: "properties",
-  6: "events"
+  5: "enumvalues",
+  6: "properties",
+  7: "events"
 };
 
 var indexSectionLabels =
@@ -27,7 +29,8 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Functions",
   4: "Enumerations",
-  5: "Properties",
-  6: "Events"
+  5: "Enumerator",
+  6: "Properties",
+  7: "Events"
 };
 

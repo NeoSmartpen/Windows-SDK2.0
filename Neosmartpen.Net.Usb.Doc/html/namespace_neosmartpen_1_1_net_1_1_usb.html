@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Neosmartpen.Net.Usb
    </div>
+   <div id="projectbrief">Windows USB SDK for Windows. This open-source library allows you to integrate the Neo smartpen M1+ into your Windows program.</div>
   </td>
  </tr>
  </tbody>
@@ -76,70 +77,33 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Const</b></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>FileBuilder</b></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">오프라인 데이터 조각을 받아 파일로 완성 <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>FileSplitter</b></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter.html">UsbAdapter</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>UsbPacket</b></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>UsbPacketEventArgs</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that implements functions related to USB connection  <a href="class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html">UsbPenComm</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>UsbProtocolParser</b></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">읽어드린 바이트에 대한 파서 <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that implements functions related to communication and control with a connected pen  <a href="class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aa535e8e27cbd54034882f73234a981d1"><td class="memItemLeft" align="right" valign="top"><a id="aa535e8e27cbd54034882f73234a981d1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Cmd</b> { <br />
-&#160;&#160;<b>START</b>, 
-<b>GETDEVINFO</b>, 
-<b>GETCONFIG</b>, 
-<b>SETCONFIG</b>, 
-<br />
-&#160;&#160;<b>FORMAT</b>, 
-<b>GETOFFLINEDATALIST</b>, 
-<b>GETLOGFILELIST</b>, 
-<b>GETFILE_H</b>, 
-<br />
-&#160;&#160;<b>GETFILE_D</b>, 
-<b>DELETEFILE</b>, 
-<b>POWEROFF</b>, 
-<b>UPDATE_START</b>, 
-<br />
-&#160;&#160;<b>UPDATE_DO</b>
-<br />
- }</td></tr>
-<tr class="separator:aa535e8e27cbd54034882f73234a981d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada1c045547269af274c7cfa77281686f"><td class="memItemLeft" align="right" valign="top"><a id="ada1c045547269af274c7cfa77281686f"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PacketType</b> { <b>Request</b>, 
-<b>Response</b>, 
-<b>Event</b>
- }</td></tr>
-<tr class="separator:ada1c045547269af274c7cfa77281686f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16f6a9b86ea655d16f14711c68f05be3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3">ConfigType</a> { <br />
-&#160;&#160;<b>DateTime</b> = 0x01, 
-<b>AutoPowerOffTime</b> = 0x02, 
-<b>AutoPowerOn</b> = 0x03, 
-<b>PenCapOff</b> = 0x04, 
+&#160;&#160;<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a8cf10d2341ed01492506085688270c1e">ConfigType.DateTime</a> = 0x01, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3aa716dbb2e00e1af791c8849f7cfb79dc">ConfigType.AutoPowerOffTime</a> = 0x02, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a24680c422dc451a1cddd845fb0f66e05">ConfigType.AutoPowerOn</a> = 0x03, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a52711de8a27b3810c097cfd6e0a99481">ConfigType.PenCapOff</a> = 0x04, 
 <br />
-&#160;&#160;<b>Beep</b> = 0x05, 
-<b>SaveOfflineData</b> = 0x07, 
-<b>DownSampling</b> = 0x08, 
-<b>Battery</b> = 0x09, 
+&#160;&#160;<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a4e5e247c20ab935eb6dcda8a4176176e">ConfigType.Beep</a> = 0x05, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a0c4a062e8976fc3a638d23315f1e0231">ConfigType.SaveOfflineData</a> = 0x07, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a2442f45b900eced95a8cabaf48b0a887">ConfigType.DownSampling</a> = 0x08, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3ad67c92867cc3d7fdf47f32cf70ab1b24">ConfigType.Battery</a> = 0x09, 
 <br />
-&#160;&#160;<b>Storage</b> = 0x10
+&#160;&#160;<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3a8c4aa541ee911e8d80451ef8cc304806">ConfigType.Storage</a> = 0x10
 <br />
  }</td></tr>
 <tr class="memdesc:a16f6a9b86ea655d16f14711c68f05be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum indicating the setting type of the pen  <a href="namespace_neosmartpen_1_1_net_1_1_usb.html#a16f6a9b86ea655d16f14711c68f05be3">More...</a><br /></td></tr>
 <tr class="separator:a16f6a9b86ea655d16f14711c68f05be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0072c3ef0106e17b3fca4627b351e30"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#ac0072c3ef0106e17b3fca4627b351e30">FileType</a> { <b>Data</b>, 
-<b>Log</b>
+<tr class="memitem:ac0072c3ef0106e17b3fca4627b351e30"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#ac0072c3ef0106e17b3fca4627b351e30">FileType</a> { <a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#ac0072c3ef0106e17b3fca4627b351e30af6068daa29dbb05a7ead1e3b5a48bbee">FileType.Data</a>, 
+<a class="el" href="namespace_neosmartpen_1_1_net_1_1_usb.html#ac0072c3ef0106e17b3fca4627b351e30ace0be71e33226e4c1db2bcea5959f16b">FileType.Log</a>
  }</td></tr>
 <tr class="memdesc:ac0072c3ef0106e17b3fca4627b351e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum indicating the file type of the pen  <a href="namespace_neosmartpen_1_1_net_1_1_usb.html#ac0072c3ef0106e17b3fca4627b351e30">More...</a><br /></td></tr>
 <tr class="separator:ac0072c3ef0106e17b3fca4627b351e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +130,26 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>An enum indicating the setting type of the pen </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a8cf10d2341ed01492506085688270c1e"></a>DateTime&#160;</td><td class="fielddoc"><p>DateTime </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3aa716dbb2e00e1af791c8849f7cfb79dc"></a>AutoPowerOffTime&#160;</td><td class="fielddoc"><p>AutoPowerOffTime </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a24680c422dc451a1cddd845fb0f66e05"></a>AutoPowerOn&#160;</td><td class="fielddoc"><p>AutoPowerOn </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a52711de8a27b3810c097cfd6e0a99481"></a>PenCapOff&#160;</td><td class="fielddoc"><p>PenCapOff </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a4e5e247c20ab935eb6dcda8a4176176e"></a>Beep&#160;</td><td class="fielddoc"><p>Beep </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a0c4a062e8976fc3a638d23315f1e0231"></a>SaveOfflineData&#160;</td><td class="fielddoc"><p>SaveOfflineData </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a2442f45b900eced95a8cabaf48b0a887"></a>DownSampling&#160;</td><td class="fielddoc"><p>DownSampling </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3ad67c92867cc3d7fdf47f32cf70ab1b24"></a>Battery&#160;</td><td class="fielddoc"><p>Battery </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a16f6a9b86ea655d16f14711c68f05be3a8c4aa541ee911e8d80451ef8cc304806"></a>Storage&#160;</td><td class="fielddoc"><p>Storage </p>
+</td></tr>
+</table>
 
 </div>
 </div>
@@ -190,6 +174,12 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Enum indicating the file type of the pen </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac0072c3ef0106e17b3fca4627b351e30af6068daa29dbb05a7ead1e3b5a48bbee"></a>Data&#160;</td><td class="fielddoc"><p>Data file type </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac0072c3ef0106e17b3fca4627b351e30ace0be71e33226e4c1db2bcea5959f16b"></a>Log&#160;</td><td class="fielddoc"><p>Log file type </p>
+</td></tr>
+</table>
 
 </div>
 </div>
