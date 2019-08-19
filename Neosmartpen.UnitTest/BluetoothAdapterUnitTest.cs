@@ -91,10 +91,6 @@ namespace Neosmartpen.UnitTest
         {
         }
 
-        void PenCommV2Callbacks.onReceiveOfflineStrokes(IPenComm sender, int total, int amountDone, Stroke[] strokes)
-        {
-        }
-
         void PenCommV2Callbacks.onFinishedOfflineDownload(IPenComm sender, bool result)
         {
         }
@@ -200,6 +196,14 @@ namespace Neosmartpen.UnitTest
         }
 
         void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
+        {
+        }
+
+        void PenCommV2Callbacks.onReceiveOfflineDataPageList(IPenComm sender, int section, int owner, int note, int[] pageNumbers)
+        {
+        }
+
+        void PenCommV2Callbacks.onReceiveOfflineStrokes(IPenComm sender, int total, int amountDone, Stroke[] strokes, Symbol[] symbols)
         {
         }
 

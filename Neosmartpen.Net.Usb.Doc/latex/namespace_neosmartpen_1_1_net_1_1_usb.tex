@@ -1,0 +1,91 @@
+\hypertarget{namespace_neosmartpen_1_1_net_1_1_usb}{}\doxysection{Neosmartpen.\+Net.\+Usb Namespace Reference}
+\label{namespace_neosmartpen_1_1_net_1_1_usb}\index{Neosmartpen.Net.Usb@{Neosmartpen.Net.Usb}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Const}
+\item 
+class {\bfseries File\+Builder}
+\begin{DoxyCompactList}\small\item\em 오프라인 데이터 조각을 받아 파일로 완성 \end{DoxyCompactList}\item 
+class {\bfseries File\+Splitter}
+\item 
+class \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}}
+\item 
+class {\bfseries Usb\+Packet}
+\item 
+class {\bfseries Usb\+Packet\+Event\+Args}
+\item 
+class \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}}
+\item 
+class {\bfseries Usb\+Protocol\+Parser}
+\begin{DoxyCompactList}\small\item\em 읽어드린 바이트에 대한 파서 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_neosmartpen_1_1_net_1_1_usb_aa535e8e27cbd54034882f73234a981d1}\label{namespace_neosmartpen_1_1_net_1_1_usb_aa535e8e27cbd54034882f73234a981d1}} 
+enum {\bfseries Cmd} \{ \newline
+{\bfseries S\+T\+A\+RT}, 
+{\bfseries G\+E\+T\+D\+E\+V\+I\+N\+FO}, 
+{\bfseries G\+E\+T\+C\+O\+N\+F\+IG}, 
+{\bfseries S\+E\+T\+C\+O\+N\+F\+IG}, 
+\newline
+{\bfseries F\+O\+R\+M\+AT}, 
+{\bfseries G\+E\+T\+O\+F\+F\+L\+I\+N\+E\+D\+A\+T\+A\+L\+I\+ST}, 
+{\bfseries G\+E\+T\+L\+O\+G\+F\+I\+L\+E\+L\+I\+ST}, 
+{\bfseries G\+E\+T\+F\+I\+L\+E\+\_\+H}, 
+\newline
+{\bfseries G\+E\+T\+F\+I\+L\+E\+\_\+D}, 
+{\bfseries D\+E\+L\+E\+T\+E\+F\+I\+LE}, 
+{\bfseries P\+O\+W\+E\+R\+O\+FF}, 
+{\bfseries U\+P\+D\+A\+T\+E\+\_\+\+S\+T\+A\+RT}, 
+\newline
+{\bfseries U\+P\+D\+A\+T\+E\+\_\+\+DO}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_neosmartpen_1_1_net_1_1_usb_ada1c045547269af274c7cfa77281686f}\label{namespace_neosmartpen_1_1_net_1_1_usb_ada1c045547269af274c7cfa77281686f}} 
+enum {\bfseries Packet\+Type} \{ {\bfseries Request}, 
+{\bfseries Response}, 
+{\bfseries Event}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3}{Config\+Type}} \{ \newline
+{\bfseries Date\+Time} = 0x01, 
+{\bfseries Auto\+Power\+Off\+Time} = 0x02, 
+{\bfseries Auto\+Power\+On} = 0x03, 
+{\bfseries Pen\+Cap\+Off} = 0x04, 
+\newline
+{\bfseries Beep} = 0x05, 
+{\bfseries Save\+Offline\+Data} = 0x07, 
+{\bfseries Down\+Sampling} = 0x08, 
+{\bfseries Battery} = 0x09, 
+\newline
+{\bfseries Storage} = 0x10
+ \}
+\begin{DoxyCompactList}\small\item\em An enum indicating the setting type of the pen \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_ac0072c3ef0106e17b3fca4627b351e30}{File\+Type}} \{ {\bfseries Data}, 
+{\bfseries Log}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum indicating the file type of the pen \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3}\label{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3}} 
+\index{Neosmartpen.Net.Usb@{Neosmartpen.Net.Usb}!ConfigType@{ConfigType}}
+\index{ConfigType@{ConfigType}!Neosmartpen.Net.Usb@{Neosmartpen.Net.Usb}}
+\doxysubsubsection{\texorpdfstring{ConfigType}{ConfigType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_a16f6a9b86ea655d16f14711c68f05be3}{Neosmartpen.\+Net.\+Usb.\+Config\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum indicating the setting type of the pen 
+
+\mbox{\Hypertarget{namespace_neosmartpen_1_1_net_1_1_usb_ac0072c3ef0106e17b3fca4627b351e30}\label{namespace_neosmartpen_1_1_net_1_1_usb_ac0072c3ef0106e17b3fca4627b351e30}} 
+\index{Neosmartpen.Net.Usb@{Neosmartpen.Net.Usb}!FileType@{FileType}}
+\index{FileType@{FileType}!Neosmartpen.Net.Usb@{Neosmartpen.Net.Usb}}
+\doxysubsubsection{\texorpdfstring{FileType}{FileType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_neosmartpen_1_1_net_1_1_usb_ac0072c3ef0106e17b3fca4627b351e30}{Neosmartpen.\+Net.\+Usb.\+File\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum indicating the file type of the pen 
+
