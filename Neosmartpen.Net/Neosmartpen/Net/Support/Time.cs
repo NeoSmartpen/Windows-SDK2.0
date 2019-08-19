@@ -14,6 +14,14 @@ namespace Neosmartpen.Net.Support
 			long ts = (long)t.TotalMilliseconds;
 			return ts;
         }
+
+        public static long GetUtcTimeStamp(DateTime dateTime)
+        {
+            TimeSpan t = (dateTime.ToUniversalTime() - new DateTime(1970, 1, 1));
+            long ts = (long)t.TotalMilliseconds;
+            return ts;
+        }
+
         /// <summary>
         /// Time offset 
         /// </summary>
@@ -38,7 +46,7 @@ namespace Neosmartpen.Net.Support
             return date;
         }
 
-        public static DateTime GetLocalDateTime( long timestamp )
+        public static DateTime GetLocalDateTimeFromUtcTimestamp( long timestamp )
         {
             DateTime start = new DateTime( 1970, 1, 1, 0, 0, 0, DateTimeKind.Utc );
             DateTime date = start.AddMilliseconds(timestamp).ToLocalTime();
