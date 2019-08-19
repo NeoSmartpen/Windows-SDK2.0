@@ -292,7 +292,7 @@ namespace Neosmartpen.Net.Support
             {
                 ms.fX[i] = m.X  + m.Fx * 0.01f;
                 ms.fY[i] = m.Y  + m.Fy * 0.01f;
-                ms.fPressureRate[i] =(float) m.Force/255;
+                ms.fPressureRate[i] =(float) m.Force/1023;
                 i++;
             }
             return ms;

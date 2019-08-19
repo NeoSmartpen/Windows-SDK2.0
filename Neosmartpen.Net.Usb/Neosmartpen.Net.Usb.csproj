@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC2123A7-B4A3-4998-9713-235DD916F93C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Neosmartpen.Net.Usb</RootNamespace>
+    <AssemblyName>Neosmartpen.Net.Usb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Neosmarpen\Net\Usb\Events\ConnectionStatusChangedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\ProgressChangedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\FileDownloadResultReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\UpdateResultReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\FileInfoReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\FileListReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\ResultReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\ConfigSetupResultReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\BatteryStatusReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\StorageStatusReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Events\DateTimeReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Exceptions\IsNotActiveException.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Exceptions\FileCannotLoadException.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Exceptions\FileNameIsTooLongException.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Exceptions\FirmwareVersionIsTooLongException.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\FileBuilder.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\FileSplitter.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\UsbPacket.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Protocol.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\UsbPenComm.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\UsbProtocolParser.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\UsbAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Neosmartpen.Net\Neosmartpen.Net.csproj">
+      <Project>{16297e2b-052f-4a7e-bcb0-9b52c6420f34}</Project>
+      <Name>Neosmartpen.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

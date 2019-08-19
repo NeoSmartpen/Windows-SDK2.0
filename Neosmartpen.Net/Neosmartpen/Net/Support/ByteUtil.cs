@@ -9,6 +9,8 @@ namespace Neosmartpen.Net.Support
     {
         public const int DEF_LIMIT = 1000, DEF_GROWTH = 1000;
 
+        public int WritePosition { get { return mPosWrite; } }
+
         private int mPosWrite = 0, mPosRead = 0;
 
         private byte[] mBuffer;
