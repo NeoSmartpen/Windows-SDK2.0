@@ -1,0 +1,154 @@
+\hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{}\doxysection{Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter Class Reference}
+\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8b72b6b3aa8114b414b2b93f78f040b5}{Search\+And\+Connect}} ()
+\begin{DoxyCompactList}\small\item\em Searches for the currently connected pen and starts communication. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab26614901da20b57198240d6dc4a0bfd}{Get\+Usb\+Pen\+Comm}} (string port\+Name)
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} instance corresponding to the Port Name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8a6812336eb9e725103a52771ebf6b15}{Dispose}} ()
+\begin{DoxyCompactList}\small\item\em Stop the \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}} and release the allocated resources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ac1c1dbd5ea91e7740cc5f1fd85fd2526}{Start\+Watcher}} ()
+\begin{DoxyCompactList}\small\item\em Runs a watcher that detects a U\+SB connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a980f1ec66ed8697a3165ad9c99bc928c}{Stop\+Watcher}} ()
+\begin{DoxyCompactList}\small\item\em Stop a watcher that detects a U\+SB connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}} \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_acc27166eaf4abe09600fbae4d1b681b3}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get an instance of \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} $>$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab291c2ce5aa4c1a04a2354220311ca00}{Usb\+Pen\+Comms}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em List of currently connected pens \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a2c23584c134177821234fa0710a85ffe}{Is\+Watching}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Whether the watcher detects pen connection and disconnection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler$<$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_connection_status_changed_event_args}{Connection\+Status\+Changed\+Event\+Args}} $>$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a71e33cbdaa9e5534c004b56398458b96}{Connected}}
+\begin{DoxyCompactList}\small\item\em Event that occurs when a U\+SB connection is established and communication with the pen is initiated. \end{DoxyCompactList}\item 
+Event\+Handler$<$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_connection_status_changed_event_args}{Connection\+Status\+Changed\+Event\+Args}} $>$ \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a0df014ab2a6e6525132c035bea9185a7}{Disconnected}}
+\begin{DoxyCompactList}\small\item\em Occurs when communication with the pen has ended. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8a6812336eb9e725103a52771ebf6b15}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8a6812336eb9e725103a52771ebf6b15}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}}
+{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop the \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}} and release the allocated resources 
+
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_acc27166eaf4abe09600fbae4d1b681b3}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_acc27166eaf4abe09600fbae4d1b681b3}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}} Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get an instance of \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter}{Usb\+Adapter}}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab26614901da20b57198240d6dc4a0bfd}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab26614901da20b57198240d6dc4a0bfd}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!GetUsbPenComm@{GetUsbPenComm}}
+\index{GetUsbPenComm@{GetUsbPenComm}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{GetUsbPenComm()}{GetUsbPenComm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Get\+Usb\+Pen\+Comm (\begin{DoxyParamCaption}\item[{string}]{port\+Name }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} instance corresponding to the Port Name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+Name} & Name of Serial Port\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}} instance
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8b72b6b3aa8114b414b2b93f78f040b5}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a8b72b6b3aa8114b414b2b93f78f040b5}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!SearchAndConnect@{SearchAndConnect}}
+\index{SearchAndConnect@{SearchAndConnect}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{SearchAndConnect()}{SearchAndConnect()}}
+{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Search\+And\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Searches for the currently connected pen and starts communication. 
+
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ac1c1dbd5ea91e7740cc5f1fd85fd2526}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ac1c1dbd5ea91e7740cc5f1fd85fd2526}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!StartWatcher@{StartWatcher}}
+\index{StartWatcher@{StartWatcher}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{StartWatcher()}{StartWatcher()}}
+{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Start\+Watcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs a watcher that detects a U\+SB connection. 
+
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a980f1ec66ed8697a3165ad9c99bc928c}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a980f1ec66ed8697a3165ad9c99bc928c}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!StopWatcher@{StopWatcher}}
+\index{StopWatcher@{StopWatcher}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{StopWatcher()}{StopWatcher()}}
+{\footnotesize\ttfamily void Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Stop\+Watcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop a watcher that detects a U\+SB connection. 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a2c23584c134177821234fa0710a85ffe}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a2c23584c134177821234fa0710a85ffe}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!IsWatching@{IsWatching}}
+\index{IsWatching@{IsWatching}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{IsWatching}{IsWatching}}
+{\footnotesize\ttfamily bool Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Is\+Watching\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Whether the watcher detects pen connection and disconnection 
+
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab291c2ce5aa4c1a04a2354220311ca00}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_ab291c2ce5aa4c1a04a2354220311ca00}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!UsbPenComms@{UsbPenComms}}
+\index{UsbPenComms@{UsbPenComms}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{UsbPenComms}{UsbPenComms}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm}{Usb\+Pen\+Comm}}$>$ Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Usb\+Pen\+Comms\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+List of currently connected pens 
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a71e33cbdaa9e5534c004b56398458b96}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a71e33cbdaa9e5534c004b56398458b96}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!Connected@{Connected}}
+\index{Connected@{Connected}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{Connected}{Connected}}
+{\footnotesize\ttfamily Event\+Handler$<$\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_connection_status_changed_event_args}{Connection\+Status\+Changed\+Event\+Args}}$>$ Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Connected}
+
+
+
+Event that occurs when a U\+SB connection is established and communication with the pen is initiated. 
+
+\mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a0df014ab2a6e6525132c035bea9185a7}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter_a0df014ab2a6e6525132c035bea9185a7}} 
+\index{Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}!Disconnected@{Disconnected}}
+\index{Disconnected@{Disconnected}!Neosmartpen.Net.Usb.UsbAdapter@{Neosmartpen.Net.Usb.UsbAdapter}}
+\doxysubsubsection{\texorpdfstring{Disconnected}{Disconnected}}
+{\footnotesize\ttfamily Event\+Handler$<$\mbox{\hyperlink{class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_connection_status_changed_event_args}{Connection\+Status\+Changed\+Event\+Args}}$>$ Neosmartpen.\+Net.\+Usb.\+Usb\+Adapter.\+Disconnected}
+
+
+
+Occurs when communication with the pen has ended. 
+
