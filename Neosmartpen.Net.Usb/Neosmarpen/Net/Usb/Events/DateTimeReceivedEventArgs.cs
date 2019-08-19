@@ -11,7 +11,7 @@ namespace Neosmartpen.Net.Usb.Events
         /// <summary>
         /// Current date and time settings for the pen
         /// </summary>
-        public DateTime DateTime { get; private set; }
+        public System.DateTime DateTime { get; private set; }
 
         internal DateTimeReceivedEventArgs(long timestamp)
         {

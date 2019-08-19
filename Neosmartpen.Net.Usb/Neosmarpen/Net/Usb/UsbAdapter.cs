@@ -7,9 +7,12 @@ using System.Text.RegularExpressions;
 
 namespace Neosmartpen.Net.Usb
 {
-    public class UsbAdapter
+    /// <summary>
+    /// A class that implements functions related to USB connection
+    /// </summary>
+    public class UsbAdapter : IDisposable
     {
-        public static readonly string USB_VID_PID_PREFIX = "USB\\VID_0E8D&PID_0023";
+        private static readonly string USB_VID_PID_PREFIX = "USB\\VID_0E8D&PID_0023";
 
         private List<UsbPenComm> usbPenComms = new List<UsbPenComm>();
 
@@ -164,9 +167,6 @@ namespace Neosmartpen.Net.Usb
                     {
                         Regex reg = new Regex(@"COM[0-9]{1,2}", RegexOptions.IgnoreCase);
                         Match result = reg.Match(Name);
-
-                        if (result.Value == "COM8")
-                            continue;
 
                         if (result.Success)
                         {

@@ -47,14 +47,41 @@ namespace Neosmartpen.Net.Usb
     [Flags]
     public enum ConfigType
     {
+        /// <summary>
+        /// DateTime
+        /// </summary>
         DateTime = 0x01,
+        /// <summary>
+        /// AutoPowerOffTime
+        /// </summary>
         AutoPowerOffTime = 0x02,
+        /// <summary>
+        /// AutoPowerOn
+        /// </summary>
         AutoPowerOn = 0x03,
+        /// <summary>
+        /// PenCapOff
+        /// </summary>
         PenCapOff = 0x04,
+        /// <summary>
+        /// Beep
+        /// </summary>
         Beep = 0x05,
+        /// <summary>
+        /// SaveOfflineData
+        /// </summary>
         SaveOfflineData = 0x07,
+        /// <summary>
+        /// DownSampling
+        /// </summary>
         DownSampling = 0x08,
+        /// <summary>
+        /// Battery
+        /// </summary>
         Battery = 0x09,
+        /// <summary>
+        /// Storage
+        /// </summary>
         Storage = 0x10
     };
 
@@ -64,7 +91,13 @@ namespace Neosmartpen.Net.Usb
     [Flags]
     public enum FileType
     {
+        /// <summary>
+        /// Data file type
+        /// </summary>
         Data,
+        /// <summary>
+        /// Log file type
+        /// </summary>
         Log
     };
 }

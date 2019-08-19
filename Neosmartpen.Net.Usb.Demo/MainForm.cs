@@ -17,7 +17,10 @@ namespace Neosmartpen.Net.Usb.Demo
         {
             InitializeComponent();
 
+            // Create a UsbAdapter instance.
             usbAdapter = UsbAdapter.GetInstance();
+
+            // Implement an event handler to receive pen connection events.
             usbAdapter.Connected += UsbAdapter_Connected;
             usbAdapter.Disconnected += UsbAdapter_Disconnected;
 
@@ -32,8 +35,8 @@ namespace Neosmartpen.Net.Usb.Demo
 
         private void UsbAdapter_Connected(object sender, Events.ConnectionStatusChangedEventArgs e)
         {
+            // When the pen is connected, it implements event handlers for the pen's various functions.
             var usbPenComm = e.UsbPenComm;
-
             usbPenComm.OfflineFileListReceived += UsbPenComm_FileListReceived;
             usbPenComm.LogFileListReceived += UsbPenComm_FileListReceived;
             usbPenComm.FileInfoReceived += UsbPenComm_FileInfoReceived;
@@ -64,6 +67,7 @@ namespace Neosmartpen.Net.Usb.Demo
 
         private void UsbAdapter_Disconnected(object sender, Events.ConnectionStatusChangedEventArgs e)
         {
+            // When the pen is disconnected, you must remove the attached event handler.
             var usbPenComm = e.UsbPenComm;
             usbPenComm.OfflineFileListReceived -= UsbPenComm_FileListReceived;
             usbPenComm.LogFileListReceived -= UsbPenComm_FileListReceived;
@@ -285,7 +289,10 @@ namespace Neosmartpen.Net.Usb.Demo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Allows you to search and communicate with a pen connected via USB.
             usbAdapter.SearchAndConnect();
+
+            // Launch Watcher to detect when the pen is connected or disconnected via USB.
             usbAdapter.StartWatcher();
         }
 
@@ -543,6 +550,8 @@ namespace Neosmartpen.Net.Usb.Demo
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Handle when app is closed
+            // You should retrieve all UsbPenComm and UsbAdapter objects that exist and disconnect events and Dispose.
             usbAdapter.Connected -= UsbAdapter_Connected;
             usbAdapter.Disconnected -= UsbAdapter_Disconnected;
 
@@ -638,7 +647,7 @@ namespace Neosmartpen.Net.Usb.Demo
         {
             if (lvLocalFiles.SelectedItems.Count <= 0)
             {
-                MessageBox.Show("Please select pen");
+                MessageBox.Show("Please select offline data file");
                 return;
             }
 

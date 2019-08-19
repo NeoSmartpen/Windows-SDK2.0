@@ -45,7 +45,6 @@ namespace Neosmartpen.Net.Usb
                         if (recvByte == Const.CMD_PRIFIX_1)
                         {
                             step = 1;
-                            //command[commandIdx++] = recvByte;
                         }
                         else
                         {
@@ -56,7 +55,6 @@ namespace Neosmartpen.Net.Usb
                         if (recvByte == Const.CMD_PRIFIX_2)
                         {
                             step = 2;
-                            //command[commandIdx++] = recvByte;
                         }
                         else
                         {

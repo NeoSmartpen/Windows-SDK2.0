@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Neosmartpen.Net.Usb
 {
+    /// <summary>
+    /// A class that implements functions related to communication and control with a connected pen
+    /// </summary>
     public class UsbPenComm : IDisposable
     {
         private const string DataFilePath = "0:/data/";
@@ -94,6 +97,10 @@ namespace Neosmartpen.Net.Usb
 
         private byte packetNumber = 0;
 
+        /// <summary>
+        /// Create an instance of UsbPenComm associated with the COM port.
+        /// </summary>
+        /// <param name="portName">COM port name to connect to</param>
         public UsbPenComm(string portName)
         {
             PortName = portName;
@@ -137,7 +144,6 @@ namespace Neosmartpen.Net.Usb
         private void ParsePacket(UsbPacket pk)
         {
             Cmd cmd = (Cmd)pk.Cmd;
-
             //System.Diagnostics.Debug.WriteLine( "Cmd : {0}", cmd.ToString() );
 
             switch (cmd)
@@ -571,7 +577,7 @@ namespace Neosmartpen.Net.Usb
         /// Set the date / time value of the current pen.
         /// </summary>
         /// <param name="localDateTime">Local date time value to set</param>
-        public void SetDateTimeRequest(DateTime localDateTime)
+        public void SetDateTimeRequest(System.DateTime localDateTime)
         {
             if (!IsActive)
                 throw new IsNotActiveException();
