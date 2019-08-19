@@ -6,7 +6,7 @@ using System.Linq;
 namespace Neosmartpen.Net.Protocol.v1
 {
     /// <summary>
-    /// 오프라인 데이터 조각을 받아 파일로 완성
+    /// OfflineDataSerializer class take offline data fragments and assemble it as a files.
     /// </summary>
     public class OfflineDataSerializer : OfflineData
     {

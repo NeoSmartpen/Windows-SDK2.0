@@ -3,7 +3,7 @@
 namespace Neosmartpen.Net.Support
 {
     /// <summary>
-    /// 바이트 버퍼를 대체 
+    /// This class functions as a ByteBuffer 
     /// </summary>
     public class ByteUtil
     {
