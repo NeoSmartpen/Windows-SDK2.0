@@ -542,6 +542,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request the time setting of the current pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetDateTimeRequest()
         {
             if (!IsActive)
@@ -553,6 +554,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request the current battery status of the pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetBatteryStatusRequest()
         {
             if (!IsActive)
@@ -565,6 +567,7 @@ namespace Neosmartpen.Net.Usb
         /// Request the storage state of the current pen.
         /// (Firmware not implemented)
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetStorageStatusRequest()
         {
             if (!IsActive)
@@ -577,6 +580,7 @@ namespace Neosmartpen.Net.Usb
         /// Set the date / time value of the current pen.
         /// </summary>
         /// <param name="localDateTime">Local date time value to set</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetDateTimeRequest(System.DateTime localDateTime)
         {
             if (!IsActive)
@@ -589,6 +593,7 @@ namespace Neosmartpen.Net.Usb
         /// Requests to set the current pen's Auto Power Off Time value.
         /// </summary>
         /// <param name="timeSpan">A TimeSpan object representing the time to set</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetAutoPowerOffTimeRequest(TimeSpan timeSpan)
         {
             if (!IsActive)
@@ -601,6 +606,7 @@ namespace Neosmartpen.Net.Usb
         /// Sets whether to use the current pen's Auto Power On function.
         /// </summary>
         /// <param name="enable">True if used false if not</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetIsAutoPowerOnEnabledRequest(bool enable)
         {
             if (!IsActive)
@@ -613,6 +619,7 @@ namespace Neosmartpen.Net.Usb
         /// Sets whether to use the current pen's PenCap Off function.
         /// </summary>
         /// <param name="enable">True if used false if not</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetIsPenCapOffEnabledRequest(bool enable)
         {
             if (!IsActive)
@@ -625,6 +632,7 @@ namespace Neosmartpen.Net.Usb
         /// Sets whether the current pen beeps.
         /// </summary>
         /// <param name="enable">True if used false if not</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetIsBeepEnabledRequest(bool enable)
         {
             if (!IsActive)
@@ -637,6 +645,7 @@ namespace Neosmartpen.Net.Usb
         /// Sets whether to save offline data of current pen.
         /// </summary>
         /// <param name="enable">True if used false if not</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetCanSaveOfflineDataRequest(bool enable)
         {
             if (!IsActive)
@@ -649,6 +658,7 @@ namespace Neosmartpen.Net.Usb
         /// Enables or disables downsampling of the current pen.
         /// </summary>
         /// <param name="enable">True if used false if not</param>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetIsDownsamplingEnabledRequest(bool enable)
         {
             if (!IsActive)
@@ -691,6 +701,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request to initialize the data of the current pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void FormatRequest()
         {
             if (!IsActive)
@@ -710,6 +721,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request a list of offline data files currently stored in the pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetOfflineFileListRequest()
         {
             if (!IsActive)
@@ -728,6 +740,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request a list of log data files currently stored in the pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetLogFileListRequest()
         {
             if (!IsActive)
@@ -769,8 +782,10 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request the file details.
         /// </summary>
-        /// <param name="fileType">FileType enum value to distinguish whether the file is login or offline</param>
-        /// <param name="fileName">Filename</param>
+        /// <param name="fileType">FileType enum value to distinguish whether the file is log or offline data</param>
+        /// <param name="fileName">Filename (56 byte length limit)</param>
+        /// <exception cref="FileNameIsTooLongException">Occurs when file name is longer than 56 bytes</exception>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetFileInfoRequest(FileType fileType, string fileName)
         {
             if (!IsActive)
@@ -783,9 +798,11 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request the file data.
         /// </summary>
-        /// <param name="fileType">FileType enum value to distinguish whether the file is login or offline</param>
-        /// <param name="fileName">Filename</param>
+        /// <param name="fileType">FileType enum value to distinguish whether the file is log or offline data</param>
+        /// <param name="fileName">Filename (56 byte length limit)</param>
         /// <param name="targetPath">Where to save the file</param>
+        /// <exception cref="FileNameIsTooLongException">Occurs when file name is longer than 56 bytes</exception>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetFileDataRequest(FileType fileType, string fileName, string targetPath)
         {
             if (!IsActive)
@@ -813,8 +830,10 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request to delete the file.
         /// </summary>
-        /// <param name="fileType">FileType enum value to distinguish whether the file is login or offline</param>
-        /// <param name="fileName">Filename</param>
+        /// <param name="fileType">FileType enum value to distinguish whether the file is log or offline data</param>
+        /// <param name="fileName">Filename (56 byte length limit)</param>
+        /// <exception cref="FileNameIsTooLongException">Occurs when file name is longer than 56 bytes</exception>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void DeleteFileRequest(FileType fileType, string fileName)
         {
             if (!IsActive)
@@ -839,6 +858,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Shut down the current pen.
         /// </summary>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void PowerOffRequest()
         {
             if (!IsActive)
@@ -861,8 +881,11 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Request to update the pen's firmware.
         /// </summary>
-        /// <param name="firmwareVersion">Version of new firmware</param>
+        /// <param name="firmwareVersion">Version of new firmware (24 byte length limit)</param>
         /// <param name="filePath">File path of new firmware</param>
+        /// <exception cref="FirmwareVersionIsTooLongException">Occurs when firmware version is longer than 24 bytes</exception>
+        /// <exception cref="FileCannotLoadException">Occurs when the firmware file at the specified location cannot be opened</exception>
+        /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void UpdateRequest(string firmwareVersion, string filePath)
         {
             if (!IsActive)

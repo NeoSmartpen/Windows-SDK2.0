@@ -174,11 +174,18 @@ Request to delete the file.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+Type} & File\+Type enum value to distinguish whether the file is login or offline\\
+{\em file\+Type} & File\+Type enum value to distinguish whether the file is log or offline data\\
 \hline
-{\em file\+Name} & Filename\\
+{\em file\+Name} & Filename (56 byte length limit)\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Name\+Is\+Too\+Long\+Exception} & Occurs when file name is longer than 56 bytes\\
+\hline
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a05389f7dbc21caa59e4b74903a138e80}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a05389f7dbc21caa59e4b74903a138e80}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!Dispose@{Dispose}}
 \index{Dispose@{Dispose}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -199,6 +206,11 @@ Terminates communication with the pen and returns the allocated resource.
 
 Request to initialize the data of the current pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a66c6529be02b8f7e651cb7cb83738b5c}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a66c6529be02b8f7e651cb7cb83738b5c}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetBatteryStatusRequest@{GetBatteryStatusRequest}}
 \index{GetBatteryStatusRequest@{GetBatteryStatusRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -209,6 +221,11 @@ Request to initialize the data of the current pen.
 
 Request the current battery status of the pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a1243074b8ed96c0fac79b575ee498c84}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a1243074b8ed96c0fac79b575ee498c84}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetDateTimeRequest@{GetDateTimeRequest}}
 \index{GetDateTimeRequest@{GetDateTimeRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -219,6 +236,11 @@ Request the current battery status of the pen.
 
 Request the time setting of the current pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7b6fa1f5140a653fad3f42f6d7f63177}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7b6fa1f5140a653fad3f42f6d7f63177}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetFileDataRequest@{GetFileDataRequest}}
 \index{GetFileDataRequest@{GetFileDataRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -231,13 +253,20 @@ Request the file data.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+Type} & File\+Type enum value to distinguish whether the file is login or offline\\
+{\em file\+Type} & File\+Type enum value to distinguish whether the file is log or offline data\\
 \hline
-{\em file\+Name} & Filename\\
+{\em file\+Name} & Filename (56 byte length limit)\\
 \hline
 {\em target\+Path} & Where to save the file\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Name\+Is\+Too\+Long\+Exception} & Occurs when file name is longer than 56 bytes\\
+\hline
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a2caaefe464a3c1e40cbb901690ce2499}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a2caaefe464a3c1e40cbb901690ce2499}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetFileInfoRequest@{GetFileInfoRequest}}
 \index{GetFileInfoRequest@{GetFileInfoRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -250,11 +279,18 @@ Request the file details.
 
 
 \begin{DoxyParams}{Parameters}
-{\em file\+Type} & File\+Type enum value to distinguish whether the file is login or offline\\
+{\em file\+Type} & File\+Type enum value to distinguish whether the file is log or offline data\\
 \hline
-{\em file\+Name} & Filename\\
+{\em file\+Name} & Filename (56 byte length limit)\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Name\+Is\+Too\+Long\+Exception} & Occurs when file name is longer than 56 bytes\\
+\hline
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a19707f07e025ef3627d8e1d6ac659c40}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a19707f07e025ef3627d8e1d6ac659c40}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetLogFileListRequest@{GetLogFileListRequest}}
 \index{GetLogFileListRequest@{GetLogFileListRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -265,6 +301,11 @@ Request the file details.
 
 Request a list of log data files currently stored in the pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a1af83edbae015eb4b3ba614aa1cbe841}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a1af83edbae015eb4b3ba614aa1cbe841}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetOfflineFileListRequest@{GetOfflineFileListRequest}}
 \index{GetOfflineFileListRequest@{GetOfflineFileListRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -275,6 +316,11 @@ Request a list of log data files currently stored in the pen.
 
 Request a list of offline data files currently stored in the pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7257835ff7f20619d52b2c39396fdaa1}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7257835ff7f20619d52b2c39396fdaa1}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!GetStorageStatusRequest@{GetStorageStatusRequest}}
 \index{GetStorageStatusRequest@{GetStorageStatusRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -285,6 +331,11 @@ Request a list of offline data files currently stored in the pen.
 
 Request the storage state of the current pen. (Firmware not implemented) 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_ab0a36f8948f5ed18dd47b532da82ee16}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_ab0a36f8948f5ed18dd47b532da82ee16}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!Open@{Open}}
 \index{Open@{Open}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -305,6 +356,11 @@ Open a new serial port.
 
 Shut down the current pen. 
 
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a9ad8dfeca06b9cff3c174a6448d98b1a}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a9ad8dfeca06b9cff3c174a6448d98b1a}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetAutoPowerOffTimeRequest@{SetAutoPowerOffTimeRequest}}
 \index{SetAutoPowerOffTimeRequest@{SetAutoPowerOffTimeRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -320,6 +376,11 @@ Requests to set the current pen\textquotesingle{}s Auto Power Off Time value.
 {\em time\+Span} & A Time\+Span object representing the time to set\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7394e89d59ccecc59721ab7bd744776f}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a7394e89d59ccecc59721ab7bd744776f}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetCanSaveOfflineDataRequest@{SetCanSaveOfflineDataRequest}}
 \index{SetCanSaveOfflineDataRequest@{SetCanSaveOfflineDataRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -335,6 +396,11 @@ Sets whether to save offline data of current pen.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a84e22b5ae2b2c1aa10a4895ddf369046}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a84e22b5ae2b2c1aa10a4895ddf369046}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetDateTimeRequest@{SetDateTimeRequest}}
 \index{SetDateTimeRequest@{SetDateTimeRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -350,6 +416,11 @@ Set the date / time value of the current pen.
 {\em local\+Date\+Time} & Local date time value to set\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a81a97055cb1bb1932b297afe17cf2211}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a81a97055cb1bb1932b297afe17cf2211}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetIsAutoPowerOnEnabledRequest@{SetIsAutoPowerOnEnabledRequest}}
 \index{SetIsAutoPowerOnEnabledRequest@{SetIsAutoPowerOnEnabledRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -365,6 +436,11 @@ Sets whether to use the current pen\textquotesingle{}s Auto Power On function.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a06c65c416a6518e9c2f647e5d7c58015}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a06c65c416a6518e9c2f647e5d7c58015}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetIsBeepEnabledRequest@{SetIsBeepEnabledRequest}}
 \index{SetIsBeepEnabledRequest@{SetIsBeepEnabledRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -380,6 +456,11 @@ Sets whether the current pen beeps.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_aefcb76fe5d7c879019834f6aa31cbbec}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_aefcb76fe5d7c879019834f6aa31cbbec}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetIsDownsamplingEnabledRequest@{SetIsDownsamplingEnabledRequest}}
 \index{SetIsDownsamplingEnabledRequest@{SetIsDownsamplingEnabledRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -395,6 +476,11 @@ Enables or disables downsampling of the current pen.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_ad04de450e5f0b27470bed80b946afb15}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_ad04de450e5f0b27470bed80b946afb15}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!SetIsPenCapOffEnabledRequest@{SetIsPenCapOffEnabledRequest}}
 \index{SetIsPenCapOffEnabledRequest@{SetIsPenCapOffEnabledRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -410,6 +496,11 @@ Sets whether to use the current pen\textquotesingle{}s Pen\+Cap Off function.
 {\em enable} & True if used false if not\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a38fcc1e9ebfe0db175620f751a82923e}\label{class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm_a38fcc1e9ebfe0db175620f751a82923e}} 
 \index{Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}!UpdateRequest@{UpdateRequest}}
 \index{UpdateRequest@{UpdateRequest}!Neosmartpen.Net.Usb.UsbPenComm@{Neosmartpen.Net.Usb.UsbPenComm}}
@@ -422,11 +513,20 @@ Request to update the pen\textquotesingle{}s firmware.
 
 
 \begin{DoxyParams}{Parameters}
-{\em firmware\+Version} & Version of new firmware\\
+{\em firmware\+Version} & Version of new firmware (24 byte length limit)\\
 \hline
 {\em file\+Path} & File path of new firmware\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Firmware\+Version\+Is\+Too\+Long\+Exception} & Occurs when firmware version is longer than 24 bytes\\
+\hline
+{\em File\+Cannot\+Load\+Exception} & Occurs when the firmware file at the specified location cannot be opened\\
+\hline
+{\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
+\hline
+\end{DoxyExceptions}
 
 
 \doxysubsection{Property Documentation}

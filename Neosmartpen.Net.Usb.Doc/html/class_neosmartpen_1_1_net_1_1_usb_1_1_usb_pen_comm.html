@@ -330,8 +330,15 @@ Events</h2></td></tr>
 <p>Request to delete the file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is login or offline</td></tr>
-    <tr><td class="paramname">fileName</td><td>Filename</td></tr>
+    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is log or offline data</td></tr>
+    <tr><td class="paramname">fileName</td><td>Filename (56 byte length limit)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FileNameIsTooLongException</td><td>Occurs when file name is longer than 56 bytes</td></tr>
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -373,6 +380,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request to initialize the data of the current pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -392,6 +405,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request the current battery status of the pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -411,6 +430,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request the time setting of the current pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -449,9 +474,16 @@ Events</h2></td></tr>
 <p>Request the file data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is login or offline</td></tr>
-    <tr><td class="paramname">fileName</td><td>Filename</td></tr>
+    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is log or offline data</td></tr>
+    <tr><td class="paramname">fileName</td><td>Filename (56 byte length limit)</td></tr>
     <tr><td class="paramname">targetPath</td><td>Where to save the file</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FileNameIsTooLongException</td><td>Occurs when file name is longer than 56 bytes</td></tr>
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -487,8 +519,15 @@ Events</h2></td></tr>
 <p>Request the file details. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is login or offline</td></tr>
-    <tr><td class="paramname">fileName</td><td>Filename</td></tr>
+    <tr><td class="paramname">fileType</td><td>FileType enum value to distinguish whether the file is log or offline data</td></tr>
+    <tr><td class="paramname">fileName</td><td>Filename (56 byte length limit)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FileNameIsTooLongException</td><td>Occurs when file name is longer than 56 bytes</td></tr>
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -511,6 +550,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request a list of log data files currently stored in the pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -530,6 +575,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request a list of offline data files currently stored in the pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -549,6 +600,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request the storage state of the current pen. (Firmware not implemented) </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -587,6 +644,12 @@ Events</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Shut down the current pen. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -610,6 +673,12 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeSpan</td><td>A TimeSpan object representing the time to set</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -639,6 +708,12 @@ Events</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -662,6 +737,12 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">localDateTime</td><td>Local date time value to set</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -691,6 +772,12 @@ Events</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -714,6 +801,12 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enable</td><td>True if used false if not</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -743,6 +836,12 @@ Events</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -766,6 +865,12 @@ Events</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enable</td><td>True if used false if not</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
@@ -801,8 +906,16 @@ Events</h2></td></tr>
 <p>Request to update the pen's firmware. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">firmwareVersion</td><td>Version of new firmware</td></tr>
+    <tr><td class="paramname">firmwareVersion</td><td>Version of new firmware (24 byte length limit)</td></tr>
     <tr><td class="paramname">filePath</td><td>File path of new firmware</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">FirmwareVersionIsTooLongException</td><td>Occurs when firmware version is longer than 24 bytes</td></tr>
+    <tr><td class="paramname">FileCannotLoadException</td><td>Occurs when the firmware file at the specified location cannot be opened</td></tr>
+    <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
 </dl>
