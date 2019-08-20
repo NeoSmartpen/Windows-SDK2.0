@@ -34,10 +34,24 @@
             this.Model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Mac = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbSelectedPen = new System.Windows.Forms.GroupBox();
+            this.lbFirmwareVersion = new System.Windows.Forms.Label();
+            this.lbDateTime = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbBattery = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pbStorage = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbDownsampling = new System.Windows.Forms.CheckBox();
+            this.cbSaveOfflineData = new System.Windows.Forms.CheckBox();
+            this.cbBeep = new System.Windows.Forms.CheckBox();
+            this.cbPenCapOff = new System.Windows.Forms.CheckBox();
+            this.nudAutoPowerOffTime = new System.Windows.Forms.NumericUpDown();
+            this.cbAutoPowerOn = new System.Windows.Forms.CheckBox();
             this.lvPenFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnShowOfflineFile = new System.Windows.Forms.Button();
             this.tvLocalDir = new System.Windows.Forms.TreeView();
             this.lvLocalFiles = new System.Windows.Forms.ListView();
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,24 +63,10 @@
             this.btnFormat = new System.Windows.Forms.Button();
             this.btnPowerOff = new System.Windows.Forms.Button();
             this.btnFirmwareUpdate = new System.Windows.Forms.Button();
-            this.cbAutoPowerOn = new System.Windows.Forms.CheckBox();
-            this.nudAutoPowerOffTime = new System.Windows.Forms.NumericUpDown();
-            this.cbPenCapOff = new System.Windows.Forms.CheckBox();
-            this.cbBeep = new System.Windows.Forms.CheckBox();
-            this.cbSaveOfflineData = new System.Windows.Forms.CheckBox();
-            this.cbDownsampling = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbStorage = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pbBattery = new System.Windows.Forms.ProgressBar();
-            this.lbFirmwareVersion = new System.Windows.Forms.Label();
-            this.lbDateTime = new System.Windows.Forms.Label();
-            this.btnShowOfflineFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbSelectedPen.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAutoPowerOffTime)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -135,6 +135,143 @@
             this.gbSelectedPen.TabStop = false;
             this.gbSelectedPen.Text = "Selected Pen";
             // 
+            // lbFirmwareVersion
+            // 
+            this.lbFirmwareVersion.AutoSize = true;
+            this.lbFirmwareVersion.Location = new System.Drawing.Point(11, 54);
+            this.lbFirmwareVersion.Name = "lbFirmwareVersion";
+            this.lbFirmwareVersion.Size = new System.Drawing.Size(0, 12);
+            this.lbFirmwareVersion.TabIndex = 14;
+            // 
+            // lbDateTime
+            // 
+            this.lbDateTime.AutoSize = true;
+            this.lbDateTime.Location = new System.Drawing.Point(11, 29);
+            this.lbDateTime.Name = "lbDateTime";
+            this.lbDateTime.Size = new System.Drawing.Size(0, 12);
+            this.lbDateTime.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 256);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 12);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Battery";
+            // 
+            // pbBattery
+            // 
+            this.pbBattery.Location = new System.Drawing.Point(13, 271);
+            this.pbBattery.Name = "pbBattery";
+            this.pbBattery.Size = new System.Drawing.Size(120, 22);
+            this.pbBattery.Step = 1;
+            this.pbBattery.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Storage";
+            // 
+            // pbStorage
+            // 
+            this.pbStorage.Location = new System.Drawing.Point(13, 317);
+            this.pbStorage.Name = "pbStorage";
+            this.pbStorage.Size = new System.Drawing.Size(120, 22);
+            this.pbStorage.Step = 1;
+            this.pbStorage.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 12);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Auto Power Off Minute";
+            // 
+            // cbDownsampling
+            // 
+            this.cbDownsampling.AutoSize = true;
+            this.cbDownsampling.Location = new System.Drawing.Point(13, 225);
+            this.cbDownsampling.Name = "cbDownsampling";
+            this.cbDownsampling.Size = new System.Drawing.Size(108, 16);
+            this.cbDownsampling.TabIndex = 6;
+            this.cbDownsampling.Text = "Downsampling";
+            this.cbDownsampling.UseVisualStyleBackColor = true;
+            this.cbDownsampling.CheckedChanged += new System.EventHandler(this.cbDownsampling_CheckedChanged);
+            // 
+            // cbSaveOfflineData
+            // 
+            this.cbSaveOfflineData.AutoSize = true;
+            this.cbSaveOfflineData.Location = new System.Drawing.Point(13, 203);
+            this.cbSaveOfflineData.Name = "cbSaveOfflineData";
+            this.cbSaveOfflineData.Size = new System.Drawing.Size(120, 16);
+            this.cbSaveOfflineData.TabIndex = 5;
+            this.cbSaveOfflineData.Text = "Save Offline Data";
+            this.cbSaveOfflineData.UseVisualStyleBackColor = true;
+            this.cbSaveOfflineData.CheckedChanged += new System.EventHandler(this.cbSaveOfflineData_CheckedChanged);
+            // 
+            // cbBeep
+            // 
+            this.cbBeep.AutoSize = true;
+            this.cbBeep.Location = new System.Drawing.Point(13, 181);
+            this.cbBeep.Name = "cbBeep";
+            this.cbBeep.Size = new System.Drawing.Size(53, 16);
+            this.cbBeep.TabIndex = 4;
+            this.cbBeep.Text = "Beep";
+            this.cbBeep.UseVisualStyleBackColor = true;
+            this.cbBeep.CheckedChanged += new System.EventHandler(this.cbBeep_CheckedChanged);
+            // 
+            // cbPenCapOff
+            // 
+            this.cbPenCapOff.AutoSize = true;
+            this.cbPenCapOff.Location = new System.Drawing.Point(13, 159);
+            this.cbPenCapOff.Name = "cbPenCapOff";
+            this.cbPenCapOff.Size = new System.Drawing.Size(92, 16);
+            this.cbPenCapOff.TabIndex = 3;
+            this.cbPenCapOff.Text = "Pen Cap Off";
+            this.cbPenCapOff.UseVisualStyleBackColor = true;
+            this.cbPenCapOff.CheckedChanged += new System.EventHandler(this.cbPenCapOff_CheckedChanged);
+            // 
+            // nudAutoPowerOffTime
+            // 
+            this.nudAutoPowerOffTime.Location = new System.Drawing.Point(13, 103);
+            this.nudAutoPowerOffTime.Maximum = new decimal(new int[] {
+            3600,
+            0,
+            0,
+            0});
+            this.nudAutoPowerOffTime.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudAutoPowerOffTime.Name = "nudAutoPowerOffTime";
+            this.nudAutoPowerOffTime.Size = new System.Drawing.Size(120, 21);
+            this.nudAutoPowerOffTime.TabIndex = 2;
+            this.nudAutoPowerOffTime.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudAutoPowerOffTime.ValueChanged += new System.EventHandler(this.nudAutoPowerOffTime_ValueChanged);
+            // 
+            // cbAutoPowerOn
+            // 
+            this.cbAutoPowerOn.AutoSize = true;
+            this.cbAutoPowerOn.Location = new System.Drawing.Point(13, 137);
+            this.cbAutoPowerOn.Name = "cbAutoPowerOn";
+            this.cbAutoPowerOn.Size = new System.Drawing.Size(109, 16);
+            this.cbAutoPowerOn.TabIndex = 1;
+            this.cbAutoPowerOn.Text = "Auto Power On";
+            this.cbAutoPowerOn.UseVisualStyleBackColor = true;
+            this.cbAutoPowerOn.CheckedChanged += new System.EventHandler(this.cbAutoPowerOn_CheckedChanged);
+            // 
             // lvPenFiles
             // 
             this.lvPenFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -173,6 +310,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Local";
+            // 
+            // btnShowOfflineFile
+            // 
+            this.btnShowOfflineFile.Location = new System.Drawing.Point(295, 512);
+            this.btnShowOfflineFile.Name = "btnShowOfflineFile";
+            this.btnShowOfflineFile.Size = new System.Drawing.Size(156, 34);
+            this.btnShowOfflineFile.TabIndex = 9;
+            this.btnShowOfflineFile.Text = "Show Offline File";
+            this.btnShowOfflineFile.UseVisualStyleBackColor = true;
+            this.btnShowOfflineFile.Click += new System.EventHandler(this.btnShowOfflineFile_Click);
             // 
             // tvLocalDir
             // 
@@ -268,148 +415,6 @@
             this.btnFirmwareUpdate.UseVisualStyleBackColor = true;
             this.btnFirmwareUpdate.Click += new System.EventHandler(this.btnFirmwareUpdate_Click);
             // 
-            // cbAutoPowerOn
-            // 
-            this.cbAutoPowerOn.AutoSize = true;
-            this.cbAutoPowerOn.Location = new System.Drawing.Point(13, 137);
-            this.cbAutoPowerOn.Name = "cbAutoPowerOn";
-            this.cbAutoPowerOn.Size = new System.Drawing.Size(109, 16);
-            this.cbAutoPowerOn.TabIndex = 1;
-            this.cbAutoPowerOn.Text = "Auto Power On";
-            this.cbAutoPowerOn.UseVisualStyleBackColor = true;
-            this.cbAutoPowerOn.CheckedChanged += new System.EventHandler(this.cbAutoPowerOn_CheckedChanged);
-            // 
-            // nudAutoPowerOffTime
-            // 
-            this.nudAutoPowerOffTime.Location = new System.Drawing.Point(13, 103);
-            this.nudAutoPowerOffTime.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudAutoPowerOffTime.Name = "nudAutoPowerOffTime";
-            this.nudAutoPowerOffTime.Size = new System.Drawing.Size(120, 21);
-            this.nudAutoPowerOffTime.TabIndex = 2;
-            this.nudAutoPowerOffTime.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudAutoPowerOffTime.ValueChanged += new System.EventHandler(this.nudAutoPowerOffTime_ValueChanged);
-            // 
-            // cbPenCapOff
-            // 
-            this.cbPenCapOff.AutoSize = true;
-            this.cbPenCapOff.Location = new System.Drawing.Point(13, 159);
-            this.cbPenCapOff.Name = "cbPenCapOff";
-            this.cbPenCapOff.Size = new System.Drawing.Size(92, 16);
-            this.cbPenCapOff.TabIndex = 3;
-            this.cbPenCapOff.Text = "Pen Cap Off";
-            this.cbPenCapOff.UseVisualStyleBackColor = true;
-            this.cbPenCapOff.CheckedChanged += new System.EventHandler(this.cbPenCapOff_CheckedChanged);
-            // 
-            // cbBeep
-            // 
-            this.cbBeep.AutoSize = true;
-            this.cbBeep.Location = new System.Drawing.Point(13, 181);
-            this.cbBeep.Name = "cbBeep";
-            this.cbBeep.Size = new System.Drawing.Size(53, 16);
-            this.cbBeep.TabIndex = 4;
-            this.cbBeep.Text = "Beep";
-            this.cbBeep.UseVisualStyleBackColor = true;
-            this.cbBeep.CheckedChanged += new System.EventHandler(this.cbBeep_CheckedChanged);
-            // 
-            // cbSaveOfflineData
-            // 
-            this.cbSaveOfflineData.AutoSize = true;
-            this.cbSaveOfflineData.Location = new System.Drawing.Point(13, 203);
-            this.cbSaveOfflineData.Name = "cbSaveOfflineData";
-            this.cbSaveOfflineData.Size = new System.Drawing.Size(120, 16);
-            this.cbSaveOfflineData.TabIndex = 5;
-            this.cbSaveOfflineData.Text = "Save Offline Data";
-            this.cbSaveOfflineData.UseVisualStyleBackColor = true;
-            this.cbSaveOfflineData.CheckedChanged += new System.EventHandler(this.cbSaveOfflineData_CheckedChanged);
-            // 
-            // cbDownsampling
-            // 
-            this.cbDownsampling.AutoSize = true;
-            this.cbDownsampling.Location = new System.Drawing.Point(13, 225);
-            this.cbDownsampling.Name = "cbDownsampling";
-            this.cbDownsampling.Size = new System.Drawing.Size(108, 16);
-            this.cbDownsampling.TabIndex = 6;
-            this.cbDownsampling.Text = "Downsampling";
-            this.cbDownsampling.UseVisualStyleBackColor = true;
-            this.cbDownsampling.CheckedChanged += new System.EventHandler(this.cbDownsampling_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 12);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Auto Power Off Minute";
-            // 
-            // pbStorage
-            // 
-            this.pbStorage.Location = new System.Drawing.Point(13, 317);
-            this.pbStorage.Name = "pbStorage";
-            this.pbStorage.Size = new System.Drawing.Size(120, 22);
-            this.pbStorage.Step = 1;
-            this.pbStorage.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 302);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Storage";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 256);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 12);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Battery";
-            // 
-            // pbBattery
-            // 
-            this.pbBattery.Location = new System.Drawing.Point(13, 271);
-            this.pbBattery.Name = "pbBattery";
-            this.pbBattery.Size = new System.Drawing.Size(120, 22);
-            this.pbBattery.Step = 1;
-            this.pbBattery.TabIndex = 11;
-            // 
-            // lbFirmwareVersion
-            // 
-            this.lbFirmwareVersion.AutoSize = true;
-            this.lbFirmwareVersion.Location = new System.Drawing.Point(11, 54);
-            this.lbFirmwareVersion.Name = "lbFirmwareVersion";
-            this.lbFirmwareVersion.Size = new System.Drawing.Size(0, 12);
-            this.lbFirmwareVersion.TabIndex = 14;
-            // 
-            // lbDateTime
-            // 
-            this.lbDateTime.AutoSize = true;
-            this.lbDateTime.Location = new System.Drawing.Point(11, 29);
-            this.lbDateTime.Name = "lbDateTime";
-            this.lbDateTime.Size = new System.Drawing.Size(0, 12);
-            this.lbDateTime.TabIndex = 13;
-            // 
-            // btnShowOfflineFile
-            // 
-            this.btnShowOfflineFile.Location = new System.Drawing.Point(295, 512);
-            this.btnShowOfflineFile.Name = "btnShowOfflineFile";
-            this.btnShowOfflineFile.Size = new System.Drawing.Size(156, 34);
-            this.btnShowOfflineFile.TabIndex = 9;
-            this.btnShowOfflineFile.Text = "Show Offline File";
-            this.btnShowOfflineFile.UseVisualStyleBackColor = true;
-            this.btnShowOfflineFile.Click += new System.EventHandler(this.btnShowOfflineFile_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -435,8 +440,8 @@
             this.groupBox1.ResumeLayout(false);
             this.gbSelectedPen.ResumeLayout(false);
             this.gbSelectedPen.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudAutoPowerOffTime)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

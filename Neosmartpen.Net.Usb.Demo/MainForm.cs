@@ -99,7 +99,7 @@ namespace Neosmartpen.Net.Usb.Demo
                 lvPenFiles.Enabled = false;
                 lbFirmwareVersion.Text = "";
                 lbDateTime.Text = "";
-                nudAutoPowerOffTime.Value = 1;
+                nudAutoPowerOffTime.Value = 5;
                 cbAutoPowerOn.Checked = false;
                 cbBeep.Checked = false;
                 cbDownsampling.Checked = false;
@@ -165,7 +165,7 @@ namespace Neosmartpen.Net.Usb.Demo
                 switch (e.Type)
                 {
                     case ConfigType.AutoPowerOffTime:
-                        nudAutoPowerOffTime.Value = penComm.AutoPowerOffTime.Minutes;
+                        nudAutoPowerOffTime.Value = (short)penComm.AutoPowerOffTime.TotalMinutes;
                         break;
                     case ConfigType.AutoPowerOn:
                         cbAutoPowerOn.Checked = penComm.IsAutoPowerOnEnabled;
@@ -377,7 +377,7 @@ namespace Neosmartpen.Net.Usb.Demo
             if (pen == null)
                 return;
 
-            nudAutoPowerOffTime.Value = pen.AutoPowerOffTime.Minutes;
+            nudAutoPowerOffTime.Value = (short)pen.AutoPowerOffTime.TotalMinutes;
             cbAutoPowerOn.Checked = pen.IsAutoPowerOnEnabled;
             cbPenCapOff.Checked = pen.IsPenCapOffEnabled;
             cbBeep.Checked = pen.IsBeepEnabled;
@@ -639,8 +639,8 @@ namespace Neosmartpen.Net.Usb.Demo
             if (pen == null)
                 return;
 
-            if ((int)nudAutoPowerOffTime.Value != pen.AutoPowerOffTime.Minutes)
-                pen.SetAutoPowerOffTimeRequest(new TimeSpan(0, (int)nudAutoPowerOffTime.Value, 0));
+            if ((short)nudAutoPowerOffTime.Value != pen.AutoPowerOffTime.Minutes)
+                pen.SetAutoPowerOffTimeRequest(TimeSpan.FromMinutes((short)nudAutoPowerOffTime.Value));
         }
 
         private void btnShowOfflineFile_Click(object sender, EventArgs e)

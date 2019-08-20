@@ -373,11 +373,13 @@ Requests to set the current pen\textquotesingle{}s Auto Power Off Time value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em time\+Span} & A Time\+Span object representing the time to set\\
+{\em time\+Span} & A Time\+Span object representing the time to set (5$\sim$3600 minutes)\\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
+{\em Time\+Out\+Of\+Range\+Exception} & Occurs when the entered time value exceeds the range (5$\sim$3600 minutes)\\
+\hline
 {\em Is\+Not\+Active\+Exception} & Occurs when communication with the pen is not established\\
 \hline
 \end{DoxyExceptions}
