@@ -188,7 +188,8 @@ namespace Neosmartpen.Net.Usb
                                     DateTimeReceived?.Invoke(this, new DateTimeReceivedEventArgs(timestamp));
                                     break;
                                 case ConfigType.AutoPowerOffTime:
-                                    AutoPowerOffTime = new TimeSpan( 0, pk.GetShort(), 0);
+                                    //AutoPowerOffTime = new TimeSpan( 0, pk.GetShort(), 0);
+                                    AutoPowerOffTime = TimeSpan.FromMinutes(pk.GetShort());
                                     if (!isFirstStatus)
                                         ConfigSetupResultReceived?.Invoke(this, new ConfigSetupResultReceivedEventArgs(ConfigType.AutoPowerOffTime, true));
                                     break;
@@ -592,14 +593,18 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Requests to set the current pen's Auto Power Off Time value.
         /// </summary>
-        /// <param name="timeSpan">A TimeSpan object representing the time to set</param>
+        /// <param name="timeSpan">A TimeSpan object representing the time to set (5~3600 minutes)</param>
+        /// <exception cref="TimeOutOfRangeException">Occurs when the entered time value exceeds the range (5~3600 minutes)</exception>
         /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void SetAutoPowerOffTimeRequest(TimeSpan timeSpan)
         {
             if (!IsActive)
                 throw new IsNotActiveException();
 
-            SetConfigRequest(ConfigType.AutoPowerOffTime, (short)timeSpan.Minutes);
+            if ((short)timeSpan.TotalMinutes < 5 || (short)timeSpan.TotalMinutes > 3600)
+                throw new TimeOutOfRangeException();
+
+            SetConfigRequest(ConfigType.AutoPowerOffTime, (short)timeSpan.TotalMinutes);
         }
 
         /// <summary>

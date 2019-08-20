@@ -672,12 +672,13 @@ Events</h2></td></tr>
 <p>Requests to set the current pen's Auto Power Off Time value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeSpan</td><td>A TimeSpan object representing the time to set</td></tr>
+    <tr><td class="paramname">timeSpan</td><td>A TimeSpan object representing the time to set (5~3600 minutes)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
+    <tr><td class="paramname">TimeOutOfRangeException</td><td>Occurs when the entered time value exceeds the range (5~3600 minutes)</td></tr>
     <tr><td class="paramname">IsNotActiveException</td><td>Occurs when communication with the pen is not established</td></tr>
   </table>
   </dd>
