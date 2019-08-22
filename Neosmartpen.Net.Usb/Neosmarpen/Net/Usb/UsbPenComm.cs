@@ -571,7 +571,6 @@ namespace Neosmartpen.Net.Usb
 
         /// <summary>
         /// Request the storage state of the current pen.
-        /// (Firmware not implemented)
         /// </summary>
         /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
         public void GetStorageStatusRequest()
