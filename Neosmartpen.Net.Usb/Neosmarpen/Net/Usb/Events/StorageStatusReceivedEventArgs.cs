@@ -6,13 +6,19 @@
     public class StorageStatusReceivedEventArgs : System.EventArgs
     {
         /// <summary>
-        /// Storage current status (0~100%)
+        /// Total Storage Size (KB)
         /// </summary>
-        public int Storage { get; private set; }
+        public int TotalSize { get; private set; }
 
-        internal StorageStatusReceivedEventArgs(int storage)
+        /// <summary>
+        /// Free Storage Size (KB)
+        /// </summary>
+        public int FreeSize { get; private set; }
+
+        internal StorageStatusReceivedEventArgs(int total, int free)
         {
-            Storage = storage;
+            TotalSize = total;
+            FreeSize = free;
         }
     }
 }

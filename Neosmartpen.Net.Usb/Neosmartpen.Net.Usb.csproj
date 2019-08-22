@@ -53,6 +53,7 @@
     <Compile Include="Neosmarpen\Net\Usb\Events\BatteryStatusReceivedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\StorageStatusReceivedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\DateTimeReceivedEventArgs.cs" />
+    <Compile Include="Neosmarpen\Net\Usb\Exceptions\NoSuchPenException.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Exceptions\TimeOutOfRangeException.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Exceptions\IsNotActiveException.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Exceptions\FileCannotLoadException.cs" />

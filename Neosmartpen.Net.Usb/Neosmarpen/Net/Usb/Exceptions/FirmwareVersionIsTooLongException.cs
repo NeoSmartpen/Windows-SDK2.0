@@ -7,5 +7,8 @@ namespace Neosmartpen.Net.Usb.Exceptions
     /// </summary>
     public class FirmwareVersionIsTooLongException : Exception
     {
+        internal FirmwareVersionIsTooLongException()
+        {
+        }
     }
 }

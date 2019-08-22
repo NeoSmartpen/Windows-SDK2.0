@@ -173,6 +173,15 @@ namespace Neosmartpen.Net.Usb
                     }
                     break;
 
+                case Cmd.GETDISKINFO:
+                    {
+                        pk.Move(1);
+                        var total = pk.GetInt();
+                        var free = pk.GetInt();
+                        StorageStatusReceived?.Invoke(this, new StorageStatusReceivedEventArgs(total, free));
+                    }
+                    break;
+
                 case Cmd.GETCONFIG:
                     {
                         int typeCount = pk.GetByteToInt();
@@ -221,10 +230,6 @@ namespace Neosmartpen.Net.Usb
                                 case ConfigType.Battery:
                                     var battery = pk.GetByteToInt();
                                     BatteryStatusReceived?.Invoke(this, new BatteryStatusReceivedEventArgs(battery));
-                                    break;
-                                case ConfigType.Storage:
-                                    var storage = pk.GetByteToInt();
-                                    StorageStatusReceived?.Invoke(this, new StorageStatusReceivedEventArgs(storage));
                                     break;
                             }
                         }
@@ -574,7 +579,14 @@ namespace Neosmartpen.Net.Usb
             if (!IsActive)
                 throw new IsNotActiveException();
 
-            GetConfigRequest(ConfigType.Storage);
+            var builder = new UsbPacket.Builder();
+            builder.Cmd(Cmd.GETDISKINFO)
+                .PacketNumber(++packetNumber)
+                .Type(PacketType.Request);
+
+            byte[] result = builder.Build().ToArray();
+
+            _serialPort?.Write(result, 0, result.Length);
         }
 
         /// <summary>

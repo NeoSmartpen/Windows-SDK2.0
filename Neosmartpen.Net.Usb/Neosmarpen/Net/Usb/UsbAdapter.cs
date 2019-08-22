@@ -82,6 +82,21 @@ namespace Neosmartpen.Net.Usb
             ports = null;
         }
 
+        /// <summary>
+        /// Disconnect the pen with the corresponding Mac address.
+        /// </summary>
+        /// <param name="macAddress">Mac address in text format</param>
+        public void DisconnectByMacAddress(string macAddress)
+        {
+            var penComms = usbPenComms.Where(p => p.MacAddress.Replace(":", "").ToLower() == macAddress.Replace(":", "").ToLower()).ToList();
+            if (penComms == null || penComms.Count <= 0)
+                throw new Exceptions.NoSuchPenException();
+            foreach(var penComm in penComms)
+            {
+                penComm.Dispose();
+            }
+        }
+
         private void PenComm_Authenticated(object sender, System.EventArgs e)
         {
             Connected?.Invoke(this, new ConnectionStatusChangedEventArgs((UsbPenComm)sender));
@@ -89,7 +104,13 @@ namespace Neosmartpen.Net.Usb
 
         private void PenComm_Disconnected(object sender, EventArgs e)
         {
-            Disconnected?.Invoke(this, new ConnectionStatusChangedEventArgs((UsbPenComm)sender));
+            var usbPenComm = sender as UsbPenComm;
+            usbPenComm.Authenticated -= PenComm_Authenticated;
+            usbPenComm.ConnectionRefused -= PenComm_ConnectionRefused;
+            usbPenComm.Disconnected -= PenComm_Disconnected;
+            usbPenComms.Remove(usbPenComm);
+
+            Disconnected?.Invoke(this, new ConnectionStatusChangedEventArgs(usbPenComm));
         }
 
         private void PenComm_ConnectionRefused(object sender, System.EventArgs e)
@@ -119,10 +140,6 @@ namespace Neosmartpen.Net.Usb
             if (usbPenComm != null)
             {
                 usbPenComm.Dispose();
-                usbPenComm.Authenticated -= PenComm_Authenticated;
-                usbPenComm.ConnectionRefused -= PenComm_ConnectionRefused;
-                usbPenComm.Disconnected -= PenComm_Disconnected;
-                usbPenComms.Remove(usbPenComm);
             }
         }
 
@@ -134,6 +151,7 @@ namespace Neosmartpen.Net.Usb
             {
                 UsbPenComm newUsbPenComm = new UsbPenComm(portName);
                 newUsbPenComm.Open();
+
                 if (newUsbPenComm.IsOpen)
                 {
                     newUsbPenComm.Authenticated += PenComm_Authenticated;
@@ -191,10 +209,10 @@ namespace Neosmartpen.Net.Usb
 
             foreach(var usbPenComm in usbPenComms)
             {
-                usbPenComm.Dispose();
                 usbPenComm.Authenticated -= PenComm_Authenticated;
                 usbPenComm.ConnectionRefused -= PenComm_ConnectionRefused;
                 usbPenComm.Disconnected -= PenComm_Disconnected;
+                usbPenComm.Dispose();
             }
 
             usbPenComms.Clear();
