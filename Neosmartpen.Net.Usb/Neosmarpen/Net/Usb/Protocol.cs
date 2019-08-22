@@ -30,7 +30,8 @@ namespace Neosmartpen.Net.Usb
         DELETEFILE,
         POWEROFF,
         UPDATE_START,
-        UPDATE_DO
+        UPDATE_DO,
+        GETDISKINFO
     };
 
     [Flags]
@@ -78,11 +79,7 @@ namespace Neosmartpen.Net.Usb
         /// <summary>
         /// Battery
         /// </summary>
-        Battery = 0x09,
-        /// <summary>
-        /// Storage
-        /// </summary>
-        Storage = 0x10
+        Battery = 0x09
     };
 
     /// <summary>

@@ -200,6 +200,17 @@ namespace Neosmartpen.Net.Usb.Demo
 
         private void UsbPenComm_StorageStatusReceived(object sender, Events.StorageStatusReceivedEventArgs e)
         {
+            UsbPenComm penComm = sender as UsbPenComm;
+
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                var pen = GetSelectedPen();
+
+                if (pen == null || penComm.PortName != pen.PortName)
+                    return;
+
+                pbStorage.Value = (int)((double)(e.TotalSize - e.FreeSize) / (double)e.TotalSize * 100);
+            }));
         }
 
         private void UsbPenComm_BatteryStatusReceived(object sender, Events.BatteryStatusReceivedEventArgs e)

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resultreceivedeventargs_116',['ResultReceivedEventArgs',['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_result_received_event_args.html',1,'Neosmartpen::Net::Usb::Events']]]
+  ['progresschangedeventargs_119',['ProgressChangedEventArgs',['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_progress_changed_event_args.html',1,'Neosmartpen::Net::Usb::Events']]]
 ];
