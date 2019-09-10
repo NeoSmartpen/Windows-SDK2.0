@@ -6,6 +6,7 @@ using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Protocol.v1;
 using Neosmartpen.Net.Protocol.v2;
 using Neosmartpen.Net.Support;
+using Neosmartpen.Net.Support.Encryption;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -183,55 +184,54 @@ namespace PenDemo
 
         private void btnConnect_Click( object sender, EventArgs e )
         {
-            if ( txtMacAddress.Text == "" )
+            if (btnConnect.Text == "Connect")
             {
-                MessageBox.Show( "Select Mac Address of Pen!!" );
-                return;
-            }
-
-            btnConnect.Enabled = false;
-
-            Thread thread = new Thread( unused =>
-            {
-                // Binds a socket created by connecting with pen through Bluetooth interface according to Device Class
-                bool result = mBtAdt.Connect( txtMacAddress.Text, delegate( uint deviceClass )
+                if (txtMacAddress.Text == "")
                 {
-                    // Binding when Device Class is F110
-                    if ( deviceClass == mPenCommV1.DeviceClass )
-                    {
-                        mBtAdt.Bind( mPenCommV1 );
-                    }
-                    // Binding if Device Class is not F110
-                    else if ( deviceClass == mPenCommV2.DeviceClass )
-                    {
-                        mBtAdt.Bind( mPenCommV2 );
-                    }
-                } );
-
-                if ( !result )
-                {
-                    MessageBox.Show( "Fail to connect" );
-
-                    this.BeginInvoke( new MethodInvoker( delegate()
-                    {
-                        btnConnect.Enabled = true;
-                    } ) );
+                    MessageBox.Show("Select Mac Address of Pen!!");
+                    return;
                 }
-            } );
 
-            thread.IsBackground = true;
-            thread.Start();
+                btnConnect.Enabled = false;
 
-            lbHistory.Items.Add( txtMacAddress.Text );
-        }
+                Thread thread = new Thread(unused =>
+               {
+                // Binds a socket created by connecting with pen through Bluetooth interface according to Device Class
+                bool result = mBtAdt.Connect(txtMacAddress.Text, delegate (uint deviceClass)
+               {
+                    // Binding when Device Class is F110
+                    if (deviceClass == mPenCommV1.DeviceClass)
+                       {
+                           mBtAdt.Bind(mPenCommV1);
+                       }
+                    // Binding if Device Class is not F110
+                    else if (deviceClass == mPenCommV2.DeviceClass)
+                       {
+                           mBtAdt.Bind(mPenCommV2);
+                       }
+                   });
 
-        private void btnDisconnect_Click( object sender, EventArgs e )
-        {
-            btnDisconnect.Enabled = false;
+                   if (!result)
+                   {
+                       MessageBox.Show("Fail to connect");
 
-            if ( !mBtAdt.Disconnect() )
+                       this.BeginInvoke(new MethodInvoker(delegate ()
+                  {
+                           btnConnect.Enabled = true;
+                       }));
+                   }
+               });
+
+                thread.IsBackground = true;
+                thread.Start();
+            }
+            else
             {
-                btnDisconnect.Enabled = true;
+                if (!mBtAdt.Disconnect())
+                {
+                    btnConnect.Text = "Connect";
+                    btnConnect.Enabled = true;
+                }
             }
         }
 
@@ -312,17 +312,15 @@ namespace PenDemo
         }
 
         #region PenCommV1Callbacks
-
         void PenCommV1Callbacks.onConnected( IPenComm sender, int maxForce, string swVersion )
         {
             mFilter = new PressureFilter( maxForce );
 
             this.BeginInvoke( new MethodInvoker( delegate()
             {
-                btnConnect.Enabled = false;
-                btnDisconnect.Enabled = true;
+                btnConnect.Text = "Disconnect";
+                btnConnect.Enabled = true;
                 tbPenInfo.Text = String.Format( "Firmware Version : {0}", swVersion );
-
                 ToggleOption( true );
             } ) );
         }
@@ -332,11 +330,9 @@ namespace PenDemo
             this.BeginInvoke( new MethodInvoker( delegate()
             {
                 lbOfflineData.Items.Clear();
-
-                btnConnect.Enabled = true;
-                btnDisconnect.Enabled = false;
+                btnConnect.Text = "Connect";
                 tbPenInfo.Text = "";
-
+                groupBox8.Enabled = true;
                 ToggleOption( false );
             } ) );
 
@@ -356,6 +352,11 @@ namespace PenDemo
             mPenCommV1.ReqAddUsingNote();
             mPenCommV1.ReqOfflineDataList();
             mPenCommV1.ReqPenStatus();
+
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                groupBox8.Enabled = false;
+            }));
         }
 
         void PenCommV1Callbacks.onAvailableNoteAccepted(IPenComm sender, bool result)
@@ -485,7 +486,6 @@ namespace PenDemo
         }
         
         public const string ProgressTitleOffline = "Download Offline Data";
-
         public const string ProgressTitleFirmware = "Firmware Update";
 
         void PenCommV1Callbacks.onReceivedFirmwareUpdateStatus( IPenComm sender, int total, int progress )
@@ -543,24 +543,20 @@ namespace PenDemo
             // Implement functions corresponding to predefined Actions.
             // For example, if Symbol's Action is email, it sends an email.
         }
-
         #endregion
 
         #region PenCommV2Callbacks
-
         void PenCommV2Callbacks.onConnected( IPenComm sender, string macAddress, string deviceName, string fwVersion, string protocolVersion, string subName, int maxForce )
         {
             mFilter = new PressureFilter( maxForce );
 
             this.BeginInvoke( new MethodInvoker( delegate()
             {
-                btnConnect.Enabled = false;
-                btnDisconnect.Enabled = true;
-
+                btnConnect.Text = "Disconnect";
+                btnConnect.Enabled = true;
                 tbPenInfo.Text = String.Format( "Mac : {0}\r\n\r\nName : {1}\r\n\r\nSubName : {2}\r\n\r\nFirmware Version : {3}\r\n\r\nProtocol Version : {4}", macAddress, deviceName, subName, fwVersion, protocolVersion );
-
                 ToggleOption( true );
-            } ) );
+            }));
         }
 
         void PenCommV2Callbacks.onPenAuthenticated( IPenComm sender )
@@ -568,6 +564,11 @@ namespace PenDemo
             mPenCommV2.ReqAddUsingNote();
             mPenCommV2.ReqOfflineDataList();
             mPenCommV2.ReqPenStatus();
+
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                groupBox8.Enabled = false;
+            }));
         }
 
         void PenCommV2Callbacks.onDisconnected( IPenComm sender )
@@ -575,13 +576,11 @@ namespace PenDemo
             this.BeginInvoke( new MethodInvoker( delegate()
             {
                 lbOfflineData.Items.Clear();
-
-                btnConnect.Enabled = true;
-                btnDisconnect.Enabled = false;
+                btnConnect.Text = "Connect";
                 tbPenInfo.Text = "";
-
+                groupBox8.Enabled = true;
                 ToggleOption( false );
-            } ) );
+            }));
 
             CloseProgress();
         }
@@ -600,7 +599,6 @@ namespace PenDemo
             this.BeginInvoke( new MethodInvoker( delegate()
             {
                 lbOfflineData.Items.Clear();
-
                 foreach ( OfflineDataInfo item in offlineNotes )
                 {
                     lbOfflineData.Items.Add( item );
@@ -619,9 +617,7 @@ namespace PenDemo
             {
                 DrawStroke( stroke );
             }
-
             DisplayProgress( ProgressTitleOffline, total, progress );
-
             Array.Clear( strokes, 0, strokes.Length );
         }
 
@@ -669,7 +665,7 @@ namespace PenDemo
         {
             if ( !result )
             {
-                MessageBox.Show( "Can not change password." );
+                MessageBox.Show( "Cannot change password." );
             }
             else
             {
@@ -677,7 +673,7 @@ namespace PenDemo
                 {
                     tbOldPassword.Text = "";
                     tbNewPassword.Text = "";
-                } ) );
+                }));
             }
         }
 
@@ -742,7 +738,7 @@ namespace PenDemo
             {
                 prgPower.Maximum = 100;
                 prgPower.Value = battery;
-            } ) );
+            }));
         }
 
         void PenCommV2Callbacks.onPenUsbModeSetUpResponse(IPenComm sender, bool result)
@@ -788,23 +784,59 @@ namespace PenDemo
             // Implement functions corresponding to predefined Actions.
             // For example, if Symbol's Action is email, it sends an email.
         }
+
+        void PenCommV2Callbacks.onSecureCommunicationFailureOccurred(IPenComm sender, PenCommV2.SecureCommunicationFailureReason reason)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                MessageBox.Show("Secure communication failed : " + reason.ToString());
+            }));
+        }
+
+        void PenCommV2Callbacks.onReceiveCertificateUpdateResult(IPenComm sender, PenCommV2.CertificateUpdateResult result)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                if (result == PenCommV2.CertificateUpdateResult.Success)
+                    MessageBox.Show("Certificate Update Succeeded");
+                else
+                    MessageBox.Show("Certificate update failed : " + result.ToString());
+            }));
+        }
+
+        void PenCommV2Callbacks.onReceiveCertificateDeleteResult(IPenComm sender, PenCommV2.CertificateDeleteResult result)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                if (result == PenCommV2.CertificateDeleteResult.Success)
+                    MessageBox.Show("Certificate Deletion Successful");
+                else
+                    MessageBox.Show("Certificate Deletion Failed : " + result.ToString());
+            }));
+        }
+
+        void PenCommV2Callbacks.onPrivateKeyRequest(IPenComm sender)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                MessageBox.Show("Please select a private key file.");
+                btnSelectPrivateKey.Focus();
+            }));
+        }
         #endregion
 
         #region pencontrol
-
         private void button3_Click( object sender, EventArgs e )
         {
             if ( lbOfflineData.SelectedItem == null )
             {
                 return;
             }
-
             OfflineDataInfo data = lbOfflineData.SelectedItem as OfflineDataInfo;
-
             Request(
                 delegate { mPenCommV1.ReqOfflineData( data );  }, 
                 delegate { mPenCommV2.ReqOfflineData( data.Section, data.Owner, data.Note, false, data.Pages );
-            } );
+            });
         }
 
         private void button1_Click( object sender, EventArgs e )
@@ -813,13 +845,11 @@ namespace PenDemo
             {
                 return;
             }
-
             OfflineDataInfo data = lbOfflineData.SelectedItem as OfflineDataInfo;
-            
             Request( 
                 delegate { mPenCommV1.ReqRemoveOfflineData( data.Section, data.Owner ); }, 
                 delegate { mPenCommV2.ReqRemoveOfflineData( data.Section, data.Owner, new int[] { data.Note } );
-            } );
+            });
         }
 
         private void nmPowerOffTime_ValueChanged( object sender, EventArgs e )
@@ -878,8 +908,6 @@ namespace PenDemo
                 );
         }
 
-        #endregion
-
         private void ToggleOption(bool enabled)
         {
             groupBox3.Enabled = enabled;
@@ -893,7 +921,7 @@ namespace PenDemo
         {
             if ( tbFirmwarePath.Text == "" || tbFirmwareVersion.Text == "" )
             {
-                MessageBox.Show( "Select Firmware File and enter firmware version." );
+                MessageBox.Show( "Select firmware file and enter firmware version." );
                 return;
             }
 
@@ -911,5 +939,78 @@ namespace PenDemo
                 tbFirmwarePath.Text = openFileDialog1.FileName;
             }
         }
+
+        private void btnUpdateCertificate_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Certificate Files|*.*";
+            openFileDialog.Title = "Select a Certificate File";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbCertificateFilePath.Text = openFileDialog.FileName;
+                Request(
+                    delegate { },
+                    delegate {
+                        if (!mPenCommV2.IsSupportEncryption)
+                        {
+                            MessageBox.Show("The pen does not support secure communication.");
+                        }
+
+                        if (!mPenCommV2.ReqUpdateCertificate(openFileDialog.FileName))
+                        {
+                            MessageBox.Show("Certificate transfer failed (Please check the certificate file)");
+                        }
+                    }
+                );
+            }
+        }
+
+        private void btnDeleteCertificate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbSerialNumber.Text))
+            {
+                MessageBox.Show("Please enter the serial number of the certificate.");
+                tbSerialNumber.Focus();
+                return;
+            }
+
+            Request(
+                delegate { },
+                delegate {
+                    if (!mPenCommV2.IsSupportEncryption)
+                    {
+                        MessageBox.Show("The pen does not support secure communication.");
+                    }
+
+                    if (!mPenCommV2.ReqDeleteCertificate(tbSerialNumber.Text))
+                    {
+                        MessageBox.Show("Please check the serial number of the certificate. (Only numbers can be entered.)");
+                        tbSerialNumber.Focus();
+                    }
+                }
+            );
+        }
+
+        private void btnSelectPrivateKey_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Private Key Files|*.*";
+            openFileDialog.Title = "Select a Private Key File";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                tbPrivateKeyFilePath.Text = openFileDialog.FileName;
+                if (mPenCommV2.SetPrivateKey(PrivateKeyFileReader.GetPrivateKeyFromFile(openFileDialog.FileName)))
+                {
+                    MessageBox.Show("The private key has been set");
+                }
+                else
+                {
+                    MessageBox.Show("Private key failed to set");
+                }
+            }
+        }
+        #endregion
     }
 }

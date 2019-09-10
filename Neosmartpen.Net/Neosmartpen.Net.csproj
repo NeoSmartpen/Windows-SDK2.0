@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,10 @@
     <Compile Include="Neosmartpen\Net\OfflineDataStructure.cs" />
     <Compile Include="Neosmartpen\Net\Packet.cs" />
     <Compile Include="Neosmartpen\Net\PenComm.cs" />
+    <Compile Include="Neosmartpen\Net\Support\Encryption\AES256Cipher.cs" />
+    <Compile Include="Neosmartpen\Net\Support\Encryption\PrivateKeyFileReader.cs" />
+    <Compile Include="Neosmartpen\Net\Support\Encryption\PrivateKey.cs" />
+    <Compile Include="Neosmartpen\Net\Support\Encryption\RSACipher.cs" />
     <Compile Include="Neosmartpen\Net\Support\FloatConverter.cs" />
     <Compile Include="Neosmartpen\Net\Metadata\Exceptions\ParseException.cs" />
     <Compile Include="Neosmartpen\Net\Metadata\IMetadataManager.cs" />

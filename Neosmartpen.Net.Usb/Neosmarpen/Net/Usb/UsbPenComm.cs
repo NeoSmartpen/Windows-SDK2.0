@@ -10,6 +10,7 @@ namespace Neosmartpen.Net.Usb
 {
     /// <summary>
     /// A class that implements functions related to communication and control with a connected pen
+    /// (This class is for Neosmartpen M1+ only.)
     /// </summary>
     public class UsbPenComm : IDisposable
     {

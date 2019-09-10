@@ -5,10 +5,15 @@ using System.Linq;
 using System.Management;
 using System.Text.RegularExpressions;
 
+/// <summary>
+/// Functions to communicate with pen via USB
+/// (This namespace is for Neosmartpen M1+ only.)
+/// </summary>
 namespace Neosmartpen.Net.Usb
 {
     /// <summary>
     /// A class that implements functions related to USB connection
+    /// (This class is for Neosmartpen M1+ only.)
     /// </summary>
     public class UsbAdapter : IDisposable
     {

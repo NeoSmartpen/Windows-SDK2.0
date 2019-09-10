@@ -34,8 +34,6 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbHistory = new System.Windows.Forms.ListBox();
-            this.btnDisconnect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbPenInfo = new System.Windows.Forms.TextBox();
@@ -67,9 +65,20 @@
             this.tbFirmwareVersion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.tbCertificateFilePath = new System.Windows.Forms.TextBox();
+            this.btnSelectPrivateKey = new System.Windows.Forms.Button();
+            this.tbPrivateKeyFilePath = new System.Windows.Forms.TextBox();
+            this.btnUpdateCertificate = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbSerialNumber = new System.Windows.Forms.TextBox();
+            this.btnDeleteCertificate = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -77,8 +86,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmPowerOffTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFsrStep)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbDevices
@@ -88,13 +98,13 @@
             this.lbDevices.ItemHeight = 12;
             this.lbDevices.Location = new System.Drawing.Point(11, 20);
             this.lbDevices.Name = "lbDevices";
-            this.lbDevices.Size = new System.Drawing.Size(267, 134);
+            this.lbDevices.Size = new System.Drawing.Size(257, 158);
             this.lbDevices.TabIndex = 23;
             this.lbDevices.SelectedIndexChanged += new System.EventHandler(this.lbDevices_SelectedIndexChanged);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(284, 136);
+            this.btnSearch.Location = new System.Drawing.Point(11, 184);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(84, 23);
             this.btnSearch.TabIndex = 22;
@@ -105,18 +115,18 @@
             // txtMacAddress
             // 
             this.txtMacAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMacAddress.Location = new System.Drawing.Point(10, 167);
+            this.txtMacAddress.Location = new System.Drawing.Point(11, 218);
             this.txtMacAddress.Name = "txtMacAddress";
-            this.txtMacAddress.Size = new System.Drawing.Size(178, 21);
+            this.txtMacAddress.Size = new System.Drawing.Size(158, 21);
             this.txtMacAddress.TabIndex = 19;
-            this.txtMacAddress.Text = "9C7BD2FFF128";
+            this.txtMacAddress.Text = "9C7BD20555EF";
             this.txtMacAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(194, 166);
+            this.btnConnect.Location = new System.Drawing.Point(175, 218);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(84, 23);
+            this.btnConnect.Size = new System.Drawing.Size(93, 23);
             this.btnConnect.TabIndex = 17;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -124,9 +134,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(17, 720);
+            this.button2.Location = new System.Drawing.Point(12, 720);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(540, 33);
+            this.button2.Size = new System.Drawing.Size(545, 33);
             this.button2.TabIndex = 24;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
@@ -134,43 +144,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lbHistory);
-            this.groupBox2.Controls.Add(this.btnDisconnect);
             this.groupBox2.Controls.Add(this.btnConnect);
             this.groupBox2.Controls.Add(this.lbDevices);
             this.groupBox2.Controls.Add(this.txtMacAddress);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Location = new System.Drawing.Point(14, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 211);
+            this.groupBox2.Size = new System.Drawing.Size(276, 249);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " 1. Search and select your device ";
-            // 
-            // lbHistory
-            // 
-            this.lbHistory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbHistory.FormattingEnabled = true;
-            this.lbHistory.ItemHeight = 12;
-            this.lbHistory.Items.AddRange(new object[] {
-            "9C7BD200009A",
-            "9C7BD2FFF014"});
-            this.lbHistory.Location = new System.Drawing.Point(375, 21);
-            this.lbHistory.Name = "lbHistory";
-            this.lbHistory.Size = new System.Drawing.Size(159, 170);
-            this.lbHistory.TabIndex = 25;
-            this.lbHistory.SelectedIndexChanged += new System.EventHandler(this.lbHistory_SelectedIndexChanged);
-            // 
-            // btnDisconnect
-            // 
-            this.btnDisconnect.Enabled = false;
-            this.btnDisconnect.Location = new System.Drawing.Point(283, 166);
-            this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(84, 23);
-            this.btnDisconnect.TabIndex = 24;
-            this.btnDisconnect.Text = "Disconnect";
-            this.btnDisconnect.UseVisualStyleBackColor = true;
-            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // groupBox1
             // 
@@ -185,9 +168,9 @@
             // 
             this.groupBox3.Controls.Add(this.tbPenInfo);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(14, 230);
+            this.groupBox3.Location = new System.Drawing.Point(14, 266);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(276, 224);
+            this.groupBox3.Size = new System.Drawing.Size(276, 153);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pen Information";
@@ -195,11 +178,11 @@
             // tbPenInfo
             // 
             this.tbPenInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPenInfo.Location = new System.Drawing.Point(18, 26);
+            this.tbPenInfo.Location = new System.Drawing.Point(18, 23);
             this.tbPenInfo.Multiline = true;
             this.tbPenInfo.Name = "tbPenInfo";
             this.tbPenInfo.ReadOnly = true;
-            this.tbPenInfo.Size = new System.Drawing.Size(241, 174);
+            this.tbPenInfo.Size = new System.Drawing.Size(241, 120);
             this.tbPenInfo.TabIndex = 0;
             // 
             // groupBox4
@@ -208,16 +191,16 @@
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Controls.Add(this.lbOfflineData);
             this.groupBox4.Enabled = false;
-            this.groupBox4.Location = new System.Drawing.Point(12, 460);
+            this.groupBox4.Location = new System.Drawing.Point(12, 518);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(276, 244);
+            this.groupBox4.Size = new System.Drawing.Size(278, 196);
             this.groupBox4.TabIndex = 36;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Offline Data";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(195, 210);
+            this.button1.Location = new System.Drawing.Point(195, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -227,7 +210,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(7, 210);
+            this.button3.Location = new System.Drawing.Point(7, 162);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 1;
@@ -240,9 +223,9 @@
             this.lbOfflineData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbOfflineData.FormattingEnabled = true;
             this.lbOfflineData.ItemHeight = 12;
-            this.lbOfflineData.Location = new System.Drawing.Point(7, 20);
+            this.lbOfflineData.Location = new System.Drawing.Point(7, 21);
             this.lbOfflineData.Name = "lbOfflineData";
-            this.lbOfflineData.Size = new System.Drawing.Size(263, 182);
+            this.lbOfflineData.Size = new System.Drawing.Size(263, 134);
             this.lbOfflineData.TabIndex = 0;
             // 
             // pictureBox1
@@ -277,11 +260,11 @@
             // 
             this.cbPenCapPower.AutoSize = true;
             this.cbPenCapPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPenCapPower.Location = new System.Drawing.Point(22, 90);
+            this.cbPenCapPower.Location = new System.Drawing.Point(22, 83);
             this.cbPenCapPower.Name = "cbPenCapPower";
-            this.cbPenCapPower.Size = new System.Drawing.Size(154, 16);
+            this.cbPenCapPower.Size = new System.Drawing.Size(149, 16);
             this.cbPenCapPower.TabIndex = 1;
-            this.cbPenCapPower.Text = "Pen Cap Power Control";
+            this.cbPenCapPower.Text = "Pen cap power control";
             this.cbPenCapPower.UseVisualStyleBackColor = true;
             this.cbPenCapPower.CheckedChanged += new System.EventHandler(this.cbPenCapPower_CheckedChanged);
             // 
@@ -289,11 +272,11 @@
             // 
             this.cbPenTipPowerOn.AutoSize = true;
             this.cbPenTipPowerOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPenTipPowerOn.Location = new System.Drawing.Point(22, 114);
+            this.cbPenTipPowerOn.Location = new System.Drawing.Point(22, 107);
             this.cbPenTipPowerOn.Name = "cbPenTipPowerOn";
-            this.cbPenTipPowerOn.Size = new System.Drawing.Size(144, 16);
+            this.cbPenTipPowerOn.Size = new System.Drawing.Size(135, 16);
             this.cbPenTipPowerOn.TabIndex = 2;
-            this.cbPenTipPowerOn.Text = "Power On By Pen Tip";
+            this.cbPenTipPowerOn.Text = "Power on by pen tip";
             this.cbPenTipPowerOn.UseVisualStyleBackColor = true;
             this.cbPenTipPowerOn.CheckedChanged += new System.EventHandler(this.cbPenTipPowerOn_CheckedChanged);
             // 
@@ -301,11 +284,11 @@
             // 
             this.cbBeep.AutoSize = true;
             this.cbBeep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbBeep.Location = new System.Drawing.Point(22, 136);
+            this.cbBeep.Location = new System.Drawing.Point(22, 129);
             this.cbBeep.Name = "cbBeep";
-            this.cbBeep.Size = new System.Drawing.Size(90, 16);
+            this.cbBeep.Size = new System.Drawing.Size(89, 16);
             this.cbBeep.TabIndex = 3;
-            this.cbBeep.Text = "Beep Sound";
+            this.cbBeep.Text = "Beep sound";
             this.cbBeep.UseVisualStyleBackColor = true;
             this.cbBeep.CheckedChanged += new System.EventHandler(this.cbBeep_CheckedChanged);
             // 
@@ -313,7 +296,7 @@
             // 
             this.cbOfflineData.AutoSize = true;
             this.cbOfflineData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbOfflineData.Location = new System.Drawing.Point(22, 158);
+            this.cbOfflineData.Location = new System.Drawing.Point(22, 151);
             this.cbOfflineData.Name = "cbOfflineData";
             this.cbOfflineData.Size = new System.Drawing.Size(84, 16);
             this.cbOfflineData.TabIndex = 5;
@@ -336,23 +319,23 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 12);
+            this.label1.Size = new System.Drawing.Size(118, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Auto PowerOff Time ";
+            this.label1.Text = "Auto power off time ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(19, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 12);
+            this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 10;
-            this.label3.Text = "FSR step";
+            this.label3.Text = "Force step";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 216);
+            this.label4.Location = new System.Drawing.Point(24, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 11;
@@ -361,7 +344,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 245);
+            this.label5.Location = new System.Drawing.Point(17, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 12);
             this.label5.TabIndex = 12;
@@ -369,14 +352,14 @@
             // 
             // prgPower
             // 
-            this.prgPower.Location = new System.Drawing.Point(68, 210);
+            this.prgPower.Location = new System.Drawing.Point(68, 179);
             this.prgPower.Name = "prgPower";
             this.prgPower.Size = new System.Drawing.Size(175, 23);
             this.prgPower.TabIndex = 13;
             // 
             // prgStorage
             // 
-            this.prgStorage.Location = new System.Drawing.Point(68, 239);
+            this.prgStorage.Location = new System.Drawing.Point(68, 208);
             this.prgStorage.Name = "prgStorage";
             this.prgStorage.Size = new System.Drawing.Size(175, 23);
             this.prgStorage.TabIndex = 14;
@@ -384,50 +367,50 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 24);
+            this.label6.Location = new System.Drawing.Point(13, 141);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 12);
+            this.label6.Size = new System.Drawing.Size(22, 12);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Old";
+            this.label6.Text = "old";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 51);
+            this.label7.Location = new System.Drawing.Point(6, 168);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 12);
+            this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 16;
-            this.label7.Text = "New";
+            this.label7.Text = "new";
             // 
             // tbOldPassword
             // 
             this.tbOldPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbOldPassword.Location = new System.Drawing.Point(51, 20);
+            this.tbOldPassword.Location = new System.Drawing.Point(40, 137);
             this.tbOldPassword.Name = "tbOldPassword";
-            this.tbOldPassword.Size = new System.Drawing.Size(122, 21);
+            this.tbOldPassword.Size = new System.Drawing.Size(125, 21);
             this.tbOldPassword.TabIndex = 0;
             // 
             // tbNewPassword
             // 
             this.tbNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbNewPassword.Location = new System.Drawing.Point(51, 47);
+            this.tbNewPassword.Location = new System.Drawing.Point(40, 164);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(122, 21);
+            this.tbNewPassword.Size = new System.Drawing.Size(125, 21);
             this.tbNewPassword.TabIndex = 0;
             // 
             // btnPwdChange
             // 
-            this.btnPwdChange.Location = new System.Drawing.Point(178, 47);
+            this.btnPwdChange.Location = new System.Drawing.Point(172, 164);
             this.btnPwdChange.Name = "btnPwdChange";
-            this.btnPwdChange.Size = new System.Drawing.Size(69, 23);
+            this.btnPwdChange.Size = new System.Drawing.Size(75, 23);
             this.btnPwdChange.TabIndex = 17;
-            this.btnPwdChange.Text = "Submit";
+            this.btnPwdChange.Text = "Change";
             this.btnPwdChange.UseVisualStyleBackColor = true;
             this.btnPwdChange.Click += new System.EventHandler(this.btnPwdChange_Click);
             // 
             // btnUpgrade
             // 
-            this.btnUpgrade.Location = new System.Drawing.Point(170, 52);
+            this.btnUpgrade.Location = new System.Drawing.Point(193, 52);
             this.btnUpgrade.Name = "btnUpgrade";
             this.btnUpgrade.Size = new System.Drawing.Size(75, 21);
             this.btnUpgrade.TabIndex = 18;
@@ -440,7 +423,7 @@
             this.tbFirmwarePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbFirmwarePath.Location = new System.Drawing.Point(64, 25);
             this.tbFirmwarePath.Name = "tbFirmwarePath";
-            this.tbFirmwarePath.Size = new System.Drawing.Size(181, 21);
+            this.tbFirmwarePath.Size = new System.Drawing.Size(204, 21);
             this.tbFirmwarePath.TabIndex = 19;
             this.tbFirmwarePath.Click += new System.EventHandler(this.tbFirmwarePath_Click);
             // 
@@ -449,7 +432,7 @@
             this.tbFirmwareVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbFirmwareVersion.Location = new System.Drawing.Point(64, 52);
             this.tbFirmwareVersion.Name = "tbFirmwareVersion";
-            this.tbFirmwareVersion.Size = new System.Drawing.Size(100, 21);
+            this.tbFirmwareVersion.Size = new System.Drawing.Size(123, 21);
             this.tbFirmwareVersion.TabIndex = 20;
             // 
             // label8
@@ -476,27 +459,12 @@
             this.groupBox5.Controls.Add(this.cbPenTipPowerOn);
             this.groupBox5.Controls.Add(this.nmPowerOffTime);
             this.groupBox5.Enabled = false;
-            this.groupBox5.Location = new System.Drawing.Point(296, 230);
+            this.groupBox5.Location = new System.Drawing.Point(296, 266);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(258, 278);
+            this.groupBox5.Size = new System.Drawing.Size(258, 246);
             this.groupBox5.TabIndex = 35;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pen Setting";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btnPwdChange);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.tbOldPassword);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.tbNewPassword);
-            this.groupBox6.Enabled = false;
-            this.groupBox6.Location = new System.Drawing.Point(297, 514);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(258, 84);
-            this.groupBox6.TabIndex = 38;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Password";
             // 
             // groupBox7
             // 
@@ -506,9 +474,9 @@
             this.groupBox7.Controls.Add(this.tbFirmwareVersion);
             this.groupBox7.Controls.Add(this.tbFirmwarePath);
             this.groupBox7.Enabled = false;
-            this.groupBox7.Location = new System.Drawing.Point(297, 604);
+            this.groupBox7.Location = new System.Drawing.Point(14, 424);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(257, 100);
+            this.groupBox7.Size = new System.Drawing.Size(276, 88);
             this.groupBox7.TabIndex = 39;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Firmware Update";
@@ -522,13 +490,137 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "File";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnDeleteCertificate);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.tbSerialNumber);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.btnPwdChange);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.btnUpdateCertificate);
+            this.groupBox6.Controls.Add(this.tbOldPassword);
+            this.groupBox6.Controls.Add(this.tbCertificateFilePath);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.tbNewPassword);
+            this.groupBox6.Enabled = false;
+            this.groupBox6.Location = new System.Drawing.Point(296, 518);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(257, 196);
+            this.groupBox6.TabIndex = 40;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Security";
+            // 
+            // tbCertificateFilePath
+            // 
+            this.tbCertificateFilePath.Location = new System.Drawing.Point(10, 34);
+            this.tbCertificateFilePath.Name = "tbCertificateFilePath";
+            this.tbCertificateFilePath.ReadOnly = true;
+            this.tbCertificateFilePath.Size = new System.Drawing.Size(155, 21);
+            this.tbCertificateFilePath.TabIndex = 0;
+            // 
+            // btnSelectPrivateKey
+            // 
+            this.btnSelectPrivateKey.Location = new System.Drawing.Point(179, 38);
+            this.btnSelectPrivateKey.Name = "btnSelectPrivateKey";
+            this.btnSelectPrivateKey.Size = new System.Drawing.Size(69, 23);
+            this.btnSelectPrivateKey.TabIndex = 1;
+            this.btnSelectPrivateKey.Text = "Browse";
+            this.btnSelectPrivateKey.UseVisualStyleBackColor = true;
+            this.btnSelectPrivateKey.Click += new System.EventHandler(this.btnSelectPrivateKey_Click);
+            // 
+            // tbPrivateKeyFilePath
+            // 
+            this.tbPrivateKeyFilePath.Location = new System.Drawing.Point(12, 39);
+            this.tbPrivateKeyFilePath.Name = "tbPrivateKeyFilePath";
+            this.tbPrivateKeyFilePath.ReadOnly = true;
+            this.tbPrivateKeyFilePath.Size = new System.Drawing.Size(161, 21);
+            this.tbPrivateKeyFilePath.TabIndex = 2;
+            // 
+            // btnUpdateCertificate
+            // 
+            this.btnUpdateCertificate.Location = new System.Drawing.Point(172, 33);
+            this.btnUpdateCertificate.Name = "btnUpdateCertificate";
+            this.btnUpdateCertificate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCertificate.TabIndex = 3;
+            this.btnUpdateCertificate.Text = "Update";
+            this.btnUpdateCertificate.UseVisualStyleBackColor = true;
+            this.btnUpdateCertificate.Click += new System.EventHandler(this.btnUpdateCertificate_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 12);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "* Certificate update:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(205, 12);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "* Private key file for authentication: ";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.tbPrivateKeyFilePath);
+            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Controls.Add(this.btnSelectPrivateKey);
+            this.groupBox8.Location = new System.Drawing.Point(296, 13);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(258, 249);
+            this.groupBox8.TabIndex = 26;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Authentication Parameter";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 119);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 12);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "* Setup password:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 12);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "* Certificate delete:";
+            // 
+            // tbSerialNumber
+            // 
+            this.tbSerialNumber.Location = new System.Drawing.Point(11, 85);
+            this.tbSerialNumber.Name = "tbSerialNumber";
+            this.tbSerialNumber.Size = new System.Drawing.Size(155, 21);
+            this.tbSerialNumber.TabIndex = 19;
+            // 
+            // btnDeleteCertificate
+            // 
+            this.btnDeleteCertificate.Location = new System.Drawing.Point(172, 84);
+            this.btnDeleteCertificate.Name = "btnDeleteCertificate";
+            this.btnDeleteCertificate.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCertificate.TabIndex = 21;
+            this.btnDeleteCertificate.Text = "Delete";
+            this.btnDeleteCertificate.UseVisualStyleBackColor = true;
+            this.btnDeleteCertificate.Click += new System.EventHandler(this.btnDeleteCertificate_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 765);
-            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
@@ -537,8 +629,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Blue;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -552,10 +644,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbFsrStep)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -570,8 +664,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnDisconnect;
-        private System.Windows.Forms.ListBox lbHistory;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
@@ -601,9 +693,20 @@
         private System.Windows.Forms.TextBox tbFirmwareVersion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnUpdateCertificate;
+        private System.Windows.Forms.TextBox tbPrivateKeyFilePath;
+        private System.Windows.Forms.Button btnSelectPrivateKey;
+        private System.Windows.Forms.TextBox tbCertificateFilePath;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnDeleteCertificate;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbSerialNumber;
     }
 }
 

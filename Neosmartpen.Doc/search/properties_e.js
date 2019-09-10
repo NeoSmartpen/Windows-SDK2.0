@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['remembered_603',['Remembered',['../class_neosmartpen_1_1_net_1_1_bluetooth_1_1_pen_device.html#ab29dd9376d4c65641fac61dcd53faf6b',1,'Neosmartpen::Net::Bluetooth::PenDevice']]],
+  ['result_604',['Result',['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_file_download_result_received_event_args.html#a33263c37e0e6a65792ac872625482879',1,'Neosmartpen.Net.Usb.Events.FileDownloadResultReceivedEventArgs.Result()'],['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_file_info_received_event_args.html#ae0dbdd3f381d0944dbcabe609d147a47',1,'Neosmartpen.Net.Usb.Events.FileInfoReceivedEventArgs.Result()'],['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_file_list_received_event_args.html#a53e621486c7f7515e7c00b1d114eff17',1,'Neosmartpen.Net.Usb.Events.FileListReceivedEventArgs.Result()'],['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_result_received_event_args.html#aa168f17a8cef0f54c728add7b0bcdd08',1,'Neosmartpen.Net.Usb.Events.ResultReceivedEventArgs.Result()'],['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_update_result_received_event_args.html#ad583a8ccd4b2a8793d081f87583fc1f3',1,'Neosmartpen.Net.Usb.Events.UpdateResultReceivedEventArgs.Result()']]],
+  ['revision_605',['Revision',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_model_1_1_book.html#ae351dd69db862d079a6191ccaa928445',1,'Neosmartpen::Net::Metadata::Model::Book']]],
+  ['rssi_606',['Rssi',['../class_neosmartpen_1_1_net_1_1_bluetooth_1_1_pen_device.html#a863f137b26f6973539c5e5e34413b2a2',1,'Neosmartpen::Net::Bluetooth::PenDevice']]]
+];
