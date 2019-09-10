@@ -286,5 +286,32 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="symbols">The detected symbols</param>
         void onSymbolDetected(IPenComm sender, List<Symbol> symbols);
+
+        /// <summary>
+        /// Callback requesting private key assignment when private key is not specified when connecting to pen with certificate installed
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        void onPrivateKeyRequest(IPenComm sender);
+
+        /// <summary>
+        /// Occurs when secure communication fails
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="reason">Reason for secure communication to fail</param>
+        void onSecureCommunicationFailureOccurred(IPenComm sender, PenCommV2.SecureCommunicationFailureReason reason);
+
+        /// <summary>
+        /// Response callback for certificate installation request
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">Request processing result</param>
+        void onReceiveCertificateUpdateResult(IPenComm sender, PenCommV2.CertificateUpdateResult result);
+
+        /// <summary>
+        /// Response callback for certificate deletion request
+        /// </summary>
+        /// <param name="sender">sender refers to the object that invoked the callback method</param>
+        /// <param name="result">Request processing result</param>
+        void onReceiveCertificateDeleteResult(IPenComm sender, PenCommV2.CertificateDeleteResult result);
     }
 }

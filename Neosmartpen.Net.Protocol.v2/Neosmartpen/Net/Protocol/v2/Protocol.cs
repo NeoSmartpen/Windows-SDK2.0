@@ -2,7 +2,7 @@
 
 namespace Neosmartpen.Net.Protocol.v2
 {
-    public class Const
+    internal class Const
     {
         public const byte PK_STX        = 0xC0;
         public const byte PK_ETX        = 0xC1;
@@ -17,7 +17,7 @@ namespace Neosmartpen.Net.Protocol.v2
     }
 
     [Flags]
-    public enum Cmd
+    internal enum Cmd
     {
         VERSION_REQUEST = 0x01,
         VERSION_RESPONSE = 0x81,
@@ -75,5 +75,16 @@ namespace Neosmartpen.Net.Protocol.v2
 
         PEN_PROFILE_REQUEST = 0x41,
         PEN_PROFILE_RESPONSE = 0xC1,
+
+        ENCRYPTION_CERT_UPDATE_REQUEST = 0X06,
+        ENCRYPTION_CERT_UPDATE_RESPONSE = 0x86,
+        ENCRYPTION_CERT_DELETE_REQUEST = 0X07,
+        ENCRYPTION_CERT_DELETE_RESPONSE = 0x87,
+        ENCRYPTION_KEY_REQUEST = 0X08,
+        ENCRYPTION_KEY_RESPONSE = 0x88,
+        ENCRYPTION_ONLINE_PAPER_INFO_EVENT = 0X09,
+        ENCRYPTION_ONLINE_PEN_DOT_EVENT = 0X0A,
+        ENCRYPTION_OFFLINE_PACKET_REQUEST = 0X0B,
+        ENCRYPTION_OFFLINE_PACKET_RESPONSE = 0X8B,
     };
 }

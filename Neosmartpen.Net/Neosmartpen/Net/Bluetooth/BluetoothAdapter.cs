@@ -273,12 +273,9 @@ namespace Neosmartpen.Net.Bluetooth
         private void handleRequests( Object thing, BluetoothWin32AuthenticationEventArgs args )
         {
             System.Console.WriteLine( "BluetoothWin32AuthenticationEventArgs ( AuthenticationMethod : {0}, AuthenticationRequirements : {1}, NumberOrPasskey : {2}, COD : {3:X} )", args.AuthenticationMethod, args.AuthenticationRequirements, args.NumberOrPasskey, args.Device.ClassOfDevice.Value );
-
             DeviceClass = args.Device.ClassOfDevice.Value;
-            
             DeviceName = args.Device.DeviceName;
-
-            args.Confirm = true;
+            //args.Confirm = true;
         }
 
         /// <summary>

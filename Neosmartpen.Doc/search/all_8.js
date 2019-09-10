@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['id_100',['Id',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_model_1_1_symbol.html#ac9cdfaad178818f408bdf565acc45c87',1,'Neosmartpen::Net::Metadata::Model::Symbol']]],
+  ['imageprocessinginfo_101',['ImageProcessingInfo',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_image_processing_info.html',1,'Neosmartpen::Net::Protocol::v2']]],
+  ['imetadatamanager_102',['IMetadataManager',['../interface_neosmartpen_1_1_net_1_1_metadata_1_1_i_metadata_manager.html',1,'Neosmartpen::Net::Metadata']]],
+  ['imetadataparser_103',['IMetadataParser',['../interface_neosmartpen_1_1_net_1_1_metadata_1_1_i_metadata_parser.html',1,'Neosmartpen::Net::Metadata']]],
+  ['internalprocessingerror_104',['InternalProcessingError',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a030a5b353ecdf120b1b84d0f859b330ea1547738cc6b4c11ca2ba3f1f8838f7f4',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
+  ['invalidexpirationdate_105',['InvalidExpirationDate',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a030a5b353ecdf120b1b84d0f859b330ea2b8c416ad52293d829ae22adf12788ff',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
+  ['invalidprivatekey_106',['InvalidPrivateKey',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a3f63e2be1481bc2a589951d4128cca2ead636775871bfcc359722b7e90d0b191d',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
+  ['invalidprotocolversion_107',['InvalidProtocolVersion',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a030a5b353ecdf120b1b84d0f859b330eae274263f4df465409cc3674b318aaf94',1,'Neosmartpen.Net.Protocol.v2.PenCommV2.InvalidProtocolVersion()'],['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a3e6a6e51adb7f5ee535bc2a1cb9d61bdae274263f4df465409cc3674b318aaf94',1,'Neosmartpen.Net.Protocol.v2.PenCommV2.InvalidProtocolVersion()']]],
+  ['invalidserialcode_108',['InvalidSerialCode',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a3e6a6e51adb7f5ee535bc2a1cb9d61bda3c93e1f43c6570d36bf6d7135302502c',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
+  ['ipencomm_109',['IPenComm',['../interface_neosmartpen_1_1_net_1_1_i_pen_comm.html',1,'Neosmartpen::Net']]],
+  ['isactive_110',['IsActive',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#afdbd224fdb609bf9ecd8ce56718dd7c3',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['isautopoweronenabled_111',['IsAutoPowerOnEnabled',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#ae76c28f7acf0112042d5c9bdd936f102',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['isbeepenabled_112',['IsBeepEnabled',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#a8df6e669c4e4c92ad8cb85060596f077',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['ischanged_113',['IsChanged',['../class_neosmartpen_1_1_net_1_1_usb_1_1_events_1_1_config_setup_result_received_event_args.html#a2ad345282036fba453b285c068314114',1,'Neosmartpen::Net::Usb::Events::ConfigSetupResultReceivedEventArgs']]],
+  ['isdownsamplingenabled_114',['IsDownsamplingEnabled',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#a332938350aa5597b822fdfc00be71f0d',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['isline_115',['isLine',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_model_1_1_book.html#a4371aab0fba476e4bb0f7f08182b8d48',1,'Neosmartpen::Net::Metadata::Model::Book']]],
+  ['isnotactiveexception_116',['IsNotActiveException',['../class_neosmartpen_1_1_net_1_1_usb_1_1_exceptions_1_1_is_not_active_exception.html',1,'Neosmartpen::Net::Usb::Exceptions']]],
+  ['isopen_117',['IsOpen',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#a81a6d39ec689218834d2a5e16356cd0e',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['ispencapoffenabled_118',['IsPenCapOffEnabled',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_pen_comm.html#a7721e31f3d9c418321d36a98ef5baf1e',1,'Neosmartpen::Net::Usb::UsbPenComm']]],
+  ['issupportencryption_119',['IsSupportEncryption',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a44a65583dd65bc653be1b2cf61435836',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
+  ['iswatching_120',['IsWatching',['../class_neosmartpen_1_1_net_1_1_usb_1_1_usb_adapter.html#a2c23584c134177821234fa0710a85ffe',1,'Neosmartpen::Net::Usb::UsbAdapter']]]
+];

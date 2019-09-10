@@ -2,10 +2,12 @@
 using Neosmartpen.Net.Metadata;
 using Neosmartpen.Net.Metadata.Model;
 using Neosmartpen.Net.Support;
+using Neosmartpen.Net.Support.Encryption;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -13,7 +15,7 @@ using System.Threading;
 namespace Neosmartpen.Net.Protocol.v2
 {
     /// <summary>
-    /// Provides fuctions that can handle F50, F120 Smartpen
+    /// Provides fuctions that can handle F50, F120, F51 Smartpen
     /// </summary>
     public class PenCommV2 : PenComm
     {
@@ -34,6 +36,9 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         public string ProtocolVersion { get; private set; }
 
+        /// <summary>
+        /// Gets a product name of the device.
+        /// </summary>
         public string SubName { get; private set; }
 
         /// <summary>
@@ -48,7 +53,7 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         public short MaxForce { get; private set; }
 
-		public const string SupportedProtocolVersion = "2.12";
+		private const string SupportedProtocolVersion = "2.12";
 
 		private long mTime = -1L;
 
@@ -73,7 +78,7 @@ namespace Neosmartpen.Net.Protocol.v2
         private Dot mPrevDot = null;
 
 		private readonly string DEFAULT_PASSWORD = "0000";
-		public static readonly float PEN_PROFILE_SUPPORT_PROTOCOL_VERSION = 2.10f;
+        private static readonly float PEN_PROFILE_SUPPORT_PROTOCOL_VERSION = 2.10f;
 		private readonly string F121 = "NWP-F121";
 		private readonly string F121MG = "NWP-F121MG";
 
@@ -83,7 +88,125 @@ namespace Neosmartpen.Net.Protocol.v2
 		private FilterForPaper dotFilterForPaper = null;
 		private FilterForPaper offlineFillterForPaper = null;
 
-		public enum UsbMode : byte { Disk = 0, Bulk = 1 };
+        private static readonly float PEN_ENCRYPTION_SUPPORT_PROTOCOL_VERSION = 2.14f;
+
+        /// <summary>
+        /// Whether to support secure communication mode
+        /// </summary>
+        public bool IsSupportEncryption
+        {
+            get
+            {
+                try
+                {
+                    float supportVersion = PEN_ENCRYPTION_SUPPORT_PROTOCOL_VERSION;
+                    float receiveVersion = float.Parse(ProtocolVersion);
+                    return receiveVersion >= supportVersion;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        private PrivateKey rsaKeys = null;
+        private AES256Cipher aes256Cipher = null;
+
+        private bool isPenAuthenticated = false;
+        private bool isEncryptedMode = false;
+        private bool doGetAesKey = false;
+
+        /// <summary>
+        /// Cause when secure communication fails
+        /// </summary>
+        public enum SecureCommunicationFailureReason
+        {
+            /// <summary>
+            /// Certificate Expiration
+            /// </summary>
+            CertificateExpired,
+            /// <summary>
+            /// Private key not set
+            /// </summary>
+            NoPrivateKey,
+            /// <summary>
+            /// Private key is invalid
+            /// </summary>
+            InvalidPrivateKey,
+            /// <summary>
+            /// The cause is unknown
+            /// </summary>
+            UnknownError
+        };
+
+        /// <summary>
+        /// Processing Results for Certificate Update Requests
+        /// </summary>
+        public enum CertificateUpdateResult
+        {
+            /// <summary>
+            /// Update successful
+            /// </summary>
+            Success,
+            /// <summary>
+            /// Copy of file failed
+            /// </summary>
+            FileCopyFailed,
+            /// <summary>
+            /// File replacement failed
+            /// </summary>
+            FileReplacementFailed,
+            /// <summary>
+            /// Expiration date error
+            /// </summary>
+            InvalidExpirationDate,
+            /// <summary>
+            /// Use old protocol
+            /// </summary>
+            InvalidProtocolVersion,
+            /// <summary>
+            /// Internal processing error
+            /// </summary>
+            InternalProcessingError,
+            /// <summary>
+            /// The cause is unknown
+            /// </summary>
+            UnknownError
+        };
+
+        /// <summary>
+        /// Results of Processing Deletion Requests for Installed Certificates
+        /// </summary>
+        public enum CertificateDeleteResult
+        {
+            /// <summary>
+            /// Certificate Deletion Successful
+            /// </summary>
+            Success,
+            /// <summary>
+            /// No certificate installed
+            /// </summary>
+            NoCertificate,
+            /// <summary>
+            /// The serial number entered does not match the installed certificate
+            /// </summary>
+            InvalidSerialCode,
+            /// <summary>
+            /// File deletion failed
+            /// </summary>
+            FileDeleteFailed,
+            /// <summary>
+            /// Use old protocol
+            /// </summary>
+            InvalidProtocolVersion,
+            /// <summary>
+            /// The cause is unknown
+            /// </summary>
+            UnknownError
+        };
+
+        public enum UsbMode : byte { Disk = 0, Bulk = 1 };
 
         public enum DataTransmissionType : byte { Event = 0, RequestResponse = 1 };
 		
@@ -150,7 +273,13 @@ namespace Neosmartpen.Net.Protocol.v2
 				mPrevDot = null;
 			}
 
-			Callback.onDisconnected( this );
+            aes256Cipher = null;
+
+            isPenAuthenticated = false;
+            isEncryptedMode = false;
+            doGetAesKey = false;
+
+            Callback.onDisconnected( this );
         }
 
 		int offlineDataPacketRetryCount = 0;
@@ -282,8 +411,16 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
 
-						// 최초 연결시
-						if (MaxForce == -1)
+                        int encryptionType = 0;
+
+                        if (IsSupportEncryption)
+                        {
+                            encryptionType = pk.GetByteToInt();
+                            isEncryptedMode = encryptionType == 0 ? false : true;
+                        }
+
+                        // 최초 연결시
+                        if (!isPenAuthenticated)
 						{
 							MaxForce = maxForce;
 
@@ -295,8 +432,32 @@ namespace Neosmartpen.Net.Protocol.v2
 							}
 							else
 							{
-								ReqSetupTime(Time.GetUtcTimeStamp());
-								Callback.onPenAuthenticated(this);
+                                if (encryptionType == 0 || doGetAesKey)
+                                {
+                                    isPenAuthenticated = true;
+                                    ReqSetupTime(Time.GetUtcTimeStamp());
+                                    Callback.onPenAuthenticated(this);
+                                }
+                                else if (rsaKeys == null)
+                                {
+                                    Callback.onPrivateKeyRequest(this);
+                                }
+                                else
+                                {
+                                    if (encryptionType == 1)
+                                    {
+                                        ReqEncryptionKey();
+                                    }
+                                    else if (encryptionType == 2)
+                                    {
+                                        Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.CertificateExpired);
+                                    }
+                                    else
+                                    {
+                                        Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.UnknownError);
+                                        base.Clean();
+                                    }
+                                }
 							}
 						}
 						else
@@ -786,6 +947,172 @@ namespace Neosmartpen.Net.Protocol.v2
                     }
                     break;
 
+                #region encryption
+
+                case Cmd.ENCRYPTION_CERT_UPDATE_RESPONSE:
+                    {
+                        int result = pk.GetByteToInt();
+                        CertificateUpdateResult resultType;
+                        if (result == 0)
+                            resultType = CertificateUpdateResult.Success;
+                        else if (result == 1)
+                            resultType = CertificateUpdateResult.FileCopyFailed;
+                        else if (result == 2)
+                            resultType = CertificateUpdateResult.FileReplacementFailed;
+                        else if (result == 3)
+                            resultType = CertificateUpdateResult.InvalidExpirationDate;
+                        else if (result == 4)
+                            resultType = CertificateUpdateResult.InvalidProtocolVersion;
+                        else if (result == 5)
+                            resultType = CertificateUpdateResult.InternalProcessingError;
+                        else
+                            resultType = CertificateUpdateResult.UnknownError;
+                        Callback.onReceiveCertificateUpdateResult(this, resultType);
+                    }
+                    break;
+
+                case Cmd.ENCRYPTION_CERT_DELETE_RESPONSE:
+                    {
+                        int result = pk.GetByteToInt();
+                        CertificateDeleteResult resultType;
+                        if (result == 0)
+                            resultType = CertificateDeleteResult.Success;
+                        else if (result == 1)
+                            resultType = CertificateDeleteResult.NoCertificate;
+                        else if (result == 2)
+                            resultType = CertificateDeleteResult.InvalidSerialCode;
+                        else if (result == 3)
+                            resultType = CertificateDeleteResult.FileDeleteFailed;
+                        else if (result == 4)
+                            resultType = CertificateDeleteResult.InvalidProtocolVersion;
+                        else
+                            resultType = CertificateDeleteResult.UnknownError;
+                        Callback.onReceiveCertificateDeleteResult(this, resultType);
+                    }
+                    break;
+
+                case Cmd.ENCRYPTION_KEY_RESPONSE:
+                    {
+                        if (pk.Result == 0x00)
+                        {
+                            int result = pk.GetByteToInt();
+                            if (result == 0x00)
+                            {
+                                byte[] data = pk.GetBytes(256);
+
+                                if (rsaKeys != null)
+                                {
+                                    byte[] aesKey = RSACipher.Decrypt(rsaKeys, data);
+
+                                    if (aesKey == null || aesKey.Length != 32)
+                                    {
+                                        Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.InvalidPrivateKey);
+                                        this.Clean();
+                                    }
+                                    else
+                                    {
+                                        doGetAesKey = true;
+                                        aes256Cipher = new AES256Cipher(aesKey);
+                                        ReqPenStatus();
+                                    }
+                                }
+                                else
+                                {
+                                    Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.NoPrivateKey);
+                                    this.Clean();
+                                }
+                            }
+                            else
+                            {
+                                Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.UnknownError);
+                                this.Clean();
+                            }
+                        }
+                        else
+                        {
+                            Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.UnknownError);
+                            this.Clean();
+                        }
+                    }
+                    break;
+
+                case Cmd.ENCRYPTION_ONLINE_PEN_DOT_EVENT:
+                case Cmd.ENCRYPTION_ONLINE_PAPER_INFO_EVENT:
+                    {
+                        if (aes256Cipher == null)
+                        {
+                            Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.InvalidPrivateKey);
+                            this.Clean();
+                            return;
+                        }
+
+                        byte[] decrypted = aes256Cipher.Decode(pk.GetBytes(16));
+                        if (decrypted != null)
+                        {
+                            var builder = new Packet.Builder();
+                            builder.cmd((int)((Cmd)pk.Cmd == Cmd.ENCRYPTION_ONLINE_PEN_DOT_EVENT ? Cmd.ONLINE_NEW_PEN_DOT_EVENT : Cmd.ONLINE_NEW_PAPER_INFO_EVENT));
+                            builder.data(decrypted);
+                            builder.result(pk.Result);
+                            // 다시 파서로 넘긴다.
+                            ParsePacket(builder.Build());
+                            break;
+                        }
+                        else
+                        {
+                            Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.InvalidPrivateKey);
+                            this.Clean();
+                        }
+                    }
+                    break;
+
+                case Cmd.ENCRYPTION_OFFLINE_PACKET_REQUEST:
+                    {
+                        if (aes256Cipher == null)
+                        {
+                            Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.InvalidPrivateKey);
+                            this.Clean();
+                            return;
+                        }
+
+                        byte[] data = pk.Data;
+
+                        if ((data.Length - 9) % 16 != 0)
+                        {
+                            Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.UnknownError);
+                            return;
+                        }
+
+                        var byteUtil = new ByteUtil();
+                        byteUtil.Put(pk.GetBytes(8));
+
+                        int paddingLength = pk.GetByteToInt();
+
+                        while(pk.CheckMoreData())
+                        {
+                            byte[] decrypted = aes256Cipher.Decode(pk.GetBytes(16));
+                            if (decrypted != null)
+                            {
+                                byteUtil.Put(decrypted);
+                            }
+                            else
+                            {
+                                Callback.onSecureCommunicationFailureOccurred(this, SecureCommunicationFailureReason.InvalidPrivateKey);
+                                this.Clean();
+                                return;
+                            }
+                        }
+
+                        var builder = new Packet.Builder();
+                        builder.cmd((int)(Cmd.OFFLINE_PACKET_REQUEST));
+                        builder.data(byteUtil.GetBytes(byteUtil.WritePosition - paddingLength));
+                        builder.result(pk.Result);
+
+                        // 다시 파서로 넘긴다.
+                        ParsePacket(builder.Build());
+                    }
+                    break;
+
+                #endregion
                 default:
                     break;
             }
@@ -1604,7 +1931,7 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <summary>
         /// Sets the status of the power control by cap on property.
         /// </summary>
-        /// <param name="seton">true if you want to use, otherwise false.</param>
+        /// <param name="enable">true if you want to use, otherwise false.</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetupPenCapPower( bool enable )
         {
@@ -1614,7 +1941,7 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <summary>
         /// Sets the status of the auto power on property that if write the pen, turn on when pen is down.
         /// </summary>
-        /// <param name="seton">true if you want to use, otherwise false.</param>
+        /// <param name="enable">true if you want to use, otherwise false.</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetupPenAutoPowerOn( bool enable )
         {
@@ -1656,9 +1983,9 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         /// <param name="rgbcolor">integer type color formatted 0xAARRGGBB</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqSetupPenColor( int color )
+        public bool ReqSetupPenColor( int rgbcolor )
         {
-            return RequestChangeSetting( SettingType.LedColor, color );
+            return RequestChangeSetting( SettingType.LedColor, rgbcolor);
         }
 
         /// <summary>
@@ -1666,9 +1993,9 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqSetupPenSensitivity( short step )
+        public bool ReqSetupPenSensitivity( short level)
         {
-            return RequestChangeSetting( SettingType.Sensitivity, step );
+            return RequestChangeSetting( SettingType.Sensitivity, level);
         }
 
         /// <summary>
@@ -1708,9 +2035,9 @@ namespace Neosmartpen.Net.Protocol.v2
         /// </summary>
         /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public bool ReqSetupPenFscSensitivity( short step )
+        public bool ReqSetupPenFscSensitivity( short level )
         {
-            return RequestChangeSetting( SettingType.FscSensitivity, step );
+            return RequestChangeSetting( SettingType.FscSensitivity, level);
         }
 
         /// <summary>
@@ -1918,9 +2245,12 @@ namespace Neosmartpen.Net.Protocol.v2
         {
             ByteUtil bf = new ByteUtil( Escape );
 
-            bf.Put( Const.PK_STX, false )
-              .Put( (byte)Cmd.OFFLINE_PACKET_RESPONSE )
-              .Put( (byte)( isSuccess ? 0 : 1 ) )
+            bf.Put(Const.PK_STX, false);
+            if (isEncryptedMode)
+                bf.Put((byte)Cmd.ENCRYPTION_OFFLINE_PACKET_RESPONSE);
+            else
+                bf.Put((byte)Cmd.OFFLINE_PACKET_RESPONSE);
+            bf.Put( (byte)( isSuccess ? 0 : 1 ) )
               .PutShort( 3 )
               .PutShort( index )
               .Put( 1 )
@@ -2465,6 +2795,100 @@ namespace Neosmartpen.Net.Protocol.v2
             return Send(bf);
         }
 
+        #endregion
+
+        #region Encryption
+
+        /// <summary>
+        /// Install (update) the certificate on the pen. 
+        /// (When the certificate is installed, the pen is set to the authentication mode and you cannot receive pen data without the private key.)
+        /// </summary>
+        /// <param name="certificatePath">Path to the certificate file</param>
+        /// <returns>True if the request succeeds false if it fails</returns>
+        public bool ReqUpdateCertificate(string certificatePath)
+        {
+            var certificate = System.IO.File.ReadAllBytes(certificatePath);
+
+            if (certificate == null || certificate.Length <= 0)
+                return false;
+
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+              .Put((byte)Cmd.ENCRYPTION_CERT_UPDATE_REQUEST)
+              .PutShort((short)certificate.Length)
+              .Put(certificate)
+              .Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        /// <summary>
+        /// Request to remove the certificate currently installed on the pen.
+        /// </summary>
+        /// <param name="serialNumber">Serial number specified or issued with certificate</param>
+        /// <returns>True if the request succeeds false if it fails</returns>
+        public bool ReqDeleteCertificate(string serialNumber)
+        {
+            if (string.IsNullOrEmpty(serialNumber))
+                return false;
+            try
+            {
+                byte[] scodeByte = BigInteger.Parse(serialNumber).ToByteArray();
+                Array.Reverse(scodeByte);
+
+                ByteUtil bf = new ByteUtil(Escape);
+                bf.Put(Const.PK_STX, false)
+                  .Put((byte)Cmd.ENCRYPTION_CERT_DELETE_REQUEST)
+                  .PutShort(17)
+                  .Put((byte)scodeByte.Length)
+                  .Put(scodeByte, 16)
+                  .Put(Const.PK_ETX, false);
+
+                return Send(bf);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool ReqEncryptionKey()
+        {
+            ByteUtil bf = new ByteUtil(Escape);
+            bf.Put(Const.PK_STX, false)
+              .Put((byte)Cmd.ENCRYPTION_KEY_REQUEST)
+              .PutShort(8)
+              .PutNull(8)
+              .Put(Const.PK_ETX, false);
+
+            return Send(bf);
+        }
+
+        /// <summary>
+        /// Set the private key.
+        /// (It must be set before the onPenAuthenticated callback is called or when the onPrivateKeyRequest callback is called, i.e. before the authentication process.)
+        /// </summary>
+        /// <param name="privateKey">PrivateKey instance</param>
+        /// <returns>True if set succeeded false if failed</returns>
+        public bool SetPrivateKey(PrivateKey privateKey)
+        {
+            if (Alive)
+            {
+                if (!isPenAuthenticated)
+                {
+                    this.rsaKeys = privateKey;
+                    ReqPenStatus();
+                    return true;
+                }
+            }
+            else
+            {
+                this.rsaKeys = privateKey;
+                return true;
+            }
+
+            return false;
+        }
         #endregion
     }
 }
