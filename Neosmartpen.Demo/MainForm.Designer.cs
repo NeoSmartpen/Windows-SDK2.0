@@ -48,9 +48,7 @@
             this.cbPenTipPowerOn = new System.Windows.Forms.CheckBox();
             this.cbBeep = new System.Windows.Forms.CheckBox();
             this.cbOfflineData = new System.Windows.Forms.CheckBox();
-            this.tbFsrStep = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.prgPower = new System.Windows.Forms.ProgressBar();
@@ -68,23 +66,22 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteCertificate = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbSerialNumber = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnUpdateCertificate = new System.Windows.Forms.Button();
             this.tbCertificateFilePath = new System.Windows.Forms.TextBox();
             this.btnSelectPrivateKey = new System.Windows.Forms.Button();
             this.tbPrivateKeyFilePath = new System.Windows.Forms.TextBox();
-            this.btnUpdateCertificate = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbSerialNumber = new System.Windows.Forms.TextBox();
-            this.btnDeleteCertificate = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPowerOffTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbFsrStep)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -245,7 +242,7 @@
             // nmPowerOffTime
             // 
             this.nmPowerOffTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nmPowerOffTime.Location = new System.Drawing.Point(155, 21);
+            this.nmPowerOffTime.Location = new System.Drawing.Point(155, 30);
             this.nmPowerOffTime.Maximum = new decimal(new int[] {
             -1486618624,
             232830643,
@@ -260,7 +257,7 @@
             // 
             this.cbPenCapPower.AutoSize = true;
             this.cbPenCapPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPenCapPower.Location = new System.Drawing.Point(22, 83);
+            this.cbPenCapPower.Location = new System.Drawing.Point(22, 66);
             this.cbPenCapPower.Name = "cbPenCapPower";
             this.cbPenCapPower.Size = new System.Drawing.Size(149, 16);
             this.cbPenCapPower.TabIndex = 1;
@@ -272,7 +269,7 @@
             // 
             this.cbPenTipPowerOn.AutoSize = true;
             this.cbPenTipPowerOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPenTipPowerOn.Location = new System.Drawing.Point(22, 107);
+            this.cbPenTipPowerOn.Location = new System.Drawing.Point(22, 90);
             this.cbPenTipPowerOn.Name = "cbPenTipPowerOn";
             this.cbPenTipPowerOn.Size = new System.Drawing.Size(135, 16);
             this.cbPenTipPowerOn.TabIndex = 2;
@@ -284,7 +281,7 @@
             // 
             this.cbBeep.AutoSize = true;
             this.cbBeep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbBeep.Location = new System.Drawing.Point(22, 129);
+            this.cbBeep.Location = new System.Drawing.Point(22, 112);
             this.cbBeep.Name = "cbBeep";
             this.cbBeep.Size = new System.Drawing.Size(89, 16);
             this.cbBeep.TabIndex = 3;
@@ -296,7 +293,7 @@
             // 
             this.cbOfflineData.AutoSize = true;
             this.cbOfflineData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbOfflineData.Location = new System.Drawing.Point(22, 151);
+            this.cbOfflineData.Location = new System.Drawing.Point(22, 134);
             this.cbOfflineData.Name = "cbOfflineData";
             this.cbOfflineData.Size = new System.Drawing.Size(84, 16);
             this.cbOfflineData.TabIndex = 5;
@@ -304,38 +301,19 @@
             this.cbOfflineData.UseVisualStyleBackColor = true;
             this.cbOfflineData.CheckedChanged += new System.EventHandler(this.cbOfflineData_CheckedChanged);
             // 
-            // tbFsrStep
-            // 
-            this.tbFsrStep.LargeChange = 1;
-            this.tbFsrStep.Location = new System.Drawing.Point(142, 47);
-            this.tbFsrStep.Maximum = 4;
-            this.tbFsrStep.Name = "tbFsrStep";
-            this.tbFsrStep.Size = new System.Drawing.Size(104, 45);
-            this.tbFsrStep.TabIndex = 7;
-            this.tbFsrStep.ValueChanged += new System.EventHandler(this.tbFsrStep_ValueChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 25);
+            this.label1.Location = new System.Drawing.Point(18, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "Auto power off time ";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Force step";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 185);
+            this.label4.Location = new System.Drawing.Point(24, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 11;
@@ -344,7 +322,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 214);
+            this.label5.Location = new System.Drawing.Point(17, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 12);
             this.label5.TabIndex = 12;
@@ -352,14 +330,14 @@
             // 
             // prgPower
             // 
-            this.prgPower.Location = new System.Drawing.Point(68, 179);
+            this.prgPower.Location = new System.Drawing.Point(68, 168);
             this.prgPower.Name = "prgPower";
             this.prgPower.Size = new System.Drawing.Size(175, 23);
             this.prgPower.TabIndex = 13;
             // 
             // prgStorage
             // 
-            this.prgStorage.Location = new System.Drawing.Point(68, 208);
+            this.prgStorage.Location = new System.Drawing.Point(68, 197);
             this.prgStorage.Name = "prgStorage";
             this.prgStorage.Size = new System.Drawing.Size(175, 23);
             this.prgStorage.TabIndex = 14;
@@ -448,11 +426,9 @@
             // 
             this.groupBox5.Controls.Add(this.cbPenCapPower);
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.prgPower);
-            this.groupBox5.Controls.Add(this.tbFsrStep);
             this.groupBox5.Controls.Add(this.prgStorage);
             this.groupBox5.Controls.Add(this.cbOfflineData);
             this.groupBox5.Controls.Add(this.cbBeep);
@@ -465,6 +441,7 @@
             this.groupBox5.TabIndex = 35;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pen Setting";
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // groupBox7
             // 
@@ -512,6 +489,60 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Security";
             // 
+            // btnDeleteCertificate
+            // 
+            this.btnDeleteCertificate.Location = new System.Drawing.Point(172, 84);
+            this.btnDeleteCertificate.Name = "btnDeleteCertificate";
+            this.btnDeleteCertificate.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteCertificate.TabIndex = 21;
+            this.btnDeleteCertificate.Text = "Delete";
+            this.btnDeleteCertificate.UseVisualStyleBackColor = true;
+            this.btnDeleteCertificate.Click += new System.EventHandler(this.btnDeleteCertificate_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 12);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "* Certificate delete:";
+            // 
+            // tbSerialNumber
+            // 
+            this.tbSerialNumber.Location = new System.Drawing.Point(11, 85);
+            this.tbSerialNumber.Name = "tbSerialNumber";
+            this.tbSerialNumber.Size = new System.Drawing.Size(155, 21);
+            this.tbSerialNumber.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 119);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 12);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "* Setup password:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(117, 12);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "* Certificate update:";
+            // 
+            // btnUpdateCertificate
+            // 
+            this.btnUpdateCertificate.Location = new System.Drawing.Point(172, 33);
+            this.btnUpdateCertificate.Name = "btnUpdateCertificate";
+            this.btnUpdateCertificate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateCertificate.TabIndex = 3;
+            this.btnUpdateCertificate.Text = "Update";
+            this.btnUpdateCertificate.UseVisualStyleBackColor = true;
+            this.btnUpdateCertificate.Click += new System.EventHandler(this.btnUpdateCertificate_Click);
+            // 
             // tbCertificateFilePath
             // 
             this.tbCertificateFilePath.Location = new System.Drawing.Point(10, 34);
@@ -538,25 +569,6 @@
             this.tbPrivateKeyFilePath.Size = new System.Drawing.Size(161, 21);
             this.tbPrivateKeyFilePath.TabIndex = 2;
             // 
-            // btnUpdateCertificate
-            // 
-            this.btnUpdateCertificate.Location = new System.Drawing.Point(172, 33);
-            this.btnUpdateCertificate.Name = "btnUpdateCertificate";
-            this.btnUpdateCertificate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateCertificate.TabIndex = 3;
-            this.btnUpdateCertificate.Text = "Update";
-            this.btnUpdateCertificate.UseVisualStyleBackColor = true;
-            this.btnUpdateCertificate.Click += new System.EventHandler(this.btnUpdateCertificate_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 12);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "* Certificate update:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -577,41 +589,6 @@
             this.groupBox8.TabIndex = 26;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Authentication Parameter";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 119);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 12);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "* Setup password:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(113, 12);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "* Certificate delete:";
-            // 
-            // tbSerialNumber
-            // 
-            this.tbSerialNumber.Location = new System.Drawing.Point(11, 85);
-            this.tbSerialNumber.Name = "tbSerialNumber";
-            this.tbSerialNumber.Size = new System.Drawing.Size(155, 21);
-            this.tbSerialNumber.TabIndex = 19;
-            // 
-            // btnDeleteCertificate
-            // 
-            this.btnDeleteCertificate.Location = new System.Drawing.Point(172, 84);
-            this.btnDeleteCertificate.Name = "btnDeleteCertificate";
-            this.btnDeleteCertificate.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteCertificate.TabIndex = 21;
-            this.btnDeleteCertificate.Text = "Delete";
-            this.btnDeleteCertificate.UseVisualStyleBackColor = true;
-            this.btnDeleteCertificate.Click += new System.EventHandler(this.btnDeleteCertificate_Click);
             // 
             // MainForm
             // 
@@ -641,7 +618,6 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmPowerOffTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbFsrStep)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -676,9 +652,7 @@
         private System.Windows.Forms.CheckBox cbPenTipPowerOn;
         private System.Windows.Forms.CheckBox cbBeep;
         private System.Windows.Forms.CheckBox cbOfflineData;
-        private System.Windows.Forms.TrackBar tbFsrStep;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ProgressBar prgPower;

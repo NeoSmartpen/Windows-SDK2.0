@@ -400,10 +400,11 @@ namespace Neosmartpen.Net.Protocol.v2
 						// 오프라인 데이터 저장 기능 사용 여부
 						bool useOffline = pk.GetByteToInt() == 1;
 
-						// 필압 단계 설정 (0~4) 0이 가장 민감
-						short fsrStep = (short)pk.GetByteToInt();
+                        // 필압 단계 설정 (0~4) 0이 가장 민감
+                        //short fsrStep = (short)pk.GetByteToInt();
+                        short fsrStep = 0;
 
-						UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
+                        UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
 
 						bool downsampling = pk.GetByteToInt() == 1;
 
@@ -1989,13 +1990,15 @@ namespace Neosmartpen.Net.Protocol.v2
         }
 
         /// <summary>
+        /// @deprecated This feature is deprecated. so this feature does not work.\n
         /// Sets the value of the pen's sensitivity property that controls the force sensor(r-type) of pen.
         /// </summary>
         /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetupPenSensitivity( short level)
         {
-            return RequestChangeSetting( SettingType.Sensitivity, level);
+            //return RequestChangeSetting( SettingType.Sensitivity, level);
+            return false;
         }
 
         /// <summary>
@@ -2031,13 +2034,15 @@ namespace Neosmartpen.Net.Protocol.v2
         }
 
         /// <summary>
+        /// @deprecated This feature is deprecated. so this feature does not work.\n
         /// Sets the value of the pen's sensitivity property that controls the force sensor(c-type) of pen.
         /// </summary>
         /// <param name="level">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
         public bool ReqSetupPenFscSensitivity( short level )
         {
-            return RequestChangeSetting( SettingType.FscSensitivity, level);
+            return false;
+            //return RequestChangeSetting( SettingType.FscSensitivity, level);
         }
 
         /// <summary>

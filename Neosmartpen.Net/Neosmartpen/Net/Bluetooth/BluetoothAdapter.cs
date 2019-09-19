@@ -234,7 +234,7 @@ namespace Neosmartpen.Net.Bluetooth
 
                     Disconnect();
 
-                    RemovePairedDevice( mac );
+                    //RemovePairedDevice( mac );
 
                     EventHandler<BluetoothWin32AuthenticationEventArgs> authHandler = new EventHandler<BluetoothWin32AuthenticationEventArgs>( handleRequests );
                     BluetoothWin32Authentication authenticator = new BluetoothWin32Authentication( authHandler );

@@ -149,7 +149,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a92a78dd0d2988d9b0d66cf476b9d0125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color of LED.  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a92a78dd0d2988d9b0d66cf476b9d0125">More...</a><br /></td></tr>
 <tr class="separator:a92a78dd0d2988d9b0d66cf476b9d0125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f979d6eac18c14e5144809f5ed21f33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a6f979d6eac18c14e5144809f5ed21f33">ReqSetupPenSensitivity</a> (short level)</td></tr>
-<tr class="memdesc:a6f979d6eac18c14e5144809f5ed21f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the pen's sensitivity property that controls the force sensor(r-type) of pen.  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a6f979d6eac18c14e5144809f5ed21f33">More...</a><br /></td></tr>
 <tr class="separator:a6f979d6eac18c14e5144809f5ed21f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af19a45a7d27da91f7c6b2f3c18f3b98a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#af19a45a7d27da91f7c6b2f3c18f3b98a">ReqSetupUsbMode</a> (UsbMode mode)</td></tr>
 <tr class="memdesc:af19a45a7d27da91f7c6b2f3c18f3b98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the status of usb mode property that determine if usb mode is disk or bulk. You can choose between Disk mode, which is used as a removable disk, and Bulk mode, which is capable of high volume data communication, when connected with usb  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#af19a45a7d27da91f7c6b2f3c18f3b98a">More...</a><br /></td></tr>
@@ -161,7 +160,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acffb31d0f1d26e04fb10ae398d2c1cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the local name of the bluetooth device property.  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#acffb31d0f1d26e04fb10ae398d2c1cb6">More...</a><br /></td></tr>
 <tr class="separator:acffb31d0f1d26e04fb10ae398d2c1cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa9771f2b31bb62e8be4fbf08289cc7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#afa9771f2b31bb62e8be4fbf08289cc7a">ReqSetupPenFscSensitivity</a> (short level)</td></tr>
-<tr class="memdesc:afa9771f2b31bb62e8be4fbf08289cc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the pen's sensitivity property that controls the force sensor(c-type) of pen.  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#afa9771f2b31bb62e8be4fbf08289cc7a">More...</a><br /></td></tr>
 <tr class="separator:afa9771f2b31bb62e8be4fbf08289cc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77bc20646c19ab5ddda43c70af29a42a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a77bc20646c19ab5ddda43c70af29a42a">ReqSetupDataTransmissionType</a> (DataTransmissionType type)</td></tr>
 <tr class="memdesc:a77bc20646c19ab5ddda43c70af29a42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the status of data transmission type property that determine if data transmission type is event or request-response.  <a href="class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a77bc20646c19ab5ddda43c70af29a42a">More...</a><br /></td></tr>
@@ -1271,7 +1269,9 @@ override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the pen's sensitivity property that controls the force sensor(c-type) of pen. </p>
+<p></p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>This feature is deprecated. so this feature does not work.<br  />
+Sets the value of the pen's sensitivity property that controls the force sensor(c-type) of pen. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">level</td><td>the value of sensitivity. (0~4, 0 means maximum sensitivity)</td></tr>
@@ -1298,7 +1298,9 @@ override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el"
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the pen's sensitivity property that controls the force sensor(r-type) of pen. </p>
+<p></p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This feature is deprecated. so this feature does not work.<br  />
+Sets the value of the pen's sensitivity property that controls the force sensor(r-type) of pen. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">level</td><td>the value of sensitivity. (0~4, 0 means maximum sensitivity)</td></tr>

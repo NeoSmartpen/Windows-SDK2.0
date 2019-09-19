@@ -246,5 +246,21 @@ namespace Neosmartpen.UnitTest
         void PenCommV2Callbacks.onSymbolDetected(IPenComm sender, List<Symbol> symbols)
         {
         }
+
+        void PenCommV2Callbacks.onPrivateKeyRequest(IPenComm sender)
+        {
+        }
+
+        void PenCommV2Callbacks.onSecureCommunicationFailureOccurred(IPenComm sender, PenCommV2.SecureCommunicationFailureReason reason)
+        {
+        }
+
+        void PenCommV2Callbacks.onReceiveCertificateUpdateResult(IPenComm sender, PenCommV2.CertificateUpdateResult result)
+        {
+        }
+
+        void PenCommV2Callbacks.onReceiveCertificateDeleteResult(IPenComm sender, PenCommV2.CertificateDeleteResult result)
+        {
+        }
     }
 }
