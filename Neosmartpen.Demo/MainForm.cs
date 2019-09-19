@@ -377,7 +377,6 @@ namespace PenDemo
             this.BeginInvoke( new MethodInvoker( delegate()
             {
                 nmPowerOffTime.Value = autoshutdownTime;
-                tbFsrStep.Value = penSensitivity;
                 cbBeep.Checked = beep;
 
                 cbOfflineData.Checked = false;
@@ -637,7 +636,6 @@ namespace PenDemo
             this.BeginInvoke( new MethodInvoker( delegate()
             {
                 nmPowerOffTime.Value = autoShutdownTime;
-                tbFsrStep.Value = penSensitivity;
                 cbBeep.Checked = beep;
                 cbOfflineData.Enabled = true;
                 cbOfflineData.Checked = useOfflineData;
@@ -860,14 +858,6 @@ namespace PenDemo
                 );
         }
 
-        private void tbFsrStep_ValueChanged( object sender, EventArgs e )
-        {
-            Request(
-                delegate { mPenCommV1.ReqSetupPenSensitivity( (short)tbFsrStep.Value ); },
-                delegate { mPenCommV2.ReqSetupPenSensitivity( (short)tbFsrStep.Value ); }
-                );
-        }
-
         private void cbPenCapPower_CheckedChanged( object sender, EventArgs e )
         {
             Request(
@@ -990,6 +980,11 @@ namespace PenDemo
                     }
                 }
             );
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void btnSelectPrivateKey_Click(object sender, EventArgs e)

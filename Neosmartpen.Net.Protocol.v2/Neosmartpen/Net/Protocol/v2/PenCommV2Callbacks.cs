@@ -115,11 +115,13 @@ namespace Neosmartpen.Net.Protocol.v2
         /// <param name="penCapPower">true if enable to control power by cap, otherwise false</param>
         /// <param name="hoverMode">the status of the hover mode property</param>
         /// <param name="beep">the status of the beep property</param>
-        /// <param name="penSensitivity">the status of pen's sensitivity property</param>
         /// <param name="usbmode">the status of the usb mode</param>
         /// <param name="downsampling">true if enable to down sampling, otherwise false</param>
         /// <param name="btLocalName">the local name of device</param>
         /// <param name="dataTransmissionType">the type of data transmission</param>
+        /// @deprecated This value is always 0 
+        /// <param name="penSensitivity">the status of pen's sensitivity property</param>
+
         void onReceivePenStatus( IPenComm sender, bool locked, int passwdMaxReTryCount, int passwdRetryCount, long timestamp, short autoShutdownTime, int maxForce, int battery, int usedmem, bool useOfflineData, bool autoPowerOn, bool penCapPower, bool hoverMode, bool beep, short penSensitivity, PenCommV2.UsbMode usbmode, bool downsampling, string btLocalName, PenCommV2.DataTransmissionType dataTransmissionType );
 
         /// <summary>
@@ -153,6 +155,7 @@ namespace Neosmartpen.Net.Protocol.v2
         void onPenTimestampSetUpResponse( IPenComm sender, bool result );
 
         /// <summary>
+        /// @deprecated This callback method is not called.\n
         /// Fired when pen response to your request that sets the value of the sensitivity property by PenCommV2.ReqSetupPenSensitivity method.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
@@ -223,7 +226,8 @@ namespace Neosmartpen.Net.Protocol.v2
         void onPenBtLocalNameSetUpResponse(IPenComm sender, bool result);
 
         /// <summary>
-        /// Fired when pen response to your request that Sets the level of sensitivity(force sensor c-type) by PenCommV2.ReqSetupPenFscSensitivity method.
+        /// @deprecated This callback method is not called.\n
+        /// Fired when pen response to your request that Sets the level of sensitivity (force sensor c-type) by PenCommV2.ReqSetupPenFscSensitivity method.
         /// </summary>
         /// <param name="sender">sender refers to the object that invoked the callback method</param>
         /// <param name="result">true if your request is successfully applied, otherwise false</param>
