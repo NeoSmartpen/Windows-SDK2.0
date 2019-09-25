@@ -401,7 +401,7 @@ namespace Neosmartpen.Net.Usb.Demo
 
             try
             {
-                // 
+                // This feature is supported by pens with firmware version 1.01.0051 or later.
                 pen.GetStorageStatusRequest();
             }
             catch(NotSupportedVersionException)
