@@ -398,7 +398,15 @@ namespace Neosmartpen.Net.Usb.Demo
             pen.GetDateTimeRequest();
             lbFirmwareVersion.Text = "F/W Ver. " + pen.FirmwareVersion;
             pen.GetBatteryStatusRequest();
-            pen.GetStorageStatusRequest();
+
+            try
+            {
+                // 
+                pen.GetStorageStatusRequest();
+            }
+            catch(NotSupportedVersionException)
+            {
+            }
         }
 
         private void InitPenFileList()
