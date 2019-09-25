@@ -101,7 +101,7 @@ namespace Neosmartpen.Net.Protocol.v2
                 {
                     float supportVersion = PEN_ENCRYPTION_SUPPORT_PROTOCOL_VERSION;
                     float receiveVersion = float.Parse(ProtocolVersion);
-                    return receiveVersion >= supportVersion;
+                    return receiveVersion == supportVersion;
                 }
                 catch
                 {
@@ -402,6 +402,7 @@ namespace Neosmartpen.Net.Protocol.v2
 
                         // 필압 단계 설정 (0~4) 0이 가장 민감
                         //short fsrStep = (short)pk.GetByteToInt();
+                        pk.Move(1);
                         short fsrStep = 0;
 
                         UsbMode usbmode = pk.GetByteToInt() == 0 ? UsbMode.Disk : UsbMode.Bulk;
@@ -410,7 +411,8 @@ namespace Neosmartpen.Net.Protocol.v2
 
 						string btLocalName = pk.GetString(16).Trim();
 
-						DataTransmissionType dataTransmissionType = pk.GetByteToInt() == 0 ? DataTransmissionType.Event : DataTransmissionType.RequestResponse;
+                        pk.Move(1);
+                        DataTransmissionType dataTransmissionType = DataTransmissionType.Event;
 
                         int encryptionType = 0;
 

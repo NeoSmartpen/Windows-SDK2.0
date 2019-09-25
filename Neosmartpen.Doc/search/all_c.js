@@ -16,12 +16,13 @@ var searchData=
   ['noprivatekey_148',['NoPrivateKey',['../class_neosmartpen_1_1_net_1_1_protocol_1_1v2_1_1_pen_comm_v2.html#a3f63e2be1481bc2a589951d4128cca2eab515bd345d83e6093c6f61913162b7e5',1,'Neosmartpen::Net::Protocol::v2::PenCommV2']]],
   ['nosuchpenexception_149',['NoSuchPenException',['../class_neosmartpen_1_1_net_1_1_usb_1_1_exceptions_1_1_no_such_pen_exception.html',1,'Neosmartpen::Net::Usb::Exceptions']]],
   ['note_150',['Note',['../class_neosmartpen_1_1_net_1_1_dot.html#a24c54817d705b3f1c86c0675e79a688f',1,'Neosmartpen.Net.Dot.Note()'],['../class_neosmartpen_1_1_net_1_1_stroke.html#ac17163576bf79146ad4d03d1c454d3ed',1,'Neosmartpen.Net.Stroke.Note()']]],
-  ['nprojparser_151',['NProjParser',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_n_proj_parser.html',1,'Neosmartpen::Net::Metadata']]],
-  ['number_152',['Number',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_model_1_1_page.html#af9bef704620374e55d0531262b211067',1,'Neosmartpen::Net::Metadata::Model::Page']]],
-  ['protocol_153',['Protocol',['../namespace_neosmartpen_1_1_net_1_1_protocol.html',1,'Neosmartpen::Net']]],
-  ['support_154',['Support',['../namespace_neosmartpen_1_1_net_1_1_support.html',1,'Neosmartpen::Net']]],
-  ['unittest_155',['UnitTest',['../namespace_neosmartpen_1_1_unit_test.html',1,'Neosmartpen']]],
-  ['usb_156',['Usb',['../namespace_neosmartpen_1_1_net_1_1_usb.html',1,'Neosmartpen::Net']]],
-  ['v1_157',['v1',['../namespace_neosmartpen_1_1_net_1_1_protocol_1_1v1.html',1,'Neosmartpen::Net::Protocol']]],
-  ['v2_158',['v2',['../namespace_neosmartpen_1_1_net_1_1_protocol_1_1v2.html',1,'Neosmartpen::Net::Protocol']]]
+  ['notsupportedversionexception_151',['NotSupportedVersionException',['../class_neosmartpen_1_1_net_1_1_usb_1_1_exceptions_1_1_not_supported_version_exception.html',1,'Neosmartpen::Net::Usb::Exceptions']]],
+  ['nprojparser_152',['NProjParser',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_n_proj_parser.html',1,'Neosmartpen::Net::Metadata']]],
+  ['number_153',['Number',['../class_neosmartpen_1_1_net_1_1_metadata_1_1_model_1_1_page.html#af9bef704620374e55d0531262b211067',1,'Neosmartpen::Net::Metadata::Model::Page']]],
+  ['protocol_154',['Protocol',['../namespace_neosmartpen_1_1_net_1_1_protocol.html',1,'Neosmartpen::Net']]],
+  ['support_155',['Support',['../namespace_neosmartpen_1_1_net_1_1_support.html',1,'Neosmartpen::Net']]],
+  ['unittest_156',['UnitTest',['../namespace_neosmartpen_1_1_unit_test.html',1,'Neosmartpen']]],
+  ['usb_157',['Usb',['../namespace_neosmartpen_1_1_net_1_1_usb.html',1,'Neosmartpen::Net']]],
+  ['v1_158',['v1',['../namespace_neosmartpen_1_1_net_1_1_protocol_1_1v1.html',1,'Neosmartpen::Net::Protocol']]],
+  ['v2_159',['v2',['../namespace_neosmartpen_1_1_net_1_1_protocol_1_1v2.html',1,'Neosmartpen::Net::Protocol']]]
 ];

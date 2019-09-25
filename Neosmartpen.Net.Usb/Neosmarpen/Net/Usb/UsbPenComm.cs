@@ -92,6 +92,25 @@ namespace Neosmartpen.Net.Usb
         /// </summary>
         public bool IsDownsamplingEnabled { get; private set; }
 
+        private static readonly string GETDISKINFO_SUPPORT_FIRMWARE_VERSION = "1.01.0051";
+
+        public bool IsSupportGetDiscInfo
+        {
+            get
+            {
+                try
+                {
+                    float supportVersion = float.Parse(GETDISKINFO_SUPPORT_FIRMWARE_VERSION.Replace(".",""));
+                    float receiveVersion = float.Parse(FirmwareVersion.Replace(".", ""));
+                    return receiveVersion >= supportVersion;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         private SerialPort _serialPort;
 
         private UsbProtocolParser _parser;
@@ -572,12 +591,17 @@ namespace Neosmartpen.Net.Usb
 
         /// <summary>
         /// Request the storage state of the current pen.
+        /// (This feature is supported by pens with firmware version 1.01.0051 or later.)
         /// </summary>
         /// <exception cref="IsNotActiveException">Occurs when communication with the pen is not established</exception>
+        /// <exception cref="NotSupportedVersionException">Exception raised when the pen does not support the function</exception>
         public void GetStorageStatusRequest()
         {
             if (!IsActive)
                 throw new IsNotActiveException();
+
+            if (!IsSupportGetDiscInfo)
+                throw new NotSupportedVersionException();
 
             var builder = new UsbPacket.Builder();
             builder.Cmd(Cmd.GETDISKINFO)
