@@ -345,8 +345,8 @@ For commercial use, it is not necessary or required to open up your source code.
 
 Please contact our support team via email for the terms and conditions of this license. 
 
-- Global: _global1@neolab.net
-- Korea: _biz1@neolab.net
+- Global: global@neolab.net
+- Korea: _dombiz@neolab.net
 
 ## Opensource Library
 
