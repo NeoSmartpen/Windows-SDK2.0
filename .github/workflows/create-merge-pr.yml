@@ -1,0 +1,41 @@
+name: create-merge-pr
+
+on:
+  schedule:
+    - cron: '0 0 * * 4'
+    - cron: '0 0 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-merge-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 12
+
+    - name: Create Sync PR Master into Staging
+      if: github.event.schedule == '0 0 * * 1'
+      uses: tretuna/sync-branches@1.4.0
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        FROM_BRANCH: "master"
+        TO_BRANCH: "staging"
+        PULL_REQUEST_TITLE: "ops: merge `master` into `staging`"
+        CONTENT_COMPARISON: true
+
+    - name: Create Sync PR Staging into Prod
+      if: github.event.schedule == '0 0 * * 5'
+      uses: tretuna/sync-branches@1.4.0
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        FROM_BRANCH: "staging"
+        TO_BRANCH: "prod"
+        PULL_REQUEST_TITLE: "ops: merge `staging` into `prod`"
+        CONTENT_COMPARISON: true

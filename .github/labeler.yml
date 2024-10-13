@@ -1,0 +1,38 @@
+workflows:
+- changed-files:
+  - any-glob-to-any-file:
+    - .github/workflows/*
+
+csharp:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.cs"
+
+chore:
+- changed-files:
+  - any-glob-to-any-file:
+    - .gitattributes
+    - .gitignore
+    - .gitconfig
+
+ui:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.xaml"
+
+resource:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.resx"
+
+manifest:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.sln"
+    - "*.csproj"
+
+docs:
+- changed-files:
+  - any-glob-to-any-file:
+    - "*.md"
+    - "*.html"
