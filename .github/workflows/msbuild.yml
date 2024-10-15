@@ -1,0 +1,45 @@
+name: MSBuild
+
+on:
+  pull_request:
+
+env:
+  SOLUTION_FILE_PATH: .
+  BUILD_CONFIGURATION: Release
+
+permissions:
+  contents: read
+
+jobs:
+
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref }}
+        fetch-depth: 1
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v2.0.0
+      with:
+        vs-version: '16.11'
+  
+    - id: cache-nuget
+      uses: actions/cache@v4
+      with:
+        path: |
+            ~/.nuget/packages
+            obj/Agent.csproj.nuget.*
+            obj/project.*
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        
+    - name: Restore NuGet packages
+      if: steps.cache-nuget.outputs.cache-hit != 'true'
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        msbuild /m:2 /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
