@@ -33,7 +33,8 @@ Click the link below to view a beginners guide to Ncode technology.
 
 - Neo smartpen N2(F110, F120)
 - Neo smartpen M1(F50)
-
+- Recently released models will be supported in the future
+  
 ## SDK Structure
 
 | Namespace | Description |
