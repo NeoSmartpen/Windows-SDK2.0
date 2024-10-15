@@ -22,7 +22,9 @@ jobs:
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2.0.0
-      
+      with:
+        vs-version: '16.11'
+  
     - id: cache-nuget
       uses: actions/cache@v4
       with:
@@ -30,7 +32,7 @@ jobs:
             ~/.nuget/packages
             obj/Agent.csproj.nuget.*
             obj/project.*
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/Agent.csproj') }}
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
         
     - name: Restore NuGet packages
       if: steps.cache-nuget.outputs.cache-hit != 'true'
