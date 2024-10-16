@@ -18,9 +18,9 @@ Click the link below to view a beginners guide to Ncode technology.
 
 ## Requirements
 
--  Windows 7 or later ( Not Windows Store Apps )
--  Microsoft Visual Studio 2013 or later
--  Microsoft .NET Framework 4 or later
+-  Windows 10 or later ( Not Windows Store Apps )
+-  Microsoft Visual Studio 2019 or later
+-  Microsoft .NET Framework 4.6.2 or later
 -  Standard Bluetooth Dongles ( Bluetooth Specification Version 2.1 + EDR or later with Microsoft Bluetooth stack )
 -  SDK packages for Neo smartpen
 
