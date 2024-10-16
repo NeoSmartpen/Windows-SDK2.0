@@ -29,10 +29,13 @@ jobs:
       uses: actions/cache@v4
       with:
         path: |
+            .nuget/packages
+            packages
+            ~/packages
             ~/.nuget/packages
-            obj/Agent.csproj.nuget.*
-            obj/project.*
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+            **/obj/*.csproj.nuget.*
+            **/obj/project.*
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/packages.config') }}
         
     - name: Restore NuGet packages
       if: steps.cache-nuget.outputs.cache-hit != 'true'
