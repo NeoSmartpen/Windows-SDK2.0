@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Neosmarpen\Net\Chunk.cs" />
+    <Compile Include="Neosmarpen\Net\Dot.cs" />
+    <Compile Include="Neosmarpen\Net\Filter\FilterForPaper.cs" />
+    <Compile Include="Neosmarpen\Net\OfflineDataStructure.cs" />
+    <Compile Include="Neosmarpen\Net\Protocol\v1\OfflineData.cs" />
+    <Compile Include="Neosmarpen\Net\Protocol\v1\OfflineDataParser.cs" />
+    <Compile Include="Neosmarpen\Net\Protocol\v1\OfflineDataSerializer.cs" />
+    <Compile Include="Neosmarpen\Net\Protocol\v1\OfflineWorker.cs" />
+    <Compile Include="Neosmarpen\Net\Stroke.cs" />
+    <Compile Include="Neosmarpen\Net\Support\ByteConverter.cs" />
+    <Compile Include="Neosmarpen\Net\Support\ByteUtil.cs" />
+    <Compile Include="Neosmarpen\Net\Support\PressureCalibration.cs" />
+    <Compile Include="Neosmarpen\Net\Support\PressureFilter.cs" />
+    <Compile Include="Neosmarpen\Net\Support\Renderer.cs" />
+    <Compile Include="Neosmarpen\Net\Support\Time.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\ConnectionStatusChangedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\ProgressChangedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\FileDownloadResultReceivedEventArgs.cs" />
@@ -73,11 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Neosmartpen.Net\Neosmartpen.Net.csproj">
-      <Project>{16297e2b-052f-4a7e-bcb0-9b52c6420f34}</Project>
-      <Name>Neosmartpen.Net</Name>
-    </ProjectReference>
+    <PackageReference Include="DotNetZip.Reduced">
+      <Version>1.9.1.8</Version>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

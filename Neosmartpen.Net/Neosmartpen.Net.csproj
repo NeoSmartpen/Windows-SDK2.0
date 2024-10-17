@@ -97,9 +97,6 @@
     <Compile Include="Neosmartpen\Net\Support\Renderer.cs" />
     <Compile Include="Neosmartpen\Net\Support\Time.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
