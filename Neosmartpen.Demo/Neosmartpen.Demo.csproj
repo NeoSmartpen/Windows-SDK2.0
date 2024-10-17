@@ -166,16 +166,8 @@
     <None Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Neosmartpen.Net.Protocol.v1\Neosmartpen.Net.Protocol.v1.csproj">
-      <Project>{8b255c73-2b9d-438d-bcbc-5cf9c4ecd82b}</Project>
-      <Name>Neosmartpen.Net.Protocol.v1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Neosmartpen.Net.Protocol.v2\Neosmartpen.Net.Protocol.v2.csproj">
-      <Project>{63fe81c9-53f4-4d52-bece-40eaa0d31998}</Project>
-      <Name>Neosmartpen.Net.Protocol.v2</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Neosmartpen.Net\Neosmartpen.Net.csproj">
-      <Project>{16297e2b-052f-4a7e-bcb0-9b52c6420f34}</Project>
+      <Project>{f74a67f4-3fd5-41b7-9cf2-6021e29ef40c}</Project>
       <Name>Neosmartpen.Net</Name>
     </ProjectReference>
   </ItemGroup>
