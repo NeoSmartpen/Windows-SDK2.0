@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Neosmarpen\Net\Support\ByteConverter.cs" />
+    <Compile Include="Neosmarpen\Net\Support\ByteUtil.cs" />
+    <Compile Include="Neosmarpen\Net\Support\Time.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\ConnectionStatusChangedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\ProgressChangedEventArgs.cs" />
     <Compile Include="Neosmarpen\Net\Usb\Events\FileDownloadResultReceivedEventArgs.cs" />
@@ -71,12 +74,6 @@
     <Compile Include="Neosmarpen\Net\Usb\UsbProtocolParser.cs" />
     <Compile Include="Neosmarpen\Net\Usb\UsbAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Neosmartpen.Net\Neosmartpen.Net.csproj">
-      <Project>{16297e2b-052f-4a7e-bcb0-9b52c6420f34}</Project>
-      <Name>Neosmartpen.Net</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
