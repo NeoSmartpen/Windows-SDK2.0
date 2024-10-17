@@ -105,17 +105,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Neosmartpen.Net.Protocol.v1\Neosmartpen.Net.Protocol.v1.csproj">
-      <Project>{8B255C73-2B9D-438D-BCBC-5CF9C4ECD82B}</Project>
-      <Name>Neosmartpen.Net.Protocol.v1</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Neosmartpen.Net.Usb\Neosmartpen.Net.Usb.csproj">
       <Project>{ac2123a7-b4a3-4998-9713-235dd916f93c}</Project>
       <Name>Neosmartpen.Net.Usb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Neosmartpen.Net\Neosmartpen.Net.csproj">
-      <Project>{16297E2B-052F-4A7E-BCB0-9B52C6420F34}</Project>
-      <Name>Neosmartpen.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
