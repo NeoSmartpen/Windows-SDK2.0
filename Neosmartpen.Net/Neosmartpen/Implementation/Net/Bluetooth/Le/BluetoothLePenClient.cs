@@ -420,7 +420,7 @@ namespace Neosmartpen.Net.Bluetooth.Le
 			{
                 try
                 {
-                    if (bluetoothLEDevice.ConnectionStatus == BluetoothConnectionStatus.Connected)
+                    if (bluetoothLEDevice?.ConnectionStatus == BluetoothConnectionStatus.Connected)
                     {
                         var result = await indicateCharacteristic.WriteClientCharacteristicConfigurationDescriptorAsync(GattClientCharacteristicConfigurationDescriptorValue.None);
                     }
