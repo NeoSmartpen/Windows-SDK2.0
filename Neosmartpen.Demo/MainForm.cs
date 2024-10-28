@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Windows.Storage;
-using System.Threading.Tasks;
 
 namespace PenDemo
 {
@@ -25,8 +24,8 @@ namespace PenDemo
         private ProgressForm progressForm;
         private readonly PasswordInputForm passwordInputForm;
 
-        private readonly GenericBluetoothPenClient bluetoothClient;
-        private readonly PenController penController;
+        private readonly GenericBluetoothPenClient bluetooth;
+        private readonly PenController controller;
 
         public const string PROGRESS_TITLE_OFFLINE = "Download Offline Data";
         public const string PROGRESS_TITLE_UPDATE = "Firmware Update";
@@ -45,47 +44,47 @@ namespace PenDemo
             passwordInputForm = new PasswordInputForm(OnInputPassword);
 
             // create PenController instance.
-            penController = new PenController();
+            controller = new PenController();
 
             // Create BluetoothPenClient instance. and bind PenController.
             // BluetoothPenClient is implementation of bluetooth function.
-            bluetoothClient = new GenericBluetoothPenClient(penController);
+            bluetooth = new GenericBluetoothPenClient(controller);
 
             // bluetooth advertisement event
-            bluetoothClient.onStopSearch += OnStopSearch;
-            bluetoothClient.onUpdatePenController += OnUpdatePenController;
-            bluetoothClient.onAddPenController += OnAddPenController;
+            bluetooth.onStopSearch += OnStopSearch;
+            bluetooth.onUpdatePenController += OnUpdatePenController;
+            bluetooth.onAddPenController += OnAddPenController;
 
             // pen controller event
-            penController.PenStatusReceived += PenStatusReceived;
-            penController.Connected += Connected;
-            penController.Disconnected += Disconnected;
-            penController.Authenticated += Authenticated;
-            penController.DotReceived += DotReceived;
-            penController.PasswordRequested += PasswordRequested;
-            penController.OfflineDataListReceived += OfflineDataListReceived;
+            controller.PenStatusReceived += PenStatusReceived;
+            controller.Connected += Connected;
+            controller.Disconnected += Disconnected;
+            controller.Authenticated += Authenticated;
+            controller.DotReceived += DotReceived;
+            controller.PasswordRequested += PasswordRequested;
+            controller.OfflineDataListReceived += OfflineDataListReceived;
 
-            penController.AutoPowerOffTimeChanged += ConfigurationChanged;
-            penController.AutoPowerOnChanged += ConfigurationChanged;
-            penController.RtcTimeChanged += ConfigurationChanged;
-            penController.SensitivityChanged += ConfigurationChanged;
-            penController.BeepSoundChanged += ConfigurationChanged;
-            penController.PenColorChanged += ConfigurationChanged;
+            controller.AutoPowerOffTimeChanged += ConfigurationChanged;
+            controller.AutoPowerOnChanged += ConfigurationChanged;
+            controller.RtcTimeChanged += ConfigurationChanged;
+            controller.SensitivityChanged += ConfigurationChanged;
+            controller.BeepSoundChanged += ConfigurationChanged;
+            controller.PenColorChanged += ConfigurationChanged;
 
-            penController.PasswordChanged += PasswordChanged;
+            controller.PasswordChanged += PasswordChanged;
 
-            penController.BatteryAlarmReceived += BatteryAlarmReceived;
+            controller.BatteryAlarmReceived += BatteryAlarmReceived;
 
-            penController.OfflineDataDownloadStarted += OfflineDataDownloadStarted;
-            penController.OfflineStrokeReceived += OfflineStrokeReceived;
-            penController.OfflineDownloadFinished += OfflineDownloadFinished;
-            penController.OfflineDataRemoved += OfflineDataRemoved;
+            controller.OfflineDataDownloadStarted += OfflineDataDownloadStarted;
+            controller.OfflineStrokeReceived += OfflineStrokeReceived;
+            controller.OfflineDownloadFinished += OfflineDownloadFinished;
+            controller.OfflineDataRemoved += OfflineDataRemoved;
 
-            penController.FirmwareInstallationStatusUpdated += FirmwareInstallationStatusUpdated;
-            penController.FirmwareInstallationFinished += FirmwareInstallationFinished;
+            controller.FirmwareInstallationStatusUpdated += FirmwareInstallationStatusUpdated;
+            controller.FirmwareInstallationFinished += FirmwareInstallationFinished;
         }
 
-        private void AppendLog(string message)
+        private void log(string message)
         {
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
@@ -93,7 +92,7 @@ namespace PenDemo
                 {
                     ConsoleTextbox.AppendText("\r\n");
                 }
-                ConsoleTextbox.AppendText(message);
+                ConsoleTextbox.AppendText(DateTime.Now.ToString("hh:mm:ss - ") + message);
             }));
         }
 
@@ -101,7 +100,7 @@ namespace PenDemo
         {
             SearchButton.Enabled = false;
             DevicesListbox.Items.Clear();
-            bluetoothClient.StartLEAdvertisementWatcher();
+            bluetooth.StartLEAdvertisementWatcher();
         }
 
         #region Bluetooth Advertisement Event
@@ -133,7 +132,8 @@ namespace PenDemo
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 SearchButton.Enabled = true;
-            }));        }
+            }));        
+        }
 
         #endregion
 
@@ -149,7 +149,7 @@ namespace PenDemo
             {
                 try
                 {
-                    bool result = await bluetoothClient.Connect(selected);
+                    bool result = await bluetooth.Connect(selected);
                     if (!result)
                     {
                         MessageBox.Show("Connection failed.");
@@ -167,11 +167,11 @@ namespace PenDemo
         {
             try
             {
-                if (bluetoothClient != null)
+                if (bluetooth != null)
                 {
-                    if (bluetoothClient.Alive)
+                    if (bluetooth.Alive)
                     {
-                        await bluetoothClient.Disconnect();
+                        await bluetooth.Disconnect();
                     }
                 }
             }
@@ -217,11 +217,11 @@ namespace PenDemo
 
         private async void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (bluetoothClient != null)
+            if (bluetooth != null)
             {
-                if (bluetoothClient.Alive)
+                if (bluetooth.Alive)
                 {
-                    await bluetoothClient.Disconnect();
+                    await bluetooth.Disconnect();
                 }
             }
         }
@@ -267,7 +267,7 @@ namespace PenDemo
 
         private void Connected(IPenClient sender, ConnectedEventArgs args)
         {
-            AppendLog("connected");
+            log("connected");
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 ConnectButton.Enabled = false;
@@ -282,25 +282,32 @@ namespace PenDemo
                 SetGroupVisiblity(true);
             }));
 
-            bluetoothClient.StopLEAdvertisementWatcher();
+            bluetooth.StopLEAdvertisementWatcher();
         }
 
         private void Authenticated(IPenClient sender, object args)
         {
-            AppendLog("authenticated");
-            penController.RequestPenStatus();
-            penController.AddAvailableNote();
-            penController.RequestOfflineDataList();
+            log("authenticated");
+            controller.RequestPenStatus();
+            controller.AddAvailableNote();
+            controller.RequestOfflineDataList();
         }
 
         private void Disconnected(IPenClient sender, object args)
         {
-            AppendLog("disconnected");
+            log("disconnected");
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 OfflineDataListbox.Items.Clear();
                 ConnectButton.Enabled = true;
                 PenInfoTextbox.Text = "";
+                PowerOffTimeInput.Value = 0;
+                BeepCheckbox.Checked = false;
+                OfflineDataCheckbox.Checked = false;
+                PenCapPowerCheckbox.Checked = false;
+                PenTipPowerOnCheckbox.Checked = false;
+                PowerProgressBar.Value = 0;
+                StorageProgressBar.Value =0;
                 SetGroupVisiblity(false);
             }));
 
@@ -329,7 +336,7 @@ namespace PenDemo
 
         private void OnInputPassword(string password)
         {
-            penController.InputPassword(password);
+            controller.InputPassword(password);
         }
 
         private void PenStatusReceived(IPenClient sender, PenStatusReceivedEventArgs args)
@@ -379,12 +386,12 @@ namespace PenDemo
         private void OfflineDownloadFinished(IPenClient sender, SimpleResultEventArgs args)
         {
             CloseProgress();
-            penController.RequestOfflineDataList();
+            controller.RequestOfflineDataList();
         }
 
         private void OfflineDataRemoved(IPenClient sender, SimpleResultEventArgs args)
         {
-            penController.RequestOfflineDataList();
+            controller.RequestOfflineDataList();
         }
 
         private void FirmwareInstallationFinished(IPenClient sender, SimpleResultEventArgs args)
@@ -404,14 +411,14 @@ namespace PenDemo
 
         private void ConfigurationChanged(IPenClient sender, SimpleResultEventArgs args)
         {
-            AppendLog("configuration is changed");
-            penController.RequestPenStatus();
+            log("Configuration is changed");
+            controller.RequestPenStatus();
         }
 
         private void BatteryAlarmReceived(IPenClient sender, BatteryAlarmReceivedEventArgs args)
         {
-            AppendLog("low power warning. current power level is " + args.Battery);
-            penController.RequestPenStatus();
+            log("Low power warning. current power level is " + args.Battery);
+            controller.RequestPenStatus();
         }
 
         #endregion
@@ -424,7 +431,7 @@ namespace PenDemo
                 MessageBox.Show("Select an offline data item.");
                 return;
             }
-            penController.RequestOfflineData(d.Section, d.Owner, d.Note);
+            controller.RequestOfflineData(d.Section, d.Owner, d.Note);
         }
 
         private void OfflineDataDeleteButton_Click(object sender, EventArgs e)
@@ -435,37 +442,37 @@ namespace PenDemo
                 return;
             }
             OfflineDataInfo data = OfflineDataListbox.SelectedItem as OfflineDataInfo;
-            penController.RequestRemoveOfflineData(data.Section, data.Owner, new int[] { data.Note });
+            controller.RequestRemoveOfflineData(data.Section, data.Owner, new int[] { data.Note });
         }
 
         private void PowerOffTimeInput_ValueChanged(object sender, EventArgs e)
         {
-            penController.SetAutoPowerOffTime((short)PowerOffTimeInput.Value);
+            controller.SetAutoPowerOffTime((short)PowerOffTimeInput.Value);
         }
 
         private void PenCapPowerCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            penController.SetPenCapPowerOnOffEnable(PenCapPowerCheckbox.Checked);
+            controller.SetPenCapPowerOnOffEnable(PenCapPowerCheckbox.Checked);
         }
 
         private void PenTipPowerOnCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            penController.SetAutoPowerOnEnable(PenTipPowerOnCheckbox.Checked);
+            controller.SetAutoPowerOnEnable(PenTipPowerOnCheckbox.Checked);
         }
 
         private void BeepCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            penController.SetBeepSoundEnable(BeepCheckbox.Checked);
+            controller.SetBeepSoundEnable(BeepCheckbox.Checked);
         }
 
         private void OfflineDataCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            penController.SetOfflineDataEnable(OfflineDataCheckbox.Checked);
+            controller.SetOfflineDataEnable(OfflineDataCheckbox.Checked);
         }
 
         private void PasswordChangeButton_Click(object sender, EventArgs e)
         {
-            penController.SetPassword(OldPasswordTextbox.Text, NewPasswordTextbox.Text);
+            controller.SetPassword(OldPasswordTextbox.Text, NewPasswordTextbox.Text);
         }
 
         private void SetGroupVisiblity(bool visible)
@@ -484,7 +491,7 @@ namespace PenDemo
                 return;
             }
             var file = await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text);
-            penController.RequestFirmwareInstallation(file, FirmwareVersionTextbox.Text);
+            controller.RequestFirmwareInstallation(file, FirmwareVersionTextbox.Text);
         }
 
         private void FirmwarePathTextbox_Click(object sender, EventArgs e)
