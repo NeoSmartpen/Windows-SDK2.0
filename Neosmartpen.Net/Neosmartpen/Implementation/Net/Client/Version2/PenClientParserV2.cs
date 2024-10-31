@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using Windows.Foundation;
 using Windows.Storage;
+using Windows.UI.Xaml.Controls;
 
 namespace Neosmartpen.Net
 {
@@ -96,7 +97,22 @@ namespace Neosmartpen.Net
         };
 
 		public static readonly float PEN_PROFILE_SUPPORT_PROTOCOL_VERSION = 2.10f;
-		private readonly string DEFAULT_PASSWORD = "0000";
+        public static readonly float COMPRESSED_UPLOAD_INFO_SUPPORT_PROTOCOL_VERSION = 2.22f;
+
+		public static readonly string[] COMPRESSED_UPLOAD_DISABLED_DEVICES = new string[] {
+			"NWP-F151",
+			"NWP-F45",
+			"NWP-F63",
+			"NWP-F53MG",
+			"NEP-E100",
+			"NEP-E101",
+			"NSP-D100",
+			"NSP-D101",
+			"NSP-C200",
+			"NPP-P201"
+		};
+		
+        private readonly string DEFAULT_PASSWORD = "0000";
 		private readonly string F121 = "NWP-F121";
 		private readonly string F121MG = "NWP-F121MG";
 
@@ -134,12 +150,17 @@ namespace Neosmartpen.Net
 		public string MacAddress { get; private set; }
 
 		public ushort DeviceType { get; private set; }
+
 		public int PressureSensorType { get; private set; }
 
-		/// <summary>
-		/// Gets the maximum level of force sensor.
-		/// </summary>
-		public short MaxForce { get; private set; }
+        public byte[] DeviceColorTypeId { get; private set; }
+
+		public bool CompressedFileUploadEnabled { get; private set; } = true;
+
+        /// <summary>
+        /// Gets the maximum level of force sensor.
+        /// </summary>
+        public short MaxForce { get; private set; }
 
         public const string SupportedProtocolVersion = "2.12";
 
@@ -176,7 +197,8 @@ namespace Neosmartpen.Net
 			private set;
 		}
 
-		int offlineDataPacketRetryCount = 0;
+        int offlineDataPacketRetryCount = 0;
+		
 		public void ParsePacket(Packet packet)
 		{
 			Cmd cmd = (Cmd)packet.Cmd;
@@ -197,7 +219,28 @@ namespace Neosmartpen.Net
 						MacAddress = BitConverter.ToString(packet.GetBytes(6)).Replace("-", "");
 						PressureSensorType = packet.CheckMoreData() ? packet.GetByte() : 0;
 
-						bool isMG = isF121MG(MacAddress);
+                        try
+						{
+							if (packet.CheckMoreData())
+							{
+								DeviceColorTypeId = packet.GetBytes(4);
+							}
+
+                            if (packet.CheckMoreData() && float.Parse(ProtocolVersion) >= COMPRESSED_UPLOAD_INFO_SUPPORT_PROTOCOL_VERSION)
+                            {
+                                CompressedFileUploadEnabled = packet.GetByte() != 0x00;
+                            }
+							else if (COMPRESSED_UPLOAD_DISABLED_DEVICES.Contains(DeviceName))
+							{
+								CompressedFileUploadEnabled = false;
+                            }
+						}
+						catch
+						{
+                            CompressedFileUploadEnabled = false;
+                        }
+
+                        bool isMG = isF121MG(MacAddress);
 						if (isMG && DeviceName.Equals(F121) && SubName.Equals("Mbest_smartpenS"))
 							DeviceName = F121MG;
 
@@ -1971,7 +2014,7 @@ namespace Neosmartpen.Net
 
         #region firmware
 
-        public bool hasBugInFirmwareUpdate()
+        public bool HasBugInFirmwareUpdate()
         {
             string[] temp = FirmwareVersion.Split('.');
             float ver = 0f;
@@ -2018,28 +2061,28 @@ namespace Neosmartpen.Net
 				return;
 			}
 
-			int file_size = mFwChunk.GetFileSize();
+			int fileSize = mFwChunk.GetFileSize();
 
-            byte[] StrVersionByte = Encoding.UTF8.GetBytes(version);
+            byte[] versionStrBytes = Encoding.UTF8.GetBytes(version);
 
 			string deviceName = DeviceName;
 			if (deviceName.Equals(F121MG))
 				deviceName = F121;
 
-			byte[] StrDeviceByte = Encoding.UTF8.GetBytes(deviceName);
+			byte[] deviceStrBytes = Encoding.UTF8.GetBytes(deviceName);
 
-			Debug.WriteLine("[FileUploadWorker] file upload => filesize : {0}, packet size {1}", file_size, mFwChunk.GetChunksize());
+			Debug.WriteLine("[FileUpload] file upload => filesize : {0}, packet size {1}", fileSize, mFwChunk.GetChunksize());
 
 			ByteUtil bf = new ByteUtil(Escape);
 
 			bf.Put(Const.PK_STX, false)
 			  .Put((byte)Cmd.FIRMWARE_UPLOAD_REQUEST)
 			  .PutShort(42)
-			  .Put(StrDeviceByte, 16)
-			  .Put(StrVersionByte, 16)
-			  .PutInt(file_size)
+			  .Put(deviceStrBytes, 16)
+			  .Put(versionStrBytes, 16)
+			  .PutInt(fileSize)
 			  .PutInt(mFwChunk.GetChunksize())
-			  .Put(1)
+			  .Put((byte)(CompressedFileUploadEnabled ? 1 : 0))
 			  .Put(mFwChunk.GetTotalChecksum())
 			  .Put(Const.PK_ETX, false);
 
@@ -2069,8 +2112,10 @@ namespace Neosmartpen.Net
 
                 IsUploading = false;
 
-                if (!hasBugInFirmwareUpdate())
-                    Send(bf);
+				if (!HasBugInFirmwareUpdate())
+				{
+					Send(bf);
+				}
 
                 if (!SwUpgradeFailCallbacked)
                 {
@@ -2080,12 +2125,22 @@ namespace Neosmartpen.Net
             }
 			else
 			{
-                Debug.WriteLine("[FileUploadWorker] ResponseChunkRequest upload => offset : {0} / {1}", offset, mFwChunk.GetFileSize());
+                Debug.WriteLine("[FileUpload] ResponseChunkRequest upload => offset : {0} / {1}", offset, mFwChunk.GetFileSize());
 
                 byte[] data = mFwChunk.Get(offset);
-                byte[] compressedData = Ionic.Zlib.ZlibStream.CompressBuffer(data);
+				byte[] dataToUpload;
+
+                if (CompressedFileUploadEnabled)
+				{
+					dataToUpload = Ionic.Zlib.ZlibStream.CompressBuffer(data);
+                }
+				else
+				{
+                    dataToUpload = data;
+                }
+
 				byte checksum = ChunkEx.CalcChecksum(data);
-				short dataLength = (short)(compressedData.Length + 14);
+				short dataLength = (short)(dataToUpload.Length + 14);
 
 				bf.Put(Const.PK_STX, false)
 				  .Put((byte)Cmd.FIRMWARE_PACKET_RESPONSE)
@@ -2095,8 +2150,8 @@ namespace Neosmartpen.Net
 				  .PutInt(offset)
 				  .Put(checksum)
 				  .PutInt(data.Length)
-				  .PutInt(compressedData.Length)
-				  .Put(compressedData)
+				  .PutInt(dataToUpload.Length)
+				  .Put(dataToUpload)
 				  .Put(Const.PK_ETX, false);
                 Send(bf);
 

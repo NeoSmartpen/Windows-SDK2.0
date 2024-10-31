@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Windows.Storage;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace PenDemo
 {
@@ -21,7 +23,7 @@ namespace PenDemo
 
         private readonly object drawLock = new object();
 
-        private ProgressForm progressForm;
+        private readonly ProgressForm progressForm;
         private readonly PasswordInputForm passwordInputForm;
 
         private readonly GenericBluetoothPenClient bluetooth;
@@ -41,6 +43,7 @@ namespace PenDemo
 
             canvasBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
 
+            progressForm = new ProgressForm();
             passwordInputForm = new PasswordInputForm(OnInputPassword);
 
             // create PenController instance.
@@ -84,7 +87,7 @@ namespace PenDemo
             controller.FirmwareInstallationFinished += FirmwareInstallationFinished;
         }
 
-        private void log(string message)
+        private void ConsoleWrite(string message)
         {
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
@@ -149,16 +152,13 @@ namespace PenDemo
             {
                 try
                 {
-                    bool result = await bluetooth.Connect(selected);
-                    if (!result)
+                    if (!await bluetooth.Connect(selected))
                     {
                         MessageBox.Show("Connection failed.");
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    Debug.WriteLine("conection exception : " + ex.Message);
-                    Debug.WriteLine("conection exception : " + ex.StackTrace);
                 }
             }
         }
@@ -167,17 +167,15 @@ namespace PenDemo
         {
             try
             {
-                if (bluetooth != null)
+                if (bluetooth.Alive)
                 {
-                    if (bluetooth.Alive)
-                    {
-                        await bluetooth.Disconnect();
-                    }
+                    await bluetooth.Disconnect();
                 }
             }
             catch
             {
             }
+
             ConnectButton.Enabled = true;
         }
 
@@ -217,13 +215,45 @@ namespace PenDemo
 
         private async void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (bluetooth != null)
+            if (bluetooth.Alive)
             {
-                if (bluetooth.Alive)
-                {
-                    await bluetooth.Disconnect();
-                }
+                await bluetooth.Disconnect();
             }
+            passwordInputForm.Dispose();
+            progressForm.Dispose();
+
+            bluetooth.onStopSearch -= OnStopSearch;
+            bluetooth.onUpdatePenController -= OnUpdatePenController;
+            bluetooth.onAddPenController -= OnAddPenController;
+
+            controller.PenStatusReceived -= PenStatusReceived;
+            controller.Connected -= Connected;
+            controller.Disconnected -= Disconnected;
+            controller.Authenticated -= Authenticated;
+            controller.DotReceived -= DotReceived;
+            controller.PasswordRequested -= PasswordRequested;
+            controller.OfflineDataListReceived -= OfflineDataListReceived;
+
+            controller.AutoPowerOffTimeChanged -= ConfigurationChanged;
+            controller.AutoPowerOnChanged -= ConfigurationChanged;
+            controller.RtcTimeChanged -= ConfigurationChanged;
+            controller.SensitivityChanged -= ConfigurationChanged;
+            controller.BeepSoundChanged -= ConfigurationChanged;
+            controller.PenColorChanged -= ConfigurationChanged;
+
+            controller.PasswordChanged -= PasswordChanged;
+
+            controller.BatteryAlarmReceived -= BatteryAlarmReceived;
+
+            controller.OfflineDataDownloadStarted -= OfflineDataDownloadStarted;
+            controller.OfflineStrokeReceived -= OfflineStrokeReceived;
+            controller.OfflineDownloadFinished -= OfflineDownloadFinished;
+            controller.OfflineDataRemoved -= OfflineDataRemoved;
+
+            controller.FirmwareInstallationStatusUpdated -= FirmwareInstallationStatusUpdated;
+            controller.FirmwareInstallationFinished -= FirmwareInstallationFinished;
+
+            controller.PenProfileReceived += PenProfileReceived;
         }
 
         private void DisplayProgress(string title, int total, int amountDone)
@@ -232,13 +262,7 @@ namespace PenDemo
             {
                 lock (progressLock)
                 {
-                    if (progressForm == null)
-                    {
-                        progressForm = new ProgressForm();
-                    }
-
-                    progressForm?.SetStatus(title, total, amountDone);
-
+                    progressForm.SetStatus(title, total, amountDone);
                     if (!progressForm.Visible)
                     {
                         progressForm.ShowDialog();
@@ -253,11 +277,9 @@ namespace PenDemo
             {
                 lock (progressLock)
                 {
-                    if (progressForm != null && progressForm.Visible)
+                    if (progressForm.Visible)
                     {
                         progressForm.Close();
-                        progressForm.Dispose();
-                        progressForm = null;
                     }
                 }
             }));
@@ -267,18 +289,15 @@ namespace PenDemo
 
         private void Connected(IPenClient sender, ConnectedEventArgs args)
         {
-            log("connected");
+            ConsoleWrite("Successful connection with device");
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 ConnectButton.Enabled = false;
-                PenInfoTextbox.Text = String.Format(
-                    format: "Mac: {0}\r\n\r\nName: {1}\r\n\r\nSubName: {2}\r\n\r\nFirmware Version: {3}\r\n\r\nProtocol Version: {4}", 
-                    args.MacAddress, 
-                    args.DeviceName, 
-                    args.SubName, 
-                    args.FirmwareVersion,
-                    args.ProtocolVersion
-                );
+                PenInfoTextbox.Text = $"Mac: {args.MacAddress}\r\n\r\n" +
+                $"Name: {args.DeviceName}\r\n\r\n" +
+                $"SubName: {args.SubName}\r\n\r\n" +
+                $"Firmware Version: {args.FirmwareVersion}\r\n\r\n" +
+                $"Protocol Version: {args.ProtocolVersion}";
                 SetGroupVisiblity(true);
             }));
 
@@ -287,15 +306,25 @@ namespace PenDemo
 
         private void Authenticated(IPenClient sender, object args)
         {
-            log("authenticated");
+            ConsoleWrite("Device authentication completed");
             controller.RequestPenStatus();
             controller.AddAvailableNote();
             controller.RequestOfflineDataList();
+
+            if (!controller.IsSupportPenProfile())
+            {
+                ConsoleWrite("Pen profile is not supported on this device.");
+            }
+            else
+            {
+                ConsoleWrite("Pen profile is supported on this device.");
+            }
+            controller.GetProfileInfo(PEN_PROFILE_TEST_NAME);
         }
 
         private void Disconnected(IPenClient sender, object args)
         {
-            log("disconnected");
+            ConsoleWrite("Terminated device connection");
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 OfflineDataListbox.Items.Clear();
@@ -321,6 +350,7 @@ namespace PenDemo
 
         private void PasswordRequested(IPenClient sender, PasswordRequestedEventArgs args)
         {
+            ConsoleWrite($"Request password input. Number of attempts: {args.RetryCount}, Number of input limits: {args.ResetCount}");
             if (args.RetryCount >= args.ResetCount)
             {
                 MessageBox.Show("The devices's data has been initialized.");
@@ -336,6 +366,7 @@ namespace PenDemo
 
         private void OnInputPassword(string password)
         {
+            ConsoleWrite($"Password '{password}' entered.");
             controller.InputPassword(password);
         }
 
@@ -411,13 +442,13 @@ namespace PenDemo
 
         private void ConfigurationChanged(IPenClient sender, SimpleResultEventArgs args)
         {
-            log("Configuration is changed");
+            ConsoleWrite("Device's configuration is changed.");
             controller.RequestPenStatus();
         }
 
         private void BatteryAlarmReceived(IPenClient sender, BatteryAlarmReceivedEventArgs args)
         {
-            log("Low power warning. current power level is " + args.Battery);
+            ConsoleWrite("Low power warning. current power level is " + args.Battery);
             controller.RequestPenStatus();
         }
 
@@ -490,8 +521,7 @@ namespace PenDemo
                 MessageBox.Show("Select firmware file and enter firmware version.");
                 return;
             }
-            var file = await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text);
-            controller.RequestFirmwareInstallation(file, FirmwareVersionTextbox.Text);
+            controller.RequestFirmwareInstallation(await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text), FirmwareVersionTextbox.Text);
         }
 
         private void FirmwarePathTextbox_Click(object sender, EventArgs e)
@@ -502,12 +532,239 @@ namespace PenDemo
                 Title = "Select a Firmware File"
             };
 
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 FirmwarePathTextbox.Text = openFileDialog1.FileName;
             }
         }
 
         #endregion
+
+        private static readonly string PEN_PROFILE_TEST_NAME = "neolab_t";
+        private static readonly byte[] PEN_PROFILE_TEST_PASSWORD = { 0x3E, 0xD5, 0x95, 0x25, 0x06, 0xF7, 0x83, 0xDD };
+
+        private PenProfileReceivedEventArgs lastArgs;
+
+        private void PenProfileReceived(IPenClient sender, PenProfileReceivedEventArgs args)
+        {
+            if (args.Result == PenProfileReceivedEventArgs.ResultType.Failed)
+            {
+                ConsoleWrite("PenProfile Failed");
+                return;
+            }
+
+            switch (args.Type)
+            {
+                case PenProfileReceivedEventArgs.PenProfileType.Create:
+                    CreateProfileResultReceived(args);
+                    break;
+                case PenProfileReceivedEventArgs.PenProfileType.Delete:
+                    DeleteProfileResultReceived(args);
+                    break;
+                case PenProfileReceivedEventArgs.PenProfileType.Info:
+                    ProfileInfoReceived(args);
+                    break;
+                case PenProfileReceivedEventArgs.PenProfileType.ReadValue:
+                    ReadProfileValueResultReceived(args);
+                    break;
+                case PenProfileReceivedEventArgs.PenProfileType.WriteValue:
+                    WriteProfileValueResultReceived(args);
+                    break;
+                case PenProfileReceivedEventArgs.PenProfileType.DeleteValue:
+                    DeleteProfileValueResultReceived(args);
+                    break;
+            }
+        }
+
+        private void CreateProfileResultReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            switch (penProfileReceivedEventArgs.Status)
+            {
+                case PenProfile.PROFILE_STATUS_SUCCESS:
+                    ConsoleWrite($"Create Success:{penProfileReceivedEventArgs.ProfileName}");
+                    GroupProfile.Enabled = true;
+                    break;
+                case PenProfile.PROFILE_STATUS_FAILURE:
+                    ConsoleWrite($"Create Failure:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_EXIST_PROFILE_ALREADY:
+                    ConsoleWrite($"Already existed profile name:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_NO_PERMISSION:
+                    ConsoleWrite("Permission Denied. Check your password");
+                    break;
+                default:
+                    ConsoleWrite("Create Error " + penProfileReceivedEventArgs.Status);
+                    break;
+            }
+        }
+
+        private void DeleteProfileResultReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            switch (penProfileReceivedEventArgs.Status)
+            {
+                case PenProfile.PROFILE_STATUS_SUCCESS:
+                    ConsoleWrite($"Delete Success:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_FAILURE:
+                    ConsoleWrite($"Delete Failure:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE:
+                    ConsoleWrite($"Do not exist profile:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_NO_PERMISSION:
+                    ConsoleWrite("Permission Denied. Check your password");
+                    break;
+                default:
+                    ConsoleWrite("Delete error " + penProfileReceivedEventArgs.Status);
+                    break;
+            }
+        }
+
+        private void ProfileInfoReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            switch (penProfileReceivedEventArgs.Status)
+            {
+                case PenProfile.PROFILE_STATUS_SUCCESS:
+                    {
+                        var args = penProfileReceivedEventArgs as PenProfileInfoEventArgs;
+                        System.Text.StringBuilder strs = new System.Text.StringBuilder();
+                        strs.Append($"Total Section Count : {args.TotalSectionCount}");
+                        strs.Append(Environment.NewLine);
+                        strs.Append($"Section Size : {args.SectionSize}");
+                        strs.Append(Environment.NewLine);
+                        strs.Append($"Using Section Count : {args.UseSectionCount}");
+                        strs.Append(Environment.NewLine);
+                        strs.Append($"using Key count : {args.UseKeyCount}");
+                        ConsoleWrite(strs.ToString());
+                    }
+                    GroupProfile.Enabled = true;
+                    break;
+                case PenProfile.PROFILE_STATUS_FAILURE:
+                    ConsoleWrite($"Get Info Failure:{penProfileReceivedEventArgs.ProfileName}");
+                    break;
+                case PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE:
+                    ConsoleWrite($"Do not exist profile:{penProfileReceivedEventArgs.ProfileName}");
+                    controller.CreateProfile(PEN_PROFILE_TEST_NAME, PEN_PROFILE_TEST_PASSWORD);
+                    break;
+                default:
+                    ConsoleWrite("Info Error " + penProfileReceivedEventArgs.Status);
+                    break;
+            }
+        }
+
+        private void ReadProfileValueResultReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            var args = penProfileReceivedEventArgs as PenProfileReadValueEventArgs;
+            foreach (var value in args.Data)
+            {
+                switch (value.Status)
+                {
+                    case PenProfile.PROFILE_STATUS_SUCCESS:
+                        ConsoleWrite($"key : {value.Key}, Value : {System.Text.Encoding.UTF8.GetString(value.Data)}");
+                        break;
+                    case PenProfile.PROFILE_STATUS_FAILURE:
+                        ConsoleWrite($"Read value Failure:key[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE:
+                        ConsoleWrite($"Do not exist profile:{penProfileReceivedEventArgs.ProfileName}");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_KEY:
+                        ConsoleWrite($"Do not exist key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_PERMISSION:
+                        ConsoleWrite("Permission Denied. Check your password");
+                        break;
+                    default:
+                        ConsoleWrite("Read value Error " + penProfileReceivedEventArgs.Status);
+                        break;
+                }
+            }
+        }
+
+        private void WriteProfileValueResultReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            var args = penProfileReceivedEventArgs as PenProfileWriteValueEventArgs;
+            foreach (var value in args.Data)
+            {
+                switch (value.Status)
+                {
+                    case PenProfile.PROFILE_STATUS_SUCCESS:
+                        ConsoleWrite($"Write Success key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_FAILURE:
+                        ConsoleWrite($"Write value Failure key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE:
+                        ConsoleWrite($"Do not exist profile:{penProfileReceivedEventArgs.ProfileName}");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_KEY:
+                        ConsoleWrite($"Do not exist key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_PERMISSION:
+                        ConsoleWrite("Permission Denied. Check your password");
+                        break;
+                    default:
+                        ConsoleWrite("Write value Error " + penProfileReceivedEventArgs.Status);
+                        break;
+                }
+            }
+        }
+
+        private void DeleteProfileValueResultReceived(PenProfileReceivedEventArgs penProfileReceivedEventArgs)
+        {
+            var args = penProfileReceivedEventArgs as PenProfileDeleteValueEventArgs;
+            foreach (var value in args.Data)
+            {
+                switch (value.Status)
+                {
+                    case PenProfile.PROFILE_STATUS_SUCCESS:
+                        ConsoleWrite($"Delete Success key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_FAILURE:
+                        ConsoleWrite($"Delete value Failure key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_PROFILE:
+                        ConsoleWrite($"Do not exist profile:{penProfileReceivedEventArgs.ProfileName}");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_EXIST_KEY:
+                        ConsoleWrite($"Do not exist key:[{value.Key}]");
+                        break;
+                    case PenProfile.PROFILE_STATUS_NO_PERMISSION:
+                        ConsoleWrite("Permission Denied. Check your password");
+                        break;
+                    default:
+                        ConsoleWrite("Delete value Error " + penProfileReceivedEventArgs.Status);
+                        break;
+                }
+            }
+        }
+
+        private void ProfileGetButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ProfileKeyTextbox.Text) )
+            {
+                MessageBox.Show("Enter the key of the profile you want to read.");
+            }
+            controller.ReadProfileValues(PEN_PROFILE_TEST_NAME, new string[] { ProfileKeyTextbox.Text });
+        }
+
+        private void ProfileAddButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ProfileKeyTextbox.Text) || string.IsNullOrEmpty(ProfileValueTextbox.Text))
+            {
+                MessageBox.Show("Enter the key and value of the profile you want to create.");
+            }
+            controller.WriteProfileValues(PEN_PROFILE_TEST_NAME, PEN_PROFILE_TEST_PASSWORD, new string[] { ProfileKeyTextbox.Text }, new byte[][] { System.Text.Encoding.UTF8.GetBytes(ProfileValueTextbox.Text) });
+        }
+
+        private void ProfileDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ProfileKeyTextbox.Text))
+            {
+                MessageBox.Show("Enter the key of the profile you want to delete.");
+            }
+            controller.DeleteProfileValues(PEN_PROFILE_TEST_NAME, PEN_PROFILE_TEST_PASSWORD, new string[] { ProfileKeyTextbox.Text });
+        }
     }
 }

@@ -41,7 +41,6 @@
             this.OfflineDataDownloadButton = new System.Windows.Forms.Button();
             this.OfflineDataListbox = new System.Windows.Forms.ListBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.PowerOffTimeInput = new System.Windows.Forms.NumericUpDown();
             this.PenCapPowerCheckbox = new System.Windows.Forms.CheckBox();
             this.PenTipPowerOnCheckbox = new System.Windows.Forms.CheckBox();
@@ -66,13 +65,23 @@
             this.GroupUpdate = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ConsoleTextbox = new System.Windows.Forms.TextBox();
+            this.GroupProfile = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ProfileValueTextbox = new System.Windows.Forms.TextBox();
+            this.ProfileKeyTextbox = new System.Windows.Forms.TextBox();
+            this.ProfileDeleteButton = new System.Windows.Forms.Button();
+            this.ProfileAddButton = new System.Windows.Forms.Button();
+            this.ProfileGetButton = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.GroupInfo.SuspendLayout();
             this.GroupOffline.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerOffTimeInput)).BeginInit();
             this.GroupConfig.SuspendLayout();
             this.GroupUpdate.SuspendLayout();
+            this.GroupProfile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // DevicesListbox
@@ -113,7 +122,7 @@
             this.groupBox2.Controls.Add(this.SearchButton);
             this.groupBox2.Location = new System.Drawing.Point(14, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 197);
+            this.groupBox2.Size = new System.Drawing.Size(540, 184);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Search and select your device ";
@@ -141,7 +150,7 @@
             // 
             this.GroupInfo.Controls.Add(this.PenInfoTextbox);
             this.GroupInfo.Enabled = false;
-            this.GroupInfo.Location = new System.Drawing.Point(14, 216);
+            this.GroupInfo.Location = new System.Drawing.Point(14, 200);
             this.GroupInfo.Name = "GroupInfo";
             this.GroupInfo.Size = new System.Drawing.Size(276, 153);
             this.GroupInfo.TabIndex = 37;
@@ -164,16 +173,16 @@
             this.GroupOffline.Controls.Add(this.OfflineDataDownloadButton);
             this.GroupOffline.Controls.Add(this.OfflineDataListbox);
             this.GroupOffline.Enabled = false;
-            this.GroupOffline.Location = new System.Drawing.Point(14, 375);
+            this.GroupOffline.Location = new System.Drawing.Point(14, 355);
             this.GroupOffline.Name = "GroupOffline";
-            this.GroupOffline.Size = new System.Drawing.Size(278, 214);
+            this.GroupOffline.Size = new System.Drawing.Size(276, 133);
             this.GroupOffline.TabIndex = 36;
             this.GroupOffline.TabStop = false;
             this.GroupOffline.Text = "Offline Data";
             // 
             // OfflineDataDeleteButton
             // 
-            this.OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 178);
+            this.OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 105);
             this.OfflineDataDeleteButton.Name = "OfflineDataDeleteButton";
             this.OfflineDataDeleteButton.Size = new System.Drawing.Size(75, 23);
             this.OfflineDataDeleteButton.TabIndex = 2;
@@ -183,7 +192,7 @@
             // 
             // OfflineDataDownloadButton
             // 
-            this.OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 178);
+            this.OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 105);
             this.OfflineDataDownloadButton.Name = "OfflineDataDownloadButton";
             this.OfflineDataDownloadButton.Size = new System.Drawing.Size(75, 23);
             this.OfflineDataDownloadButton.TabIndex = 1;
@@ -198,27 +207,13 @@
             this.OfflineDataListbox.ItemHeight = 12;
             this.OfflineDataListbox.Location = new System.Drawing.Point(7, 21);
             this.OfflineDataListbox.Name = "OfflineDataListbox";
-            this.OfflineDataListbox.Size = new System.Drawing.Size(263, 146);
+            this.OfflineDataListbox.Size = new System.Drawing.Size(263, 74);
             this.OfflineDataListbox.TabIndex = 0;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.BackgroundImage = global::PenDemo.Properties.Resources.background;
-            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox.Location = new System.Drawing.Point(581, 35);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(457, 664);
-            this.pictureBox.TabIndex = 27;
-            this.pictureBox.TabStop = false;
             // 
             // PowerOffTimeInput
             // 
             this.PowerOffTimeInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PowerOffTimeInput.Location = new System.Drawing.Point(155, 30);
+            this.PowerOffTimeInput.Location = new System.Drawing.Point(155, 23);
             this.PowerOffTimeInput.Maximum = new decimal(new int[] {
             -1486618624,
             232830643,
@@ -233,7 +228,7 @@
             // 
             this.PenCapPowerCheckbox.AutoSize = true;
             this.PenCapPowerCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PenCapPowerCheckbox.Location = new System.Drawing.Point(22, 54);
+            this.PenCapPowerCheckbox.Location = new System.Drawing.Point(22, 50);
             this.PenCapPowerCheckbox.Name = "PenCapPowerCheckbox";
             this.PenCapPowerCheckbox.Size = new System.Drawing.Size(149, 16);
             this.PenCapPowerCheckbox.TabIndex = 1;
@@ -245,7 +240,7 @@
             // 
             this.PenTipPowerOnCheckbox.AutoSize = true;
             this.PenTipPowerOnCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PenTipPowerOnCheckbox.Location = new System.Drawing.Point(22, 76);
+            this.PenTipPowerOnCheckbox.Location = new System.Drawing.Point(22, 72);
             this.PenTipPowerOnCheckbox.Name = "PenTipPowerOnCheckbox";
             this.PenTipPowerOnCheckbox.Size = new System.Drawing.Size(135, 16);
             this.PenTipPowerOnCheckbox.TabIndex = 2;
@@ -257,7 +252,7 @@
             // 
             this.BeepCheckbox.AutoSize = true;
             this.BeepCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BeepCheckbox.Location = new System.Drawing.Point(22, 99);
+            this.BeepCheckbox.Location = new System.Drawing.Point(22, 95);
             this.BeepCheckbox.Name = "BeepCheckbox";
             this.BeepCheckbox.Size = new System.Drawing.Size(89, 16);
             this.BeepCheckbox.TabIndex = 3;
@@ -269,7 +264,7 @@
             // 
             this.OfflineDataCheckbox.AutoSize = true;
             this.OfflineDataCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OfflineDataCheckbox.Location = new System.Drawing.Point(22, 122);
+            this.OfflineDataCheckbox.Location = new System.Drawing.Point(22, 118);
             this.OfflineDataCheckbox.Name = "OfflineDataCheckbox";
             this.OfflineDataCheckbox.Size = new System.Drawing.Size(84, 16);
             this.OfflineDataCheckbox.TabIndex = 5;
@@ -280,7 +275,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 34);
+            this.label1.Location = new System.Drawing.Point(18, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 12);
             this.label1.TabIndex = 8;
@@ -320,7 +315,7 @@
             // 
             // btnUpgrade
             // 
-            this.btnUpgrade.Location = new System.Drawing.Point(163, 52);
+            this.btnUpgrade.Location = new System.Drawing.Point(163, 56);
             this.btnUpgrade.Name = "btnUpgrade";
             this.btnUpgrade.Size = new System.Drawing.Size(75, 21);
             this.btnUpgrade.TabIndex = 18;
@@ -331,7 +326,7 @@
             // FirmwarePathTextbox
             // 
             this.FirmwarePathTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwarePathTextbox.Location = new System.Drawing.Point(64, 25);
+            this.FirmwarePathTextbox.Location = new System.Drawing.Point(64, 29);
             this.FirmwarePathTextbox.Name = "FirmwarePathTextbox";
             this.FirmwarePathTextbox.Size = new System.Drawing.Size(174, 21);
             this.FirmwarePathTextbox.TabIndex = 19;
@@ -340,7 +335,7 @@
             // FirmwareVersionTextbox
             // 
             this.FirmwareVersionTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwareVersionTextbox.Location = new System.Drawing.Point(64, 52);
+            this.FirmwareVersionTextbox.Location = new System.Drawing.Point(64, 56);
             this.FirmwareVersionTextbox.Name = "FirmwareVersionTextbox";
             this.FirmwareVersionTextbox.Size = new System.Drawing.Size(93, 21);
             this.FirmwareVersionTextbox.TabIndex = 20;
@@ -348,7 +343,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 56);
+            this.label8.Location = new System.Drawing.Point(14, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 12);
             this.label8.TabIndex = 21;
@@ -373,9 +368,9 @@
             this.GroupConfig.Controls.Add(this.PenTipPowerOnCheckbox);
             this.GroupConfig.Controls.Add(this.PowerOffTimeInput);
             this.GroupConfig.Enabled = false;
-            this.GroupConfig.Location = new System.Drawing.Point(296, 216);
+            this.GroupConfig.Location = new System.Drawing.Point(296, 200);
             this.GroupConfig.Name = "GroupConfig";
-            this.GroupConfig.Size = new System.Drawing.Size(258, 280);
+            this.GroupConfig.Size = new System.Drawing.Size(258, 288);
             this.GroupConfig.TabIndex = 35;
             this.GroupConfig.TabStop = false;
             this.GroupConfig.Text = "Configuration";
@@ -441,9 +436,9 @@
             this.GroupUpdate.Controls.Add(this.FirmwareVersionTextbox);
             this.GroupUpdate.Controls.Add(this.FirmwarePathTextbox);
             this.GroupUpdate.Enabled = false;
-            this.GroupUpdate.Location = new System.Drawing.Point(296, 501);
+            this.GroupUpdate.Location = new System.Drawing.Point(296, 494);
             this.GroupUpdate.Name = "GroupUpdate";
-            this.GroupUpdate.Size = new System.Drawing.Size(261, 88);
+            this.GroupUpdate.Size = new System.Drawing.Size(261, 94);
             this.GroupUpdate.TabIndex = 39;
             this.GroupUpdate.TabStop = false;
             this.GroupUpdate.Text = "Firmware Update";
@@ -451,7 +446,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 29);
+            this.label2.Location = new System.Drawing.Point(37, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 12);
             this.label2.TabIndex = 22;
@@ -461,18 +456,112 @@
             // 
             this.ConsoleTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ConsoleTextbox.Cursor = System.Windows.Forms.Cursors.No;
-            this.ConsoleTextbox.Location = new System.Drawing.Point(14, 596);
+            this.ConsoleTextbox.Location = new System.Drawing.Point(14, 594);
             this.ConsoleTextbox.Multiline = true;
             this.ConsoleTextbox.Name = "ConsoleTextbox";
             this.ConsoleTextbox.ReadOnly = true;
-            this.ConsoleTextbox.Size = new System.Drawing.Size(543, 118);
+            this.ConsoleTextbox.Size = new System.Drawing.Size(543, 120);
             this.ConsoleTextbox.TabIndex = 40;
+            // 
+            // GroupProfile
+            // 
+            this.GroupProfile.Controls.Add(this.label9);
+            this.GroupProfile.Controls.Add(this.label3);
+            this.GroupProfile.Controls.Add(this.ProfileValueTextbox);
+            this.GroupProfile.Controls.Add(this.ProfileKeyTextbox);
+            this.GroupProfile.Controls.Add(this.ProfileDeleteButton);
+            this.GroupProfile.Controls.Add(this.ProfileAddButton);
+            this.GroupProfile.Controls.Add(this.ProfileGetButton);
+            this.GroupProfile.Enabled = false;
+            this.GroupProfile.Location = new System.Drawing.Point(14, 494);
+            this.GroupProfile.Name = "GroupProfile";
+            this.GroupProfile.Size = new System.Drawing.Size(276, 94);
+            this.GroupProfile.TabIndex = 40;
+            this.GroupProfile.TabStop = false;
+            this.GroupProfile.Text = "Profile";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(87, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 12);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Value";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(97, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Key";
+            // 
+            // ProfileValueTextbox
+            // 
+            this.ProfileValueTextbox.Location = new System.Drawing.Point(130, 52);
+            this.ProfileValueTextbox.Name = "ProfileValueTextbox";
+            this.ProfileValueTextbox.Size = new System.Drawing.Size(100, 21);
+            this.ProfileValueTextbox.TabIndex = 4;
+            // 
+            // ProfileKeyTextbox
+            // 
+            this.ProfileKeyTextbox.Location = new System.Drawing.Point(130, 27);
+            this.ProfileKeyTextbox.Name = "ProfileKeyTextbox";
+            this.ProfileKeyTextbox.Size = new System.Drawing.Size(100, 21);
+            this.ProfileKeyTextbox.TabIndex = 3;
+            // 
+            // ProfileDeleteButton
+            // 
+            this.ProfileDeleteButton.Location = new System.Drawing.Point(7, 67);
+            this.ProfileDeleteButton.Name = "ProfileDeleteButton";
+            this.ProfileDeleteButton.Size = new System.Drawing.Size(63, 23);
+            this.ProfileDeleteButton.TabIndex = 2;
+            this.ProfileDeleteButton.Text = "Delete";
+            this.ProfileDeleteButton.UseVisualStyleBackColor = true;
+            this.ProfileDeleteButton.Click += new System.EventHandler(this.ProfileDeleteButton_Click);
+            // 
+            // ProfileAddButton
+            // 
+            this.ProfileAddButton.Location = new System.Drawing.Point(7, 41);
+            this.ProfileAddButton.Name = "ProfileAddButton";
+            this.ProfileAddButton.Size = new System.Drawing.Size(63, 23);
+            this.ProfileAddButton.TabIndex = 1;
+            this.ProfileAddButton.Text = "Write";
+            this.ProfileAddButton.UseVisualStyleBackColor = true;
+            this.ProfileAddButton.Click += new System.EventHandler(this.ProfileAddButton_Click);
+            // 
+            // ProfileGetButton
+            // 
+            this.ProfileGetButton.Location = new System.Drawing.Point(7, 16);
+            this.ProfileGetButton.Name = "ProfileGetButton";
+            this.ProfileGetButton.Size = new System.Drawing.Size(63, 23);
+            this.ProfileGetButton.TabIndex = 0;
+            this.ProfileGetButton.Text = "Read";
+            this.ProfileGetButton.UseVisualStyleBackColor = true;
+            this.ProfileGetButton.Click += new System.EventHandler(this.ProfileGetButton_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.BackgroundImage = global::PenDemo.Properties.Resources.background;
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox.Location = new System.Drawing.Point(581, 35);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(457, 664);
+            this.pictureBox.TabIndex = 27;
+            this.pictureBox.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 729);
+            this.Controls.Add(this.GroupProfile);
             this.Controls.Add(this.ConsoleTextbox);
             this.Controls.Add(this.GroupUpdate);
             this.Controls.Add(this.pictureBox);
@@ -490,12 +579,14 @@
             this.GroupInfo.ResumeLayout(false);
             this.GroupInfo.PerformLayout();
             this.GroupOffline.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerOffTimeInput)).EndInit();
             this.GroupConfig.ResumeLayout(false);
             this.GroupConfig.PerformLayout();
             this.GroupUpdate.ResumeLayout(false);
             this.GroupUpdate.PerformLayout();
+            this.GroupProfile.ResumeLayout(false);
+            this.GroupProfile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +632,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox NewPasswordTextbox;
         private System.Windows.Forms.TextBox ConsoleTextbox;
+        private System.Windows.Forms.GroupBox GroupProfile;
+        private System.Windows.Forms.Button ProfileAddButton;
+        private System.Windows.Forms.Button ProfileGetButton;
+        private System.Windows.Forms.Button ProfileDeleteButton;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox ProfileValueTextbox;
+        private System.Windows.Forms.TextBox ProfileKeyTextbox;
     }
 }
 
