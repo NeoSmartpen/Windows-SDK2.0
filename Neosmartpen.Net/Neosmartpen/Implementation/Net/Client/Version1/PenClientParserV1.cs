@@ -1445,7 +1445,7 @@ namespace Neosmartpen.Net
         /// </summary>
         /// <param name="filepath">absolute path of firmware file</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public async void ReqPenSwUpgrade(StorageFile filepath)
+        public async void ReqPenSwUpgrade(string filepath)
         {
             if (IsUploading)
             {

@@ -2053,7 +2053,7 @@ namespace Neosmartpen.Net
         /// <param name="version">version of firmware, this value is string</param>
 		/// <param name="forceWithCompression">force upload compressed file</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public async void ReqPenSwUpgrade(StorageFile filepath, string version, Compressible? forceCompression = null)
+        public async void ReqPenSwUpgrade(string filepath, string version, Compressible? forceCompression = null)
 		{
 			if (IsUploading)
 			{

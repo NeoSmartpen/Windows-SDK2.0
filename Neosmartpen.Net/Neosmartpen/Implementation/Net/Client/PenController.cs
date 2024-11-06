@@ -840,7 +840,7 @@ namespace Neosmartpen.Net
         /// <param name="file">Represents a binary file of firmware</param>
         /// <param name="version">Version of firmware typed string</param>
         /// <param name="forceWithCompression">force upload compressed file</param>
-        public void RequestFirmwareInstallation(StorageFile file, string version, Compressible? forceCompression = null)
+        public void RequestFirmwareInstallation(string file, string version, Compressible? forceCompression = null)
         {
             if (forceCompression != null && Protocol == Protocols.V1)
             {

@@ -511,7 +511,7 @@ namespace PenDemo
             GroupUpdate.Enabled = visible;
         }
 
-        private async void UpgradeButton_Click(object sender, EventArgs e)
+        private void UpgradeButton_Click(object sender, EventArgs e)
         {
             if (FirmwarePathTextbox.Text == "" || FirmwareVersionTextbox.Text == "")
             {
@@ -530,7 +530,7 @@ namespace PenDemo
             }
 
             controller.RequestFirmwareInstallation(
-                file: await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text), 
+                file: FirmwarePathTextbox.Text, 
                 version: FirmwareVersionTextbox.Text,
                 forceCompression: compression
             );

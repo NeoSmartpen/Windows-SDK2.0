@@ -19,12 +19,17 @@ namespace Neosmartpen.Net
 
         private int mFileSize = 0;
 
-        public ChunkEx( int chunksize )
+        public ChunkEx(int chunksize)
         {
             mSize = chunksize;
         }
 
-        public async Task<bool> Load( StorageFile filepath )
+        public async Task<bool> Load(string filepath)
+        {
+            return await Load(await StorageFile.GetFileFromPathAsync(filepath));
+        }
+
+        public async Task<bool> Load(StorageFile filepath)
         {
             byte[] datas = null;
 
@@ -33,13 +38,13 @@ namespace Neosmartpen.Net
                 IBuffer buffer = await FileIO.ReadBufferAsync(filepath);
                 datas = System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeBufferExtensions.ToArray(buffer);
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 return false;
             }
 
-            if ( datas == null )
+            if (datas == null)
             {
                 return false;
             }
@@ -48,14 +53,14 @@ namespace Neosmartpen.Net
 
             double filesize = datas.Length / mSize;
 
-            mRows = (int)Math.Ceiling( filesize ) + 1;
+            mRows = (int)Math.Ceiling(filesize) + 1;
 
             mDatas = datas;
 
             return true;
         }
 
-        public byte[] Get( int offset, int size ) 
+        public byte[] Get(int offset, int size)
         {
             return mDatas.Skip(offset).Take(size).ToArray();
         }
@@ -70,12 +75,12 @@ namespace Neosmartpen.Net
             return mFileSize;
         }
 
-        public int GetChunkLength() 
+        public int GetChunkLength()
         {
             return mRows;
         }
-    
-        public int GetChunksize() 
+
+        public int GetChunksize()
         {
             return mSize;
         }
@@ -85,13 +90,13 @@ namespace Neosmartpen.Net
             return CalcChecksum(mDatas);
         }
 
-        public static byte CalcChecksum(byte[] bytes) 
+        public static byte CalcChecksum(byte[] bytes)
         {
             int CheckSum = 0;
-        
-            for( int i = 0; i < bytes.Length; i++)
+
+            for (int i = 0; i < bytes.Length; i++)
             {
-                 CheckSum += (int)(bytes[i] & 0xFF);
+                CheckSum += (int)(bytes[i] & 0xFF);
             }
 
             return (byte)CheckSum;
