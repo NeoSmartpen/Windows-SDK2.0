@@ -95,14 +95,14 @@ controller.Authenticated += authenticated;
 // It is called when connection is established ( You cannot use function on your device without authentication )
 private void connected(IPenClient sender, ConnectedEventArgs args)
 {
-	System.Diagnostics.Debug.WriteLine(String.Format("Mac : {0}\r\n\r\nName : {1}\r\n\r\nSubName : {2}\r\n\r\nFirmware Version : {3}\r\n\r\nProtocol Version : {4}", args.MacAddress, args.DeviceName, args.SubName, args.FirmwareVersion, args.ProtocolVersion));
+    Debug.WriteLine($"Mac : {args.MacAddress}\r\nName : {args.DeviceName}\r\nSubName : {args.SubName}\r\nFirmware Version : {args.FirmwareVersion}\r\nProtocol Version : {args.ProtocolVersion}");
 }
 
 // If your device is locked, it is called to input password.
 private void passwordRequested(IPenClient sender, PasswordRequestedEventArgs args)
 {
-	System.Diagnostics.Debug.WriteLine($"Retry Count : {args.RetryCount}, ResetCount :  {args.ResetCount }");
-    _controller.InputPassword(password);
+	Debug.WriteLine($"Retry Count : {args.RetryCount}, ResetCount :  {args.ResetCount }");
+    controller.InputPassword(password);
 }
 
 // If your pen is not locked, or authentication is passed, it will be called.
