@@ -49,6 +49,7 @@
     <Compile Include="Neosmartpen\Framework\Net\Data\Pds.cs" />
     <Compile Include="Neosmartpen\Framework\Net\Data\Stroke.cs" />
     <Compile Include="Neosmartpen\Framework\Net\IPacket.cs" />
+    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\BluetoothError.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\BluetoothPenClient.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\GenericBluetoothPenClient.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\Le\BluetoothLePenClient.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Neosmartpen\Implementation\Net\Client\PenControllerEx.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\PenProfile.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Protocols.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Compressible.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\UsbMode.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineData.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineDataParser.cs" />

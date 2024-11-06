@@ -63,6 +63,7 @@
             this.NewPasswordTextbox = new System.Windows.Forms.TextBox();
             this.GroupUpdate = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.ConsoleTextbox = new System.Windows.Forms.TextBox();
             this.GroupProfile = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -73,11 +74,6 @@
             this.ProfileAddButton = new System.Windows.Forms.Button();
             this.ProfileGetButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.CompressDefaultRadio = new System.Windows.Forms.RadioButton();
-            this.CompressOkRadio = new System.Windows.Forms.RadioButton();
-            this.CompressNoRadio = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.GroupInfo.SuspendLayout();
             this.GroupOffline.SuspendLayout();
@@ -319,7 +315,7 @@
             // 
             // btnUpgrade
             // 
-            this.btnUpgrade.Location = new System.Drawing.Point(169, 47);
+            this.btnUpgrade.Location = new System.Drawing.Point(168, 58);
             this.btnUpgrade.Name = "btnUpgrade";
             this.btnUpgrade.Size = new System.Drawing.Size(75, 21);
             this.btnUpgrade.TabIndex = 18;
@@ -330,7 +326,7 @@
             // FirmwarePathTextbox
             // 
             this.FirmwarePathTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwarePathTextbox.Location = new System.Drawing.Point(70, 20);
+            this.FirmwarePathTextbox.Location = new System.Drawing.Point(69, 31);
             this.FirmwarePathTextbox.Name = "FirmwarePathTextbox";
             this.FirmwarePathTextbox.Size = new System.Drawing.Size(174, 21);
             this.FirmwarePathTextbox.TabIndex = 19;
@@ -339,7 +335,7 @@
             // FirmwareVersionTextbox
             // 
             this.FirmwareVersionTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwareVersionTextbox.Location = new System.Drawing.Point(70, 47);
+            this.FirmwareVersionTextbox.Location = new System.Drawing.Point(69, 58);
             this.FirmwareVersionTextbox.Name = "FirmwareVersionTextbox";
             this.FirmwareVersionTextbox.Size = new System.Drawing.Size(93, 21);
             this.FirmwareVersionTextbox.TabIndex = 20;
@@ -425,10 +421,6 @@
             // 
             // GroupUpdate
             // 
-            this.GroupUpdate.Controls.Add(this.label10);
-            this.GroupUpdate.Controls.Add(this.CompressNoRadio);
-            this.GroupUpdate.Controls.Add(this.CompressOkRadio);
-            this.GroupUpdate.Controls.Add(this.CompressDefaultRadio);
             this.GroupUpdate.Controls.Add(this.label2);
             this.GroupUpdate.Controls.Add(this.label8);
             this.GroupUpdate.Controls.Add(this.btnUpgrade);
@@ -445,11 +437,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 24);
+            this.label2.Location = new System.Drawing.Point(40, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 12);
             this.label2.TabIndex = 22;
             this.label2.Text = "File";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 12);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Version";
             // 
             // ConsoleTextbox
             // 
@@ -555,57 +556,6 @@
             this.pictureBox.TabIndex = 27;
             this.pictureBox.TabStop = false;
             // 
-            // CompressDefaultRadio
-            // 
-            this.CompressDefaultRadio.AutoSize = true;
-            this.CompressDefaultRadio.Checked = true;
-            this.CompressDefaultRadio.Location = new System.Drawing.Point(67, 76);
-            this.CompressDefaultRadio.Name = "CompressDefaultRadio";
-            this.CompressDefaultRadio.Size = new System.Drawing.Size(60, 16);
-            this.CompressDefaultRadio.TabIndex = 23;
-            this.CompressDefaultRadio.TabStop = true;
-            this.CompressDefaultRadio.Text = "default";
-            this.CompressDefaultRadio.UseVisualStyleBackColor = true;
-            // 
-            // CompressOkRadio
-            // 
-            this.CompressOkRadio.AutoSize = true;
-            this.CompressOkRadio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CompressOkRadio.Location = new System.Drawing.Point(135, 76);
-            this.CompressOkRadio.Name = "CompressOkRadio";
-            this.CompressOkRadio.Size = new System.Drawing.Size(44, 16);
-            this.CompressOkRadio.TabIndex = 24;
-            this.CompressOkRadio.Text = "yes";
-            this.CompressOkRadio.UseVisualStyleBackColor = true;
-            // 
-            // CompressNoRadio
-            // 
-            this.CompressNoRadio.AutoSize = true;
-            this.CompressNoRadio.Location = new System.Drawing.Point(191, 76);
-            this.CompressNoRadio.Name = "CompressNoRadio";
-            this.CompressNoRadio.Size = new System.Drawing.Size(37, 16);
-            this.CompressNoRadio.TabIndex = 25;
-            this.CompressNoRadio.Text = "no";
-            this.CompressNoRadio.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 51);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 12);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Version";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(2, 77);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 12);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Compress";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -689,10 +639,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ProfileValueTextbox;
         private System.Windows.Forms.TextBox ProfileKeyTextbox;
-        private System.Windows.Forms.RadioButton CompressNoRadio;
-        private System.Windows.Forms.RadioButton CompressOkRadio;
-        private System.Windows.Forms.RadioButton CompressDefaultRadio;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
     }
 }

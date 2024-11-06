@@ -154,7 +154,7 @@ namespace Neosmartpen.Net
 
         public byte[] DeviceColorTypeId { get; private set; }
 
-		public bool CompressedFileUploadEnabled { get; private set; } = true;
+		public bool CompressedFileUploadEnabled { get; private set; } = false;
 
         /// <summary>
         /// Gets the maximum level of force sensor.
@@ -223,21 +223,21 @@ namespace Neosmartpen.Net
                             DeviceColorTypeId = packet.GetBytes(4);
                         }
 
-                        try
-						{
-                            if (packet.CheckMoreData() && float.Parse(ProtocolVersion) >= COMPRESSED_UPLOAD_INFO_SUPPORT_PROTOCOL_VERSION)
-                            {
-                                CompressedFileUploadEnabled = packet.GetByte() != 0x00;
-                            }
-							else if (COMPRESSED_UPLOAD_DISABLED_DEVICES.Contains(DeviceName))
-							{
-								CompressedFileUploadEnabled = false;
-                            }
-						}
-						catch
-						{
-                            CompressedFileUploadEnabled = false;
-                        }
+      //                  try
+						//{
+      //                      if (packet.CheckMoreData() && float.Parse(ProtocolVersion) >= COMPRESSED_UPLOAD_INFO_SUPPORT_PROTOCOL_VERSION)
+      //                      {
+      //                          CompressedFileUploadEnabled = packet.GetByte() != 0x00;
+      //                      }
+						//	else if (COMPRESSED_UPLOAD_DISABLED_DEVICES.Contains(DeviceName))
+						//	{
+						//		CompressedFileUploadEnabled = false;
+      //                      }
+						//}
+						//catch
+						//{
+      //                      CompressedFileUploadEnabled = false;
+      //                  }
 
                         bool isMG = isF121MG(MacAddress);
 						if (isMG && DeviceName.Equals(F121) && SubName.Equals("Mbest_smartpenS"))
@@ -2051,24 +2051,16 @@ namespace Neosmartpen.Net
         /// </summary>
         /// <param name="filepath">absolute path of firmware file</param>
         /// <param name="version">version of firmware, this value is string</param>
-		/// <param name="forceWithCompression">force upload compressed file</param>
         /// <returns>true if the request is accepted; otherwise, false.</returns>
-        public async void ReqPenSwUpgrade(string filepath, string version, Compressible? forceCompression = null)
+        public async void ReqPenSwUpgrade(string filepath, string version)
 		{
 			if (IsUploading)
 			{
 				return;
 			}
 
-			if (forceCompression == null)
-			{
-				UploadingWithCompression = CompressedFileUploadEnabled;
-            }
-			else 
-			{
-				UploadingWithCompression = forceCompression == Compressible.Enabled;
+			UploadingWithCompression = CompressedFileUploadEnabled;
 
-            }
             SwUpgradeFailCallbacked = false;
             IsUploading = true;
 

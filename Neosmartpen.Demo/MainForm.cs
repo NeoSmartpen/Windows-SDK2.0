@@ -126,12 +126,12 @@ namespace PenDemo
             }));
         }
 
-        private void OnStopSearch(IPenClient sender, Windows.Devices.Bluetooth.BluetoothError args)
+        private void OnStopSearch(IPenClient sender, BluetoothError args)
         {
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
                 SearchButton.Enabled = true;
-            }));        
+            }));
         }
 
         #endregion
@@ -518,20 +518,9 @@ namespace PenDemo
                 return;
             }
 
-            Compressible? compression = null;
-            if (CompressOkRadio.Checked)
-            {
-                compression = Compressible.Enabled;
-            }
-            if (CompressNoRadio.Checked)
-            {
-                compression = Compressible.Unabled;
-            }
-
             controller.RequestFirmwareInstallation(
                 file: FirmwarePathTextbox.Text, 
-                version: FirmwareVersionTextbox.Text,
-                forceCompression: compression
+                version: FirmwareVersionTextbox.Text
             );
         }
 
