@@ -5,12 +5,11 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO.Compression;
 using System.Reflection;
 using System.Text;
 using Windows.Foundation;
 using Windows.Storage;
-using Windows.UI.Xaml.Controls;
+
 
 namespace Neosmartpen.Net
 {
@@ -219,13 +218,13 @@ namespace Neosmartpen.Net
 						MacAddress = BitConverter.ToString(packet.GetBytes(6)).Replace("-", "");
 						PressureSensorType = packet.CheckMoreData() ? packet.GetByte() : 0;
 
+                        if (packet.CheckMoreData())
+                        {
+                            DeviceColorTypeId = packet.GetBytes(4);
+                        }
+
                         try
 						{
-							if (packet.CheckMoreData())
-							{
-								DeviceColorTypeId = packet.GetBytes(4);
-							}
-
                             if (packet.CheckMoreData() && float.Parse(ProtocolVersion) >= COMPRESSED_UPLOAD_INFO_SUPPORT_PROTOCOL_VERSION)
                             {
                                 CompressedFileUploadEnabled = packet.GetByte() != 0x00;
@@ -242,7 +241,9 @@ namespace Neosmartpen.Net
 
                         bool isMG = isF121MG(MacAddress);
 						if (isMG && DeviceName.Equals(F121) && SubName.Equals("Mbest_smartpenS"))
+						{
 							DeviceName = F121MG;
+						}
 
 						IsUploading = false;
 
@@ -578,24 +579,20 @@ namespace Neosmartpen.Net
 						bool isCompressed = packet.GetByte() == 1;
 
 						short sizeBefore = packet.GetShort();
-
 						short sizeAfter = packet.GetShort();
 
 						short location = (short)(packet.GetByte() & 0xFF);
 
 						byte[] rb = packet.GetBytes(4);
-
 						int section = (int)(rb[3] & 0xFF);
-
 						int owner = ByteConverter.ByteToInt(new byte[] { rb[0], rb[1], rb[2], (byte)0x00 });
-
 						int note = packet.GetInt();
 
 						short strCount = packet.GetShort();
 
 						mReceivedOfflineStroke += strCount;
 
-						Debug.WriteLine(" packetId : {0}, isCompressed : {1}, sizeBefore : {2}, sizeAfter : {3}, size : {4}", packetId, isCompressed, sizeBefore, sizeAfter, packet.Data.Length - 18);
+						Debug.WriteLine($"packetId : {packetId}, isCompressed : {isCompressed}, sizeBefore : {sizeBefore}, sizeAfter : {sizeAfter}, size : {packet.Data.Length - 18}");
 
 						if (sizeAfter != (packet.Data.Length - 18))
 						{
@@ -612,13 +609,11 @@ namespace Neosmartpen.Net
 							return;
 						}
 
-						byte[] oData = packet.GetBytes(sizeAfter);
+						byte[] compressedData = packet.GetBytes(sizeAfter);
 
-						GZipStream gzipStream = new GZipStream(new System.IO.MemoryStream(oData), CompressionLevel.Fastest);
+						byte[] decompressedData = Compression.Decompress(compressedData);
 
-						byte[] strData = Ionic.Zlib.ZlibStream.UncompressBuffer(oData);
-
-						if (strData.Length != sizeBefore)
+						if (decompressedData.Length != sizeBefore)
 						{
 							if ( offlineDataPacketRetryCount < 3)
 							{
@@ -633,7 +628,7 @@ namespace Neosmartpen.Net
 							return;
 						}
 
-						ByteUtil butil = new ByteUtil(strData);
+						ByteUtil butil = new ByteUtil(decompressedData);
 
                         int checksumErrorCount = 0;
 
@@ -642,7 +637,6 @@ namespace Neosmartpen.Net
 							int pageId = butil.GetInt();
 
 							long timeStart = butil.GetLong();
-
 							long timeEnd = butil.GetLong();
 
 							int penTipType = (int)(butil.GetByte() & 0xFF);
@@ -757,7 +751,7 @@ namespace Neosmartpen.Net
 					{
 						int status = packet.GetByteToInt();
 						int offset = packet.GetInt();
-						ResponseChunkRequest(offset, status != 3);
+                        ResponseChunkRequest(offset, status != 3);
 					}
 					break;
 				#endregion
@@ -1380,7 +1374,6 @@ namespace Neosmartpen.Net
 			int twist = mPack.GetShort();
 
 			ProcessDot(MakeDot(PenMaxForce, mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor), null);
-			//PenController.onReceiveDot(new DotReceivedEventArgs(MakeDot(PenMaxForce, mCurOwner, mCurSection, mCurNote, mCurPage, mTime, x, y, fx, fy, force, type, mPenTipColor)));
 		}
 
 		private void MakeUpDot(bool isError = true)
@@ -1510,12 +1503,22 @@ namespace Neosmartpen.Net
 			return Send(bf);
 		}
 
-		/// <summary>
-		/// Input password if device is locked.
-		/// </summary>
-		/// <param name="password">Specifies the password for authentication. Password is a string</param>
-		/// <returns>true if the request is accepted; otherwise, false.</returns>
-		public bool ReqInputPassword(string password)
+        /// <summary>
+        /// Remove the password of device.
+        /// </summary>
+        /// <param name="oldPassword">Current password</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqRemovePassword(string oldPassword)
+        {
+            return ReqSetUpPassword(oldPassword);
+        }
+
+        /// <summary>
+        /// Input password if device is locked.
+        /// </summary>
+        /// <param name="password">Specifies the password for authentication. Password is a string</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public bool ReqInputPassword(string password)
 		{
 			if (password == null)
 				return false;
@@ -2026,29 +2029,46 @@ namespace Neosmartpen.Net
             {
                 Debug.WriteLine(e.StackTrace);
             }
-            if (FW_UPDATE_CANCEL_BUG_DEVICE_NAME == DeviceName && ver < FW_UPDATE_CANCEL_BUG_FIX_FIRMWARE_VERSION)
+			if (FW_UPDATE_CANCEL_BUG_DEVICE_NAME == DeviceName && ver < FW_UPDATE_CANCEL_BUG_FIX_FIRMWARE_VERSION)
+			{
+                Debug.WriteLine($"Device {DeviceName}'s firmare {FirmwareVersion} has bug");
                 return true;
-            else
-                return false;
+			}
+			else
+			{
+				return false;
+			}
         }
 
         private ChunkEx mFwChunk;
 
 		private bool IsUploading = false;
 
-		/// <summary>
-		/// Requests the firmware installation
-		/// </summary>
-		/// <param name="filepath">absolute path of firmware file</param>
-		/// <param name="version">version of firmware, this value is string</param>
-		/// <returns>true if the request is accepted; otherwise, false.</returns>
-		public async void ReqPenSwUpgrade(StorageFile filepath, string version)
+		private bool UploadingWithCompression;
+
+        /// <summary>
+        /// Requests the firmware installation
+        /// </summary>
+        /// <param name="filepath">absolute path of firmware file</param>
+        /// <param name="version">version of firmware, this value is string</param>
+		/// <param name="forceWithCompression">force upload compressed file</param>
+        /// <returns>true if the request is accepted; otherwise, false.</returns>
+        public async void ReqPenSwUpgrade(StorageFile filepath, string version, Compressible? forceCompression = null)
 		{
 			if (IsUploading)
 			{
 				return;
 			}
 
+			if (forceCompression == null)
+			{
+				UploadingWithCompression = CompressedFileUploadEnabled;
+            }
+			else 
+			{
+				UploadingWithCompression = forceCompression == Compressible.Enabled;
+
+            }
             SwUpgradeFailCallbacked = false;
             IsUploading = true;
 
@@ -2071,7 +2091,7 @@ namespace Neosmartpen.Net
 
 			byte[] deviceStrBytes = Encoding.UTF8.GetBytes(deviceName);
 
-			Debug.WriteLine("[FileUpload] file upload => filesize : {0}, packet size {1}", fileSize, mFwChunk.GetChunksize());
+			Debug.WriteLine($"ReqPenSwUpgrade - file size : {fileSize}, chunk size {mFwChunk.GetChunksize()}, compressed : {UploadingWithCompression}");
 
 			ByteUtil bf = new ByteUtil(Escape);
 
@@ -2082,7 +2102,7 @@ namespace Neosmartpen.Net
 			  .Put(versionStrBytes, 16)
 			  .PutInt(fileSize)
 			  .PutInt(mFwChunk.GetChunksize())
-			  .Put((byte)(CompressedFileUploadEnabled ? 1 : 0))
+			  .Put((byte)(UploadingWithCompression ? 1 : 0))
 			  .Put(mFwChunk.GetTotalChecksum())
 			  .Put(Const.PK_ETX, false);
 
@@ -2093,9 +2113,10 @@ namespace Neosmartpen.Net
 
         private bool SwUpgradeFailCallbacked = false;
 
-        private void ResponseChunkRequest(int offset, bool status = true)
+		private void ResponseChunkRequest(int offset, bool status = true)
 		{
-			ByteUtil bf = new ByteUtil(Escape);
+            Debug.WriteLine($"ResponseChunkRequest - offset : {offset} / {mFwChunk.GetFileSize()}, status : {status}");
+            ByteUtil bf = new ByteUtil(Escape);
 
 			if (!status || mFwChunk == null || !IsUploading)
 			{
@@ -2114,25 +2135,25 @@ namespace Neosmartpen.Net
 
 				if (!HasBugInFirmwareUpdate())
 				{
-					Send(bf);
+                    Send(bf);
 				}
 
                 if (!SwUpgradeFailCallbacked)
                 {
+                    Debug.WriteLine("ResponseChunkRequest - fail callbacked");
                     onReceiveFirmwareUpdateResult(new SimpleResultEventArgs(false));
                     SwUpgradeFailCallbacked = true;
                 }
             }
 			else
 			{
-                Debug.WriteLine("[FileUpload] ResponseChunkRequest upload => offset : {0} / {1}", offset, mFwChunk.GetFileSize());
-
                 byte[] data = mFwChunk.Get(offset);
 				byte[] dataToUpload;
 
-                if (CompressedFileUploadEnabled)
+                if (UploadingWithCompression)
 				{
-					dataToUpload = Ionic.Zlib.ZlibStream.CompressBuffer(data);
+                    dataToUpload = Compression.Compress(data);
+                    Debug.WriteLine($"ResponseChunkRequest size - original : {data.Length} / uploadable : {dataToUpload.Length}");
                 }
 				else
 				{
@@ -2150,7 +2171,7 @@ namespace Neosmartpen.Net
 				  .PutInt(offset)
 				  .Put(checksum)
 				  .PutInt(data.Length)
-				  .PutInt(dataToUpload.Length)
+				  .PutInt(UploadingWithCompression ? dataToUpload.Length : 0)
 				  .Put(dataToUpload)
 				  .Put(Const.PK_ETX, false);
                 Send(bf);

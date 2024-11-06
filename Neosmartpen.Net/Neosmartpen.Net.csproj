@@ -86,6 +86,7 @@
     <Compile Include="Neosmartpen\Implementation\Net\Client\PenControllerEx.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\PenProfile.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Protocols.cs" />
+    <Compile Include="Neosmartpen\Implementation\Net\Client\Compressible.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\UsbMode.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineData.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineDataParser.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Neosmartpen\Implementation\Net\Filter\FilterForPaper.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Support\ByteConverter.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Support\ByteUtil.cs" />
+    <Compile Include="Neosmartpen\Implementation\Net\Support\Compression.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Support\FloatConverter.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Support\PressureCalibration.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Support\PressureFilter.cs" />
@@ -107,11 +109,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MarkerMetro.Unity.Ionic.Zlib">
-      <Version>2.0.0.14</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Windows.SDK.Contracts">
       <Version>10.0.26100.1742</Version>
+    </PackageReference>
+    <PackageReference Include="SharpZipLib">
+      <Version>1.4.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

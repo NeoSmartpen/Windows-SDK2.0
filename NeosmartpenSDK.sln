@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net.Usb.Demo", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net", "Neosmartpen.Net\Neosmartpen.Net.csproj", "{F74A67F4-3FD5-41B7-9CF2-6021E29EF40C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Demo", "Neosmartpen.Demo\Neosmartpen.Demo.csproj", "{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neosmartpen.Net.Demo", "Neosmartpen.Demo\Neosmartpen.Net.Demo.csproj", "{ABCE5F22-3FBD-4550-AFD1-0A7C514CAEC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

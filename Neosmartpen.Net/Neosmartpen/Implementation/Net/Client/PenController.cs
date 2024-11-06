@@ -839,9 +839,14 @@ namespace Neosmartpen.Net
         /// </summary>
         /// <param name="file">Represents a binary file of firmware</param>
         /// <param name="version">Version of firmware typed string</param>
-        public void RequestFirmwareInstallation(StorageFile file, string version)
+        /// <param name="forceWithCompression">force upload compressed file</param>
+        public void RequestFirmwareInstallation(StorageFile file, string version, Compressible? forceCompression = null)
         {
-            Request(() => mClientV1.ReqPenSwUpgrade(file), () => { mClientV2.ReqPenSwUpgrade(file, version); });
+            if (forceCompression != null && Protocol == Protocols.V1)
+            {
+                throw new NotSupportedException($"forceCompression is not supported at this device");
+            }
+            Request(() => mClientV1.ReqPenSwUpgrade(file), () => { mClientV2.ReqPenSwUpgrade(file, version, forceCompression); });
         }
 
         /// <summary>

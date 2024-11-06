@@ -4,10 +4,7 @@ using Neosmartpen.Net.Support;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using Windows.Storage;
-using System.Collections.Generic;
-using System.Threading;
 
 namespace PenDemo
 {
@@ -503,7 +500,7 @@ namespace PenDemo
 
         private void PasswordChangeButton_Click(object sender, EventArgs e)
         {
-            controller.SetPassword(OldPasswordTextbox.Text, NewPasswordTextbox.Text);
+            controller.SetPassword(OldPasswordTextbox.Text ?? "1111", NewPasswordTextbox.Text);
         }
 
         private void SetGroupVisiblity(bool visible)
@@ -521,14 +518,29 @@ namespace PenDemo
                 MessageBox.Show("Select firmware file and enter firmware version.");
                 return;
             }
-            controller.RequestFirmwareInstallation(await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text), FirmwareVersionTextbox.Text);
+
+            Compressible? compression = null;
+            if (CompressOkRadio.Checked)
+            {
+                compression = Compressible.Enabled;
+            }
+            if (CompressNoRadio.Checked)
+            {
+                compression = Compressible.Unabled;
+            }
+
+            controller.RequestFirmwareInstallation(
+                file: await StorageFile.GetFileFromPathAsync(FirmwarePathTextbox.Text), 
+                version: FirmwareVersionTextbox.Text,
+                forceCompression: compression
+            );
         }
 
         private void FirmwarePathTextbox_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                Filter = "Firmware Files|*._v_",
+                Filter = "Firmware Files (*._v_)|*._v_|Firmware Files (*.bin)|*.bin|All Files (*)|*",
                 Title = "Select a Firmware File"
             };
 
