@@ -4,7 +4,6 @@ using Neosmartpen.Net.Support;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Windows.Storage;
 
 namespace PenDemo
 {
