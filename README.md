@@ -1,6 +1,6 @@
-# [Neo smartpen SDK 2.0 for Windows Platform](https://github.com/NeoSmartpen/Windows-SDK2.0/)
+# [Neo smartpen SDK for Windows Platform](https://github.com/NeoSmartpen/Windows-SDK2.0/)
 
-## Windows SDK 2.0 
+## Windows SDK
 
 Windows SDK for Windows. This open-source library allows you to integrate the Neo smartpen - Neo smartpen N2 and M1 - into your Windows program.  
 
@@ -20,7 +20,7 @@ Click the link below to view a beginners guide to Ncode technology.
 -  Windows 10 or later
 -  Microsoft Visual Studio 2019 or later
 -  Microsoft .NET Framework 4.6.2 or later
- - Standard Bluetooth Dongles ( Bluetooth Specification Version 4.0 or later with Microsoft Bluetooth stack )
+ - Standard Bluetooth Dongles (Bluetooth Specification Version 4.0 or later with Microsoft Bluetooth stack)
 -  SDK packages for Neo smartpen
 
 ## Dependencies
