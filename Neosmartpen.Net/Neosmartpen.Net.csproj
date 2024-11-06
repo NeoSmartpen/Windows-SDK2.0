@@ -49,7 +49,6 @@
     <Compile Include="Neosmartpen\Framework\Net\Data\Pds.cs" />
     <Compile Include="Neosmartpen\Framework\Net\Data\Stroke.cs" />
     <Compile Include="Neosmartpen\Framework\Net\IPacket.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\BluetoothError.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\BluetoothPenClient.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\GenericBluetoothPenClient.cs" />
     <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\Le\BluetoothLePenClient.cs" />

@@ -475,8 +475,7 @@ namespace Neosmartpen.Net.Bluetooth
 
 		private void BluetoothLEAdvertisementWatcher_Stopped(BluetoothLEAdvertisementWatcher sender, BluetoothLEAdvertisementWatcherStoppedEventArgs args)
 		{
-            BluetoothError error = (BluetoothError)Enum.Parse(typeof(BluetoothError), args.Error.ToString());
-            onStopSearch(this, error);
+            onStopSearch(this, args.Error);
 		}
 
 		private async void BluetoothLEAdvertisementWatcher_Received(BluetoothLEAdvertisementWatcher sender, BluetoothLEAdvertisementReceivedEventArgs args)

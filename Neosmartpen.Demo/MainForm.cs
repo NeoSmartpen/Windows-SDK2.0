@@ -126,7 +126,7 @@ namespace PenDemo
             }));
         }
 
-        private void OnStopSearch(IPenClient sender, BluetoothError args)
+        private void OnStopSearch(IPenClient sender, Windows.Devices.Bluetooth.BluetoothError args)
         {
             this.BeginInvoke(new MethodInvoker(delegate ()
             {
