@@ -101,7 +101,7 @@ private void connected(IPenClient sender, ConnectedEventArgs args)
 // If your device is locked, it is called to input password.
 private void passwordRequested(IPenClient sender, PasswordRequestedEventArgs args)
 {
-	Debug.WriteLine($"Retry Count : {args.RetryCount}, ResetCount :  {args.ResetCount }");
+    Debug.WriteLine($"Retry Count : {args.RetryCount}, ResetCount :  {args.ResetCount }");
     controller.InputPassword(password);
 }
 
