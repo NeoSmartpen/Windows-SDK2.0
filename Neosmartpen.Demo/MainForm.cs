@@ -540,7 +540,7 @@ namespace PenDemo
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                Filter = "Firmware Files (*._v_)|*._v_|Firmware Files (*.bin)|*.bin|All Files (*)|*",
+                Filter = "Firmware Files (*._v_)|*._v_|Firmware Files (*.bin)|*.bin|All Files|*",
                 Title = "Select a Firmware File"
             };
 
