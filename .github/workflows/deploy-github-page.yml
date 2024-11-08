@@ -1,10 +1,12 @@
 name: deploy-github-page
 # Your GitHub workflow file under .github/workflows/
 # Trigger the action on push to main
+# on:
+#   push:
+#     branches:
+#       - master
 on:
-  push:
-    branches:
-      - master
+  pull_request:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -35,6 +37,7 @@ jobs:
     - run: pwd
     - run: ls -lh
     - run: dotnet tool update -g docfx
+    - run: docfx metadata Neosmartpen.Doc/docfx.json --verbose
     - run: docfx build Neosmartpen.Doc/docfx.json --verbose
 
     - name: Upload artifact
