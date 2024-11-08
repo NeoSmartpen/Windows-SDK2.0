@@ -34,17 +34,8 @@ jobs:
       with:
         dotnet-version: "8.x"
 
-    - name: Setup DocFx
-      uses: clFaster/docfx-setup-action@v1
-
-    - name: Build Documentation
-      uses: clFaster/docfx-build-action@v1
-      with:
-        docfx-file-path: "Neosmartpen.Doc/docfx.json"
-    # - run: dotnet tool update -g docfx
-    # - run: docfx --version
-    # - run: dotnet restore Neosmartpen.Net/
-    # - run: docfx Neosmartpen.Doc/docfx.json --verbose --debug
+    - run: dotnet tool update -g docfx
+    - run: docfx Neosmartpen.Doc/docfx.json --verbose
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
