@@ -36,7 +36,7 @@ jobs:
     
     - run: dotnet tool update -g docfx
     - run: dotnet restore Neosmartpen.Net/
-    - run: docfx Neosmartpen.Doc/docfx.json
+    - run: docfx Neosmartpen.Doc/docfx.json --verbose --debug
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
