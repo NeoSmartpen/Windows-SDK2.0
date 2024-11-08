@@ -33,11 +33,15 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0
-    
-    - run: dotnet tool update -g docfx
-    - run: docfx --version
-    - run: dotnet restore Neosmartpen.Net/
-    - run: docfx Neosmartpen.Doc/docfx.json --verbose --debug
+  
+    - uses: nikeee/docfx-action@v1.0.0
+      name: Build Documentation
+      with:
+        args: Neosmartpen.Doc/docfx.json
+    # - run: dotnet tool update -g docfx
+    # - run: docfx --version
+    # - run: dotnet restore Neosmartpen.Net/
+    # - run: docfx Neosmartpen.Doc/docfx.json --verbose --debug
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
