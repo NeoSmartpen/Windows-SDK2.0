@@ -202,3 +202,5 @@ FakesAssemblies/
 gallery.xml
 MigrationBackup
 Neosmartpen.Doc/_site
+Neosmartpen.Doc/api
+Neosmartpen.Doc/docs

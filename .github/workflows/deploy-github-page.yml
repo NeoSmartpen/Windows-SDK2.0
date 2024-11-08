@@ -23,25 +23,24 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
-    
-    - run: pwd
-    - run: ls -lh
+        dotnet-version: "8.x"
+
     - run: dotnet tool update -g docfx
-    - run: docfx build Neosmartpen.Doc/docfx.json --verbose
+    - run: docfx Neosmartpen.Doc/docfx.json --verbose
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        # Upload entire repository
         path: 'Neosmartpen.Doc/_site'
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
