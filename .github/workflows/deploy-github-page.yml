@@ -34,11 +34,9 @@ jobs:
       with:
         dotnet-version: 8.x
     
-    - run: pwd
-    - run: ls -lh
     - run: dotnet tool update -g docfx
-    - run: docfx metadata Neosmartpen.Doc/docfx.json --verbose
-    - run: docfx build Neosmartpen.Doc/docfx.json --verbose
+    - run: dotnet restore Neosmartpen.Net/
+    - run: docfx Neosmartpen.Doc/docfx.json --force
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
