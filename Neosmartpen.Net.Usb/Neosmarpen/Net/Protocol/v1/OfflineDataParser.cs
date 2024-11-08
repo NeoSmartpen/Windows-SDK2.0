@@ -92,21 +92,6 @@ namespace Neosmartpen.Net.Protocol.v1
             }
         }
 
-        private byte[] Decompress(byte[] inbuf)
-        {
-            using (var compressed = new MemoryStream(inbuf))
-            {
-                using (var decompressed = new MemoryStream())
-                {
-                    using (var inputStream = new InflaterInputStream(compressed))
-                    {
-                        inputStream.CopyTo(decompressed);
-                    }
-                    return decompressed.ToArray();
-                }
-            }
-        }
-
         private string Extract(string file)
         {
             string newfile = null;
@@ -127,11 +112,6 @@ namespace Neosmartpen.Net.Protocol.v1
 
                 // Will always overwrite if target filenames already exist
                 fastZip.ExtractZip(file, temp, fileFilter);
-
-                // Unzip to the temp folder
-                //ZipFile zipfile = ZipFile.Read(file);
-                //zipfile.ExtractAll(temp);
-                //zipfile.Dispose();
 
                 // Moves the extracted files to the default folder
                 string[] infiles = Directory.GetFiles(temp);
