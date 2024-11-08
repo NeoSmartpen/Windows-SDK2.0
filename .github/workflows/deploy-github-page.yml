@@ -32,7 +32,7 @@ jobs:
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
+        dotnet-version: 8.0
     
     - run: dotnet tool update -g docfx
     - run: dotnet restore Neosmartpen.Net/
