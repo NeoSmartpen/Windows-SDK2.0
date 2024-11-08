@@ -1,3 +1,4 @@
+name: deploy-github-page
 # Your GitHub workflow file under .github/workflows/
 # Trigger the action on push to main
 # on:
@@ -34,7 +35,7 @@ jobs:
         dotnet-version: 8.x
 
     - run: dotnet tool update -g docfx
-    - run: docfx Neosmartpen.Doc/docfx.json
+    - run: docfx Neosmartpen.Doc/docfx.json --verbose
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
