@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.PenClientParserV2.PenTipType
+  commentId: T:Neosmartpen.Net.PenClientParserV2.PenTipType
+  id: PenClientParserV2.PenTipType
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.PenClientParserV2.PenTipType.Eraser
+  - Neosmartpen.Net.PenClientParserV2.PenTipType.Normal
+  langs:
+  - csharp
+  - vb
+  name: PenClientParserV2.PenTipType
+  nameWithType: PenClientParserV2.PenTipType
+  fullName: Neosmartpen.Net.PenClientParserV2.PenTipType
+  type: Enum
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenTipType
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 171
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public enum PenClientParserV2.PenTipType
+    content.vb: Public Enum PenClientParserV2.PenTipType
+- uid: Neosmartpen.Net.PenClientParserV2.PenTipType.Normal
+  commentId: F:Neosmartpen.Net.PenClientParserV2.PenTipType.Normal
+  id: Normal
+  parent: Neosmartpen.Net.PenClientParserV2.PenTipType
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: PenClientParserV2.PenTipType.Normal
+  fullName: Neosmartpen.Net.PenClientParserV2.PenTipType.Normal
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Normal
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 171
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: Normal = 0
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.PenTipType
+- uid: Neosmartpen.Net.PenClientParserV2.PenTipType.Eraser
+  commentId: F:Neosmartpen.Net.PenClientParserV2.PenTipType.Eraser
+  id: Eraser
+  parent: Neosmartpen.Net.PenClientParserV2.PenTipType
+  langs:
+  - csharp
+  - vb
+  name: Eraser
+  nameWithType: PenClientParserV2.PenTipType.Eraser
+  fullName: Neosmartpen.Net.PenClientParserV2.PenTipType.Eraser
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Eraser
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 171
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: Eraser = 1
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.PenTipType
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: Neosmartpen.Net.PenClientParserV2.PenTipType
+  commentId: T:Neosmartpen.Net.PenClientParserV2.PenTipType
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.PenClientParserV2.html
+  name: PenClientParserV2.PenTipType
+  nameWithType: PenClientParserV2.PenTipType
+  fullName: Neosmartpen.Net.PenClientParserV2.PenTipType
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenClientParserV2
+    name: PenClientParserV2
+    href: Neosmartpen.Net.PenClientParserV2.html
+  - name: .
+  - uid: Neosmartpen.Net.PenClientParserV2.PenTipType
+    name: PenTipType
+    href: Neosmartpen.Net.PenClientParserV2.PenTipType.html
+  spec.vb:
+  - uid: Neosmartpen.Net.PenClientParserV2
+    name: PenClientParserV2
+    href: Neosmartpen.Net.PenClientParserV2.html
+  - name: .
+  - uid: Neosmartpen.Net.PenClientParserV2.PenTipType
+    name: PenTipType
+    href: Neosmartpen.Net.PenClientParserV2.PenTipType.html

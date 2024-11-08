@@ -1,0 +1,662 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Support.ByteConverter
+  commentId: T:Neosmartpen.Net.Support.ByteConverter
+  id: ByteConverter
+  parent: Neosmartpen.Net.Support
+  children:
+  - Neosmartpen.Net.Support.ByteConverter.ByteToInt(System.Byte[])
+  - Neosmartpen.Net.Support.ByteConverter.ByteToLong(System.Byte[])
+  - Neosmartpen.Net.Support.ByteConverter.ByteToShort(System.Byte[])
+  - Neosmartpen.Net.Support.ByteConverter.IntToByte(System.Int32)
+  - Neosmartpen.Net.Support.ByteConverter.LongToByte(System.Int64)
+  - Neosmartpen.Net.Support.ByteConverter.ShortToByte(System.Int16)
+  - Neosmartpen.Net.Support.ByteConverter.SingleByteToInt(System.Byte)
+  langs:
+  - csharp
+  - vb
+  name: ByteConverter
+  nameWithType: ByteConverter
+  fullName: Neosmartpen.Net.Support.ByteConverter
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ByteConverter
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 7
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  summary: 바이트와 short, int, long 간 변환
+  example: []
+  syntax:
+    content: public class ByteConverter
+    content.vb: Public Class ByteConverter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToLong(System.Byte[])
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.ByteToLong(System.Byte[])
+  id: ByteToLong(System.Byte[])
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: ByteToLong(byte[])
+  nameWithType: ByteConverter.ByteToLong(byte[])
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToLong(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ByteToLong
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static long ByteToLong(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Int64
+    content.vb: Public Shared Function ByteToLong(data As Byte()) As Long
+  overload: Neosmartpen.Net.Support.ByteConverter.ByteToLong*
+  nameWithType.vb: ByteConverter.ByteToLong(Byte())
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.ByteToLong(Byte())
+  name.vb: ByteToLong(Byte())
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToInt(System.Byte[])
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.ByteToInt(System.Byte[])
+  id: ByteToInt(System.Byte[])
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: ByteToInt(byte[])
+  nameWithType: ByteConverter.ByteToInt(byte[])
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToInt(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ByteToInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 18
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static int ByteToInt(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function ByteToInt(data As Byte()) As Integer
+  overload: Neosmartpen.Net.Support.ByteConverter.ByteToInt*
+  nameWithType.vb: ByteConverter.ByteToInt(Byte())
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.ByteToInt(Byte())
+  name.vb: ByteToInt(Byte())
+- uid: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt(System.Byte)
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.SingleByteToInt(System.Byte)
+  id: SingleByteToInt(System.Byte)
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: SingleByteToInt(byte)
+  nameWithType: ByteConverter.SingleByteToInt(byte)
+  fullName: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt(byte)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SingleByteToInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 24
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static int SingleByteToInt(byte data)
+    parameters:
+    - id: data
+      type: System.Byte
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function SingleByteToInt(data As Byte) As Integer
+  overload: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt*
+  nameWithType.vb: ByteConverter.SingleByteToInt(Byte)
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt(Byte)
+  name.vb: SingleByteToInt(Byte)
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToShort(System.Byte[])
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.ByteToShort(System.Byte[])
+  id: ByteToShort(System.Byte[])
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: ByteToShort(byte[])
+  nameWithType: ByteConverter.ByteToShort(byte[])
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToShort(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ByteToShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 29
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static short ByteToShort(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Int16
+    content.vb: Public Shared Function ByteToShort(data As Byte()) As Short
+  overload: Neosmartpen.Net.Support.ByteConverter.ByteToShort*
+  nameWithType.vb: ByteConverter.ByteToShort(Byte())
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.ByteToShort(Byte())
+  name.vb: ByteToShort(Byte())
+- uid: Neosmartpen.Net.Support.ByteConverter.ShortToByte(System.Int16)
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.ShortToByte(System.Int16)
+  id: ShortToByte(System.Int16)
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: ShortToByte(short)
+  nameWithType: ByteConverter.ShortToByte(short)
+  fullName: Neosmartpen.Net.Support.ByteConverter.ShortToByte(short)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ShortToByte
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 35
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static byte[] ShortToByte(short value)
+    parameters:
+    - id: value
+      type: System.Int16
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ShortToByte(value As Short) As Byte()
+  overload: Neosmartpen.Net.Support.ByteConverter.ShortToByte*
+  nameWithType.vb: ByteConverter.ShortToByte(Short)
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.ShortToByte(Short)
+  name.vb: ShortToByte(Short)
+- uid: Neosmartpen.Net.Support.ByteConverter.LongToByte(System.Int64)
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.LongToByte(System.Int64)
+  id: LongToByte(System.Int64)
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: LongToByte(long)
+  nameWithType: ByteConverter.LongToByte(long)
+  fullName: Neosmartpen.Net.Support.ByteConverter.LongToByte(long)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: LongToByte
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 41
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static byte[] LongToByte(long value)
+    parameters:
+    - id: value
+      type: System.Int64
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function LongToByte(value As Long) As Byte()
+  overload: Neosmartpen.Net.Support.ByteConverter.LongToByte*
+  nameWithType.vb: ByteConverter.LongToByte(Long)
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.LongToByte(Long)
+  name.vb: LongToByte(Long)
+- uid: Neosmartpen.Net.Support.ByteConverter.IntToByte(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteConverter.IntToByte(System.Int32)
+  id: IntToByte(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteConverter
+  langs:
+  - csharp
+  - vb
+  name: IntToByte(int)
+  nameWithType: ByteConverter.IntToByte(int)
+  fullName: Neosmartpen.Net.Support.ByteConverter.IntToByte(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: IntToByte
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteConverter.cs
+    startLine: 47
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public static byte[] IntToByte(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function IntToByte(value As Integer) As Byte()
+  overload: Neosmartpen.Net.Support.ByteConverter.IntToByte*
+  nameWithType.vb: ByteConverter.IntToByte(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteConverter.IntToByte(Integer)
+  name.vb: IntToByte(Integer)
+references:
+- uid: Neosmartpen.Net.Support
+  commentId: N:Neosmartpen.Net.Support
+  href: Neosmartpen.html
+  name: Neosmartpen.Net.Support
+  nameWithType: Neosmartpen.Net.Support
+  fullName: Neosmartpen.Net.Support
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToLong*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.ByteToLong
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_ByteToLong_System_Byte___
+  name: ByteToLong
+  nameWithType: ByteConverter.ByteToLong
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToLong
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToInt*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.ByteToInt
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_ByteToInt_System_Byte___
+  name: ByteToInt
+  nameWithType: ByteConverter.ByteToInt
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToInt
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.SingleByteToInt
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_SingleByteToInt_System_Byte_
+  name: SingleByteToInt
+  nameWithType: ByteConverter.SingleByteToInt
+  fullName: Neosmartpen.Net.Support.ByteConverter.SingleByteToInt
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Neosmartpen.Net.Support.ByteConverter.ByteToShort*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.ByteToShort
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_ByteToShort_System_Byte___
+  name: ByteToShort
+  nameWithType: ByteConverter.ByteToShort
+  fullName: Neosmartpen.Net.Support.ByteConverter.ByteToShort
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Neosmartpen.Net.Support.ByteConverter.ShortToByte*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.ShortToByte
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_ShortToByte_System_Int16_
+  name: ShortToByte
+  nameWithType: ByteConverter.ShortToByte
+  fullName: Neosmartpen.Net.Support.ByteConverter.ShortToByte
+- uid: Neosmartpen.Net.Support.ByteConverter.LongToByte*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.LongToByte
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_LongToByte_System_Int64_
+  name: LongToByte
+  nameWithType: ByteConverter.LongToByte
+  fullName: Neosmartpen.Net.Support.ByteConverter.LongToByte
+- uid: Neosmartpen.Net.Support.ByteConverter.IntToByte*
+  commentId: Overload:Neosmartpen.Net.Support.ByteConverter.IntToByte
+  href: Neosmartpen.Net.Support.ByteConverter.html#Neosmartpen_Net_Support_ByteConverter_IntToByte_System_Int32_
+  name: IntToByte
+  nameWithType: ByteConverter.IntToByte
+  fullName: Neosmartpen.Net.Support.ByteConverter.IntToByte

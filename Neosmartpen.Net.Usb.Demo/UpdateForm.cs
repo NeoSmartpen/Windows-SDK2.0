@@ -48,7 +48,7 @@ namespace Neosmartpen.Net.Usb.Demo
         private void tbFirmwareFilePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Firmware Files|*._v_";
+            openFileDialog1.Filter = "Firmware Files (*._v_)|*._v_|Firmware Files (*.bin)|*.bin|All Files|*";
             openFileDialog1.Title = "Select a Firmware File";
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)

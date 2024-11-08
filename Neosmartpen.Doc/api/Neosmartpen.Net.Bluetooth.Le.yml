@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Bluetooth.Le
+  commentId: N:Neosmartpen.Net.Bluetooth.Le
+  id: Neosmartpen.Net.Bluetooth.Le
+  children:
+  - Neosmartpen.Net.Bluetooth.Le.BluetoothLePenClient
+  langs:
+  - csharp
+  - vb
+  name: Neosmartpen.Net.Bluetooth.Le
+  nameWithType: Neosmartpen.Net.Bluetooth.Le
+  fullName: Neosmartpen.Net.Bluetooth.Le
+  type: Namespace
+  assemblies:
+  - Neosmartpen.Net
+references:
+- uid: Neosmartpen.Net.Bluetooth.Le.BluetoothLePenClient
+  commentId: T:Neosmartpen.Net.Bluetooth.Le.BluetoothLePenClient
+  href: Neosmartpen.Net.Bluetooth.Le.BluetoothLePenClient.html
+  name: BluetoothLePenClient
+  nameWithType: BluetoothLePenClient
+  fullName: Neosmartpen.Net.Bluetooth.Le.BluetoothLePenClient
+shouldSkipMarkup: true

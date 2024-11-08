@@ -1,0 +1,1289 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd
+  commentId: T:Neosmartpen.Net.PenClientParserV2.Cmd
+  id: PenClientParserV2.Cmd
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.LOW_BATTERY_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PAPER_INFO_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOT_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOWN_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_ERROR_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_UP_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PAPER_INFO_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_DOT_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_ERROR_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_UPDOWN_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PDS_COMMAND_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_RESPONSE
+  - Neosmartpen.Net.PenClientParserV2.Cmd.SHUTDOWN_EVENT
+  - Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_REQUEST
+  - Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_RESPONSE
+  langs:
+  - csharp
+  - vb
+  name: PenClientParserV2.Cmd
+  nameWithType: PenClientParserV2.Cmd
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd
+  type: Enum
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Cmd
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 31
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum PenClientParserV2.Cmd
+    content.vb: >-
+      <Flags>
+
+      Public Enum PenClientParserV2.Cmd
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_REQUEST
+  id: VERSION_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: VERSION_REQUEST
+  nameWithType: PenClientParserV2.Cmd.VERSION_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: VERSION_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 34
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: VERSION_REQUEST = 1
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_RESPONSE
+  id: VERSION_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: VERSION_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.VERSION_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.VERSION_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: VERSION_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 35
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: VERSION_RESPONSE = 129
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_REQUEST
+  id: PASSWORD_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PASSWORD_REQUEST
+  nameWithType: PenClientParserV2.Cmd.PASSWORD_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PASSWORD_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 37
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PASSWORD_REQUEST = 2
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_RESPONSE
+  id: PASSWORD_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PASSWORD_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.PASSWORD_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PASSWORD_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 38
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PASSWORD_RESPONSE = 130
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_REQUEST
+  id: PASSWORD_CHANGE_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PASSWORD_CHANGE_REQUEST
+  nameWithType: PenClientParserV2.Cmd.PASSWORD_CHANGE_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PASSWORD_CHANGE_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 40
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PASSWORD_CHANGE_REQUEST = VERSION_REQUEST | PASSWORD_REQUEST
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: PASSWORD_CHANGE_REQUEST = VERSION_REQUEST Or PASSWORD_REQUEST
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_RESPONSE
+  id: PASSWORD_CHANGE_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PASSWORD_CHANGE_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.PASSWORD_CHANGE_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PASSWORD_CHANGE_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PASSWORD_CHANGE_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 41
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PASSWORD_CHANGE_RESPONSE = VERSION_REQUEST | PASSWORD_RESPONSE
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: PASSWORD_CHANGE_RESPONSE = VERSION_REQUEST Or PASSWORD_RESPONSE
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_REQUEST
+  id: SETTING_INFO_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: SETTING_INFO_REQUEST
+  nameWithType: PenClientParserV2.Cmd.SETTING_INFO_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SETTING_INFO_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 43
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: SETTING_INFO_REQUEST = 4
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_RESPONSE
+  id: SETTING_INFO_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: SETTING_INFO_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.SETTING_INFO_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_INFO_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SETTING_INFO_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 44
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: SETTING_INFO_RESPONSE = 132
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.LOW_BATTERY_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.LOW_BATTERY_EVENT
+  id: LOW_BATTERY_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: LOW_BATTERY_EVENT
+  nameWithType: PenClientParserV2.Cmd.LOW_BATTERY_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.LOW_BATTERY_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: LOW_BATTERY_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 46
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: LOW_BATTERY_EVENT = 97
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.SHUTDOWN_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.SHUTDOWN_EVENT
+  id: SHUTDOWN_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: SHUTDOWN_EVENT
+  nameWithType: PenClientParserV2.Cmd.SHUTDOWN_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.SHUTDOWN_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SHUTDOWN_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 47
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: SHUTDOWN_EVENT = 98
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_REQUEST
+  id: SETTING_CHANGE_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: SETTING_CHANGE_REQUEST
+  nameWithType: PenClientParserV2.Cmd.SETTING_CHANGE_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SETTING_CHANGE_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 49
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: SETTING_CHANGE_REQUEST = VERSION_REQUEST | SETTING_INFO_REQUEST
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: SETTING_CHANGE_REQUEST = VERSION_REQUEST Or SETTING_INFO_REQUEST
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_RESPONSE
+  id: SETTING_CHANGE_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: SETTING_CHANGE_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.SETTING_CHANGE_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.SETTING_CHANGE_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SETTING_CHANGE_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 50
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: SETTING_CHANGE_RESPONSE = VERSION_REQUEST | SETTING_INFO_RESPONSE
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: SETTING_CHANGE_RESPONSE = VERSION_REQUEST Or SETTING_INFO_RESPONSE
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_REQUEST
+  id: ONLINE_DATA_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_DATA_REQUEST
+  nameWithType: PenClientParserV2.Cmd.ONLINE_DATA_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_DATA_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 52
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_DATA_REQUEST = 17
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_RESPONSE
+  id: ONLINE_DATA_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_DATA_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.ONLINE_DATA_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_DATA_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_DATA_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 53
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_DATA_RESPONSE = 145
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_UPDOWN_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_UPDOWN_EVENT
+  id: ONLINE_PEN_UPDOWN_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_PEN_UPDOWN_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_PEN_UPDOWN_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_UPDOWN_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_PEN_UPDOWN_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 55
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_PEN_UPDOWN_EVENT = VERSION_REQUEST | SHUTDOWN_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_PEN_UPDOWN_EVENT = VERSION_REQUEST Or SHUTDOWN_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PAPER_INFO_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PAPER_INFO_EVENT
+  id: ONLINE_PAPER_INFO_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_PAPER_INFO_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_PAPER_INFO_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PAPER_INFO_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_PAPER_INFO_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 56
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_PAPER_INFO_EVENT = 100
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_DOT_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_DOT_EVENT
+  id: ONLINE_PEN_DOT_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_PEN_DOT_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_PEN_DOT_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_DOT_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_PEN_DOT_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 57
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_PEN_DOT_EVENT = VERSION_REQUEST | ONLINE_PAPER_INFO_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_PEN_DOT_EVENT = VERSION_REQUEST Or ONLINE_PAPER_INFO_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_ERROR_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_ERROR_EVENT
+  id: ONLINE_PEN_ERROR_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_PEN_ERROR_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_PEN_ERROR_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_PEN_ERROR_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_PEN_ERROR_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 58
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_PEN_ERROR_EVENT = 104
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOWN_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOWN_EVENT
+  id: ONLINE_NEW_PEN_DOWN_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_NEW_PEN_DOWN_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOWN_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOWN_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_NEW_PEN_DOWN_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 60
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_NEW_PEN_DOWN_EVENT = VERSION_REQUEST | ONLINE_PEN_ERROR_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_NEW_PEN_DOWN_EVENT = VERSION_REQUEST Or ONLINE_PEN_ERROR_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_UP_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_UP_EVENT
+  id: ONLINE_NEW_PEN_UP_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_NEW_PEN_UP_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_NEW_PEN_UP_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_UP_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_NEW_PEN_UP_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 61
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_NEW_PEN_UP_EVENT = PASSWORD_REQUEST | ONLINE_PEN_ERROR_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_NEW_PEN_UP_EVENT = PASSWORD_REQUEST Or ONLINE_PEN_ERROR_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PAPER_INFO_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PAPER_INFO_EVENT
+  id: ONLINE_NEW_PAPER_INFO_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_NEW_PAPER_INFO_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_NEW_PAPER_INFO_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PAPER_INFO_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_NEW_PAPER_INFO_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 62
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_NEW_PAPER_INFO_EVENT = VERSION_REQUEST | ONLINE_NEW_PEN_UP_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_NEW_PAPER_INFO_EVENT = VERSION_REQUEST Or ONLINE_NEW_PEN_UP_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOT_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOT_EVENT
+  id: ONLINE_NEW_PEN_DOT_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_NEW_PEN_DOT_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOT_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_DOT_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_NEW_PEN_DOT_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 63
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_NEW_PEN_DOT_EVENT = SETTING_INFO_REQUEST | ONLINE_PEN_ERROR_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_NEW_PEN_DOT_EVENT = SETTING_INFO_REQUEST Or ONLINE_PEN_ERROR_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_ERROR_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_ERROR_EVENT
+  id: ONLINE_NEW_PEN_ERROR_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_NEW_PEN_ERROR_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_NEW_PEN_ERROR_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_NEW_PEN_ERROR_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_NEW_PEN_ERROR_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 64
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_NEW_PEN_ERROR_EVENT = VERSION_REQUEST | ONLINE_NEW_PEN_DOT_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_NEW_PEN_ERROR_EVENT = VERSION_REQUEST Or ONLINE_NEW_PEN_DOT_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  id: ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 66
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_ENCRYPTION_PAPER_INFO_EVENT = PASSWORD_REQUEST | ONLINE_NEW_PEN_DOT_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_ENCRYPTION_PAPER_INFO_EVENT = PASSWORD_REQUEST Or ONLINE_NEW_PEN_DOT_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  id: ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  nameWithType: PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.ONLINE_ENCRYPTION_PEN_DOT_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ONLINE_ENCRYPTION_PEN_DOT_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 67
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: ONLINE_ENCRYPTION_PEN_DOT_EVENT = VERSION_REQUEST | ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: ONLINE_ENCRYPTION_PEN_DOT_EVENT = VERSION_REQUEST Or ONLINE_ENCRYPTION_PAPER_INFO_EVENT
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_REQUEST
+  id: OFFLINE_NOTE_LIST_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_NOTE_LIST_REQUEST
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_NOTE_LIST_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 69
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_NOTE_LIST_REQUEST = 33
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_RESPONSE
+  id: OFFLINE_NOTE_LIST_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_NOTE_LIST_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_NOTE_LIST_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_NOTE_LIST_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 70
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_NOTE_LIST_RESPONSE = 161
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_REQUEST
+  id: OFFLINE_PAGE_LIST_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_PAGE_LIST_REQUEST
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_PAGE_LIST_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 72
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_PAGE_LIST_REQUEST = 34
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_RESPONSE
+  id: OFFLINE_PAGE_LIST_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_PAGE_LIST_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PAGE_LIST_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_PAGE_LIST_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 73
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_PAGE_LIST_RESPONSE = 162
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_REQUEST
+  id: OFFLINE_DATA_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_DATA_REQUEST
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_DATA_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_DATA_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 75
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_DATA_REQUEST = VERSION_REQUEST | OFFLINE_PAGE_LIST_REQUEST
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: OFFLINE_DATA_REQUEST = VERSION_REQUEST Or OFFLINE_PAGE_LIST_REQUEST
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_RESPONSE
+  id: OFFLINE_DATA_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_DATA_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_DATA_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_DATA_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 76
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_DATA_RESPONSE = VERSION_REQUEST | OFFLINE_PAGE_LIST_RESPONSE
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: OFFLINE_DATA_RESPONSE = VERSION_REQUEST Or OFFLINE_PAGE_LIST_RESPONSE
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_REQUEST
+  id: OFFLINE_PACKET_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_PACKET_REQUEST
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_PACKET_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_PACKET_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 77
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_PACKET_REQUEST = 36
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_RESPONSE
+  id: OFFLINE_PACKET_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_PACKET_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_PACKET_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_PACKET_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_PACKET_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 78
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_PACKET_RESPONSE = 164
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_REQUEST
+  id: OFFLINE_DATA_DELETE_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_DATA_DELETE_REQUEST
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_DATA_DELETE_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 80
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_DATA_DELETE_REQUEST = VERSION_REQUEST | OFFLINE_PACKET_REQUEST
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: OFFLINE_DATA_DELETE_REQUEST = VERSION_REQUEST Or OFFLINE_PACKET_REQUEST
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_RESPONSE
+  id: OFFLINE_DATA_DELETE_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: OFFLINE_DATA_DELETE_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.OFFLINE_DATA_DELETE_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OFFLINE_DATA_DELETE_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 81
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: OFFLINE_DATA_DELETE_RESPONSE = VERSION_REQUEST | OFFLINE_PACKET_RESPONSE
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+    content.vb: OFFLINE_DATA_DELETE_RESPONSE = VERSION_REQUEST Or OFFLINE_PACKET_RESPONSE
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_REQUEST
+  id: FIRMWARE_UPLOAD_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: FIRMWARE_UPLOAD_REQUEST
+  nameWithType: PenClientParserV2.Cmd.FIRMWARE_UPLOAD_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FIRMWARE_UPLOAD_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 83
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: FIRMWARE_UPLOAD_REQUEST = 49
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_RESPONSE
+  id: FIRMWARE_UPLOAD_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: FIRMWARE_UPLOAD_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.FIRMWARE_UPLOAD_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_UPLOAD_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FIRMWARE_UPLOAD_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 84
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: FIRMWARE_UPLOAD_RESPONSE = 177
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_REQUEST
+  id: FIRMWARE_PACKET_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: FIRMWARE_PACKET_REQUEST
+  nameWithType: PenClientParserV2.Cmd.FIRMWARE_PACKET_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FIRMWARE_PACKET_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 85
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: FIRMWARE_PACKET_REQUEST = 50
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_RESPONSE
+  id: FIRMWARE_PACKET_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: FIRMWARE_PACKET_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.FIRMWARE_PACKET_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.FIRMWARE_PACKET_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FIRMWARE_PACKET_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 86
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: FIRMWARE_PACKET_RESPONSE = 178
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_REQUEST
+  id: PEN_PROFILE_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PEN_PROFILE_REQUEST
+  nameWithType: PenClientParserV2.Cmd.PEN_PROFILE_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PEN_PROFILE_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 88
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PEN_PROFILE_REQUEST = 65
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_RESPONSE
+  id: PEN_PROFILE_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PEN_PROFILE_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.PEN_PROFILE_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PEN_PROFILE_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PEN_PROFILE_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 89
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PEN_PROFILE_RESPONSE = 193
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_REQUEST
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_REQUEST
+  id: AES_KEY_REQUEST
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: AES_KEY_REQUEST
+  nameWithType: PenClientParserV2.Cmd.AES_KEY_REQUEST
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_REQUEST
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: AES_KEY_REQUEST
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 91
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: AES_KEY_REQUEST = 118
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_RESPONSE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_RESPONSE
+  id: AES_KEY_RESPONSE
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: AES_KEY_RESPONSE
+  nameWithType: PenClientParserV2.Cmd.AES_KEY_RESPONSE
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.AES_KEY_RESPONSE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: AES_KEY_RESPONSE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 92
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: AES_KEY_RESPONSE = 246
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd.PDS_COMMAND_EVENT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Cmd.PDS_COMMAND_EVENT
+  id: PDS_COMMAND_EVENT
+  parent: Neosmartpen.Net.PenClientParserV2.Cmd
+  langs:
+  - csharp
+  - vb
+  name: PDS_COMMAND_EVENT
+  nameWithType: PenClientParserV2.Cmd.PDS_COMMAND_EVENT
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd.PDS_COMMAND_EVENT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PDS_COMMAND_EVENT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 94
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: PDS_COMMAND_EVENT = 115
+    return:
+      type: Neosmartpen.Net.PenClientParserV2.Cmd
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: Neosmartpen.Net.PenClientParserV2.Cmd
+  commentId: T:Neosmartpen.Net.PenClientParserV2.Cmd
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.PenClientParserV2.html
+  name: PenClientParserV2.Cmd
+  nameWithType: PenClientParserV2.Cmd
+  fullName: Neosmartpen.Net.PenClientParserV2.Cmd
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenClientParserV2
+    name: PenClientParserV2
+    href: Neosmartpen.Net.PenClientParserV2.html
+  - name: .
+  - uid: Neosmartpen.Net.PenClientParserV2.Cmd
+    name: Cmd
+    href: Neosmartpen.Net.PenClientParserV2.Cmd.html
+  spec.vb:
+  - uid: Neosmartpen.Net.PenClientParserV2
+    name: PenClientParserV2
+    href: Neosmartpen.Net.PenClientParserV2.html
+  - name: .
+  - uid: Neosmartpen.Net.PenClientParserV2.Cmd
+    name: Cmd
+    href: Neosmartpen.Net.PenClientParserV2.Cmd.html

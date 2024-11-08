@@ -1,0 +1,1500 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Packet
+  commentId: T:Neosmartpen.Net.Packet
+  id: Packet
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.Packet.CheckMoreData
+  - Neosmartpen.Net.Packet.Cmd
+  - Neosmartpen.Net.Packet.Data
+  - Neosmartpen.Net.Packet.GetByte
+  - Neosmartpen.Net.Packet.GetByteToInt
+  - Neosmartpen.Net.Packet.GetBytes
+  - Neosmartpen.Net.Packet.GetBytes(System.Int32)
+  - Neosmartpen.Net.Packet.GetChecksum
+  - Neosmartpen.Net.Packet.GetChecksum(System.Int32)
+  - Neosmartpen.Net.Packet.GetInt
+  - Neosmartpen.Net.Packet.GetLong
+  - Neosmartpen.Net.Packet.GetShort
+  - Neosmartpen.Net.Packet.GetString(System.Int32)
+  - Neosmartpen.Net.Packet.GetUInt
+  - Neosmartpen.Net.Packet.GetULong
+  - Neosmartpen.Net.Packet.GetUShort
+  - Neosmartpen.Net.Packet.Move(System.Int32)
+  - Neosmartpen.Net.Packet.Reset
+  - Neosmartpen.Net.Packet.Result
+  - Neosmartpen.Net.Packet.ToString
+  langs:
+  - csharp
+  - vb
+  name: Packet
+  nameWithType: Packet
+  fullName: Neosmartpen.Net.Packet
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Packet
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 4
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: 'public class Packet : IPacket'
+    content.vb: Public Class Packet Implements IPacket
+  inheritance:
+  - System.Object
+  implements:
+  - Neosmartpen.Net.IPacket
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Packet.Cmd
+  commentId: P:Neosmartpen.Net.Packet.Cmd
+  id: Cmd
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: Cmd
+  nameWithType: Packet.Cmd
+  fullName: Neosmartpen.Net.Packet.Cmd
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Cmd
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 6
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public int Cmd { get; protected set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Cmd As Integer
+  overload: Neosmartpen.Net.Packet.Cmd*
+  implements:
+  - Neosmartpen.Net.IPacket.Cmd
+- uid: Neosmartpen.Net.Packet.Result
+  commentId: P:Neosmartpen.Net.Packet.Result
+  id: Result
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: Packet.Result
+  fullName: Neosmartpen.Net.Packet.Result
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Result
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 8
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public int Result { get; protected set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Result As Integer
+  overload: Neosmartpen.Net.Packet.Result*
+  implements:
+  - Neosmartpen.Net.IPacket.Result
+- uid: Neosmartpen.Net.Packet.Data
+  commentId: P:Neosmartpen.Net.Packet.Data
+  id: Data
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: Packet.Data
+  fullName: Neosmartpen.Net.Packet.Data
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Data
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 10
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public byte[] Data { get; protected set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public Property Data As Byte()
+  overload: Neosmartpen.Net.Packet.Data*
+- uid: Neosmartpen.Net.Packet.GetChecksum(System.Int32)
+  commentId: M:Neosmartpen.Net.Packet.GetChecksum(System.Int32)
+  id: GetChecksum(System.Int32)
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetChecksum(int)
+  nameWithType: Packet.GetChecksum(int)
+  fullName: Neosmartpen.Net.Packet.GetChecksum(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 14
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public byte GetChecksum(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    return:
+      type: System.Byte
+    content.vb: Public Function GetChecksum(length As Integer) As Byte
+  overload: Neosmartpen.Net.Packet.GetChecksum*
+  implements:
+  - Neosmartpen.Net.IPacket.GetChecksum(System.Int32)
+  nameWithType.vb: Packet.GetChecksum(Integer)
+  fullName.vb: Neosmartpen.Net.Packet.GetChecksum(Integer)
+  name.vb: GetChecksum(Integer)
+- uid: Neosmartpen.Net.Packet.GetChecksum
+  commentId: M:Neosmartpen.Net.Packet.GetChecksum
+  id: GetChecksum
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetChecksum()
+  nameWithType: Packet.GetChecksum()
+  fullName: Neosmartpen.Net.Packet.GetChecksum()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 30
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public byte GetChecksum()
+    return:
+      type: System.Byte
+    content.vb: Public Function GetChecksum() As Byte
+  overload: Neosmartpen.Net.Packet.GetChecksum*
+  implements:
+  - Neosmartpen.Net.IPacket.GetChecksum
+- uid: Neosmartpen.Net.Packet.CheckMoreData
+  commentId: M:Neosmartpen.Net.Packet.CheckMoreData
+  id: CheckMoreData
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: CheckMoreData()
+  nameWithType: Packet.CheckMoreData()
+  fullName: Neosmartpen.Net.Packet.CheckMoreData()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: CheckMoreData
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 35
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public bool CheckMoreData()
+    return:
+      type: System.Boolean
+    content.vb: Public Function CheckMoreData() As Boolean
+  overload: Neosmartpen.Net.Packet.CheckMoreData*
+- uid: Neosmartpen.Net.Packet.GetInt
+  commentId: M:Neosmartpen.Net.Packet.GetInt
+  id: GetInt
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetInt()
+  nameWithType: Packet.GetInt()
+  fullName: Neosmartpen.Net.Packet.GetInt()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 40
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public int GetInt()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetInt() As Integer
+  overload: Neosmartpen.Net.Packet.GetInt*
+  implements:
+  - Neosmartpen.Net.IPacket.GetInt
+- uid: Neosmartpen.Net.Packet.GetUInt
+  commentId: M:Neosmartpen.Net.Packet.GetUInt
+  id: GetUInt
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetUInt()
+  nameWithType: Packet.GetUInt()
+  fullName: Neosmartpen.Net.Packet.GetUInt()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetUInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 44
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public uint GetUInt()
+    return:
+      type: System.UInt32
+    content.vb: Public Function GetUInt() As UInteger
+  overload: Neosmartpen.Net.Packet.GetUInt*
+- uid: Neosmartpen.Net.Packet.GetShort
+  commentId: M:Neosmartpen.Net.Packet.GetShort
+  id: GetShort
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetShort()
+  nameWithType: Packet.GetShort()
+  fullName: Neosmartpen.Net.Packet.GetShort()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 49
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public short GetShort()
+    return:
+      type: System.Int16
+    content.vb: Public Function GetShort() As Short
+  overload: Neosmartpen.Net.Packet.GetShort*
+  implements:
+  - Neosmartpen.Net.IPacket.GetShort
+- uid: Neosmartpen.Net.Packet.GetUShort
+  commentId: M:Neosmartpen.Net.Packet.GetUShort
+  id: GetUShort
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetUShort()
+  nameWithType: Packet.GetUShort()
+  fullName: Neosmartpen.Net.Packet.GetUShort()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetUShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 54
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public ushort GetUShort()
+    return:
+      type: System.UInt16
+    content.vb: Public Function GetUShort() As UShort
+  overload: Neosmartpen.Net.Packet.GetUShort*
+- uid: Neosmartpen.Net.Packet.GetLong
+  commentId: M:Neosmartpen.Net.Packet.GetLong
+  id: GetLong
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetLong()
+  nameWithType: Packet.GetLong()
+  fullName: Neosmartpen.Net.Packet.GetLong()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetLong
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 59
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public long GetLong()
+    return:
+      type: System.Int64
+    content.vb: Public Function GetLong() As Long
+  overload: Neosmartpen.Net.Packet.GetLong*
+  implements:
+  - Neosmartpen.Net.IPacket.GetLong
+- uid: Neosmartpen.Net.Packet.GetULong
+  commentId: M:Neosmartpen.Net.Packet.GetULong
+  id: GetULong
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetULong()
+  nameWithType: Packet.GetULong()
+  fullName: Neosmartpen.Net.Packet.GetULong()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetULong
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 63
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public ulong GetULong()
+    return:
+      type: System.UInt64
+    content.vb: Public Function GetULong() As ULong
+  overload: Neosmartpen.Net.Packet.GetULong*
+- uid: Neosmartpen.Net.Packet.GetByteToInt
+  commentId: M:Neosmartpen.Net.Packet.GetByteToInt
+  id: GetByteToInt
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetByteToInt()
+  nameWithType: Packet.GetByteToInt()
+  fullName: Neosmartpen.Net.Packet.GetByteToInt()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetByteToInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 68
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public int GetByteToInt()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetByteToInt() As Integer
+  overload: Neosmartpen.Net.Packet.GetByteToInt*
+  implements:
+  - Neosmartpen.Net.IPacket.GetByteToInt
+- uid: Neosmartpen.Net.Packet.GetBytes
+  commentId: M:Neosmartpen.Net.Packet.GetBytes
+  id: GetBytes
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetBytes()
+  nameWithType: Packet.GetBytes()
+  fullName: Neosmartpen.Net.Packet.GetBytes()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetBytes
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 73
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public byte[] GetBytes()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function GetBytes() As Byte()
+  overload: Neosmartpen.Net.Packet.GetBytes*
+  implements:
+  - Neosmartpen.Net.IPacket.GetBytes
+- uid: Neosmartpen.Net.Packet.GetBytes(System.Int32)
+  commentId: M:Neosmartpen.Net.Packet.GetBytes(System.Int32)
+  id: GetBytes(System.Int32)
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetBytes(int)
+  nameWithType: Packet.GetBytes(int)
+  fullName: Neosmartpen.Net.Packet.GetBytes(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetBytes
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 78
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public byte[] GetBytes(int size)
+    parameters:
+    - id: size
+      type: System.Int32
+    return:
+      type: System.Byte[]
+    content.vb: Public Function GetBytes(size As Integer) As Byte()
+  overload: Neosmartpen.Net.Packet.GetBytes*
+  implements:
+  - Neosmartpen.Net.IPacket.GetBytes(System.Int32)
+  nameWithType.vb: Packet.GetBytes(Integer)
+  fullName.vb: Neosmartpen.Net.Packet.GetBytes(Integer)
+  name.vb: GetBytes(Integer)
+- uid: Neosmartpen.Net.Packet.Move(System.Int32)
+  commentId: M:Neosmartpen.Net.Packet.Move(System.Int32)
+  id: Move(System.Int32)
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: Move(int)
+  nameWithType: Packet.Move(int)
+  fullName: Neosmartpen.Net.Packet.Move(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Move
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 89
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public IPacket Move(int size)
+    parameters:
+    - id: size
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.IPacket
+    content.vb: Public Function Move(size As Integer) As IPacket
+  overload: Neosmartpen.Net.Packet.Move*
+  implements:
+  - Neosmartpen.Net.IPacket.Move(System.Int32)
+  nameWithType.vb: Packet.Move(Integer)
+  fullName.vb: Neosmartpen.Net.Packet.Move(Integer)
+  name.vb: Move(Integer)
+- uid: Neosmartpen.Net.Packet.Reset
+  commentId: M:Neosmartpen.Net.Packet.Reset
+  id: Reset
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: Packet.Reset()
+  fullName: Neosmartpen.Net.Packet.Reset()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Reset
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 95
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public IPacket Reset()
+    return:
+      type: Neosmartpen.Net.IPacket
+    content.vb: Public Function Reset() As IPacket
+  overload: Neosmartpen.Net.Packet.Reset*
+  implements:
+  - Neosmartpen.Net.IPacket.Reset
+- uid: Neosmartpen.Net.Packet.GetByte
+  commentId: M:Neosmartpen.Net.Packet.GetByte
+  id: GetByte
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetByte()
+  nameWithType: Packet.GetByte()
+  fullName: Neosmartpen.Net.Packet.GetByte()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetByte
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 101
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public byte GetByte()
+    return:
+      type: System.Byte
+    content.vb: Public Function GetByte() As Byte
+  overload: Neosmartpen.Net.Packet.GetByte*
+  implements:
+  - Neosmartpen.Net.IPacket.GetByte
+- uid: Neosmartpen.Net.Packet.GetString(System.Int32)
+  commentId: M:Neosmartpen.Net.Packet.GetString(System.Int32)
+  id: GetString(System.Int32)
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: GetString(int)
+  nameWithType: Packet.GetString(int)
+  fullName: Neosmartpen.Net.Packet.GetString(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetString
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 106
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  example: []
+  syntax:
+    content: public string GetString(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Function GetString(length As Integer) As String
+  overload: Neosmartpen.Net.Packet.GetString*
+  implements:
+  - Neosmartpen.Net.IPacket.GetString(System.Int32)
+  nameWithType.vb: Packet.GetString(Integer)
+  fullName.vb: Neosmartpen.Net.Packet.GetString(Integer)
+  name.vb: GetString(Integer)
+- uid: Neosmartpen.Net.Packet.ToString
+  commentId: M:Neosmartpen.Net.Packet.ToString
+  id: ToString
+  parent: Neosmartpen.Net.Packet
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Packet.ToString()
+  fullName: Neosmartpen.Net.Packet.ToString()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ToString
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Packet.cs
+    startLine: 111
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Neosmartpen.Net.Packet.ToString*
+  implements:
+  - Neosmartpen.Net.IPacket.ToString
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Neosmartpen.Net.IPacket
+  commentId: T:Neosmartpen.Net.IPacket
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.IPacket.html
+  name: IPacket
+  nameWithType: IPacket
+  fullName: Neosmartpen.Net.IPacket
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.Packet.Cmd*
+  commentId: Overload:Neosmartpen.Net.Packet.Cmd
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_Cmd
+  name: Cmd
+  nameWithType: Packet.Cmd
+  fullName: Neosmartpen.Net.Packet.Cmd
+- uid: Neosmartpen.Net.IPacket.Cmd
+  commentId: P:Neosmartpen.Net.IPacket.Cmd
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Cmd
+  name: Cmd
+  nameWithType: IPacket.Cmd
+  fullName: Neosmartpen.Net.IPacket.Cmd
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.Packet.Result*
+  commentId: Overload:Neosmartpen.Net.Packet.Result
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_Result
+  name: Result
+  nameWithType: Packet.Result
+  fullName: Neosmartpen.Net.Packet.Result
+- uid: Neosmartpen.Net.IPacket.Result
+  commentId: P:Neosmartpen.Net.IPacket.Result
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Result
+  name: Result
+  nameWithType: IPacket.Result
+  fullName: Neosmartpen.Net.IPacket.Result
+- uid: Neosmartpen.Net.Packet.Data*
+  commentId: Overload:Neosmartpen.Net.Packet.Data
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_Data
+  name: Data
+  nameWithType: Packet.Data
+  fullName: Neosmartpen.Net.Packet.Data
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.GetChecksum*
+  commentId: Overload:Neosmartpen.Net.Packet.GetChecksum
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetChecksum_System_Int32_
+  name: GetChecksum
+  nameWithType: Packet.GetChecksum
+  fullName: Neosmartpen.Net.Packet.GetChecksum
+- uid: Neosmartpen.Net.IPacket.GetChecksum(System.Int32)
+  commentId: M:Neosmartpen.Net.IPacket.GetChecksum(System.Int32)
+  parent: Neosmartpen.Net.IPacket
+  isExternal: true
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum_System_Int32_
+  name: GetChecksum(int)
+  nameWithType: IPacket.GetChecksum(int)
+  fullName: Neosmartpen.Net.IPacket.GetChecksum(int)
+  nameWithType.vb: IPacket.GetChecksum(Integer)
+  fullName.vb: Neosmartpen.Net.IPacket.GetChecksum(Integer)
+  name.vb: GetChecksum(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetChecksum(System.Int32)
+    name: GetChecksum
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetChecksum(System.Int32)
+    name: GetChecksum
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Neosmartpen.Net.IPacket.GetChecksum
+  commentId: M:Neosmartpen.Net.IPacket.GetChecksum
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum
+  name: GetChecksum()
+  nameWithType: IPacket.GetChecksum()
+  fullName: Neosmartpen.Net.IPacket.GetChecksum()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetChecksum
+    name: GetChecksum
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetChecksum
+    name: GetChecksum
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetChecksum
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.CheckMoreData*
+  commentId: Overload:Neosmartpen.Net.Packet.CheckMoreData
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_CheckMoreData
+  name: CheckMoreData
+  nameWithType: Packet.CheckMoreData
+  fullName: Neosmartpen.Net.Packet.CheckMoreData
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Neosmartpen.Net.Packet.GetInt*
+  commentId: Overload:Neosmartpen.Net.Packet.GetInt
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetInt
+  name: GetInt
+  nameWithType: Packet.GetInt
+  fullName: Neosmartpen.Net.Packet.GetInt
+- uid: Neosmartpen.Net.IPacket.GetInt
+  commentId: M:Neosmartpen.Net.IPacket.GetInt
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetInt
+  name: GetInt()
+  nameWithType: IPacket.GetInt()
+  fullName: Neosmartpen.Net.IPacket.GetInt()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetInt
+    name: GetInt
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetInt
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetInt
+    name: GetInt
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetInt
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.GetUInt*
+  commentId: Overload:Neosmartpen.Net.Packet.GetUInt
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetUInt
+  name: GetUInt
+  nameWithType: Packet.GetUInt
+  fullName: Neosmartpen.Net.Packet.GetUInt
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: Neosmartpen.Net.Packet.GetShort*
+  commentId: Overload:Neosmartpen.Net.Packet.GetShort
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetShort
+  name: GetShort
+  nameWithType: Packet.GetShort
+  fullName: Neosmartpen.Net.Packet.GetShort
+- uid: Neosmartpen.Net.IPacket.GetShort
+  commentId: M:Neosmartpen.Net.IPacket.GetShort
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetShort
+  name: GetShort()
+  nameWithType: IPacket.GetShort()
+  fullName: Neosmartpen.Net.IPacket.GetShort()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetShort
+    name: GetShort
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetShort
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetShort
+    name: GetShort
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetShort
+  - name: (
+  - name: )
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Neosmartpen.Net.Packet.GetUShort*
+  commentId: Overload:Neosmartpen.Net.Packet.GetUShort
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetUShort
+  name: GetUShort
+  nameWithType: Packet.GetUShort
+  fullName: Neosmartpen.Net.Packet.GetUShort
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: Neosmartpen.Net.Packet.GetLong*
+  commentId: Overload:Neosmartpen.Net.Packet.GetLong
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetLong
+  name: GetLong
+  nameWithType: Packet.GetLong
+  fullName: Neosmartpen.Net.Packet.GetLong
+- uid: Neosmartpen.Net.IPacket.GetLong
+  commentId: M:Neosmartpen.Net.IPacket.GetLong
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetLong
+  name: GetLong()
+  nameWithType: IPacket.GetLong()
+  fullName: Neosmartpen.Net.IPacket.GetLong()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetLong
+    name: GetLong
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetLong
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetLong
+    name: GetLong
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetLong
+  - name: (
+  - name: )
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Neosmartpen.Net.Packet.GetULong*
+  commentId: Overload:Neosmartpen.Net.Packet.GetULong
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetULong
+  name: GetULong
+  nameWithType: Packet.GetULong
+  fullName: Neosmartpen.Net.Packet.GetULong
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Neosmartpen.Net.Packet.GetByteToInt*
+  commentId: Overload:Neosmartpen.Net.Packet.GetByteToInt
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetByteToInt
+  name: GetByteToInt
+  nameWithType: Packet.GetByteToInt
+  fullName: Neosmartpen.Net.Packet.GetByteToInt
+- uid: Neosmartpen.Net.IPacket.GetByteToInt
+  commentId: M:Neosmartpen.Net.IPacket.GetByteToInt
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByteToInt
+  name: GetByteToInt()
+  nameWithType: IPacket.GetByteToInt()
+  fullName: Neosmartpen.Net.IPacket.GetByteToInt()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetByteToInt
+    name: GetByteToInt
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByteToInt
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetByteToInt
+    name: GetByteToInt
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByteToInt
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.GetBytes*
+  commentId: Overload:Neosmartpen.Net.Packet.GetBytes
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetBytes
+  name: GetBytes
+  nameWithType: Packet.GetBytes
+  fullName: Neosmartpen.Net.Packet.GetBytes
+- uid: Neosmartpen.Net.IPacket.GetBytes
+  commentId: M:Neosmartpen.Net.IPacket.GetBytes
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes
+  name: GetBytes()
+  nameWithType: IPacket.GetBytes()
+  fullName: Neosmartpen.Net.IPacket.GetBytes()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetBytes
+    name: GetBytes
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetBytes
+    name: GetBytes
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.IPacket.GetBytes(System.Int32)
+  commentId: M:Neosmartpen.Net.IPacket.GetBytes(System.Int32)
+  parent: Neosmartpen.Net.IPacket
+  isExternal: true
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes_System_Int32_
+  name: GetBytes(int)
+  nameWithType: IPacket.GetBytes(int)
+  fullName: Neosmartpen.Net.IPacket.GetBytes(int)
+  nameWithType.vb: IPacket.GetBytes(Integer)
+  fullName.vb: Neosmartpen.Net.IPacket.GetBytes(Integer)
+  name.vb: GetBytes(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetBytes(System.Int32)
+    name: GetBytes
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetBytes(System.Int32)
+    name: GetBytes
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetBytes_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Neosmartpen.Net.Packet.Move*
+  commentId: Overload:Neosmartpen.Net.Packet.Move
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_Move_System_Int32_
+  name: Move
+  nameWithType: Packet.Move
+  fullName: Neosmartpen.Net.Packet.Move
+- uid: Neosmartpen.Net.IPacket.Move(System.Int32)
+  commentId: M:Neosmartpen.Net.IPacket.Move(System.Int32)
+  parent: Neosmartpen.Net.IPacket
+  isExternal: true
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Move_System_Int32_
+  name: Move(int)
+  nameWithType: IPacket.Move(int)
+  fullName: Neosmartpen.Net.IPacket.Move(int)
+  nameWithType.vb: IPacket.Move(Integer)
+  fullName.vb: Neosmartpen.Net.IPacket.Move(Integer)
+  name.vb: Move(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.Move(System.Int32)
+    name: Move
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Move_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.Move(System.Int32)
+    name: Move
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Move_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Neosmartpen.Net.Packet.Reset*
+  commentId: Overload:Neosmartpen.Net.Packet.Reset
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_Reset
+  name: Reset
+  nameWithType: Packet.Reset
+  fullName: Neosmartpen.Net.Packet.Reset
+- uid: Neosmartpen.Net.IPacket.Reset
+  commentId: M:Neosmartpen.Net.IPacket.Reset
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Reset
+  name: Reset()
+  nameWithType: IPacket.Reset()
+  fullName: Neosmartpen.Net.IPacket.Reset()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.Reset
+    name: Reset
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Reset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.Reset
+    name: Reset
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_Reset
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.GetByte*
+  commentId: Overload:Neosmartpen.Net.Packet.GetByte
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetByte
+  name: GetByte
+  nameWithType: Packet.GetByte
+  fullName: Neosmartpen.Net.Packet.GetByte
+- uid: Neosmartpen.Net.IPacket.GetByte
+  commentId: M:Neosmartpen.Net.IPacket.GetByte
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByte
+  name: GetByte()
+  nameWithType: IPacket.GetByte()
+  fullName: Neosmartpen.Net.IPacket.GetByte()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetByte
+    name: GetByte
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByte
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetByte
+    name: GetByte
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetByte
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.GetString*
+  commentId: Overload:Neosmartpen.Net.Packet.GetString
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_GetString_System_Int32_
+  name: GetString
+  nameWithType: Packet.GetString
+  fullName: Neosmartpen.Net.Packet.GetString
+- uid: Neosmartpen.Net.IPacket.GetString(System.Int32)
+  commentId: M:Neosmartpen.Net.IPacket.GetString(System.Int32)
+  parent: Neosmartpen.Net.IPacket
+  isExternal: true
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetString_System_Int32_
+  name: GetString(int)
+  nameWithType: IPacket.GetString(int)
+  fullName: Neosmartpen.Net.IPacket.GetString(int)
+  nameWithType.vb: IPacket.GetString(Integer)
+  fullName.vb: Neosmartpen.Net.IPacket.GetString(Integer)
+  name.vb: GetString(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.GetString(System.Int32)
+    name: GetString
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetString_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.GetString(System.Int32)
+    name: GetString
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_GetString_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Packet.ToString*
+  commentId: Overload:Neosmartpen.Net.Packet.ToString
+  href: Neosmartpen.Net.Packet.html#Neosmartpen_Net_Packet_ToString
+  name: ToString
+  nameWithType: Packet.ToString
+  fullName: Neosmartpen.Net.Packet.ToString
+- uid: Neosmartpen.Net.IPacket.ToString
+  commentId: M:Neosmartpen.Net.IPacket.ToString
+  parent: Neosmartpen.Net.IPacket
+  href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_ToString
+  name: ToString()
+  nameWithType: IPacket.ToString()
+  fullName: Neosmartpen.Net.IPacket.ToString()
+  spec.csharp:
+  - uid: Neosmartpen.Net.IPacket.ToString
+    name: ToString
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.IPacket.ToString
+    name: ToString
+    href: Neosmartpen.Net.IPacket.html#Neosmartpen_Net_IPacket_ToString
+  - name: (
+  - name: )

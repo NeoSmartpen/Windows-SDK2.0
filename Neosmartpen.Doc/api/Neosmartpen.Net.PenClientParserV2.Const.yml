@@ -1,0 +1,544 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.PenClientParserV2.Const
+  commentId: T:Neosmartpen.Net.PenClientParserV2.Const
+  id: PenClientParserV2.Const
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_DLE
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_ETX
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_HEADER_SIZE
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_POS_CMD
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG1
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG2
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_POS_RESULT
+  - Neosmartpen.Net.PenClientParserV2.Const.PK_STX
+  langs:
+  - csharp
+  - vb
+  name: PenClientParserV2.Const
+  nameWithType: PenClientParserV2.Const
+  fullName: Neosmartpen.Net.PenClientParserV2.Const
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Const
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 17
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public class PenClientParserV2.Const
+    content.vb: Public Class PenClientParserV2.Const
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_STX
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_STX
+  id: PK_STX
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_STX
+  nameWithType: PenClientParserV2.Const.PK_STX
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_STX
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_STX
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 19
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const byte PK_STX = 192
+    return:
+      type: System.Byte
+    content.vb: Public Const PK_STX As Byte = 192
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_ETX
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_ETX
+  id: PK_ETX
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_ETX
+  nameWithType: PenClientParserV2.Const.PK_ETX
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_ETX
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_ETX
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 20
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const byte PK_ETX = 193
+    return:
+      type: System.Byte
+    content.vb: Public Const PK_ETX As Byte = 193
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_DLE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_DLE
+  id: PK_DLE
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_DLE
+  nameWithType: PenClientParserV2.Const.PK_DLE
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_DLE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_DLE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 21
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const byte PK_DLE = 125
+    return:
+      type: System.Byte
+    content.vb: Public Const PK_DLE As Byte = 125
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_CMD
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_POS_CMD
+  id: PK_POS_CMD
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_POS_CMD
+  nameWithType: PenClientParserV2.Const.PK_POS_CMD
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_CMD
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_POS_CMD
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 23
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const int PK_POS_CMD = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const PK_POS_CMD As Integer = 1
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_RESULT
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_POS_RESULT
+  id: PK_POS_RESULT
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_POS_RESULT
+  nameWithType: PenClientParserV2.Const.PK_POS_RESULT
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_RESULT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_POS_RESULT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 24
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const int PK_POS_RESULT = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const PK_POS_RESULT As Integer = 2
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG1
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG1
+  id: PK_POS_LENG1
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_POS_LENG1
+  nameWithType: PenClientParserV2.Const.PK_POS_LENG1
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG1
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_POS_LENG1
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 25
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const int PK_POS_LENG1 = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const PK_POS_LENG1 As Integer = 2
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG2
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG2
+  id: PK_POS_LENG2
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_POS_LENG2
+  nameWithType: PenClientParserV2.Const.PK_POS_LENG2
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_POS_LENG2
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_POS_LENG2
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 26
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const int PK_POS_LENG2 = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const PK_POS_LENG2 As Integer = 3
+- uid: Neosmartpen.Net.PenClientParserV2.Const.PK_HEADER_SIZE
+  commentId: F:Neosmartpen.Net.PenClientParserV2.Const.PK_HEADER_SIZE
+  id: PK_HEADER_SIZE
+  parent: Neosmartpen.Net.PenClientParserV2.Const
+  langs:
+  - csharp
+  - vb
+  name: PK_HEADER_SIZE
+  nameWithType: PenClientParserV2.Const.PK_HEADER_SIZE
+  fullName: Neosmartpen.Net.PenClientParserV2.Const.PK_HEADER_SIZE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PK_HEADER_SIZE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version2/PenClientParserV2.cs
+    startLine: 28
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public const int PK_HEADER_SIZE = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const PK_HEADER_SIZE As Integer = 3
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

@@ -5,30 +5,32 @@ namespace PenDemo
 {
     public partial class PasswordInputForm : Form
     {
-        public delegate void OnEnterPassword( string password );
+        public delegate void OnEnterPassword(string password);
 
-        OnEnterPassword mDelegate;
+        private OnEnterPassword OnEntererdPassword;
 
-        public PasswordInputForm( OnEnterPassword dele )
+        public PasswordInputForm(OnEnterPassword dele)
         {
             InitializeComponent();
-
-            mDelegate = dele;
+            OnEntererdPassword = dele;
         }
 
-        private void btnSubmit_Click( object sender, EventArgs e )
+        public void SetStatus(int retryCount, int resetCount)
         {
-            if ( tbPassword.Text == "" )
+            StatusLabel.Text = retryCount + "/" + resetCount;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (PasswordTextbox.Text == "")
             {
-                MessageBox.Show( "Your pen is locked.\r\nPlease input your password." );
+                MessageBox.Show("Your device is locked.\r\nEnter your password to unlock it.");
                 return;
             }
             
             Close();
-
-            mDelegate( tbPassword.Text );
-
-            tbPassword.Text = "";
+            OnEntererdPassword(PasswordTextbox.Text);
+            PasswordTextbox.Text = "";
         }
     }
 }

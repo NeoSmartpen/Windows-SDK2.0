@@ -1,0 +1,497 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.ImageProcessingInfo
+  commentId: T:Neosmartpen.Net.ImageProcessingInfo
+  id: ImageProcessingInfo
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.ImageProcessingInfo.DotCount
+  - Neosmartpen.Net.ImageProcessingInfo.Processed
+  - Neosmartpen.Net.ImageProcessingInfo.Success
+  - Neosmartpen.Net.ImageProcessingInfo.Total
+  - Neosmartpen.Net.ImageProcessingInfo.Transferred
+  langs:
+  - csharp
+  - vb
+  name: ImageProcessingInfo
+  nameWithType: ImageProcessingInfo
+  fullName: Neosmartpen.Net.ImageProcessingInfo
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ImageProcessingInfo
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 2
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public class ImageProcessingInfo
+    content.vb: Public Class ImageProcessingInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.ImageProcessingInfo.DotCount
+  commentId: P:Neosmartpen.Net.ImageProcessingInfo.DotCount
+  id: DotCount
+  parent: Neosmartpen.Net.ImageProcessingInfo
+  langs:
+  - csharp
+  - vb
+  name: DotCount
+  nameWithType: ImageProcessingInfo.DotCount
+  fullName: Neosmartpen.Net.ImageProcessingInfo.DotCount
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DotCount
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 4
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public int DotCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DotCount As Integer
+  overload: Neosmartpen.Net.ImageProcessingInfo.DotCount*
+- uid: Neosmartpen.Net.ImageProcessingInfo.Total
+  commentId: P:Neosmartpen.Net.ImageProcessingInfo.Total
+  id: Total
+  parent: Neosmartpen.Net.ImageProcessingInfo
+  langs:
+  - csharp
+  - vb
+  name: Total
+  nameWithType: ImageProcessingInfo.Total
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Total
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Total
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 8
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Number of images received from the image sensor
+  example: []
+  syntax:
+    content: public int Total { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Total As Integer
+  overload: Neosmartpen.Net.ImageProcessingInfo.Total*
+- uid: Neosmartpen.Net.ImageProcessingInfo.Processed
+  commentId: P:Neosmartpen.Net.ImageProcessingInfo.Processed
+  id: Processed
+  parent: Neosmartpen.Net.ImageProcessingInfo
+  langs:
+  - csharp
+  - vb
+  name: Processed
+  nameWithType: ImageProcessingInfo.Processed
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Processed
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Processed
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 13
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Number of images delivered to the data processor
+  example: []
+  syntax:
+    content: public int Processed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Processed As Integer
+  overload: Neosmartpen.Net.ImageProcessingInfo.Processed*
+- uid: Neosmartpen.Net.ImageProcessingInfo.Success
+  commentId: P:Neosmartpen.Net.ImageProcessingInfo.Success
+  id: Success
+  parent: Neosmartpen.Net.ImageProcessingInfo
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: ImageProcessingInfo.Success
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Success
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Success
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 18
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Number of images processed by the data processor
+  example: []
+  syntax:
+    content: public int Success { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Success As Integer
+  overload: Neosmartpen.Net.ImageProcessingInfo.Success*
+- uid: Neosmartpen.Net.ImageProcessingInfo.Transferred
+  commentId: P:Neosmartpen.Net.ImageProcessingInfo.Transferred
+  id: Transferred
+  parent: Neosmartpen.Net.ImageProcessingInfo
+  langs:
+  - csharp
+  - vb
+  name: Transferred
+  nameWithType: ImageProcessingInfo.Transferred
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Transferred
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Transferred
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/ImageProcessingInfo.cs
+    startLine: 23
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Number of images last used for coordinate recognition
+  example: []
+  syntax:
+    content: public int Transferred { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Transferred As Integer
+  overload: Neosmartpen.Net.ImageProcessingInfo.Transferred*
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.ImageProcessingInfo.DotCount*
+  commentId: Overload:Neosmartpen.Net.ImageProcessingInfo.DotCount
+  href: Neosmartpen.Net.ImageProcessingInfo.html#Neosmartpen_Net_ImageProcessingInfo_DotCount
+  name: DotCount
+  nameWithType: ImageProcessingInfo.DotCount
+  fullName: Neosmartpen.Net.ImageProcessingInfo.DotCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.ImageProcessingInfo.Total*
+  commentId: Overload:Neosmartpen.Net.ImageProcessingInfo.Total
+  href: Neosmartpen.Net.ImageProcessingInfo.html#Neosmartpen_Net_ImageProcessingInfo_Total
+  name: Total
+  nameWithType: ImageProcessingInfo.Total
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Total
+- uid: Neosmartpen.Net.ImageProcessingInfo.Processed*
+  commentId: Overload:Neosmartpen.Net.ImageProcessingInfo.Processed
+  href: Neosmartpen.Net.ImageProcessingInfo.html#Neosmartpen_Net_ImageProcessingInfo_Processed
+  name: Processed
+  nameWithType: ImageProcessingInfo.Processed
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Processed
+- uid: Neosmartpen.Net.ImageProcessingInfo.Success*
+  commentId: Overload:Neosmartpen.Net.ImageProcessingInfo.Success
+  href: Neosmartpen.Net.ImageProcessingInfo.html#Neosmartpen_Net_ImageProcessingInfo_Success
+  name: Success
+  nameWithType: ImageProcessingInfo.Success
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Success
+- uid: Neosmartpen.Net.ImageProcessingInfo.Transferred*
+  commentId: Overload:Neosmartpen.Net.ImageProcessingInfo.Transferred
+  href: Neosmartpen.Net.ImageProcessingInfo.html#Neosmartpen_Net_ImageProcessingInfo_Transferred
+  name: Transferred
+  nameWithType: ImageProcessingInfo.Transferred
+  fullName: Neosmartpen.Net.ImageProcessingInfo.Transferred

@@ -1,0 +1,1025 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs
+  commentId: T:Neosmartpen.Net.PenStatusReceivedEventArgs
+  id: PenStatusReceivedEventArgs
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+  - Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+  langs:
+  - csharp
+  - vb
+  name: PenStatusReceivedEventArgs
+  nameWithType: PenStatusReceivedEventArgs
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenStatusReceivedEventArgs
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 5
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Contains properties that status and setting of pen for the PenStatusReceived
+  example: []
+  syntax:
+    content: public sealed class PenStatusReceivedEventArgs
+    content.vb: Public NotInheritable Class PenStatusReceivedEventArgs
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+  id: Timestamp
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: PenStatusReceivedEventArgs.Timestamp
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Timestamp
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 51
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets RTC millisecond timestamp of pen (from 1970-01-01)
+  example: []
+  syntax:
+    content: public long Timestamp { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property Timestamp As Long
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+  id: AutoShutdownTime
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: AutoShutdownTime
+  nameWithType: PenStatusReceivedEventArgs.AutoShutdownTime
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: AutoShutdownTime
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 56
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the power-off setting when there is no input for a certain period of time
+  example: []
+  syntax:
+    content: public short AutoShutdownTime { get; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public Property AutoShutdownTime As Short
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+  id: MaxForce
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: MaxForce
+  nameWithType: PenStatusReceivedEventArgs.MaxForce
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: MaxForce
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 61
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets maximum level of force sensor
+  example: []
+  syntax:
+    content: public int MaxForce { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxForce As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+  id: Battery
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Battery
+  nameWithType: PenStatusReceivedEventArgs.Battery
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Battery
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 66
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets battery status of pen
+  example: []
+  syntax:
+    content: public int Battery { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Battery As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.Battery*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+  id: UsedMem
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: UsedMem
+  nameWithType: PenStatusReceivedEventArgs.UsedMem
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: UsedMem
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 71
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets status of pen's storage
+  example: []
+  syntax:
+    content: public int UsedMem { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UsedMem As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+  id: AutoPowerOn
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: AutoPowerOn
+  nameWithType: PenStatusReceivedEventArgs.AutoPowerOn
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: AutoPowerOn
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 76
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the power-on setting when the pen tip is pressed
+  example: []
+  syntax:
+    content: public bool AutoPowerOn { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AutoPowerOn As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+  id: HoverMode
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: HoverMode
+  nameWithType: PenStatusReceivedEventArgs.HoverMode
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: HoverMode
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 77
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public bool HoverMode { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property HoverMode As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+  id: Beep
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Beep
+  nameWithType: PenStatusReceivedEventArgs.Beep
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Beep
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 82
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the status of the beep sound property
+  example: []
+  syntax:
+    content: public bool Beep { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Beep As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.Beep*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+  id: PenSensitivity
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: PenSensitivity
+  nameWithType: PenStatusReceivedEventArgs.PenSensitivity
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenSensitivity
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 87
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the value of the pen's sensitivity property that controls the force sensor of pen
+  example: []
+  syntax:
+    content: public short PenSensitivity { get; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public Property PenSensitivity As Short
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+  id: TimeOffset
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: TimeOffset
+  nameWithType: PenStatusReceivedEventArgs.TimeOffset
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: TimeOffset
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 95
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: >-
+    timestamp offset
+
+    In most cases, you can ignore it
+  example: []
+  syntax:
+    content: public int TimeOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TimeOffset As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+  id: PenColor
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: PenColor
+  nameWithType: PenStatusReceivedEventArgs.PenColor
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenColor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 100
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets color of pen's led
+  example: []
+  syntax:
+    content: public int PenColor { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PenColor As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+  id: AccelerationMode
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: AccelerationMode
+  nameWithType: PenStatusReceivedEventArgs.AccelerationMode
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: AccelerationMode
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 105
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the status of the acceleration sensor property
+  example: []
+  syntax:
+    content: public bool AccelerationMode { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AccelerationMode As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+  id: Locked
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Locked
+  nameWithType: PenStatusReceivedEventArgs.Locked
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Locked
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 112
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: >-
+    Gets the status of pen's authorization
+
+    true if pen is locked, otherwise false
+  example: []
+  syntax:
+    content: public bool Locked { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Locked As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.Locked*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  id: PasswordMaxRetryCount
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: PasswordMaxRetryCount
+  nameWithType: PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PasswordMaxRetryCount
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 117
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the maximum password input count
+  example: []
+  syntax:
+    content: public int PasswordMaxRetryCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PasswordMaxRetryCount As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+  id: PasswordRetryCount
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: PasswordRetryCount
+  nameWithType: PenStatusReceivedEventArgs.PasswordRetryCount
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PasswordRetryCount
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 122
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the current password input count
+  example: []
+  syntax:
+    content: public int PasswordRetryCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PasswordRetryCount As Integer
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+  id: UseOfflineData
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: UseOfflineData
+  nameWithType: PenStatusReceivedEventArgs.UseOfflineData
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: UseOfflineData
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 128
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: >-
+    Gets the usage of offline data
+
+    true if offline data available, otherwise false
+  example: []
+  syntax:
+    content: public bool UseOfflineData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseOfflineData As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+  id: PenCapPower
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: PenCapPower
+  nameWithType: PenStatusReceivedEventArgs.PenCapPower
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenCapPower
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 133
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets the property that can be control by cap of pen
+  example: []
+  syntax:
+    content: public bool PenCapPower { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property PenCapPower As Boolean
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower*
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+  commentId: P:Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+  id: ModelName
+  parent: Neosmartpen.Net.PenStatusReceivedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ModelName
+  nameWithType: PenStatusReceivedEventArgs.ModelName
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ModelName
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Event/PenStatusReceivedEventArgs.cs
+    startLine: 138
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: >-
+    Model Name 
+
+    This property use in protocol ver 1
+  example: []
+  syntax:
+    content: public string ModelName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ModelName As String
+  overload: Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName*
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_Timestamp
+  name: Timestamp
+  nameWithType: PenStatusReceivedEventArgs.Timestamp
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Timestamp
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_AutoShutdownTime
+  name: AutoShutdownTime
+  nameWithType: PenStatusReceivedEventArgs.AutoShutdownTime
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoShutdownTime
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_MaxForce
+  name: MaxForce
+  nameWithType: PenStatusReceivedEventArgs.MaxForce
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.MaxForce
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Battery*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_Battery
+  name: Battery
+  nameWithType: PenStatusReceivedEventArgs.Battery
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Battery
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_UsedMem
+  name: UsedMem
+  nameWithType: PenStatusReceivedEventArgs.UsedMem
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.UsedMem
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_AutoPowerOn
+  name: AutoPowerOn
+  nameWithType: PenStatusReceivedEventArgs.AutoPowerOn
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AutoPowerOn
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_HoverMode
+  name: HoverMode
+  nameWithType: PenStatusReceivedEventArgs.HoverMode
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.HoverMode
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Beep*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_Beep
+  name: Beep
+  nameWithType: PenStatusReceivedEventArgs.Beep
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Beep
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_PenSensitivity
+  name: PenSensitivity
+  nameWithType: PenStatusReceivedEventArgs.PenSensitivity
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenSensitivity
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_TimeOffset
+  name: TimeOffset
+  nameWithType: PenStatusReceivedEventArgs.TimeOffset
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.TimeOffset
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_PenColor
+  name: PenColor
+  nameWithType: PenStatusReceivedEventArgs.PenColor
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenColor
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_AccelerationMode
+  name: AccelerationMode
+  nameWithType: PenStatusReceivedEventArgs.AccelerationMode
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.AccelerationMode
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.Locked*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_Locked
+  name: Locked
+  nameWithType: PenStatusReceivedEventArgs.Locked
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.Locked
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_PasswordMaxRetryCount
+  name: PasswordMaxRetryCount
+  nameWithType: PenStatusReceivedEventArgs.PasswordMaxRetryCount
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordMaxRetryCount
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_PasswordRetryCount
+  name: PasswordRetryCount
+  nameWithType: PenStatusReceivedEventArgs.PasswordRetryCount
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PasswordRetryCount
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_UseOfflineData
+  name: UseOfflineData
+  nameWithType: PenStatusReceivedEventArgs.UseOfflineData
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.UseOfflineData
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_PenCapPower
+  name: PenCapPower
+  nameWithType: PenStatusReceivedEventArgs.PenCapPower
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.PenCapPower
+- uid: Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName*
+  commentId: Overload:Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+  href: Neosmartpen.Net.PenStatusReceivedEventArgs.html#Neosmartpen_Net_PenStatusReceivedEventArgs_ModelName
+  name: ModelName
+  nameWithType: PenStatusReceivedEventArgs.ModelName
+  fullName: Neosmartpen.Net.PenStatusReceivedEventArgs.ModelName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+shouldSkipMarkup: true

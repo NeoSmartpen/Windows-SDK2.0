@@ -1,0 +1,2176 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.PenControllerEx
+  commentId: T:Neosmartpen.Net.PenControllerEx
+  id: PenControllerEx
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.PenControllerEx.#ctor(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: PenControllerEx
+  nameWithType: PenControllerEx
+  fullName: Neosmartpen.Net.PenControllerEx
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/PenControllerEx.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenControllerEx
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/PenControllerEx.cs
+    startLine: 2
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: 'public class PenControllerEx : PenController'
+    content.vb: Public Class PenControllerEx Inherits PenController
+  inheritance:
+  - System.Object
+  - Neosmartpen.Net.PenController
+  inheritedMembers:
+  - Neosmartpen.Net.PenController.Protocol
+  - Neosmartpen.Net.PenController.PenClient
+  - Neosmartpen.Net.PenController.OnDataReceived(System.Byte[])
+  - Neosmartpen.Net.PenController.Connected
+  - Neosmartpen.Net.PenController.Disconnected
+  - Neosmartpen.Net.PenController.OfflineDownloadFinished
+  - Neosmartpen.Net.PenController.Authenticated
+  - Neosmartpen.Net.PenController.AvailableNoteAdded
+  - Neosmartpen.Net.PenController.AutoPowerOnChanged
+  - Neosmartpen.Net.PenController.AutoPowerOffTimeChanged
+  - Neosmartpen.Net.PenController.BeepSoundChanged
+  - Neosmartpen.Net.PenController.PenCapPowerOnOffChanged
+  - Neosmartpen.Net.PenController.PenColorChanged
+  - Neosmartpen.Net.PenController.HoverChanged
+  - Neosmartpen.Net.PenController.OfflineDataChanged
+  - Neosmartpen.Net.PenController.PasswordRequested
+  - Neosmartpen.Net.PenController.PasswordChanged
+  - Neosmartpen.Net.PenController.SensitivityChanged
+  - Neosmartpen.Net.PenController.FscSensitivityChanged
+  - Neosmartpen.Net.PenController.RtcTimeChanged
+  - Neosmartpen.Net.PenController.BeepAndLightChanged
+  - Neosmartpen.Net.PenController.BtLocalNameChanged
+  - Neosmartpen.Net.PenController.DataTransmissionTypeChanged
+  - Neosmartpen.Net.PenController.DownSamplingChanged
+  - Neosmartpen.Net.PenController.UsbModeChanged
+  - Neosmartpen.Net.PenController.BatteryAlarmReceived
+  - Neosmartpen.Net.PenController.DotReceived
+  - Neosmartpen.Net.PenController.FirmwareInstallationFinished
+  - Neosmartpen.Net.PenController.FirmwareInstallationStarted
+  - Neosmartpen.Net.PenController.FirmwareInstallationStatusUpdated
+  - Neosmartpen.Net.PenController.OfflineDataListReceived
+  - Neosmartpen.Net.PenController.OfflineStrokeReceived
+  - Neosmartpen.Net.PenController.PenStatusReceived
+  - Neosmartpen.Net.PenController.OfflineDataRemoved
+  - Neosmartpen.Net.PenController.OfflineDataDownloadStarted
+  - Neosmartpen.Net.PenController.PenProfileReceived
+  - Neosmartpen.Net.PenController.ErrorDetected
+  - Neosmartpen.Net.PenController.SetPassword(System.String,System.String)
+  - Neosmartpen.Net.PenController.InputPassword(System.String)
+  - Neosmartpen.Net.PenController.RequestPenStatus
+  - Neosmartpen.Net.PenController.SetRtcTime(System.Int64)
+  - Neosmartpen.Net.PenController.SetAutoPowerOffTime(System.Int16)
+  - Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(System.Boolean)
+  - Neosmartpen.Net.PenController.SetAutoPowerOnEnable(System.Boolean)
+  - Neosmartpen.Net.PenController.SetBeepSoundEnable(System.Boolean)
+  - Neosmartpen.Net.PenController.SetOfflineDataEnable(System.Boolean)
+  - Neosmartpen.Net.PenController.SetColor(System.Int32)
+  - Neosmartpen.Net.PenController.SetSensitivity(System.Int16)
+  - Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+  - Neosmartpen.Net.PenController.SetDownSampling(System.Boolean)
+  - Neosmartpen.Net.PenController.SetBtLocalName(System.String)
+  - Neosmartpen.Net.PenController.SetFscSensitivity(System.Int16)
+  - Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+  - Neosmartpen.Net.PenController.RequestBeepAndLight
+  - Neosmartpen.Net.PenController.AddAvailableNote
+  - Neosmartpen.Net.PenController.AddAvailableNote(System.Int32,System.Int32,System.Int32[])
+  - Neosmartpen.Net.PenController.AddAvailableNote(System.Int32[],System.Int32[])
+  - Neosmartpen.Net.PenController.RequestOfflineDataList
+  - Neosmartpen.Net.PenController.RequestRemoveOfflineData(System.Int32,System.Int32,System.Int32[])
+  - Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32[])
+  - Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32[])
+  - Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32)
+  - Neosmartpen.Net.PenController.RequestFirmwareInstallation(System.String,System.String)
+  - Neosmartpen.Net.PenController.SuspendFirmwareInstallation
+  - Neosmartpen.Net.PenController.IsSupportPenProfile
+  - Neosmartpen.Net.PenController.CreateProfile(System.String,System.Byte[])
+  - Neosmartpen.Net.PenController.DeleteProfile(System.String,System.Byte[])
+  - Neosmartpen.Net.PenController.GetProfileInfo(System.String)
+  - Neosmartpen.Net.PenController.ReadProfileValues(System.String,System.String[])
+  - Neosmartpen.Net.PenController.WriteProfileValues(System.String,System.Byte[],System.String[],System.Byte[][])
+  - Neosmartpen.Net.PenController.DeleteProfileValues(System.String,System.Byte[],System.String[])
+  - Neosmartpen.Net.PenController.OnConnected
+  - Neosmartpen.Net.PenController.OnDisconnected
+  - Neosmartpen.Net.PenController.SetPressureCalibrateFactor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - Neosmartpen.Net.PenController.GetPressureCalibrationFactor(System.Int32)
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.PenControllerEx.#ctor(System.Int32)
+  commentId: M:Neosmartpen.Net.PenControllerEx.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Neosmartpen.Net.PenControllerEx
+  langs:
+  - csharp
+  - vb
+  name: PenControllerEx(int)
+  nameWithType: PenControllerEx.PenControllerEx(int)
+  fullName: Neosmartpen.Net.PenControllerEx.PenControllerEx(int)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/PenControllerEx.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/PenControllerEx.cs
+    startLine: 4
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public PenControllerEx(int protocol)
+    parameters:
+    - id: protocol
+      type: System.Int32
+    content.vb: Public Sub New(protocol As Integer)
+  overload: Neosmartpen.Net.PenControllerEx.#ctor*
+  nameWithType.vb: PenControllerEx.New(Integer)
+  fullName.vb: Neosmartpen.Net.PenControllerEx.New(Integer)
+  name.vb: New(Integer)
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Neosmartpen.Net.PenController
+  commentId: T:Neosmartpen.Net.PenController
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.PenController.html
+  name: PenController
+  nameWithType: PenController
+  fullName: Neosmartpen.Net.PenController
+- uid: Neosmartpen.Net.PenController.Protocol
+  commentId: P:Neosmartpen.Net.PenController.Protocol
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_Protocol
+  name: Protocol
+  nameWithType: PenController.Protocol
+  fullName: Neosmartpen.Net.PenController.Protocol
+- uid: Neosmartpen.Net.PenController.PenClient
+  commentId: P:Neosmartpen.Net.PenController.PenClient
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PenClient
+  name: PenClient
+  nameWithType: PenController.PenClient
+  fullName: Neosmartpen.Net.PenController.PenClient
+- uid: Neosmartpen.Net.PenController.OnDataReceived(System.Byte[])
+  commentId: M:Neosmartpen.Net.PenController.OnDataReceived(System.Byte[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDataReceived_System_Byte___
+  name: OnDataReceived(byte[])
+  nameWithType: PenController.OnDataReceived(byte[])
+  fullName: Neosmartpen.Net.PenController.OnDataReceived(byte[])
+  nameWithType.vb: PenController.OnDataReceived(Byte())
+  fullName.vb: Neosmartpen.Net.PenController.OnDataReceived(Byte())
+  name.vb: OnDataReceived(Byte())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.OnDataReceived(System.Byte[])
+    name: OnDataReceived
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDataReceived_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.OnDataReceived(System.Byte[])
+    name: OnDataReceived
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDataReceived_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.Connected
+  commentId: E:Neosmartpen.Net.PenController.Connected
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_Connected
+  name: Connected
+  nameWithType: PenController.Connected
+  fullName: Neosmartpen.Net.PenController.Connected
+- uid: Neosmartpen.Net.PenController.Disconnected
+  commentId: E:Neosmartpen.Net.PenController.Disconnected
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_Disconnected
+  name: Disconnected
+  nameWithType: PenController.Disconnected
+  fullName: Neosmartpen.Net.PenController.Disconnected
+- uid: Neosmartpen.Net.PenController.OfflineDownloadFinished
+  commentId: E:Neosmartpen.Net.PenController.OfflineDownloadFinished
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineDownloadFinished
+  name: OfflineDownloadFinished
+  nameWithType: PenController.OfflineDownloadFinished
+  fullName: Neosmartpen.Net.PenController.OfflineDownloadFinished
+- uid: Neosmartpen.Net.PenController.Authenticated
+  commentId: E:Neosmartpen.Net.PenController.Authenticated
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_Authenticated
+  name: Authenticated
+  nameWithType: PenController.Authenticated
+  fullName: Neosmartpen.Net.PenController.Authenticated
+- uid: Neosmartpen.Net.PenController.AvailableNoteAdded
+  commentId: E:Neosmartpen.Net.PenController.AvailableNoteAdded
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AvailableNoteAdded
+  name: AvailableNoteAdded
+  nameWithType: PenController.AvailableNoteAdded
+  fullName: Neosmartpen.Net.PenController.AvailableNoteAdded
+- uid: Neosmartpen.Net.PenController.AutoPowerOnChanged
+  commentId: E:Neosmartpen.Net.PenController.AutoPowerOnChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AutoPowerOnChanged
+  name: AutoPowerOnChanged
+  nameWithType: PenController.AutoPowerOnChanged
+  fullName: Neosmartpen.Net.PenController.AutoPowerOnChanged
+- uid: Neosmartpen.Net.PenController.AutoPowerOffTimeChanged
+  commentId: E:Neosmartpen.Net.PenController.AutoPowerOffTimeChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AutoPowerOffTimeChanged
+  name: AutoPowerOffTimeChanged
+  nameWithType: PenController.AutoPowerOffTimeChanged
+  fullName: Neosmartpen.Net.PenController.AutoPowerOffTimeChanged
+- uid: Neosmartpen.Net.PenController.BeepSoundChanged
+  commentId: E:Neosmartpen.Net.PenController.BeepSoundChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_BeepSoundChanged
+  name: BeepSoundChanged
+  nameWithType: PenController.BeepSoundChanged
+  fullName: Neosmartpen.Net.PenController.BeepSoundChanged
+- uid: Neosmartpen.Net.PenController.PenCapPowerOnOffChanged
+  commentId: E:Neosmartpen.Net.PenController.PenCapPowerOnOffChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PenCapPowerOnOffChanged
+  name: PenCapPowerOnOffChanged
+  nameWithType: PenController.PenCapPowerOnOffChanged
+  fullName: Neosmartpen.Net.PenController.PenCapPowerOnOffChanged
+- uid: Neosmartpen.Net.PenController.PenColorChanged
+  commentId: E:Neosmartpen.Net.PenController.PenColorChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PenColorChanged
+  name: PenColorChanged
+  nameWithType: PenController.PenColorChanged
+  fullName: Neosmartpen.Net.PenController.PenColorChanged
+- uid: Neosmartpen.Net.PenController.HoverChanged
+  commentId: E:Neosmartpen.Net.PenController.HoverChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_HoverChanged
+  name: HoverChanged
+  nameWithType: PenController.HoverChanged
+  fullName: Neosmartpen.Net.PenController.HoverChanged
+- uid: Neosmartpen.Net.PenController.OfflineDataChanged
+  commentId: E:Neosmartpen.Net.PenController.OfflineDataChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineDataChanged
+  name: OfflineDataChanged
+  nameWithType: PenController.OfflineDataChanged
+  fullName: Neosmartpen.Net.PenController.OfflineDataChanged
+- uid: Neosmartpen.Net.PenController.PasswordRequested
+  commentId: E:Neosmartpen.Net.PenController.PasswordRequested
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PasswordRequested
+  name: PasswordRequested
+  nameWithType: PenController.PasswordRequested
+  fullName: Neosmartpen.Net.PenController.PasswordRequested
+- uid: Neosmartpen.Net.PenController.PasswordChanged
+  commentId: E:Neosmartpen.Net.PenController.PasswordChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PasswordChanged
+  name: PasswordChanged
+  nameWithType: PenController.PasswordChanged
+  fullName: Neosmartpen.Net.PenController.PasswordChanged
+- uid: Neosmartpen.Net.PenController.SensitivityChanged
+  commentId: E:Neosmartpen.Net.PenController.SensitivityChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SensitivityChanged
+  name: SensitivityChanged
+  nameWithType: PenController.SensitivityChanged
+  fullName: Neosmartpen.Net.PenController.SensitivityChanged
+- uid: Neosmartpen.Net.PenController.FscSensitivityChanged
+  commentId: E:Neosmartpen.Net.PenController.FscSensitivityChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_FscSensitivityChanged
+  name: FscSensitivityChanged
+  nameWithType: PenController.FscSensitivityChanged
+  fullName: Neosmartpen.Net.PenController.FscSensitivityChanged
+- uid: Neosmartpen.Net.PenController.RtcTimeChanged
+  commentId: E:Neosmartpen.Net.PenController.RtcTimeChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RtcTimeChanged
+  name: RtcTimeChanged
+  nameWithType: PenController.RtcTimeChanged
+  fullName: Neosmartpen.Net.PenController.RtcTimeChanged
+- uid: Neosmartpen.Net.PenController.BeepAndLightChanged
+  commentId: E:Neosmartpen.Net.PenController.BeepAndLightChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_BeepAndLightChanged
+  name: BeepAndLightChanged
+  nameWithType: PenController.BeepAndLightChanged
+  fullName: Neosmartpen.Net.PenController.BeepAndLightChanged
+- uid: Neosmartpen.Net.PenController.BtLocalNameChanged
+  commentId: E:Neosmartpen.Net.PenController.BtLocalNameChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_BtLocalNameChanged
+  name: BtLocalNameChanged
+  nameWithType: PenController.BtLocalNameChanged
+  fullName: Neosmartpen.Net.PenController.BtLocalNameChanged
+- uid: Neosmartpen.Net.PenController.DataTransmissionTypeChanged
+  commentId: E:Neosmartpen.Net.PenController.DataTransmissionTypeChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DataTransmissionTypeChanged
+  name: DataTransmissionTypeChanged
+  nameWithType: PenController.DataTransmissionTypeChanged
+  fullName: Neosmartpen.Net.PenController.DataTransmissionTypeChanged
+- uid: Neosmartpen.Net.PenController.DownSamplingChanged
+  commentId: E:Neosmartpen.Net.PenController.DownSamplingChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DownSamplingChanged
+  name: DownSamplingChanged
+  nameWithType: PenController.DownSamplingChanged
+  fullName: Neosmartpen.Net.PenController.DownSamplingChanged
+- uid: Neosmartpen.Net.PenController.UsbModeChanged
+  commentId: E:Neosmartpen.Net.PenController.UsbModeChanged
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_UsbModeChanged
+  name: UsbModeChanged
+  nameWithType: PenController.UsbModeChanged
+  fullName: Neosmartpen.Net.PenController.UsbModeChanged
+- uid: Neosmartpen.Net.PenController.BatteryAlarmReceived
+  commentId: E:Neosmartpen.Net.PenController.BatteryAlarmReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_BatteryAlarmReceived
+  name: BatteryAlarmReceived
+  nameWithType: PenController.BatteryAlarmReceived
+  fullName: Neosmartpen.Net.PenController.BatteryAlarmReceived
+- uid: Neosmartpen.Net.PenController.DotReceived
+  commentId: E:Neosmartpen.Net.PenController.DotReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DotReceived
+  name: DotReceived
+  nameWithType: PenController.DotReceived
+  fullName: Neosmartpen.Net.PenController.DotReceived
+- uid: Neosmartpen.Net.PenController.FirmwareInstallationFinished
+  commentId: E:Neosmartpen.Net.PenController.FirmwareInstallationFinished
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_FirmwareInstallationFinished
+  name: FirmwareInstallationFinished
+  nameWithType: PenController.FirmwareInstallationFinished
+  fullName: Neosmartpen.Net.PenController.FirmwareInstallationFinished
+- uid: Neosmartpen.Net.PenController.FirmwareInstallationStarted
+  commentId: E:Neosmartpen.Net.PenController.FirmwareInstallationStarted
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_FirmwareInstallationStarted
+  name: FirmwareInstallationStarted
+  nameWithType: PenController.FirmwareInstallationStarted
+  fullName: Neosmartpen.Net.PenController.FirmwareInstallationStarted
+- uid: Neosmartpen.Net.PenController.FirmwareInstallationStatusUpdated
+  commentId: E:Neosmartpen.Net.PenController.FirmwareInstallationStatusUpdated
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_FirmwareInstallationStatusUpdated
+  name: FirmwareInstallationStatusUpdated
+  nameWithType: PenController.FirmwareInstallationStatusUpdated
+  fullName: Neosmartpen.Net.PenController.FirmwareInstallationStatusUpdated
+- uid: Neosmartpen.Net.PenController.OfflineDataListReceived
+  commentId: E:Neosmartpen.Net.PenController.OfflineDataListReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineDataListReceived
+  name: OfflineDataListReceived
+  nameWithType: PenController.OfflineDataListReceived
+  fullName: Neosmartpen.Net.PenController.OfflineDataListReceived
+- uid: Neosmartpen.Net.PenController.OfflineStrokeReceived
+  commentId: E:Neosmartpen.Net.PenController.OfflineStrokeReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineStrokeReceived
+  name: OfflineStrokeReceived
+  nameWithType: PenController.OfflineStrokeReceived
+  fullName: Neosmartpen.Net.PenController.OfflineStrokeReceived
+- uid: Neosmartpen.Net.PenController.PenStatusReceived
+  commentId: E:Neosmartpen.Net.PenController.PenStatusReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PenStatusReceived
+  name: PenStatusReceived
+  nameWithType: PenController.PenStatusReceived
+  fullName: Neosmartpen.Net.PenController.PenStatusReceived
+- uid: Neosmartpen.Net.PenController.OfflineDataRemoved
+  commentId: E:Neosmartpen.Net.PenController.OfflineDataRemoved
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineDataRemoved
+  name: OfflineDataRemoved
+  nameWithType: PenController.OfflineDataRemoved
+  fullName: Neosmartpen.Net.PenController.OfflineDataRemoved
+- uid: Neosmartpen.Net.PenController.OfflineDataDownloadStarted
+  commentId: E:Neosmartpen.Net.PenController.OfflineDataDownloadStarted
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OfflineDataDownloadStarted
+  name: OfflineDataDownloadStarted
+  nameWithType: PenController.OfflineDataDownloadStarted
+  fullName: Neosmartpen.Net.PenController.OfflineDataDownloadStarted
+- uid: Neosmartpen.Net.PenController.PenProfileReceived
+  commentId: E:Neosmartpen.Net.PenController.PenProfileReceived
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_PenProfileReceived
+  name: PenProfileReceived
+  nameWithType: PenController.PenProfileReceived
+  fullName: Neosmartpen.Net.PenController.PenProfileReceived
+- uid: Neosmartpen.Net.PenController.ErrorDetected
+  commentId: E:Neosmartpen.Net.PenController.ErrorDetected
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_ErrorDetected
+  name: ErrorDetected
+  nameWithType: PenController.ErrorDetected
+  fullName: Neosmartpen.Net.PenController.ErrorDetected
+- uid: Neosmartpen.Net.PenController.SetPassword(System.String,System.String)
+  commentId: M:Neosmartpen.Net.PenController.SetPassword(System.String,System.String)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPassword_System_String_System_String_
+  name: SetPassword(string, string)
+  nameWithType: PenController.SetPassword(string, string)
+  fullName: Neosmartpen.Net.PenController.SetPassword(string, string)
+  nameWithType.vb: PenController.SetPassword(String, String)
+  fullName.vb: Neosmartpen.Net.PenController.SetPassword(String, String)
+  name.vb: SetPassword(String, String)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetPassword(System.String,System.String)
+    name: SetPassword
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPassword_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetPassword(System.String,System.String)
+    name: SetPassword
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPassword_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Neosmartpen.Net.PenController.InputPassword(System.String)
+  commentId: M:Neosmartpen.Net.PenController.InputPassword(System.String)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_InputPassword_System_String_
+  name: InputPassword(string)
+  nameWithType: PenController.InputPassword(string)
+  fullName: Neosmartpen.Net.PenController.InputPassword(string)
+  nameWithType.vb: PenController.InputPassword(String)
+  fullName.vb: Neosmartpen.Net.PenController.InputPassword(String)
+  name.vb: InputPassword(String)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.InputPassword(System.String)
+    name: InputPassword
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_InputPassword_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.InputPassword(System.String)
+    name: InputPassword
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_InputPassword_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestPenStatus
+  commentId: M:Neosmartpen.Net.PenController.RequestPenStatus
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestPenStatus
+  name: RequestPenStatus()
+  nameWithType: PenController.RequestPenStatus()
+  fullName: Neosmartpen.Net.PenController.RequestPenStatus()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestPenStatus
+    name: RequestPenStatus
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestPenStatus
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestPenStatus
+    name: RequestPenStatus
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestPenStatus
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetRtcTime(System.Int64)
+  commentId: M:Neosmartpen.Net.PenController.SetRtcTime(System.Int64)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetRtcTime_System_Int64_
+  name: SetRtcTime(long)
+  nameWithType: PenController.SetRtcTime(long)
+  fullName: Neosmartpen.Net.PenController.SetRtcTime(long)
+  nameWithType.vb: PenController.SetRtcTime(Long)
+  fullName.vb: Neosmartpen.Net.PenController.SetRtcTime(Long)
+  name.vb: SetRtcTime(Long)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetRtcTime(System.Int64)
+    name: SetRtcTime
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetRtcTime_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetRtcTime(System.Int64)
+    name: SetRtcTime
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetRtcTime_System_Int64_
+  - name: (
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetAutoPowerOffTime(System.Int16)
+  commentId: M:Neosmartpen.Net.PenController.SetAutoPowerOffTime(System.Int16)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOffTime_System_Int16_
+  name: SetAutoPowerOffTime(short)
+  nameWithType: PenController.SetAutoPowerOffTime(short)
+  fullName: Neosmartpen.Net.PenController.SetAutoPowerOffTime(short)
+  nameWithType.vb: PenController.SetAutoPowerOffTime(Short)
+  fullName.vb: Neosmartpen.Net.PenController.SetAutoPowerOffTime(Short)
+  name.vb: SetAutoPowerOffTime(Short)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetAutoPowerOffTime(System.Int16)
+    name: SetAutoPowerOffTime
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOffTime_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetAutoPowerOffTime(System.Int16)
+    name: SetAutoPowerOffTime
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOffTime_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(System.Boolean)
+  commentId: M:Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(System.Boolean)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPenCapPowerOnOffEnable_System_Boolean_
+  name: SetPenCapPowerOnOffEnable(bool)
+  nameWithType: PenController.SetPenCapPowerOnOffEnable(bool)
+  fullName: Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(bool)
+  nameWithType.vb: PenController.SetPenCapPowerOnOffEnable(Boolean)
+  fullName.vb: Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(Boolean)
+  name.vb: SetPenCapPowerOnOffEnable(Boolean)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(System.Boolean)
+    name: SetPenCapPowerOnOffEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPenCapPowerOnOffEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetPenCapPowerOnOffEnable(System.Boolean)
+    name: SetPenCapPowerOnOffEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPenCapPowerOnOffEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetAutoPowerOnEnable(System.Boolean)
+  commentId: M:Neosmartpen.Net.PenController.SetAutoPowerOnEnable(System.Boolean)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOnEnable_System_Boolean_
+  name: SetAutoPowerOnEnable(bool)
+  nameWithType: PenController.SetAutoPowerOnEnable(bool)
+  fullName: Neosmartpen.Net.PenController.SetAutoPowerOnEnable(bool)
+  nameWithType.vb: PenController.SetAutoPowerOnEnable(Boolean)
+  fullName.vb: Neosmartpen.Net.PenController.SetAutoPowerOnEnable(Boolean)
+  name.vb: SetAutoPowerOnEnable(Boolean)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetAutoPowerOnEnable(System.Boolean)
+    name: SetAutoPowerOnEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOnEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetAutoPowerOnEnable(System.Boolean)
+    name: SetAutoPowerOnEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetAutoPowerOnEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetBeepSoundEnable(System.Boolean)
+  commentId: M:Neosmartpen.Net.PenController.SetBeepSoundEnable(System.Boolean)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBeepSoundEnable_System_Boolean_
+  name: SetBeepSoundEnable(bool)
+  nameWithType: PenController.SetBeepSoundEnable(bool)
+  fullName: Neosmartpen.Net.PenController.SetBeepSoundEnable(bool)
+  nameWithType.vb: PenController.SetBeepSoundEnable(Boolean)
+  fullName.vb: Neosmartpen.Net.PenController.SetBeepSoundEnable(Boolean)
+  name.vb: SetBeepSoundEnable(Boolean)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetBeepSoundEnable(System.Boolean)
+    name: SetBeepSoundEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBeepSoundEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetBeepSoundEnable(System.Boolean)
+    name: SetBeepSoundEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBeepSoundEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetOfflineDataEnable(System.Boolean)
+  commentId: M:Neosmartpen.Net.PenController.SetOfflineDataEnable(System.Boolean)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetOfflineDataEnable_System_Boolean_
+  name: SetOfflineDataEnable(bool)
+  nameWithType: PenController.SetOfflineDataEnable(bool)
+  fullName: Neosmartpen.Net.PenController.SetOfflineDataEnable(bool)
+  nameWithType.vb: PenController.SetOfflineDataEnable(Boolean)
+  fullName.vb: Neosmartpen.Net.PenController.SetOfflineDataEnable(Boolean)
+  name.vb: SetOfflineDataEnable(Boolean)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetOfflineDataEnable(System.Boolean)
+    name: SetOfflineDataEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetOfflineDataEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetOfflineDataEnable(System.Boolean)
+    name: SetOfflineDataEnable
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetOfflineDataEnable_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetColor(System.Int32)
+  commentId: M:Neosmartpen.Net.PenController.SetColor(System.Int32)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetColor_System_Int32_
+  name: SetColor(int)
+  nameWithType: PenController.SetColor(int)
+  fullName: Neosmartpen.Net.PenController.SetColor(int)
+  nameWithType.vb: PenController.SetColor(Integer)
+  fullName.vb: Neosmartpen.Net.PenController.SetColor(Integer)
+  name.vb: SetColor(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetColor(System.Int32)
+    name: SetColor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetColor_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetColor(System.Int32)
+    name: SetColor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetColor_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetSensitivity(System.Int16)
+  commentId: M:Neosmartpen.Net.PenController.SetSensitivity(System.Int16)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetSensitivity_System_Int16_
+  name: SetSensitivity(short)
+  nameWithType: PenController.SetSensitivity(short)
+  fullName: Neosmartpen.Net.PenController.SetSensitivity(short)
+  nameWithType.vb: PenController.SetSensitivity(Short)
+  fullName.vb: Neosmartpen.Net.PenController.SetSensitivity(Short)
+  name.vb: SetSensitivity(Short)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetSensitivity(System.Int16)
+    name: SetSensitivity
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetSensitivity_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetSensitivity(System.Int16)
+    name: SetSensitivity
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetSensitivity_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+  commentId: M:Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetUsbMode_Neosmartpen_Net_UsbMode_
+  name: SetUsbMode(UsbMode)
+  nameWithType: PenController.SetUsbMode(UsbMode)
+  fullName: Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+    name: SetUsbMode
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetUsbMode_Neosmartpen_Net_UsbMode_
+  - name: (
+  - uid: Neosmartpen.Net.UsbMode
+    name: UsbMode
+    href: Neosmartpen.Net.UsbMode.html
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetUsbMode(Neosmartpen.Net.UsbMode)
+    name: SetUsbMode
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetUsbMode_Neosmartpen_Net_UsbMode_
+  - name: (
+  - uid: Neosmartpen.Net.UsbMode
+    name: UsbMode
+    href: Neosmartpen.Net.UsbMode.html
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetDownSampling(System.Boolean)
+  commentId: M:Neosmartpen.Net.PenController.SetDownSampling(System.Boolean)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDownSampling_System_Boolean_
+  name: SetDownSampling(bool)
+  nameWithType: PenController.SetDownSampling(bool)
+  fullName: Neosmartpen.Net.PenController.SetDownSampling(bool)
+  nameWithType.vb: PenController.SetDownSampling(Boolean)
+  fullName.vb: Neosmartpen.Net.PenController.SetDownSampling(Boolean)
+  name.vb: SetDownSampling(Boolean)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetDownSampling(System.Boolean)
+    name: SetDownSampling
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDownSampling_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetDownSampling(System.Boolean)
+    name: SetDownSampling
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDownSampling_System_Boolean_
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetBtLocalName(System.String)
+  commentId: M:Neosmartpen.Net.PenController.SetBtLocalName(System.String)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBtLocalName_System_String_
+  name: SetBtLocalName(string)
+  nameWithType: PenController.SetBtLocalName(string)
+  fullName: Neosmartpen.Net.PenController.SetBtLocalName(string)
+  nameWithType.vb: PenController.SetBtLocalName(String)
+  fullName.vb: Neosmartpen.Net.PenController.SetBtLocalName(String)
+  name.vb: SetBtLocalName(String)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetBtLocalName(System.String)
+    name: SetBtLocalName
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBtLocalName_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetBtLocalName(System.String)
+    name: SetBtLocalName
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetBtLocalName_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetFscSensitivity(System.Int16)
+  commentId: M:Neosmartpen.Net.PenController.SetFscSensitivity(System.Int16)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetFscSensitivity_System_Int16_
+  name: SetFscSensitivity(short)
+  nameWithType: PenController.SetFscSensitivity(short)
+  fullName: Neosmartpen.Net.PenController.SetFscSensitivity(short)
+  nameWithType.vb: PenController.SetFscSensitivity(Short)
+  fullName.vb: Neosmartpen.Net.PenController.SetFscSensitivity(Short)
+  name.vb: SetFscSensitivity(Short)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetFscSensitivity(System.Int16)
+    name: SetFscSensitivity
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetFscSensitivity_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetFscSensitivity(System.Int16)
+    name: SetFscSensitivity
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetFscSensitivity_System_Int16_
+  - name: (
+  - uid: System.Int16
+    name: Short
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int16
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+  commentId: M:Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDataTransmissionType_Neosmartpen_Net_DataTransmissionType_
+  name: SetDataTransmissionType(DataTransmissionType)
+  nameWithType: PenController.SetDataTransmissionType(DataTransmissionType)
+  fullName: Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+    name: SetDataTransmissionType
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDataTransmissionType_Neosmartpen_Net_DataTransmissionType_
+  - name: (
+  - uid: Neosmartpen.Net.DataTransmissionType
+    name: DataTransmissionType
+    href: Neosmartpen.Net.DataTransmissionType.html
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetDataTransmissionType(Neosmartpen.Net.DataTransmissionType)
+    name: SetDataTransmissionType
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetDataTransmissionType_Neosmartpen_Net_DataTransmissionType_
+  - name: (
+  - uid: Neosmartpen.Net.DataTransmissionType
+    name: DataTransmissionType
+    href: Neosmartpen.Net.DataTransmissionType.html
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestBeepAndLight
+  commentId: M:Neosmartpen.Net.PenController.RequestBeepAndLight
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestBeepAndLight
+  name: RequestBeepAndLight()
+  nameWithType: PenController.RequestBeepAndLight()
+  fullName: Neosmartpen.Net.PenController.RequestBeepAndLight()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestBeepAndLight
+    name: RequestBeepAndLight
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestBeepAndLight
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestBeepAndLight
+    name: RequestBeepAndLight
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestBeepAndLight
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.AddAvailableNote
+  commentId: M:Neosmartpen.Net.PenController.AddAvailableNote
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote
+  name: AddAvailableNote()
+  nameWithType: PenController.AddAvailableNote()
+  fullName: Neosmartpen.Net.PenController.AddAvailableNote()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32,System.Int32,System.Int32[])
+  commentId: M:Neosmartpen.Net.PenController.AddAvailableNote(System.Int32,System.Int32,System.Int32[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32_System_Int32_System_Int32___
+  name: AddAvailableNote(int, int, int[])
+  nameWithType: PenController.AddAvailableNote(int, int, int[])
+  fullName: Neosmartpen.Net.PenController.AddAvailableNote(int, int, int[])
+  nameWithType.vb: PenController.AddAvailableNote(Integer, Integer, Integer())
+  fullName.vb: Neosmartpen.Net.PenController.AddAvailableNote(Integer, Integer, Integer())
+  name.vb: AddAvailableNote(Integer, Integer, Integer())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32,System.Int32,System.Int32[])
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32,System.Int32,System.Int32[])
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32[],System.Int32[])
+  commentId: M:Neosmartpen.Net.PenController.AddAvailableNote(System.Int32[],System.Int32[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32___System_Int32___
+  name: AddAvailableNote(int[], int[])
+  nameWithType: PenController.AddAvailableNote(int[], int[])
+  fullName: Neosmartpen.Net.PenController.AddAvailableNote(int[], int[])
+  nameWithType.vb: PenController.AddAvailableNote(Integer(), Integer())
+  fullName.vb: Neosmartpen.Net.PenController.AddAvailableNote(Integer(), Integer())
+  name.vb: AddAvailableNote(Integer(), Integer())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32[],System.Int32[])
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32___System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.AddAvailableNote(System.Int32[],System.Int32[])
+    name: AddAvailableNote
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_AddAvailableNote_System_Int32___System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestOfflineDataList
+  commentId: M:Neosmartpen.Net.PenController.RequestOfflineDataList
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineDataList
+  name: RequestOfflineDataList()
+  nameWithType: PenController.RequestOfflineDataList()
+  fullName: Neosmartpen.Net.PenController.RequestOfflineDataList()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineDataList
+    name: RequestOfflineDataList
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineDataList
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineDataList
+    name: RequestOfflineDataList
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineDataList
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestRemoveOfflineData(System.Int32,System.Int32,System.Int32[])
+  commentId: M:Neosmartpen.Net.PenController.RequestRemoveOfflineData(System.Int32,System.Int32,System.Int32[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestRemoveOfflineData_System_Int32_System_Int32_System_Int32___
+  name: RequestRemoveOfflineData(int, int, int[])
+  nameWithType: PenController.RequestRemoveOfflineData(int, int, int[])
+  fullName: Neosmartpen.Net.PenController.RequestRemoveOfflineData(int, int, int[])
+  nameWithType.vb: PenController.RequestRemoveOfflineData(Integer, Integer, Integer())
+  fullName.vb: Neosmartpen.Net.PenController.RequestRemoveOfflineData(Integer, Integer, Integer())
+  name.vb: RequestRemoveOfflineData(Integer, Integer, Integer())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestRemoveOfflineData(System.Int32,System.Int32,System.Int32[])
+    name: RequestRemoveOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestRemoveOfflineData_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestRemoveOfflineData(System.Int32,System.Int32,System.Int32[])
+    name: RequestRemoveOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestRemoveOfflineData_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32[])
+  commentId: M:Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32_System_Boolean_System_Int32___
+  name: RequestOfflineData(int, int, int, bool, int[])
+  nameWithType: PenController.RequestOfflineData(int, int, int, bool, int[])
+  fullName: Neosmartpen.Net.PenController.RequestOfflineData(int, int, int, bool, int[])
+  nameWithType.vb: PenController.RequestOfflineData(Integer, Integer, Integer, Boolean, Integer())
+  fullName.vb: Neosmartpen.Net.PenController.RequestOfflineData(Integer, Integer, Integer, Boolean, Integer())
+  name.vb: RequestOfflineData(Integer, Integer, Integer, Boolean, Integer())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32[])
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32_System_Boolean_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32[])
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32_System_Boolean_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32[])
+  commentId: M:Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32___
+  name: RequestOfflineData(int, int, int[])
+  nameWithType: PenController.RequestOfflineData(int, int, int[])
+  fullName: Neosmartpen.Net.PenController.RequestOfflineData(int, int, int[])
+  nameWithType.vb: PenController.RequestOfflineData(Integer, Integer, Integer())
+  fullName.vb: Neosmartpen.Net.PenController.RequestOfflineData(Integer, Integer, Integer())
+  name.vb: RequestOfflineData(Integer, Integer, Integer())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32[])
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32,System.Int32[])
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_System_Int32___
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32)
+  commentId: M:Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_
+  name: RequestOfflineData(int, int)
+  nameWithType: PenController.RequestOfflineData(int, int)
+  fullName: Neosmartpen.Net.PenController.RequestOfflineData(int, int)
+  nameWithType.vb: PenController.RequestOfflineData(Integer, Integer)
+  fullName.vb: Neosmartpen.Net.PenController.RequestOfflineData(Integer, Integer)
+  name.vb: RequestOfflineData(Integer, Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32)
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestOfflineData(System.Int32,System.Int32)
+    name: RequestOfflineData
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestOfflineData_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Neosmartpen.Net.PenController.RequestFirmwareInstallation(System.String,System.String)
+  commentId: M:Neosmartpen.Net.PenController.RequestFirmwareInstallation(System.String,System.String)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestFirmwareInstallation_System_String_System_String_
+  name: RequestFirmwareInstallation(string, string)
+  nameWithType: PenController.RequestFirmwareInstallation(string, string)
+  fullName: Neosmartpen.Net.PenController.RequestFirmwareInstallation(string, string)
+  nameWithType.vb: PenController.RequestFirmwareInstallation(String, String)
+  fullName.vb: Neosmartpen.Net.PenController.RequestFirmwareInstallation(String, String)
+  name.vb: RequestFirmwareInstallation(String, String)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.RequestFirmwareInstallation(System.String,System.String)
+    name: RequestFirmwareInstallation
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestFirmwareInstallation_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.RequestFirmwareInstallation(System.String,System.String)
+    name: RequestFirmwareInstallation
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_RequestFirmwareInstallation_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Neosmartpen.Net.PenController.SuspendFirmwareInstallation
+  commentId: M:Neosmartpen.Net.PenController.SuspendFirmwareInstallation
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SuspendFirmwareInstallation
+  name: SuspendFirmwareInstallation()
+  nameWithType: PenController.SuspendFirmwareInstallation()
+  fullName: Neosmartpen.Net.PenController.SuspendFirmwareInstallation()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SuspendFirmwareInstallation
+    name: SuspendFirmwareInstallation
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SuspendFirmwareInstallation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SuspendFirmwareInstallation
+    name: SuspendFirmwareInstallation
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SuspendFirmwareInstallation
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.IsSupportPenProfile
+  commentId: M:Neosmartpen.Net.PenController.IsSupportPenProfile
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_IsSupportPenProfile
+  name: IsSupportPenProfile()
+  nameWithType: PenController.IsSupportPenProfile()
+  fullName: Neosmartpen.Net.PenController.IsSupportPenProfile()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.IsSupportPenProfile
+    name: IsSupportPenProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_IsSupportPenProfile
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.IsSupportPenProfile
+    name: IsSupportPenProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_IsSupportPenProfile
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.CreateProfile(System.String,System.Byte[])
+  commentId: M:Neosmartpen.Net.PenController.CreateProfile(System.String,System.Byte[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_CreateProfile_System_String_System_Byte___
+  name: CreateProfile(string, byte[])
+  nameWithType: PenController.CreateProfile(string, byte[])
+  fullName: Neosmartpen.Net.PenController.CreateProfile(string, byte[])
+  nameWithType.vb: PenController.CreateProfile(String, Byte())
+  fullName.vb: Neosmartpen.Net.PenController.CreateProfile(String, Byte())
+  name.vb: CreateProfile(String, Byte())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.CreateProfile(System.String,System.Byte[])
+    name: CreateProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_CreateProfile_System_String_System_Byte___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.CreateProfile(System.String,System.Byte[])
+    name: CreateProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_CreateProfile_System_String_System_Byte___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.DeleteProfile(System.String,System.Byte[])
+  commentId: M:Neosmartpen.Net.PenController.DeleteProfile(System.String,System.Byte[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfile_System_String_System_Byte___
+  name: DeleteProfile(string, byte[])
+  nameWithType: PenController.DeleteProfile(string, byte[])
+  fullName: Neosmartpen.Net.PenController.DeleteProfile(string, byte[])
+  nameWithType.vb: PenController.DeleteProfile(String, Byte())
+  fullName.vb: Neosmartpen.Net.PenController.DeleteProfile(String, Byte())
+  name.vb: DeleteProfile(String, Byte())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.DeleteProfile(System.String,System.Byte[])
+    name: DeleteProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfile_System_String_System_Byte___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.DeleteProfile(System.String,System.Byte[])
+    name: DeleteProfile
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfile_System_String_System_Byte___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.GetProfileInfo(System.String)
+  commentId: M:Neosmartpen.Net.PenController.GetProfileInfo(System.String)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetProfileInfo_System_String_
+  name: GetProfileInfo(string)
+  nameWithType: PenController.GetProfileInfo(string)
+  fullName: Neosmartpen.Net.PenController.GetProfileInfo(string)
+  nameWithType.vb: PenController.GetProfileInfo(String)
+  fullName.vb: Neosmartpen.Net.PenController.GetProfileInfo(String)
+  name.vb: GetProfileInfo(String)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.GetProfileInfo(System.String)
+    name: GetProfileInfo
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetProfileInfo_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.GetProfileInfo(System.String)
+    name: GetProfileInfo
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetProfileInfo_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Neosmartpen.Net.PenController.ReadProfileValues(System.String,System.String[])
+  commentId: M:Neosmartpen.Net.PenController.ReadProfileValues(System.String,System.String[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_ReadProfileValues_System_String_System_String___
+  name: ReadProfileValues(string, string[])
+  nameWithType: PenController.ReadProfileValues(string, string[])
+  fullName: Neosmartpen.Net.PenController.ReadProfileValues(string, string[])
+  nameWithType.vb: PenController.ReadProfileValues(String, String())
+  fullName.vb: Neosmartpen.Net.PenController.ReadProfileValues(String, String())
+  name.vb: ReadProfileValues(String, String())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.ReadProfileValues(System.String,System.String[])
+    name: ReadProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_ReadProfileValues_System_String_System_String___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.ReadProfileValues(System.String,System.String[])
+    name: ReadProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_ReadProfileValues_System_String_System_String___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.WriteProfileValues(System.String,System.Byte[],System.String[],System.Byte[][])
+  commentId: M:Neosmartpen.Net.PenController.WriteProfileValues(System.String,System.Byte[],System.String[],System.Byte[][])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_WriteProfileValues_System_String_System_Byte___System_String___System_Byte_____
+  name: WriteProfileValues(string, byte[], string[], byte[][])
+  nameWithType: PenController.WriteProfileValues(string, byte[], string[], byte[][])
+  fullName: Neosmartpen.Net.PenController.WriteProfileValues(string, byte[], string[], byte[][])
+  nameWithType.vb: PenController.WriteProfileValues(String, Byte(), String(), Byte()())
+  fullName.vb: Neosmartpen.Net.PenController.WriteProfileValues(String, Byte(), String(), Byte()())
+  name.vb: WriteProfileValues(String, Byte(), String(), Byte()())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.WriteProfileValues(System.String,System.Byte[],System.String[],System.Byte[][])
+    name: WriteProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_WriteProfileValues_System_String_System_Byte___System_String___System_Byte_____
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.WriteProfileValues(System.String,System.Byte[],System.String[],System.Byte[][])
+    name: WriteProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_WriteProfileValues_System_String_System_Byte___System_String___System_Byte_____
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.DeleteProfileValues(System.String,System.Byte[],System.String[])
+  commentId: M:Neosmartpen.Net.PenController.DeleteProfileValues(System.String,System.Byte[],System.String[])
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfileValues_System_String_System_Byte___System_String___
+  name: DeleteProfileValues(string, byte[], string[])
+  nameWithType: PenController.DeleteProfileValues(string, byte[], string[])
+  fullName: Neosmartpen.Net.PenController.DeleteProfileValues(string, byte[], string[])
+  nameWithType.vb: PenController.DeleteProfileValues(String, Byte(), String())
+  fullName.vb: Neosmartpen.Net.PenController.DeleteProfileValues(String, Byte(), String())
+  name.vb: DeleteProfileValues(String, Byte(), String())
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.DeleteProfileValues(System.String,System.Byte[],System.String[])
+    name: DeleteProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfileValues_System_String_System_Byte___System_String___
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.DeleteProfileValues(System.String,System.Byte[],System.String[])
+    name: DeleteProfileValues
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_DeleteProfileValues_System_String_System_Byte___System_String___
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.PenController.OnConnected
+  commentId: M:Neosmartpen.Net.PenController.OnConnected
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnConnected
+  name: OnConnected()
+  nameWithType: PenController.OnConnected()
+  fullName: Neosmartpen.Net.PenController.OnConnected()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.OnConnected
+    name: OnConnected
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnConnected
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.OnConnected
+    name: OnConnected
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnConnected
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.OnDisconnected
+  commentId: M:Neosmartpen.Net.PenController.OnDisconnected
+  parent: Neosmartpen.Net.PenController
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDisconnected
+  name: OnDisconnected()
+  nameWithType: PenController.OnDisconnected()
+  fullName: Neosmartpen.Net.PenController.OnDisconnected()
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.OnDisconnected
+    name: OnDisconnected
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDisconnected
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.OnDisconnected
+    name: OnDisconnected
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_OnDisconnected
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.PenController.SetPressureCalibrateFactor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Neosmartpen.Net.PenController.SetPressureCalibrateFactor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPressureCalibrateFactor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SetPressureCalibrateFactor(int, int, int, int, int, int)
+  nameWithType: PenController.SetPressureCalibrateFactor(int, int, int, int, int, int)
+  fullName: Neosmartpen.Net.PenController.SetPressureCalibrateFactor(int, int, int, int, int, int)
+  nameWithType.vb: PenController.SetPressureCalibrateFactor(Integer, Integer, Integer, Integer, Integer, Integer)
+  fullName.vb: Neosmartpen.Net.PenController.SetPressureCalibrateFactor(Integer, Integer, Integer, Integer, Integer, Integer)
+  name.vb: SetPressureCalibrateFactor(Integer, Integer, Integer, Integer, Integer, Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.SetPressureCalibrateFactor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: SetPressureCalibrateFactor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPressureCalibrateFactor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.SetPressureCalibrateFactor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: SetPressureCalibrateFactor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_SetPressureCalibrateFactor_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Neosmartpen.Net.PenController.GetPressureCalibrationFactor(System.Int32)
+  commentId: M:Neosmartpen.Net.PenController.GetPressureCalibrationFactor(System.Int32)
+  parent: Neosmartpen.Net.PenController
+  isExternal: true
+  href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetPressureCalibrationFactor_System_Int32_
+  name: GetPressureCalibrationFactor(int)
+  nameWithType: PenController.GetPressureCalibrationFactor(int)
+  fullName: Neosmartpen.Net.PenController.GetPressureCalibrationFactor(int)
+  nameWithType.vb: PenController.GetPressureCalibrationFactor(Integer)
+  fullName.vb: Neosmartpen.Net.PenController.GetPressureCalibrationFactor(Integer)
+  name.vb: GetPressureCalibrationFactor(Integer)
+  spec.csharp:
+  - uid: Neosmartpen.Net.PenController.GetPressureCalibrationFactor(System.Int32)
+    name: GetPressureCalibrationFactor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetPressureCalibrationFactor_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Neosmartpen.Net.PenController.GetPressureCalibrationFactor(System.Int32)
+    name: GetPressureCalibrationFactor
+    href: Neosmartpen.Net.PenController.html#Neosmartpen_Net_PenController_GetPressureCalibrationFactor_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.PenControllerEx.#ctor*
+  commentId: Overload:Neosmartpen.Net.PenControllerEx.#ctor
+  href: Neosmartpen.Net.PenControllerEx.html#Neosmartpen_Net_PenControllerEx__ctor_System_Int32_
+  name: PenControllerEx
+  nameWithType: PenControllerEx.PenControllerEx
+  fullName: Neosmartpen.Net.PenControllerEx.PenControllerEx
+  nameWithType.vb: PenControllerEx.New
+  fullName.vb: Neosmartpen.Net.PenControllerEx.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+shouldSkipMarkup: true
