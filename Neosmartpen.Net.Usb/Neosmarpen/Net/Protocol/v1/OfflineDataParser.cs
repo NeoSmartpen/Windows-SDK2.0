@@ -1,4 +1,5 @@
-using Ionic.Zip;
+using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using Neosmartpen.Net.Filter;
 using Neosmartpen.Net.Support;
 using System;
@@ -106,10 +107,11 @@ namespace Neosmartpen.Net.Protocol.v1
                 // create a temp folder
                 System.IO.Directory.CreateDirectory(temp);
 
-                // Unzip to the temp folder
-                ZipFile zipfile = ZipFile.Read(file);
-                zipfile.ExtractAll(temp);
-                zipfile.Dispose();
+                FastZip fastZip = new FastZip();
+                string fileFilter = null;
+
+                // Will always overwrite if target filenames already exist
+                fastZip.ExtractZip(file, temp, fileFilter);
 
                 // Moves the extracted files to the default folder
                 string[] infiles = Directory.GetFiles(temp);
