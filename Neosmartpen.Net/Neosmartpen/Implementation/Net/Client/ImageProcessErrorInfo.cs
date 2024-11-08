@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class ImageProcessErrorInfo
     {
         public long Timestamp { get; set; }

@@ -1,0 +1,1385 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Support.ByteUtil
+  commentId: T:Neosmartpen.Net.Support.ByteUtil
+  id: ByteUtil
+  parent: Neosmartpen.Net.Support
+  children:
+  - Neosmartpen.Net.Support.ByteUtil.#ctor(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  - Neosmartpen.Net.Support.ByteUtil.#ctor(System.Byte[])
+  - Neosmartpen.Net.Support.ByteUtil.#ctor(System.Int32,Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  - Neosmartpen.Net.Support.ByteUtil.Clear
+  - Neosmartpen.Net.Support.ByteUtil.DEF_GROWTH
+  - Neosmartpen.Net.Support.ByteUtil.DEF_LIMIT
+  - Neosmartpen.Net.Support.ByteUtil.GetByte
+  - Neosmartpen.Net.Support.ByteUtil.GetByteToInt
+  - Neosmartpen.Net.Support.ByteUtil.GetBytes
+  - Neosmartpen.Net.Support.ByteUtil.GetBytes(System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.GetChecksum(System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.GetInt
+  - Neosmartpen.Net.Support.ByteUtil.GetLong
+  - Neosmartpen.Net.Support.ByteUtil.GetShort
+  - Neosmartpen.Net.Support.ByteUtil.GetString(System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.GetUShort
+  - Neosmartpen.Net.Support.ByteUtil.Max
+  - Neosmartpen.Net.Support.ByteUtil.Put(System.Byte,System.Boolean)
+  - Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[])
+  - Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[],System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.PutInt(System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.PutLong(System.Int64)
+  - Neosmartpen.Net.Support.ByteUtil.PutNull(System.Int32)
+  - Neosmartpen.Net.Support.ByteUtil.PutShort(System.Int16)
+  - Neosmartpen.Net.Support.ByteUtil.Size
+  - Neosmartpen.Net.Support.ByteUtil.ToArray
+  langs:
+  - csharp
+  - vb
+  name: ByteUtil
+  nameWithType: ByteUtil
+  fullName: Neosmartpen.Net.Support.ByteUtil
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ByteUtil
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 7
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  summary: 바이트 버퍼를 대체
+  example: []
+  syntax:
+    content: public class ByteUtil
+    content.vb: Public Class ByteUtil
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Support.ByteUtil.DEF_LIMIT
+  commentId: F:Neosmartpen.Net.Support.ByteUtil.DEF_LIMIT
+  id: DEF_LIMIT
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: DEF_LIMIT
+  nameWithType: ByteUtil.DEF_LIMIT
+  fullName: Neosmartpen.Net.Support.ByteUtil.DEF_LIMIT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DEF_LIMIT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public const int DEF_LIMIT = 1000
+    return:
+      type: System.Int32
+    content.vb: Public Const DEF_LIMIT As Integer = 1000
+- uid: Neosmartpen.Net.Support.ByteUtil.DEF_GROWTH
+  commentId: F:Neosmartpen.Net.Support.ByteUtil.DEF_GROWTH
+  id: DEF_GROWTH
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: DEF_GROWTH
+  nameWithType: ByteUtil.DEF_GROWTH
+  fullName: Neosmartpen.Net.Support.ByteUtil.DEF_GROWTH
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DEF_GROWTH
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public const int DEF_GROWTH = 1000
+    return:
+      type: System.Int32
+    content.vb: Public Const DEF_GROWTH As Integer = 1000
+- uid: Neosmartpen.Net.Support.ByteUtil.Size
+  commentId: P:Neosmartpen.Net.Support.ByteUtil.Size
+  id: Size
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: ByteUtil.Size
+  fullName: Neosmartpen.Net.Support.ByteUtil.Size
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Size
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 19
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public int Size { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Size As Integer
+  overload: Neosmartpen.Net.Support.ByteUtil.Size*
+- uid: Neosmartpen.Net.Support.ByteUtil.Max
+  commentId: P:Neosmartpen.Net.Support.ByteUtil.Max
+  id: Max
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: ByteUtil.Max
+  fullName: Neosmartpen.Net.Support.ByteUtil.Max
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Max
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 24
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public int Max { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Max As Integer
+  overload: Neosmartpen.Net.Support.ByteUtil.Max*
+- uid: Neosmartpen.Net.Support.ByteUtil.#ctor(System.Int32,Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.#ctor(System.Int32,Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  id: '#ctor(System.Int32,Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)'
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: ByteUtil(int, EscapeDelegate)
+  nameWithType: ByteUtil.ByteUtil(int, ByteUtil.EscapeDelegate)
+  fullName: Neosmartpen.Net.Support.ByteUtil.ByteUtil(int, Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 29
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil(int length, ByteUtil.EscapeDelegate escape = null)
+    parameters:
+    - id: length
+      type: System.Int32
+    - id: escape
+      type: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+    content.vb: Public Sub New(length As Integer, escape As ByteUtil.EscapeDelegate = Nothing)
+  overload: Neosmartpen.Net.Support.ByteUtil.#ctor*
+  nameWithType.vb: ByteUtil.New(Integer, ByteUtil.EscapeDelegate)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.New(Integer, Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  name.vb: New(Integer, EscapeDelegate)
+- uid: Neosmartpen.Net.Support.ByteUtil.#ctor(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.#ctor(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  id: '#ctor(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)'
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: ByteUtil(EscapeDelegate)
+  nameWithType: ByteUtil.ByteUtil(ByteUtil.EscapeDelegate)
+  fullName: Neosmartpen.Net.Support.ByteUtil.ByteUtil(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 35
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil(ByteUtil.EscapeDelegate escape = null)
+    parameters:
+    - id: escape
+      type: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+    content.vb: Public Sub New(escape As ByteUtil.EscapeDelegate = Nothing)
+  overload: Neosmartpen.Net.Support.ByteUtil.#ctor*
+  nameWithType.vb: ByteUtil.New(ByteUtil.EscapeDelegate)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.New(Neosmartpen.Net.Support.ByteUtil.EscapeDelegate)
+  name.vb: New(EscapeDelegate)
+- uid: Neosmartpen.Net.Support.ByteUtil.#ctor(System.Byte[])
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.#ctor(System.Byte[])
+  id: '#ctor(System.Byte[])'
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: ByteUtil(byte[])
+  nameWithType: ByteUtil.ByteUtil(byte[])
+  fullName: Neosmartpen.Net.Support.ByteUtil.ByteUtil(byte[])
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 40
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    content.vb: Public Sub New(data As Byte())
+  overload: Neosmartpen.Net.Support.ByteUtil.#ctor*
+  nameWithType.vb: ByteUtil.New(Byte())
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.New(Byte())
+  name.vb: New(Byte())
+- uid: Neosmartpen.Net.Support.ByteUtil.Clear
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.Clear
+  id: Clear
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ByteUtil.Clear()
+  fullName: Neosmartpen.Net.Support.ByteUtil.Clear()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Clear
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 46
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Neosmartpen.Net.Support.ByteUtil.Clear*
+- uid: Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[])
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[])
+  id: Put(System.Byte[])
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Put(byte[])
+  nameWithType: ByteUtil.Put(byte[])
+  fullName: Neosmartpen.Net.Support.ByteUtil.Put(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Put
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 54
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil Put(byte[] inputs)
+    parameters:
+    - id: inputs
+      type: System.Byte[]
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function Put(inputs As Byte()) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.Put*
+  nameWithType.vb: ByteUtil.Put(Byte())
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.Put(Byte())
+  name.vb: Put(Byte())
+- uid: Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[],System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.Put(System.Byte[],System.Int32)
+  id: Put(System.Byte[],System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Put(byte[], int)
+  nameWithType: ByteUtil.Put(byte[], int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.Put(byte[], int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Put
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 64
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil Put(byte[] inputs, int length)
+    parameters:
+    - id: inputs
+      type: System.Byte[]
+    - id: length
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function Put(inputs As Byte(), length As Integer) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.Put*
+  nameWithType.vb: ByteUtil.Put(Byte(), Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.Put(Byte(), Integer)
+  name.vb: Put(Byte(), Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.Put(System.Byte,System.Boolean)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.Put(System.Byte,System.Boolean)
+  id: Put(System.Byte,System.Boolean)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: Put(byte, bool)
+  nameWithType: ByteUtil.Put(byte, bool)
+  fullName: Neosmartpen.Net.Support.ByteUtil.Put(byte, bool)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Put
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 76
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil Put(byte input, bool escapeIfExist = true)
+    parameters:
+    - id: input
+      type: System.Byte
+    - id: escapeIfExist
+      type: System.Boolean
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function Put(input As Byte, escapeIfExist As Boolean = True) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.Put*
+  nameWithType.vb: ByteUtil.Put(Byte, Boolean)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.Put(Byte, Boolean)
+  name.vb: Put(Byte, Boolean)
+- uid: Neosmartpen.Net.Support.ByteUtil.PutNull(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.PutNull(System.Int32)
+  id: PutNull(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: PutNull(int)
+  nameWithType: ByteUtil.PutNull(int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutNull(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PutNull
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 108
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil PutNull(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function PutNull(length As Integer) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.PutNull*
+  nameWithType.vb: ByteUtil.PutNull(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.PutNull(Integer)
+  name.vb: PutNull(Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.PutInt(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.PutInt(System.Int32)
+  id: PutInt(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: PutInt(int)
+  nameWithType: ByteUtil.PutInt(int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutInt(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PutInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 118
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil PutInt(int input)
+    parameters:
+    - id: input
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function PutInt(input As Integer) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.PutInt*
+  nameWithType.vb: ByteUtil.PutInt(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.PutInt(Integer)
+  name.vb: PutInt(Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.PutLong(System.Int64)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.PutLong(System.Int64)
+  id: PutLong(System.Int64)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: PutLong(long)
+  nameWithType: ByteUtil.PutLong(long)
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutLong(long)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PutLong
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 123
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil PutLong(long input)
+    parameters:
+    - id: input
+      type: System.Int64
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function PutLong(input As Long) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.PutLong*
+  nameWithType.vb: ByteUtil.PutLong(Long)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.PutLong(Long)
+  name.vb: PutLong(Long)
+- uid: Neosmartpen.Net.Support.ByteUtil.PutShort(System.Int16)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.PutShort(System.Int16)
+  id: PutShort(System.Int16)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: PutShort(short)
+  nameWithType: ByteUtil.PutShort(short)
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutShort(short)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PutShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 128
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ByteUtil PutShort(short input)
+    parameters:
+    - id: input
+      type: System.Int16
+    return:
+      type: Neosmartpen.Net.Support.ByteUtil
+    content.vb: Public Function PutShort(input As Short) As ByteUtil
+  overload: Neosmartpen.Net.Support.ByteUtil.PutShort*
+  nameWithType.vb: ByteUtil.PutShort(Short)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.PutShort(Short)
+  name.vb: PutShort(Short)
+- uid: Neosmartpen.Net.Support.ByteUtil.GetInt
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetInt
+  id: GetInt
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetInt()
+  nameWithType: ByteUtil.GetInt()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetInt()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 147
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public int GetInt()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetInt() As Integer
+  overload: Neosmartpen.Net.Support.ByteUtil.GetInt*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetShort
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetShort
+  id: GetShort
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetShort()
+  nameWithType: ByteUtil.GetShort()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetShort()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 152
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public short GetShort()
+    return:
+      type: System.Int16
+    content.vb: Public Function GetShort() As Short
+  overload: Neosmartpen.Net.Support.ByteUtil.GetShort*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetUShort
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetUShort
+  id: GetUShort
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetUShort()
+  nameWithType: ByteUtil.GetUShort()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetUShort()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetUShort
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 157
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public ushort GetUShort()
+    return:
+      type: System.UInt16
+    content.vb: Public Function GetUShort() As UShort
+  overload: Neosmartpen.Net.Support.ByteUtil.GetUShort*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetLong
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetLong
+  id: GetLong
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetLong()
+  nameWithType: ByteUtil.GetLong()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetLong()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetLong
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 162
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public long GetLong()
+    return:
+      type: System.Int64
+    content.vb: Public Function GetLong() As Long
+  overload: Neosmartpen.Net.Support.ByteUtil.GetLong*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetBytes
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetBytes
+  id: GetBytes
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetBytes()
+  nameWithType: ByteUtil.GetBytes()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetBytes()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetBytes
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 167
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public byte[] GetBytes()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function GetBytes() As Byte()
+  overload: Neosmartpen.Net.Support.ByteUtil.GetBytes*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetBytes(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetBytes(System.Int32)
+  id: GetBytes(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetBytes(int)
+  nameWithType: ByteUtil.GetBytes(int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetBytes(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetBytes
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 172
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public byte[] GetBytes(int size)
+    parameters:
+    - id: size
+      type: System.Int32
+    return:
+      type: System.Byte[]
+    content.vb: Public Function GetBytes(size As Integer) As Byte()
+  overload: Neosmartpen.Net.Support.ByteUtil.GetBytes*
+  nameWithType.vb: ByteUtil.GetBytes(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.GetBytes(Integer)
+  name.vb: GetBytes(Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.GetByte
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetByte
+  id: GetByte
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetByte()
+  nameWithType: ByteUtil.GetByte()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetByte()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetByte
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 183
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public byte GetByte()
+    return:
+      type: System.Byte
+    content.vb: Public Function GetByte() As Byte
+  overload: Neosmartpen.Net.Support.ByteUtil.GetByte*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetByteToInt
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetByteToInt
+  id: GetByteToInt
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetByteToInt()
+  nameWithType: ByteUtil.GetByteToInt()
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetByteToInt()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetByteToInt
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 188
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public int GetByteToInt()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetByteToInt() As Integer
+  overload: Neosmartpen.Net.Support.ByteUtil.GetByteToInt*
+- uid: Neosmartpen.Net.Support.ByteUtil.GetString(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetString(System.Int32)
+  id: GetString(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetString(int)
+  nameWithType: ByteUtil.GetString(int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetString(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetString
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 193
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public string GetString(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Function GetString(length As Integer) As String
+  overload: Neosmartpen.Net.Support.ByteUtil.GetString*
+  nameWithType.vb: ByteUtil.GetString(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.GetString(Integer)
+  name.vb: GetString(Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.GetChecksum(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.GetChecksum(System.Int32)
+  id: GetChecksum(System.Int32)
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: GetChecksum(int)
+  nameWithType: ByteUtil.GetChecksum(int)
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetChecksum(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 198
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public byte GetChecksum(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+    return:
+      type: System.Byte
+    content.vb: Public Function GetChecksum(length As Integer) As Byte
+  overload: Neosmartpen.Net.Support.ByteUtil.GetChecksum*
+  nameWithType.vb: ByteUtil.GetChecksum(Integer)
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.GetChecksum(Integer)
+  name.vb: GetChecksum(Integer)
+- uid: Neosmartpen.Net.Support.ByteUtil.ToArray
+  commentId: M:Neosmartpen.Net.Support.ByteUtil.ToArray
+  id: ToArray
+  parent: Neosmartpen.Net.Support.ByteUtil
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: ByteUtil.ToArray()
+  fullName: Neosmartpen.Net.Support.ByteUtil.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ToArray
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/ByteUtil.cs
+    startLine: 214
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public byte[] ToArray()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function ToArray() As Byte()
+  overload: Neosmartpen.Net.Support.ByteUtil.ToArray*
+references:
+- uid: Neosmartpen.Net.Support
+  commentId: N:Neosmartpen.Net.Support
+  href: Neosmartpen.html
+  name: Neosmartpen.Net.Support
+  nameWithType: Neosmartpen.Net.Support
+  fullName: Neosmartpen.Net.Support
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.Support.ByteUtil.Size*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.Size
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_Size
+  name: Size
+  nameWithType: ByteUtil.Size
+  fullName: Neosmartpen.Net.Support.ByteUtil.Size
+- uid: Neosmartpen.Net.Support.ByteUtil.Max*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.Max
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_Max
+  name: Max
+  nameWithType: ByteUtil.Max
+  fullName: Neosmartpen.Net.Support.ByteUtil.Max
+- uid: Neosmartpen.Net.Support.ByteUtil.#ctor*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.#ctor
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil__ctor_System_Int32_Neosmartpen_Net_Support_ByteUtil_EscapeDelegate_
+  name: ByteUtil
+  nameWithType: ByteUtil.ByteUtil
+  fullName: Neosmartpen.Net.Support.ByteUtil.ByteUtil
+  nameWithType.vb: ByteUtil.New
+  fullName.vb: Neosmartpen.Net.Support.ByteUtil.New
+  name.vb: New
+- uid: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+  commentId: T:Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+  parent: Neosmartpen.Net.Support
+  href: Neosmartpen.Net.Support.ByteUtil.html
+  name: ByteUtil.EscapeDelegate
+  nameWithType: ByteUtil.EscapeDelegate
+  fullName: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+  spec.csharp:
+  - uid: Neosmartpen.Net.Support.ByteUtil
+    name: ByteUtil
+    href: Neosmartpen.Net.Support.ByteUtil.html
+  - name: .
+  - uid: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+    name: EscapeDelegate
+    href: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate.html
+  spec.vb:
+  - uid: Neosmartpen.Net.Support.ByteUtil
+    name: ByteUtil
+    href: Neosmartpen.Net.Support.ByteUtil.html
+  - name: .
+  - uid: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate
+    name: EscapeDelegate
+    href: Neosmartpen.Net.Support.ByteUtil.EscapeDelegate.html
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Support.ByteUtil.Clear*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.Clear
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_Clear
+  name: Clear
+  nameWithType: ByteUtil.Clear
+  fullName: Neosmartpen.Net.Support.ByteUtil.Clear
+- uid: Neosmartpen.Net.Support.ByteUtil.Put*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.Put
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_Put_System_Byte___
+  name: Put
+  nameWithType: ByteUtil.Put
+  fullName: Neosmartpen.Net.Support.ByteUtil.Put
+- uid: Neosmartpen.Net.Support.ByteUtil
+  commentId: T:Neosmartpen.Net.Support.ByteUtil
+  parent: Neosmartpen.Net.Support
+  href: Neosmartpen.Net.Support.ByteUtil.html
+  name: ByteUtil
+  nameWithType: ByteUtil
+  fullName: Neosmartpen.Net.Support.ByteUtil
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Neosmartpen.Net.Support.ByteUtil.PutNull*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.PutNull
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_PutNull_System_Int32_
+  name: PutNull
+  nameWithType: ByteUtil.PutNull
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutNull
+- uid: Neosmartpen.Net.Support.ByteUtil.PutInt*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.PutInt
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_PutInt_System_Int32_
+  name: PutInt
+  nameWithType: ByteUtil.PutInt
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutInt
+- uid: Neosmartpen.Net.Support.ByteUtil.PutLong*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.PutLong
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_PutLong_System_Int64_
+  name: PutLong
+  nameWithType: ByteUtil.PutLong
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutLong
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Neosmartpen.Net.Support.ByteUtil.PutShort*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.PutShort
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_PutShort_System_Int16_
+  name: PutShort
+  nameWithType: ByteUtil.PutShort
+  fullName: Neosmartpen.Net.Support.ByteUtil.PutShort
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Neosmartpen.Net.Support.ByteUtil.GetInt*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetInt
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetInt
+  name: GetInt
+  nameWithType: ByteUtil.GetInt
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetInt
+- uid: Neosmartpen.Net.Support.ByteUtil.GetShort*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetShort
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetShort
+  name: GetShort
+  nameWithType: ByteUtil.GetShort
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetShort
+- uid: Neosmartpen.Net.Support.ByteUtil.GetUShort*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetUShort
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetUShort
+  name: GetUShort
+  nameWithType: ByteUtil.GetUShort
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetUShort
+- uid: System.UInt16
+  commentId: T:System.UInt16
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint16
+  name: ushort
+  nameWithType: ushort
+  fullName: ushort
+  nameWithType.vb: UShort
+  fullName.vb: UShort
+  name.vb: UShort
+- uid: Neosmartpen.Net.Support.ByteUtil.GetLong*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetLong
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetLong
+  name: GetLong
+  nameWithType: ByteUtil.GetLong
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetLong
+- uid: Neosmartpen.Net.Support.ByteUtil.GetBytes*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetBytes
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetBytes
+  name: GetBytes
+  nameWithType: ByteUtil.GetBytes
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetBytes
+- uid: Neosmartpen.Net.Support.ByteUtil.GetByte*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetByte
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetByte
+  name: GetByte
+  nameWithType: ByteUtil.GetByte
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetByte
+- uid: Neosmartpen.Net.Support.ByteUtil.GetByteToInt*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetByteToInt
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetByteToInt
+  name: GetByteToInt
+  nameWithType: ByteUtil.GetByteToInt
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetByteToInt
+- uid: Neosmartpen.Net.Support.ByteUtil.GetString*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetString
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetString_System_Int32_
+  name: GetString
+  nameWithType: ByteUtil.GetString
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Neosmartpen.Net.Support.ByteUtil.GetChecksum*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.GetChecksum
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_GetChecksum_System_Int32_
+  name: GetChecksum
+  nameWithType: ByteUtil.GetChecksum
+  fullName: Neosmartpen.Net.Support.ByteUtil.GetChecksum
+- uid: Neosmartpen.Net.Support.ByteUtil.ToArray*
+  commentId: Overload:Neosmartpen.Net.Support.ByteUtil.ToArray
+  href: Neosmartpen.Net.Support.ByteUtil.html#Neosmartpen_Net_Support_ByteUtil_ToArray
+  name: ToArray
+  nameWithType: ByteUtil.ToArray
+  fullName: Neosmartpen.Net.Support.ByteUtil.ToArray

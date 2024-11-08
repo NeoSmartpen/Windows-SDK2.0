@@ -1,6 +1,7 @@
 ﻿ namespace Neosmartpen.Net
 {
-	public class PenProfileReceivedEventArgs
+    /// <exclude />
+    public class PenProfileReceivedEventArgs
 	{
 		internal PenProfileReceivedEventArgs() { }
 		internal PenProfileReceivedEventArgs(ResultType result)

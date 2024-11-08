@@ -2,9 +2,7 @@
 
 namespace Neosmartpen.Net.Support
 {
-    /// <summary>
-    /// 바이트와 short, int, long 간 변환
-    /// </summary>
+    /// <exclude />
     public class ByteConverter
     {
         public static long ByteToLong(byte[] data)

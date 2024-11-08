@@ -1,5 +1,6 @@
 ﻿namespace Neosmartpen.Net
 {
+    /// <exclude />
     public interface IPacket
     {
         int Cmd { get; }

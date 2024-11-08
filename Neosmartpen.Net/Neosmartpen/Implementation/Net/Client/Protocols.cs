@@ -1,5 +1,6 @@
 ﻿namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class Protocols
     {
 		public static readonly int NONE = -1;

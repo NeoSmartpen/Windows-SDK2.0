@@ -1,5 +1,6 @@
 ﻿namespace Neosmartpen.Net
 {
+    /// <exclude />
     /// <summary>
     /// Represents a controller of pen
     /// </summary>

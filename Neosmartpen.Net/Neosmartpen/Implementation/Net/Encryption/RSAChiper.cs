@@ -7,7 +7,8 @@ using Windows.Security.Cryptography.Core;
 
 namespace Neosmartpen.Net.Encryption
 {
-	class RSAChiper
+    /// <exclude />
+    class RSAChiper
 	{
 		private PrivateKey PrivateKey { get; set; }
 		private PublicKey PublicKey { get; set; }

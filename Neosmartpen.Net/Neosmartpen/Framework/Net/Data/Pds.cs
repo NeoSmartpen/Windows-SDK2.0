@@ -1,6 +1,7 @@
 ﻿namespace Neosmartpen.Net
 {
-	public class Pds
+    /// <exclude />
+    public class Pds
 	{
 		internal Pds()
 		{

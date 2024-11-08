@@ -8,7 +8,8 @@ using Windows.Storage.Streams;
 
 namespace Neosmartpen.Net.Encryption
 {
-	class AES256Chiper
+    /// <exclude />
+    class AES256Chiper
 	{
 		/*
 		public string AES_Encrypt(string input, string pass)

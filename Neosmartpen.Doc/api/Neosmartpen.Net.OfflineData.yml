@@ -1,0 +1,936 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.OfflineData
+  commentId: T:Neosmartpen.Net.OfflineData
+  id: OfflineData
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.OfflineData.CURRENT_DIR
+  - Neosmartpen.Net.OfflineData.DEFAULT_ERROR_PATH
+  - Neosmartpen.Net.OfflineData.DEFAULT_PATH
+  - Neosmartpen.Net.OfflineData.DIR_ERROR
+  - Neosmartpen.Net.OfflineData.DIR_ROOT
+  - Neosmartpen.Net.OfflineData.DIR_TEMP
+  - Neosmartpen.Net.OfflineData.DotArrayToStrokeArray(Neosmartpen.Net.Dot[])
+  - Neosmartpen.Net.OfflineData.EXT_DATA
+  - Neosmartpen.Net.OfflineData.EXT_ERROR
+  - Neosmartpen.Net.OfflineData.EXT_ZIP
+  - Neosmartpen.Net.OfflineData.GetErrorFiles
+  - Neosmartpen.Net.OfflineData.GetFileExtFromFullPath(System.String)
+  - Neosmartpen.Net.OfflineData.GetFileFromFullPath(System.String)
+  - Neosmartpen.Net.OfflineData.GetFileNameFromFullPath(System.String)
+  - Neosmartpen.Net.OfflineData.GetOfflineFiles
+  - Neosmartpen.Net.OfflineData.SetDefaultPath(System.String)
+  - Neosmartpen.Net.OfflineData.SetupFileSystem
+  langs:
+  - csharp
+  - vb
+  name: OfflineData
+  nameWithType: OfflineData
+  fullName: Neosmartpen.Net.OfflineData
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OfflineData
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 5
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public abstract class OfflineData
+    content.vb: Public MustInherit Class OfflineData
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Neosmartpen.Net.OfflineDataParser
+  - Neosmartpen.Net.OfflineDataSerializer
+  - Neosmartpen.Net.OfflineWorker
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.OfflineData.CURRENT_DIR
+  commentId: F:Neosmartpen.Net.OfflineData.CURRENT_DIR
+  id: CURRENT_DIR
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: CURRENT_DIR
+  nameWithType: OfflineData.CURRENT_DIR
+  fullName: Neosmartpen.Net.OfflineData.CURRENT_DIR
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: CURRENT_DIR
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 7
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string CURRENT_DIR
+    return:
+      type: System.String
+    content.vb: Public Shared CURRENT_DIR As String
+- uid: Neosmartpen.Net.OfflineData.DEFAULT_PATH
+  commentId: F:Neosmartpen.Net.OfflineData.DEFAULT_PATH
+  id: DEFAULT_PATH
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DEFAULT_PATH
+  nameWithType: OfflineData.DEFAULT_PATH
+  fullName: Neosmartpen.Net.OfflineData.DEFAULT_PATH
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DEFAULT_PATH
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 8
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string DEFAULT_PATH
+    return:
+      type: System.String
+    content.vb: Public Shared DEFAULT_PATH As String
+- uid: Neosmartpen.Net.OfflineData.DEFAULT_ERROR_PATH
+  commentId: F:Neosmartpen.Net.OfflineData.DEFAULT_ERROR_PATH
+  id: DEFAULT_ERROR_PATH
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DEFAULT_ERROR_PATH
+  nameWithType: OfflineData.DEFAULT_ERROR_PATH
+  fullName: Neosmartpen.Net.OfflineData.DEFAULT_ERROR_PATH
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DEFAULT_ERROR_PATH
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string DEFAULT_ERROR_PATH
+    return:
+      type: System.String
+    content.vb: Public Shared DEFAULT_ERROR_PATH As String
+- uid: Neosmartpen.Net.OfflineData.EXT_ZIP
+  commentId: F:Neosmartpen.Net.OfflineData.EXT_ZIP
+  id: EXT_ZIP
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: EXT_ZIP
+  nameWithType: OfflineData.EXT_ZIP
+  fullName: Neosmartpen.Net.OfflineData.EXT_ZIP
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: EXT_ZIP
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 11
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string EXT_ZIP
+    return:
+      type: System.String
+    content.vb: Public ReadOnly EXT_ZIP As String
+- uid: Neosmartpen.Net.OfflineData.EXT_ERROR
+  commentId: F:Neosmartpen.Net.OfflineData.EXT_ERROR
+  id: EXT_ERROR
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: EXT_ERROR
+  nameWithType: OfflineData.EXT_ERROR
+  fullName: Neosmartpen.Net.OfflineData.EXT_ERROR
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: EXT_ERROR
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 12
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string EXT_ERROR
+    return:
+      type: System.String
+    content.vb: Public ReadOnly EXT_ERROR As String
+- uid: Neosmartpen.Net.OfflineData.EXT_DATA
+  commentId: F:Neosmartpen.Net.OfflineData.EXT_DATA
+  id: EXT_DATA
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: EXT_DATA
+  nameWithType: OfflineData.EXT_DATA
+  fullName: Neosmartpen.Net.OfflineData.EXT_DATA
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: EXT_DATA
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 13
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string EXT_DATA
+    return:
+      type: System.String
+    content.vb: Public ReadOnly EXT_DATA As String
+- uid: Neosmartpen.Net.OfflineData.DIR_ROOT
+  commentId: F:Neosmartpen.Net.OfflineData.DIR_ROOT
+  id: DIR_ROOT
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DIR_ROOT
+  nameWithType: OfflineData.DIR_ROOT
+  fullName: Neosmartpen.Net.OfflineData.DIR_ROOT
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DIR_ROOT
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 14
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string DIR_ROOT
+    return:
+      type: System.String
+    content.vb: Public ReadOnly DIR_ROOT As String
+- uid: Neosmartpen.Net.OfflineData.DIR_ERROR
+  commentId: F:Neosmartpen.Net.OfflineData.DIR_ERROR
+  id: DIR_ERROR
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DIR_ERROR
+  nameWithType: OfflineData.DIR_ERROR
+  fullName: Neosmartpen.Net.OfflineData.DIR_ERROR
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DIR_ERROR
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 15
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string DIR_ERROR
+    return:
+      type: System.String
+    content.vb: Public ReadOnly DIR_ERROR As String
+- uid: Neosmartpen.Net.OfflineData.DIR_TEMP
+  commentId: F:Neosmartpen.Net.OfflineData.DIR_TEMP
+  id: DIR_TEMP
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DIR_TEMP
+  nameWithType: OfflineData.DIR_TEMP
+  fullName: Neosmartpen.Net.OfflineData.DIR_TEMP
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DIR_TEMP
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 16
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public readonly string DIR_TEMP
+    return:
+      type: System.String
+    content.vb: Public ReadOnly DIR_TEMP As String
+- uid: Neosmartpen.Net.OfflineData.SetDefaultPath(System.String)
+  commentId: M:Neosmartpen.Net.OfflineData.SetDefaultPath(System.String)
+  id: SetDefaultPath(System.String)
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: SetDefaultPath(string)
+  nameWithType: OfflineData.SetDefaultPath(string)
+  fullName: Neosmartpen.Net.OfflineData.SetDefaultPath(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SetDefaultPath
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 19
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public void SetDefaultPath(string basepath)
+    parameters:
+    - id: basepath
+      type: System.String
+    content.vb: Public Sub SetDefaultPath(basepath As String)
+  overload: Neosmartpen.Net.OfflineData.SetDefaultPath*
+  nameWithType.vb: OfflineData.SetDefaultPath(String)
+  fullName.vb: Neosmartpen.Net.OfflineData.SetDefaultPath(String)
+  name.vb: SetDefaultPath(String)
+- uid: Neosmartpen.Net.OfflineData.SetupFileSystem
+  commentId: M:Neosmartpen.Net.OfflineData.SetupFileSystem
+  id: SetupFileSystem
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: SetupFileSystem()
+  nameWithType: OfflineData.SetupFileSystem()
+  fullName: Neosmartpen.Net.OfflineData.SetupFileSystem()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SetupFileSystem
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 29
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public void SetupFileSystem()
+    content.vb: Public Sub SetupFileSystem()
+  overload: Neosmartpen.Net.OfflineData.SetupFileSystem*
+- uid: Neosmartpen.Net.OfflineData.GetOfflineFiles
+  commentId: M:Neosmartpen.Net.OfflineData.GetOfflineFiles
+  id: GetOfflineFiles
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: GetOfflineFiles()
+  nameWithType: OfflineData.GetOfflineFiles()
+  fullName: Neosmartpen.Net.OfflineData.GetOfflineFiles()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetOfflineFiles
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 45
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public string[] GetOfflineFiles()
+    return:
+      type: System.String[]
+    content.vb: Public Function GetOfflineFiles() As String()
+  overload: Neosmartpen.Net.OfflineData.GetOfflineFiles*
+- uid: Neosmartpen.Net.OfflineData.GetErrorFiles
+  commentId: M:Neosmartpen.Net.OfflineData.GetErrorFiles
+  id: GetErrorFiles
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: GetErrorFiles()
+  nameWithType: OfflineData.GetErrorFiles()
+  fullName: Neosmartpen.Net.OfflineData.GetErrorFiles()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetErrorFiles
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 51
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public string[] GetErrorFiles()
+    return:
+      type: System.String[]
+    content.vb: Public Function GetErrorFiles() As String()
+  overload: Neosmartpen.Net.OfflineData.GetErrorFiles*
+- uid: Neosmartpen.Net.OfflineData.GetFileFromFullPath(System.String)
+  commentId: M:Neosmartpen.Net.OfflineData.GetFileFromFullPath(System.String)
+  id: GetFileFromFullPath(System.String)
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: GetFileFromFullPath(string)
+  nameWithType: OfflineData.GetFileFromFullPath(string)
+  fullName: Neosmartpen.Net.OfflineData.GetFileFromFullPath(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetFileFromFullPath
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 57
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string GetFileFromFullPath(string fullpath)
+    parameters:
+    - id: fullpath
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFileFromFullPath(fullpath As String) As String
+  overload: Neosmartpen.Net.OfflineData.GetFileFromFullPath*
+  nameWithType.vb: OfflineData.GetFileFromFullPath(String)
+  fullName.vb: Neosmartpen.Net.OfflineData.GetFileFromFullPath(String)
+  name.vb: GetFileFromFullPath(String)
+- uid: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath(System.String)
+  commentId: M:Neosmartpen.Net.OfflineData.GetFileNameFromFullPath(System.String)
+  id: GetFileNameFromFullPath(System.String)
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: GetFileNameFromFullPath(string)
+  nameWithType: OfflineData.GetFileNameFromFullPath(string)
+  fullName: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetFileNameFromFullPath
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 69
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string GetFileNameFromFullPath(string fullpath)
+    parameters:
+    - id: fullpath
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFileNameFromFullPath(fullpath As String) As String
+  overload: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath*
+  nameWithType.vb: OfflineData.GetFileNameFromFullPath(String)
+  fullName.vb: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath(String)
+  name.vb: GetFileNameFromFullPath(String)
+- uid: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath(System.String)
+  commentId: M:Neosmartpen.Net.OfflineData.GetFileExtFromFullPath(System.String)
+  id: GetFileExtFromFullPath(System.String)
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: GetFileExtFromFullPath(string)
+  nameWithType: OfflineData.GetFileExtFromFullPath(string)
+  fullName: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetFileExtFromFullPath
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 81
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static string GetFileExtFromFullPath(string fullpath)
+    parameters:
+    - id: fullpath
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Shared Function GetFileExtFromFullPath(fullpath As String) As String
+  overload: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath*
+  nameWithType.vb: OfflineData.GetFileExtFromFullPath(String)
+  fullName.vb: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath(String)
+  name.vb: GetFileExtFromFullPath(String)
+- uid: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray(Neosmartpen.Net.Dot[])
+  commentId: M:Neosmartpen.Net.OfflineData.DotArrayToStrokeArray(Neosmartpen.Net.Dot[])
+  id: DotArrayToStrokeArray(Neosmartpen.Net.Dot[])
+  parent: Neosmartpen.Net.OfflineData
+  langs:
+  - csharp
+  - vb
+  name: DotArrayToStrokeArray(Dot[])
+  nameWithType: OfflineData.DotArrayToStrokeArray(Dot[])
+  fullName: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray(Neosmartpen.Net.Dot[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: DotArrayToStrokeArray
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Version1/OfflineData.cs
+    startLine: 100
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static Stroke[] DotArrayToStrokeArray(Dot[] dots)
+    parameters:
+    - id: dots
+      type: Neosmartpen.Net.Dot[]
+    return:
+      type: Neosmartpen.Net.Stroke[]
+    content.vb: Public Shared Function DotArrayToStrokeArray(dots As Dot()) As Stroke()
+  overload: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray*
+  nameWithType.vb: OfflineData.DotArrayToStrokeArray(Dot())
+  fullName.vb: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray(Neosmartpen.Net.Dot())
+  name.vb: DotArrayToStrokeArray(Dot())
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Neosmartpen.Net.OfflineData.SetDefaultPath*
+  commentId: Overload:Neosmartpen.Net.OfflineData.SetDefaultPath
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_SetDefaultPath_System_String_
+  name: SetDefaultPath
+  nameWithType: OfflineData.SetDefaultPath
+  fullName: Neosmartpen.Net.OfflineData.SetDefaultPath
+- uid: Neosmartpen.Net.OfflineData.SetupFileSystem*
+  commentId: Overload:Neosmartpen.Net.OfflineData.SetupFileSystem
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_SetupFileSystem
+  name: SetupFileSystem
+  nameWithType: OfflineData.SetupFileSystem
+  fullName: Neosmartpen.Net.OfflineData.SetupFileSystem
+- uid: Neosmartpen.Net.OfflineData.GetOfflineFiles*
+  commentId: Overload:Neosmartpen.Net.OfflineData.GetOfflineFiles
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_GetOfflineFiles
+  name: GetOfflineFiles
+  nameWithType: OfflineData.GetOfflineFiles
+  fullName: Neosmartpen.Net.OfflineData.GetOfflineFiles
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.OfflineData.GetErrorFiles*
+  commentId: Overload:Neosmartpen.Net.OfflineData.GetErrorFiles
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_GetErrorFiles
+  name: GetErrorFiles
+  nameWithType: OfflineData.GetErrorFiles
+  fullName: Neosmartpen.Net.OfflineData.GetErrorFiles
+- uid: Neosmartpen.Net.OfflineData.GetFileFromFullPath*
+  commentId: Overload:Neosmartpen.Net.OfflineData.GetFileFromFullPath
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_GetFileFromFullPath_System_String_
+  name: GetFileFromFullPath
+  nameWithType: OfflineData.GetFileFromFullPath
+  fullName: Neosmartpen.Net.OfflineData.GetFileFromFullPath
+- uid: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath*
+  commentId: Overload:Neosmartpen.Net.OfflineData.GetFileNameFromFullPath
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_GetFileNameFromFullPath_System_String_
+  name: GetFileNameFromFullPath
+  nameWithType: OfflineData.GetFileNameFromFullPath
+  fullName: Neosmartpen.Net.OfflineData.GetFileNameFromFullPath
+- uid: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath*
+  commentId: Overload:Neosmartpen.Net.OfflineData.GetFileExtFromFullPath
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_GetFileExtFromFullPath_System_String_
+  name: GetFileExtFromFullPath
+  nameWithType: OfflineData.GetFileExtFromFullPath
+  fullName: Neosmartpen.Net.OfflineData.GetFileExtFromFullPath
+- uid: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray*
+  commentId: Overload:Neosmartpen.Net.OfflineData.DotArrayToStrokeArray
+  href: Neosmartpen.Net.OfflineData.html#Neosmartpen_Net_OfflineData_DotArrayToStrokeArray_Neosmartpen_Net_Dot___
+  name: DotArrayToStrokeArray
+  nameWithType: OfflineData.DotArrayToStrokeArray
+  fullName: Neosmartpen.Net.OfflineData.DotArrayToStrokeArray
+- uid: Neosmartpen.Net.Dot[]
+  isExternal: true
+  href: Neosmartpen.Net.Dot.html
+  name: Dot[]
+  nameWithType: Dot[]
+  fullName: Neosmartpen.Net.Dot[]
+  nameWithType.vb: Dot()
+  fullName.vb: Neosmartpen.Net.Dot()
+  name.vb: Dot()
+  spec.csharp:
+  - uid: Neosmartpen.Net.Dot
+    name: Dot
+    href: Neosmartpen.Net.Dot.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Neosmartpen.Net.Dot
+    name: Dot
+    href: Neosmartpen.Net.Dot.html
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.Stroke[]
+  isExternal: true
+  href: Neosmartpen.Net.Stroke.html
+  name: Stroke[]
+  nameWithType: Stroke[]
+  fullName: Neosmartpen.Net.Stroke[]
+  nameWithType.vb: Stroke()
+  fullName.vb: Neosmartpen.Net.Stroke()
+  name.vb: Stroke()
+  spec.csharp:
+  - uid: Neosmartpen.Net.Stroke
+    name: Stroke
+    href: Neosmartpen.Net.Stroke.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Neosmartpen.Net.Stroke
+    name: Stroke
+    href: Neosmartpen.Net.Stroke.html
+  - name: (
+  - name: )

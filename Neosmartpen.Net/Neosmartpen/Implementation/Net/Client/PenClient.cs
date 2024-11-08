@@ -6,6 +6,7 @@ using Windows.Storage.Streams;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class PenClient : IPenClient
     {
         private DataWriter mDataWriter;

@@ -6,7 +6,7 @@ using Neosmartpen.Net.Support;
 
 namespace Neosmartpen.Net
 {
-    // 오프라인 데이터 조각을 받아 파일로 완성
+    /// <exclude />
     public class OfflineDataSerializer : OfflineData
     {
         public Dictionary<int, byte[]> chunks;

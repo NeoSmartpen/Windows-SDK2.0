@@ -2,6 +2,7 @@
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     /// <summary>
     /// IPenClient class provides fuctions that can handle pen.
     /// </summary>

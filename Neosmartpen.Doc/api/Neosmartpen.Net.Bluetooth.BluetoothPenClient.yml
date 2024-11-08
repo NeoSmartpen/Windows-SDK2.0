@@ -1,0 +1,1429 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  commentId: T:Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  id: BluetoothPenClient
+  parent: Neosmartpen.Net.Bluetooth
+  children:
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor(Neosmartpen.Net.IPenController)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV1
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV2
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(Neosmartpen.Net.Bluetooth.PenInformation)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(System.String)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice(System.String)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV1
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV2
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.onAddPenController
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.onRemovePenController
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.onStopSearch
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient.onUpdatePenController
+  langs:
+  - csharp
+  - vb
+  name: BluetoothPenClient
+  nameWithType: BluetoothPenClient
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: BluetoothPenClient
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 19
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: Provides client connections for Bluetooth RFCOMM network services.
+  example: []
+  syntax:
+    content: 'public class BluetoothPenClient : PenClient'
+    content.vb: Public Class BluetoothPenClient Inherits PenClient
+  inheritance:
+  - System.Object
+  - Neosmartpen.Net.PenClient
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV1
+  commentId: F:Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV1
+  id: ClassOfDeviceV1
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: ClassOfDeviceV1
+  nameWithType: BluetoothPenClient.ClassOfDeviceV1
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV1
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ClassOfDeviceV1
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 24
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public static readonly uint ClassOfDeviceV1
+    return:
+      type: System.UInt32
+    content.vb: Public Shared ReadOnly ClassOfDeviceV1 As UInteger
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV2
+  commentId: F:Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV2
+  id: ClassOfDeviceV2
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: ClassOfDeviceV2
+  nameWithType: BluetoothPenClient.ClassOfDeviceV2
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ClassOfDeviceV2
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ClassOfDeviceV2
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 25
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public static readonly uint ClassOfDeviceV2
+    return:
+      type: System.UInt32
+    content.vb: Public Shared ReadOnly ClassOfDeviceV2 As UInteger
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV1
+  commentId: F:Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV1
+  id: ServiceUuidV1
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: ServiceUuidV1
+  nameWithType: BluetoothPenClient.ServiceUuidV1
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV1
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ServiceUuidV1
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 26
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public static readonly Guid ServiceUuidV1
+    return:
+      type: System.Guid
+    content.vb: Public Shared ReadOnly ServiceUuidV1 As Guid
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV2
+  commentId: F:Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV2
+  id: ServiceUuidV2
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: ServiceUuidV2
+  nameWithType: BluetoothPenClient.ServiceUuidV2
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.ServiceUuidV2
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ServiceUuidV2
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 27
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public static readonly Guid ServiceUuidV2
+    return:
+      type: System.Guid
+    content.vb: Public Shared ReadOnly ServiceUuidV2 As Guid
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor(Neosmartpen.Net.IPenController)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor(Neosmartpen.Net.IPenController)
+  id: '#ctor(Neosmartpen.Net.IPenController)'
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: BluetoothPenClient(IPenController)
+  nameWithType: BluetoothPenClient.BluetoothPenClient(IPenController)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.BluetoothPenClient(Neosmartpen.Net.IPenController)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 30
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public BluetoothPenClient(IPenController penctrl)
+    parameters:
+    - id: penctrl
+      type: Neosmartpen.Net.IPenController
+    content.vb: Public Sub New(penctrl As IPenController)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor*
+  nameWithType.vb: BluetoothPenClient.New(IPenController)
+  fullName.vb: Neosmartpen.Net.Bluetooth.BluetoothPenClient.New(Neosmartpen.Net.IPenController)
+  name.vb: New(IPenController)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize
+  id: Finalize
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: ~BluetoothPenClient()
+  nameWithType: BluetoothPenClient.~BluetoothPenClient()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.~BluetoothPenClient()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Finalize
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 34
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: protected ~BluetoothPenClient()
+    content.vb: 'Protected '
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(System.String)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(System.String)
+  id: Connect(System.String)
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: Connect(string)
+  nameWithType: BluetoothPenClient.Connect(string)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Connect
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 49
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: Connect the client to a remote bluetooth host using mac address
+  example: []
+  syntax:
+    content: public Task<bool> Connect(string macAddress)
+    parameters:
+    - id: macAddress
+      type: System.String
+      description: The mac address of the remote host
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: When this method completes successfully, it returns a boolean result
+    content.vb: Public Function Connect(macAddress As String) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect*
+  nameWithType.vb: BluetoothPenClient.Connect(String)
+  fullName.vb: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(String)
+  name.vb: Connect(String)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(Neosmartpen.Net.Bluetooth.PenInformation)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(Neosmartpen.Net.Bluetooth.PenInformation)
+  id: Connect(Neosmartpen.Net.Bluetooth.PenInformation)
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: Connect(PenInformation)
+  nameWithType: BluetoothPenClient.Connect(PenInformation)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect(Neosmartpen.Net.Bluetooth.PenInformation)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Connect
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 72
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: Connect the client to a remote bluetooth host using PenInformation instance
+  example: []
+  syntax:
+    content: public Task<bool> Connect(PenInformation penInformation)
+    parameters:
+    - id: penInformation
+      type: Neosmartpen.Net.Bluetooth.PenInformation
+      description: The instance of PenInformation class
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: When this method completes successfully, it returns a boolean result
+    content.vb: Public Function Connect(penInformation As PenInformation) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  id: Pairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: Pairing(PenInformation)
+  nameWithType: BluetoothPenClient.Pairing(PenInformation)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Pairing
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 152
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: To conduct pairing with the specified device
+  example: []
+  syntax:
+    content: public Task<bool> Pairing(PenInformation penInformation)
+    parameters:
+    - id: penInformation
+      type: Neosmartpen.Net.Bluetooth.PenInformation
+      description: The instance of PenInformation class
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: When this method completes successfully, it returns a boolean result
+    content.vb: Public Function Pairing(penInformation As PenInformation) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  id: UnPairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: UnPairing(PenInformation)
+  nameWithType: BluetoothPenClient.UnPairing(PenInformation)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing(Neosmartpen.Net.Bluetooth.PenInformation)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: UnPairing
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 192
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: To conduct unpairing with the specified device
+  example: []
+  syntax:
+    content: public Task<bool> UnPairing(PenInformation penInformation)
+    parameters:
+    - id: penInformation
+      type: Neosmartpen.Net.Bluetooth.PenInformation
+      description: The instance of PenInformation class
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: When this method completes successfully, it returns a boolean result
+    content.vb: Public Function UnPairing(penInformation As PenInformation) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect
+  id: Disconnect
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: Disconnect()
+  nameWithType: BluetoothPenClient.Disconnect()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Disconnect
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 215
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: Closes the Bluetooth socket and the underlying connection.
+  example: []
+  syntax:
+    content: public void Disconnect()
+    content.vb: Public Sub Disconnect()
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices
+  id: FindDevices
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: FindDevices()
+  nameWithType: BluetoothPenClient.FindDevices()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FindDevices
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 233
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: Discovers accessible smartpen device, both paired and in-range.
+  example: []
+  syntax:
+    content: public Task<List<PenInformation>> FindDevices()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Neosmartpen.Net.Bluetooth.PenInformation}}
+      description: When this method completes successfully, it returns a List of PenInformation that represents the specified pen
+    content.vb: Public Function FindDevices() As Task(Of List(Of PenInformation))
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices
+  id: FindPairedDevices
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: FindPairedDevices()
+  nameWithType: BluetoothPenClient.FindPairedDevices()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FindPairedDevices
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 243
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  summary: To gets list of paired device
+  example: []
+  syntax:
+    content: public Task<List<PenInformation>> FindPairedDevices()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Neosmartpen.Net.Bluetooth.PenInformation}}
+      description: When this method completes successfully, it returns a List of PenInformation that represents the specified pen
+    content.vb: Public Function FindPairedDevices() As Task(Of List(Of PenInformation))
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice(System.String)
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice(System.String)
+  id: FindUnpairedDevice(System.String)
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: FindUnpairedDevice(string)
+  nameWithType: BluetoothPenClient.FindUnpairedDevice(string)
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: FindUnpairedDevice
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 247
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public Task<PenInformation> FindUnpairedDevice(string macAddress)
+    parameters:
+    - id: macAddress
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{Neosmartpen.Net.Bluetooth.PenInformation}
+    content.vb: Public Function FindUnpairedDevice(macAddress As String) As Task(Of PenInformation)
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice*
+  nameWithType.vb: BluetoothPenClient.FindUnpairedDevice(String)
+  fullName.vb: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice(String)
+  name.vb: FindUnpairedDevice(String)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher
+  id: StartWatcher
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: StartWatcher()
+  nameWithType: BluetoothPenClient.StartWatcher()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: StartWatcher
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 352
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public void StartWatcher()
+    content.vb: Public Sub StartWatcher()
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher
+  commentId: M:Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher
+  id: StopWatcher
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: StopWatcher()
+  nameWithType: BluetoothPenClient.StopWatcher()
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: StopWatcher
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 362
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public void StopWatcher()
+    content.vb: Public Sub StopWatcher()
+  overload: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher*
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onAddPenController
+  commentId: E:Neosmartpen.Net.Bluetooth.BluetoothPenClient.onAddPenController
+  id: onAddPenController
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: onAddPenController
+  nameWithType: BluetoothPenClient.onAddPenController
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onAddPenController
+  type: Event
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: onAddPenController
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 373
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public event TypedEventHandler<BluetoothPenClient, PenInformation> onAddPenController
+    return:
+      type: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenInformation}
+    content.vb: Public Event onAddPenController As TypedEventHandler(Of BluetoothPenClient, PenInformation)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onUpdatePenController
+  commentId: E:Neosmartpen.Net.Bluetooth.BluetoothPenClient.onUpdatePenController
+  id: onUpdatePenController
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: onUpdatePenController
+  nameWithType: BluetoothPenClient.onUpdatePenController
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onUpdatePenController
+  type: Event
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: onUpdatePenController
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 374
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public event TypedEventHandler<BluetoothPenClient, PenUpdateInformation> onUpdatePenController
+    return:
+      type: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenUpdateInformation}
+    content.vb: Public Event onUpdatePenController As TypedEventHandler(Of BluetoothPenClient, PenUpdateInformation)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onRemovePenController
+  commentId: E:Neosmartpen.Net.Bluetooth.BluetoothPenClient.onRemovePenController
+  id: onRemovePenController
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: onRemovePenController
+  nameWithType: BluetoothPenClient.onRemovePenController
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onRemovePenController
+  type: Event
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: onRemovePenController
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 375
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public event TypedEventHandler<BluetoothPenClient, PenUpdateInformation> onRemovePenController
+    return:
+      type: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenUpdateInformation}
+    content.vb: Public Event onRemovePenController As TypedEventHandler(Of BluetoothPenClient, PenUpdateInformation)
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onStopSearch
+  commentId: E:Neosmartpen.Net.Bluetooth.BluetoothPenClient.onStopSearch
+  id: onStopSearch
+  parent: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  langs:
+  - csharp
+  - vb
+  name: onStopSearch
+  nameWithType: BluetoothPenClient.onStopSearch
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.onStopSearch
+  type: Event
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: onStopSearch
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Bluetooth/BluetoothPenClient.cs
+    startLine: 376
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Bluetooth
+  syntax:
+    content: public event TypedEventHandler<BluetoothPenClient, BluetoothError> onStopSearch
+    return:
+      type: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Windows.Devices.Bluetooth.BluetoothError}
+    content.vb: Public Event onStopSearch As TypedEventHandler(Of BluetoothPenClient, BluetoothError)
+references:
+- uid: Neosmartpen.Net.Bluetooth
+  commentId: N:Neosmartpen.Net.Bluetooth
+  href: Neosmartpen.html
+  name: Neosmartpen.Net.Bluetooth
+  nameWithType: Neosmartpen.Net.Bluetooth
+  fullName: Neosmartpen.Net.Bluetooth
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Bluetooth
+    name: Bluetooth
+    href: Neosmartpen.Net.Bluetooth.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Bluetooth
+    name: Bluetooth
+    href: Neosmartpen.Net.Bluetooth.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Neosmartpen.Net.PenClient
+  commentId: T:Neosmartpen.Net.PenClient
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.PenClient.html
+  name: PenClient
+  nameWithType: PenClient
+  fullName: Neosmartpen.Net.PenClient
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.#ctor
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient__ctor_Neosmartpen_Net_IPenController_
+  name: BluetoothPenClient
+  nameWithType: BluetoothPenClient.BluetoothPenClient
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.BluetoothPenClient
+  nameWithType.vb: BluetoothPenClient.New
+  fullName.vb: Neosmartpen.Net.Bluetooth.BluetoothPenClient.New
+  name.vb: New
+- uid: Neosmartpen.Net.IPenController
+  commentId: T:Neosmartpen.Net.IPenController
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.IPenController.html
+  name: IPenController
+  nameWithType: IPenController
+  fullName: Neosmartpen.Net.IPenController
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_Finalize
+  name: ~BluetoothPenClient
+  nameWithType: BluetoothPenClient.~BluetoothPenClient
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.~BluetoothPenClient
+  spec.csharp:
+  - name: "~"
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Finalize*
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_Finalize
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_Connect_System_String_
+  name: Connect
+  nameWithType: BluetoothPenClient.Connect
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Connect
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Neosmartpen.Net.Bluetooth.PenInformation
+  commentId: T:Neosmartpen.Net.Bluetooth.PenInformation
+  parent: Neosmartpen.Net.Bluetooth
+  href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  name: PenInformation
+  nameWithType: PenInformation
+  fullName: Neosmartpen.Net.Bluetooth.PenInformation
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_Pairing_Neosmartpen_Net_Bluetooth_PenInformation_
+  name: Pairing
+  nameWithType: BluetoothPenClient.Pairing
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Pairing
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_UnPairing_Neosmartpen_Net_Bluetooth_PenInformation_
+  name: UnPairing
+  nameWithType: BluetoothPenClient.UnPairing
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.UnPairing
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_Disconnect
+  name: Disconnect
+  nameWithType: BluetoothPenClient.Disconnect
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.Disconnect
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_FindDevices
+  name: FindDevices
+  nameWithType: BluetoothPenClient.FindDevices
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindDevices
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Neosmartpen.Net.Bluetooth.PenInformation}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Neosmartpen.Net.Bluetooth.PenInformation}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<PenInformation>>
+  nameWithType: Task<List<PenInformation>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<Neosmartpen.Net.Bluetooth.PenInformation>>
+  nameWithType.vb: Task(Of List(Of PenInformation))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Neosmartpen.Net.Bluetooth.PenInformation))
+  name.vb: Task(Of List(Of PenInformation))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: )
+  - name: )
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_FindPairedDevices
+  name: FindPairedDevices
+  nameWithType: BluetoothPenClient.FindPairedDevices
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindPairedDevices
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_FindUnpairedDevice_System_String_
+  name: FindUnpairedDevice
+  nameWithType: BluetoothPenClient.FindUnpairedDevice
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.FindUnpairedDevice
+- uid: System.Threading.Tasks.Task{Neosmartpen.Net.Bluetooth.PenInformation}
+  commentId: T:System.Threading.Tasks.Task{Neosmartpen.Net.Bluetooth.PenInformation}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PenInformation>
+  nameWithType: Task<PenInformation>
+  fullName: System.Threading.Tasks.Task<Neosmartpen.Net.Bluetooth.PenInformation>
+  nameWithType.vb: Task(Of PenInformation)
+  fullName.vb: System.Threading.Tasks.Task(Of Neosmartpen.Net.Bluetooth.PenInformation)
+  name.vb: Task(Of PenInformation)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: )
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_StartWatcher
+  name: StartWatcher
+  nameWithType: BluetoothPenClient.StartWatcher
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StartWatcher
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher*
+  commentId: Overload:Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html#Neosmartpen_Net_Bluetooth_BluetoothPenClient_StopWatcher
+  name: StopWatcher
+  nameWithType: BluetoothPenClient.StopWatcher
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient.StopWatcher
+- uid: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenInformation}
+  commentId: T:Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenInformation}
+  parent: Windows.Foundation
+  definition: Windows.Foundation.TypedEventHandler`2
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  name: TypedEventHandler<BluetoothPenClient, PenInformation>
+  nameWithType: TypedEventHandler<BluetoothPenClient, PenInformation>
+  fullName: Windows.Foundation.TypedEventHandler<Neosmartpen.Net.Bluetooth.BluetoothPenClient, Neosmartpen.Net.Bluetooth.PenInformation>
+  nameWithType.vb: TypedEventHandler(Of BluetoothPenClient, PenInformation)
+  fullName.vb: Windows.Foundation.TypedEventHandler(Of Neosmartpen.Net.Bluetooth.BluetoothPenClient, Neosmartpen.Net.Bluetooth.PenInformation)
+  name.vb: TypedEventHandler(Of BluetoothPenClient, PenInformation)
+  spec.csharp:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: <
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: '>'
+  spec.vb:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenInformation
+    name: PenInformation
+    href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  - name: )
+- uid: Windows.Foundation.TypedEventHandler`2
+  commentId: T:Windows.Foundation.TypedEventHandler`2
+  isExternal: true
+  name: TypedEventHandler<TSender, TResult>
+  nameWithType: TypedEventHandler<TSender, TResult>
+  fullName: Windows.Foundation.TypedEventHandler<TSender, TResult>
+  nameWithType.vb: TypedEventHandler(Of TSender, TResult)
+  fullName.vb: Windows.Foundation.TypedEventHandler(Of TSender, TResult)
+  name.vb: TypedEventHandler(Of TSender, TResult)
+  spec.csharp:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: <
+  - name: TSender
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSender
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Windows.Foundation
+  commentId: N:Windows.Foundation
+  isExternal: true
+  name: Windows.Foundation
+  nameWithType: Windows.Foundation
+  fullName: Windows.Foundation
+  spec.csharp:
+  - uid: Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: Windows.Foundation
+    name: Foundation
+    isExternal: true
+  spec.vb:
+  - uid: Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: Windows.Foundation
+    name: Foundation
+    isExternal: true
+- uid: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenUpdateInformation}
+  commentId: T:Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Neosmartpen.Net.Bluetooth.PenUpdateInformation}
+  parent: Windows.Foundation
+  definition: Windows.Foundation.TypedEventHandler`2
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  name: TypedEventHandler<BluetoothPenClient, PenUpdateInformation>
+  nameWithType: TypedEventHandler<BluetoothPenClient, PenUpdateInformation>
+  fullName: Windows.Foundation.TypedEventHandler<Neosmartpen.Net.Bluetooth.BluetoothPenClient, Neosmartpen.Net.Bluetooth.PenUpdateInformation>
+  nameWithType.vb: TypedEventHandler(Of BluetoothPenClient, PenUpdateInformation)
+  fullName.vb: Windows.Foundation.TypedEventHandler(Of Neosmartpen.Net.Bluetooth.BluetoothPenClient, Neosmartpen.Net.Bluetooth.PenUpdateInformation)
+  name.vb: TypedEventHandler(Of BluetoothPenClient, PenUpdateInformation)
+  spec.csharp:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: <
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenUpdateInformation
+    name: PenUpdateInformation
+    href: Neosmartpen.Net.Bluetooth.PenUpdateInformation.html
+  - name: '>'
+  spec.vb:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.PenUpdateInformation
+    name: PenUpdateInformation
+    href: Neosmartpen.Net.Bluetooth.PenUpdateInformation.html
+  - name: )
+- uid: Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Windows.Devices.Bluetooth.BluetoothError}
+  commentId: T:Windows.Foundation.TypedEventHandler{Neosmartpen.Net.Bluetooth.BluetoothPenClient,Windows.Devices.Bluetooth.BluetoothError}
+  parent: Windows.Foundation
+  definition: Windows.Foundation.TypedEventHandler`2
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  name: TypedEventHandler<BluetoothPenClient, BluetoothError>
+  nameWithType: TypedEventHandler<BluetoothPenClient, BluetoothError>
+  fullName: Windows.Foundation.TypedEventHandler<Neosmartpen.Net.Bluetooth.BluetoothPenClient, Windows.Devices.Bluetooth.BluetoothError>
+  nameWithType.vb: TypedEventHandler(Of BluetoothPenClient, BluetoothError)
+  fullName.vb: Windows.Foundation.TypedEventHandler(Of Neosmartpen.Net.Bluetooth.BluetoothPenClient, Windows.Devices.Bluetooth.BluetoothError)
+  name.vb: TypedEventHandler(Of BluetoothPenClient, BluetoothError)
+  spec.csharp:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: <
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Windows.Devices.Bluetooth.BluetoothError
+    name: BluetoothError
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: Windows.Foundation.TypedEventHandler`2
+    name: TypedEventHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+    name: BluetoothPenClient
+    href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  - name: ','
+  - name: " "
+  - uid: Windows.Devices.Bluetooth.BluetoothError
+    name: BluetoothError
+    isExternal: true
+  - name: )
+shouldSkipMarkup: true

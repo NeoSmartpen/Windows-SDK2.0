@@ -2,6 +2,7 @@
 
 namespace Neosmartpen.Net.Support
 {
+    /// <exclude />
     public class PressureFilter
     {
         bool m_bFirst;

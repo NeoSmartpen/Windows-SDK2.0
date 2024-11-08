@@ -1,6 +1,7 @@
 ﻿namespace Neosmartpen.Net
 {
-	public sealed class PdsReceivedEventArgs
+    /// <exclude />
+    public sealed class PdsReceivedEventArgs
 	{
 		internal PdsReceivedEventArgs() { }
 		internal PdsReceivedEventArgs(Pds pds)

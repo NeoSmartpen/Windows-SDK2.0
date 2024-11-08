@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.IPenClient
+  commentId: T:Neosmartpen.Net.IPenClient
+  id: IPenClient
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.IPenClient.Alive
+  - Neosmartpen.Net.IPenClient.Name
+  - Neosmartpen.Net.IPenClient.PenController
+  - Neosmartpen.Net.IPenClient.Read
+  - Neosmartpen.Net.IPenClient.Unbind
+  - Neosmartpen.Net.IPenClient.Write(System.Byte[])
+  langs:
+  - csharp
+  - vb
+  name: IPenClient
+  nameWithType: IPenClient
+  fullName: Neosmartpen.Net.IPenClient
+  type: Interface
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: IPenClient
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 7
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: IPenClient class provides fuctions that can handle pen.
+  example: []
+  syntax:
+    content: public interface IPenClient
+    content.vb: Public Interface IPenClient
+- uid: Neosmartpen.Net.IPenClient.PenController
+  commentId: P:Neosmartpen.Net.IPenClient.PenController
+  id: PenController
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: PenController
+  nameWithType: IPenClient.PenController
+  fullName: Neosmartpen.Net.IPenClient.PenController
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenController
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: IPenController PenController { get; }
+    parameters: []
+    return:
+      type: Neosmartpen.Net.IPenController
+    content.vb: ReadOnly Property PenController As IPenController
+  overload: Neosmartpen.Net.IPenClient.PenController*
+- uid: Neosmartpen.Net.IPenClient.Name
+  commentId: P:Neosmartpen.Net.IPenClient.Name
+  id: Name
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IPenClient.Name
+  fullName: Neosmartpen.Net.IPenClient.Name
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Name
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 14
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: Neosmartpen.Net.IPenClient.Name*
+- uid: Neosmartpen.Net.IPenClient.Alive
+  commentId: P:Neosmartpen.Net.IPenClient.Alive
+  id: Alive
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: Alive
+  nameWithType: IPenClient.Alive
+  fullName: Neosmartpen.Net.IPenClient.Alive
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Alive
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 23
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Get the connection status of StreamSocket, ie, whether there is an active connection with remote device.
+  example: []
+  syntax:
+    content: bool Alive { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property Alive As Boolean
+  overload: Neosmartpen.Net.IPenClient.Alive*
+- uid: Neosmartpen.Net.IPenClient.Unbind
+  commentId: M:Neosmartpen.Net.IPenClient.Unbind
+  id: Unbind
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: Unbind()
+  nameWithType: IPenClient.Unbind()
+  fullName: Neosmartpen.Net.IPenClient.Unbind()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Unbind
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 31
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: unbind a socket instance
+  example: []
+  syntax:
+    content: Task Unbind()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function Unbind() As Task
+  overload: Neosmartpen.Net.IPenClient.Unbind*
+- uid: Neosmartpen.Net.IPenClient.Write(System.Byte[])
+  commentId: M:Neosmartpen.Net.IPenClient.Write(System.Byte[])
+  id: Write(System.Byte[])
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: Write(byte[])
+  nameWithType: IPenClient.Write(byte[])
+  fullName: Neosmartpen.Net.IPenClient.Write(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Write
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 38
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: To write data to stream
+  example: []
+  syntax:
+    content: void Write(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+      description: ''
+    content.vb: Sub Write(data As Byte())
+  overload: Neosmartpen.Net.IPenClient.Write*
+  nameWithType.vb: IPenClient.Write(Byte())
+  fullName.vb: Neosmartpen.Net.IPenClient.Write(Byte())
+  name.vb: Write(Byte())
+- uid: Neosmartpen.Net.IPenClient.Read
+  commentId: M:Neosmartpen.Net.IPenClient.Read
+  id: Read
+  parent: Neosmartpen.Net.IPenClient
+  langs:
+  - csharp
+  - vb
+  name: Read()
+  nameWithType: IPenClient.Read()
+  fullName: Neosmartpen.Net.IPenClient.Read()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Read
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenClient.cs
+    startLine: 43
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: To read data when device write something
+  example: []
+  syntax:
+    content: void Read()
+    content.vb: Sub Read()
+  overload: Neosmartpen.Net.IPenClient.Read*
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: Neosmartpen.Net.IPenClient.PenController*
+  commentId: Overload:Neosmartpen.Net.IPenClient.PenController
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_PenController
+  name: PenController
+  nameWithType: IPenClient.PenController
+  fullName: Neosmartpen.Net.IPenClient.PenController
+- uid: Neosmartpen.Net.IPenController
+  commentId: T:Neosmartpen.Net.IPenController
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.IPenController.html
+  name: IPenController
+  nameWithType: IPenController
+  fullName: Neosmartpen.Net.IPenController
+- uid: Neosmartpen.Net.IPenClient.Name*
+  commentId: Overload:Neosmartpen.Net.IPenClient.Name
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_Name
+  name: Name
+  nameWithType: IPenClient.Name
+  fullName: Neosmartpen.Net.IPenClient.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.IPenClient.Alive*
+  commentId: Overload:Neosmartpen.Net.IPenClient.Alive
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_Alive
+  name: Alive
+  nameWithType: IPenClient.Alive
+  fullName: Neosmartpen.Net.IPenClient.Alive
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Neosmartpen.Net.IPenClient.Unbind*
+  commentId: Overload:Neosmartpen.Net.IPenClient.Unbind
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_Unbind
+  name: Unbind
+  nameWithType: IPenClient.Unbind
+  fullName: Neosmartpen.Net.IPenClient.Unbind
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Neosmartpen.Net.IPenClient.Write*
+  commentId: Overload:Neosmartpen.Net.IPenClient.Write
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_Write_System_Byte___
+  name: Write
+  nameWithType: IPenClient.Write
+  fullName: Neosmartpen.Net.IPenClient.Write
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.IPenClient.Read*
+  commentId: Overload:Neosmartpen.Net.IPenClient.Read
+  href: Neosmartpen.Net.IPenClient.html#Neosmartpen_Net_IPenClient_Read
+  name: Read
+  nameWithType: IPenClient.Read
+  fullName: Neosmartpen.Net.IPenClient.Read
+shouldSkipMarkup: true

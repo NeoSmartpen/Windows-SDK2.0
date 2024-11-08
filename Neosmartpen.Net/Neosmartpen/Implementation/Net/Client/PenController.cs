@@ -1075,6 +1075,7 @@ namespace Neosmartpen.Net
                 mClientV2.OnDisconnected();
         }
 
+        /// <exclude />
         public delegate void RequestDele();
 
         private void Request(RequestDele requestToV1, RequestDele requestToV2)
@@ -1098,6 +1099,7 @@ namespace Neosmartpen.Net
             }
         }
 
+        /// <exclude />
         public delegate bool RequestDeleReturnBool();
 
         private bool Request(RequestDeleReturnBool requestToV1, RequestDeleReturnBool requestToV2)

@@ -1,0 +1,1084 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Chunk
+  commentId: T:Neosmartpen.Net.Chunk
+  id: Chunk
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.Chunk.#ctor
+  - Neosmartpen.Net.Chunk.#ctor(System.Int32)
+  - Neosmartpen.Net.Chunk.CalcChecksum(System.Byte[])
+  - Neosmartpen.Net.Chunk.Get(System.Int32)
+  - Neosmartpen.Net.Chunk.GetChecksum(System.Int32)
+  - Neosmartpen.Net.Chunk.GetChunkLength
+  - Neosmartpen.Net.Chunk.GetChunksize
+  - Neosmartpen.Net.Chunk.GetFileSize
+  - Neosmartpen.Net.Chunk.GetTotalChecksum
+  - Neosmartpen.Net.Chunk.Load(System.Byte[])
+  - Neosmartpen.Net.Chunk.Load(System.String)
+  - Neosmartpen.Net.Chunk.Load(Windows.Storage.StorageFile)
+  - Neosmartpen.Net.Chunk.SplitByteArray(System.Byte[],System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Chunk
+  nameWithType: Chunk
+  fullName: Neosmartpen.Net.Chunk
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Chunk
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 9
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public class Chunk
+    content.vb: Public Class Chunk
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Chunk.#ctor(System.Int32)
+  commentId: M:Neosmartpen.Net.Chunk.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Chunk(int)
+  nameWithType: Chunk.Chunk(int)
+  fullName: Neosmartpen.Net.Chunk.Chunk(int)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 22
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Chunk(int chunksize)
+    parameters:
+    - id: chunksize
+      type: System.Int32
+    content.vb: Public Sub New(chunksize As Integer)
+  overload: Neosmartpen.Net.Chunk.#ctor*
+  nameWithType.vb: Chunk.New(Integer)
+  fullName.vb: Neosmartpen.Net.Chunk.New(Integer)
+  name.vb: New(Integer)
+- uid: Neosmartpen.Net.Chunk.#ctor
+  commentId: M:Neosmartpen.Net.Chunk.#ctor
+  id: '#ctor'
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Chunk()
+  nameWithType: Chunk.Chunk()
+  fullName: Neosmartpen.Net.Chunk.Chunk()
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 27
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Chunk()
+    content.vb: Public Sub New()
+  overload: Neosmartpen.Net.Chunk.#ctor*
+  nameWithType.vb: Chunk.New()
+  fullName.vb: Neosmartpen.Net.Chunk.New()
+  name.vb: New()
+- uid: Neosmartpen.Net.Chunk.SplitByteArray(System.Byte[],System.Int32)
+  commentId: M:Neosmartpen.Net.Chunk.SplitByteArray(System.Byte[],System.Int32)
+  id: SplitByteArray(System.Byte[],System.Int32)
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: SplitByteArray(byte[], int)
+  nameWithType: Chunk.SplitByteArray(byte[], int)
+  fullName: Neosmartpen.Net.Chunk.SplitByteArray(byte[], int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: SplitByteArray
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 31
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static List<byte[]> SplitByteArray(byte[] bytes, int range)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+    - id: range
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{System.Byte[]}
+    content.vb: Public Shared Function SplitByteArray(bytes As Byte(), range As Integer) As List(Of Byte())
+  overload: Neosmartpen.Net.Chunk.SplitByteArray*
+  nameWithType.vb: Chunk.SplitByteArray(Byte(), Integer)
+  fullName.vb: Neosmartpen.Net.Chunk.SplitByteArray(Byte(), Integer)
+  name.vb: SplitByteArray(Byte(), Integer)
+- uid: Neosmartpen.Net.Chunk.Load(System.String)
+  commentId: M:Neosmartpen.Net.Chunk.Load(System.String)
+  id: Load(System.String)
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Load(string)
+  nameWithType: Chunk.Load(string)
+  fullName: Neosmartpen.Net.Chunk.Load(string)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Load
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 62
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Task<bool> Load(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function Load(filepath As String) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Chunk.Load*
+  nameWithType.vb: Chunk.Load(String)
+  fullName.vb: Neosmartpen.Net.Chunk.Load(String)
+  name.vb: Load(String)
+- uid: Neosmartpen.Net.Chunk.Load(Windows.Storage.StorageFile)
+  commentId: M:Neosmartpen.Net.Chunk.Load(Windows.Storage.StorageFile)
+  id: Load(Windows.Storage.StorageFile)
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Load(StorageFile)
+  nameWithType: Chunk.Load(StorageFile)
+  fullName: Neosmartpen.Net.Chunk.Load(Windows.Storage.StorageFile)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Load
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 67
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Task<bool> Load(StorageFile filepath)
+    parameters:
+    - id: filepath
+      type: Windows.Storage.StorageFile
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function Load(filepath As StorageFile) As Task(Of Boolean)
+  overload: Neosmartpen.Net.Chunk.Load*
+- uid: Neosmartpen.Net.Chunk.Load(System.Byte[])
+  commentId: M:Neosmartpen.Net.Chunk.Load(System.Byte[])
+  id: Load(System.Byte[])
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Load(byte[])
+  nameWithType: Chunk.Load(byte[])
+  fullName: Neosmartpen.Net.Chunk.Load(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Load
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 100
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public bool Load(byte[] datas)
+    parameters:
+    - id: datas
+      type: System.Byte[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function Load(datas As Byte()) As Boolean
+  overload: Neosmartpen.Net.Chunk.Load*
+  nameWithType.vb: Chunk.Load(Byte())
+  fullName.vb: Neosmartpen.Net.Chunk.Load(Byte())
+  name.vb: Load(Byte())
+- uid: Neosmartpen.Net.Chunk.Get(System.Int32)
+  commentId: M:Neosmartpen.Net.Chunk.Get(System.Int32)
+  id: Get(System.Int32)
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: Get(int)
+  nameWithType: Chunk.Get(int)
+  fullName: Neosmartpen.Net.Chunk.Get(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Get
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 128
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public byte[] Get(int number)
+    parameters:
+    - id: number
+      type: System.Int32
+    return:
+      type: System.Byte[]
+    content.vb: Public Function [Get](number As Integer) As Byte()
+  overload: Neosmartpen.Net.Chunk.Get*
+  nameWithType.vb: Chunk.Get(Integer)
+  fullName.vb: Neosmartpen.Net.Chunk.Get(Integer)
+  name.vb: Get(Integer)
+- uid: Neosmartpen.Net.Chunk.GetFileSize
+  commentId: M:Neosmartpen.Net.Chunk.GetFileSize
+  id: GetFileSize
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: GetFileSize()
+  nameWithType: Chunk.GetFileSize()
+  fullName: Neosmartpen.Net.Chunk.GetFileSize()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetFileSize
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 133
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public int GetFileSize()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetFileSize() As Integer
+  overload: Neosmartpen.Net.Chunk.GetFileSize*
+- uid: Neosmartpen.Net.Chunk.GetChunkLength
+  commentId: M:Neosmartpen.Net.Chunk.GetChunkLength
+  id: GetChunkLength
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: GetChunkLength()
+  nameWithType: Chunk.GetChunkLength()
+  fullName: Neosmartpen.Net.Chunk.GetChunkLength()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChunkLength
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 138
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public int GetChunkLength()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetChunkLength() As Integer
+  overload: Neosmartpen.Net.Chunk.GetChunkLength*
+- uid: Neosmartpen.Net.Chunk.GetChunksize
+  commentId: M:Neosmartpen.Net.Chunk.GetChunksize
+  id: GetChunksize
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: GetChunksize()
+  nameWithType: Chunk.GetChunksize()
+  fullName: Neosmartpen.Net.Chunk.GetChunksize()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChunksize
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 143
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public int GetChunksize()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetChunksize() As Integer
+  overload: Neosmartpen.Net.Chunk.GetChunksize*
+- uid: Neosmartpen.Net.Chunk.GetChecksum(System.Int32)
+  commentId: M:Neosmartpen.Net.Chunk.GetChecksum(System.Int32)
+  id: GetChecksum(System.Int32)
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: GetChecksum(int)
+  nameWithType: Chunk.GetChecksum(int)
+  fullName: Neosmartpen.Net.Chunk.GetChecksum(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 148
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public byte GetChecksum(int number)
+    parameters:
+    - id: number
+      type: System.Int32
+    return:
+      type: System.Byte
+    content.vb: Public Function GetChecksum(number As Integer) As Byte
+  overload: Neosmartpen.Net.Chunk.GetChecksum*
+  nameWithType.vb: Chunk.GetChecksum(Integer)
+  fullName.vb: Neosmartpen.Net.Chunk.GetChecksum(Integer)
+  name.vb: GetChecksum(Integer)
+- uid: Neosmartpen.Net.Chunk.GetTotalChecksum
+  commentId: M:Neosmartpen.Net.Chunk.GetTotalChecksum
+  id: GetTotalChecksum
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: GetTotalChecksum()
+  nameWithType: Chunk.GetTotalChecksum()
+  fullName: Neosmartpen.Net.Chunk.GetTotalChecksum()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: GetTotalChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 153
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public byte GetTotalChecksum()
+    return:
+      type: System.Byte
+    content.vb: Public Function GetTotalChecksum() As Byte
+  overload: Neosmartpen.Net.Chunk.GetTotalChecksum*
+- uid: Neosmartpen.Net.Chunk.CalcChecksum(System.Byte[])
+  commentId: M:Neosmartpen.Net.Chunk.CalcChecksum(System.Byte[])
+  id: CalcChecksum(System.Byte[])
+  parent: Neosmartpen.Net.Chunk
+  langs:
+  - csharp
+  - vb
+  name: CalcChecksum(byte[])
+  nameWithType: Chunk.CalcChecksum(byte[])
+  fullName: Neosmartpen.Net.Chunk.CalcChecksum(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: CalcChecksum
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/Chunk.cs
+    startLine: 158
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public static byte CalcChecksum(byte[] bytes)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+    return:
+      type: System.Byte
+    content.vb: Public Shared Function CalcChecksum(bytes As Byte()) As Byte
+  overload: Neosmartpen.Net.Chunk.CalcChecksum*
+  nameWithType.vb: Chunk.CalcChecksum(Byte())
+  fullName.vb: Neosmartpen.Net.Chunk.CalcChecksum(Byte())
+  name.vb: CalcChecksum(Byte())
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.Chunk.#ctor*
+  commentId: Overload:Neosmartpen.Net.Chunk.#ctor
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk__ctor_System_Int32_
+  name: Chunk
+  nameWithType: Chunk.Chunk
+  fullName: Neosmartpen.Net.Chunk.Chunk
+  nameWithType.vb: Chunk.New
+  fullName.vb: Neosmartpen.Net.Chunk.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.Chunk.SplitByteArray*
+  commentId: Overload:Neosmartpen.Net.Chunk.SplitByteArray
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_SplitByteArray_System_Byte___System_Int32_
+  name: SplitByteArray
+  nameWithType: Chunk.SplitByteArray
+  fullName: Neosmartpen.Net.Chunk.SplitByteArray
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.List{System.Byte[]}
+  commentId: T:System.Collections.Generic.List{System.Byte[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<byte[]>
+  nameWithType: List<byte[]>
+  fullName: System.Collections.Generic.List<byte[]>
+  nameWithType.vb: List(Of Byte())
+  fullName.vb: System.Collections.Generic.List(Of Byte())
+  name.vb: List(Of Byte())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Neosmartpen.Net.Chunk.Load*
+  commentId: Overload:Neosmartpen.Net.Chunk.Load
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_Load_System_String_
+  name: Load
+  nameWithType: Chunk.Load
+  fullName: Neosmartpen.Net.Chunk.Load
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Windows.Storage.StorageFile
+  commentId: T:Windows.Storage.StorageFile
+  parent: Windows.Storage
+  isExternal: true
+  name: StorageFile
+  nameWithType: StorageFile
+  fullName: Windows.Storage.StorageFile
+- uid: Windows.Storage
+  commentId: N:Windows.Storage
+  isExternal: true
+  name: Windows.Storage
+  nameWithType: Windows.Storage
+  fullName: Windows.Storage
+  spec.csharp:
+  - uid: Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: Windows.Storage
+    name: Storage
+    isExternal: true
+  spec.vb:
+  - uid: Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: Windows.Storage
+    name: Storage
+    isExternal: true
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Neosmartpen.Net.Chunk.Get*
+  commentId: Overload:Neosmartpen.Net.Chunk.Get
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_Get_System_Int32_
+  name: Get
+  nameWithType: Chunk.Get
+  fullName: Neosmartpen.Net.Chunk.Get
+- uid: Neosmartpen.Net.Chunk.GetFileSize*
+  commentId: Overload:Neosmartpen.Net.Chunk.GetFileSize
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_GetFileSize
+  name: GetFileSize
+  nameWithType: Chunk.GetFileSize
+  fullName: Neosmartpen.Net.Chunk.GetFileSize
+- uid: Neosmartpen.Net.Chunk.GetChunkLength*
+  commentId: Overload:Neosmartpen.Net.Chunk.GetChunkLength
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_GetChunkLength
+  name: GetChunkLength
+  nameWithType: Chunk.GetChunkLength
+  fullName: Neosmartpen.Net.Chunk.GetChunkLength
+- uid: Neosmartpen.Net.Chunk.GetChunksize*
+  commentId: Overload:Neosmartpen.Net.Chunk.GetChunksize
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_GetChunksize
+  name: GetChunksize
+  nameWithType: Chunk.GetChunksize
+  fullName: Neosmartpen.Net.Chunk.GetChunksize
+- uid: Neosmartpen.Net.Chunk.GetChecksum*
+  commentId: Overload:Neosmartpen.Net.Chunk.GetChecksum
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_GetChecksum_System_Int32_
+  name: GetChecksum
+  nameWithType: Chunk.GetChecksum
+  fullName: Neosmartpen.Net.Chunk.GetChecksum
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Neosmartpen.Net.Chunk.GetTotalChecksum*
+  commentId: Overload:Neosmartpen.Net.Chunk.GetTotalChecksum
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_GetTotalChecksum
+  name: GetTotalChecksum
+  nameWithType: Chunk.GetTotalChecksum
+  fullName: Neosmartpen.Net.Chunk.GetTotalChecksum
+- uid: Neosmartpen.Net.Chunk.CalcChecksum*
+  commentId: Overload:Neosmartpen.Net.Chunk.CalcChecksum
+  href: Neosmartpen.Net.Chunk.html#Neosmartpen_Net_Chunk_CalcChecksum_System_Byte___
+  name: CalcChecksum
+  nameWithType: Chunk.CalcChecksum
+  fullName: Neosmartpen.Net.Chunk.CalcChecksum

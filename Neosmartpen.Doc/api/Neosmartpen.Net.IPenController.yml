@@ -1,0 +1,290 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.IPenController
+  commentId: T:Neosmartpen.Net.IPenController
+  id: IPenController
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.IPenController.OnConnected
+  - Neosmartpen.Net.IPenController.OnDataReceived(System.Byte[])
+  - Neosmartpen.Net.IPenController.OnDisconnected
+  - Neosmartpen.Net.IPenController.PenClient
+  - Neosmartpen.Net.IPenController.Protocol
+  langs:
+  - csharp
+  - vb
+  name: IPenController
+  nameWithType: IPenController
+  fullName: Neosmartpen.Net.IPenController
+  type: Interface
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: IPenController
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 5
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Represents a controller of pen
+  example: []
+  syntax:
+    content: public interface IPenController
+    content.vb: Public Interface IPenController
+- uid: Neosmartpen.Net.IPenController.OnDataReceived(System.Byte[])
+  commentId: M:Neosmartpen.Net.IPenController.OnDataReceived(System.Byte[])
+  id: OnDataReceived(System.Byte[])
+  parent: Neosmartpen.Net.IPenController
+  langs:
+  - csharp
+  - vb
+  name: OnDataReceived(byte[])
+  nameWithType: IPenController.OnDataReceived(byte[])
+  fullName: Neosmartpen.Net.IPenController.OnDataReceived(byte[])
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OnDataReceived
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 11
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Fired when read data, override to parse data in your implementation
+  example: []
+  syntax:
+    content: void OnDataReceived(byte[] buff)
+    parameters:
+    - id: buff
+      type: System.Byte[]
+      description: byte array of new data
+    content.vb: Sub OnDataReceived(buff As Byte())
+  overload: Neosmartpen.Net.IPenController.OnDataReceived*
+  nameWithType.vb: IPenController.OnDataReceived(Byte())
+  fullName.vb: Neosmartpen.Net.IPenController.OnDataReceived(Byte())
+  name.vb: OnDataReceived(Byte())
+- uid: Neosmartpen.Net.IPenController.PenClient
+  commentId: P:Neosmartpen.Net.IPenController.PenClient
+  id: PenClient
+  parent: Neosmartpen.Net.IPenController
+  langs:
+  - csharp
+  - vb
+  name: PenClient
+  nameWithType: IPenController.PenClient
+  fullName: Neosmartpen.Net.IPenController.PenClient
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PenClient
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 16
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Gets binded PenClient
+  example: []
+  syntax:
+    content: IPenClient PenClient { get; set; }
+    parameters: []
+    return:
+      type: Neosmartpen.Net.IPenClient
+    content.vb: Property PenClient As IPenClient
+  overload: Neosmartpen.Net.IPenController.PenClient*
+- uid: Neosmartpen.Net.IPenController.Protocol
+  commentId: P:Neosmartpen.Net.IPenController.Protocol
+  id: Protocol
+  parent: Neosmartpen.Net.IPenController
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: IPenController.Protocol
+  fullName: Neosmartpen.Net.IPenController.Protocol
+  type: Property
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Protocol
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 21
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Get Protocol version
+  example: []
+  syntax:
+    content: int Protocol { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property Protocol As Integer
+  overload: Neosmartpen.Net.IPenController.Protocol*
+- uid: Neosmartpen.Net.IPenController.OnConnected
+  commentId: M:Neosmartpen.Net.IPenController.OnConnected
+  id: OnConnected
+  parent: Neosmartpen.Net.IPenController
+  langs:
+  - csharp
+  - vb
+  name: OnConnected()
+  nameWithType: IPenController.OnConnected()
+  fullName: Neosmartpen.Net.IPenController.OnConnected()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OnConnected
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 25
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Fired when a connection is made, override to handle in your own code.
+  example: []
+  syntax:
+    content: void OnConnected()
+    content.vb: Sub OnConnected()
+  overload: Neosmartpen.Net.IPenController.OnConnected*
+- uid: Neosmartpen.Net.IPenController.OnDisconnected
+  commentId: M:Neosmartpen.Net.IPenController.OnDisconnected
+  id: OnDisconnected
+  parent: Neosmartpen.Net.IPenController
+  langs:
+  - csharp
+  - vb
+  name: OnDisconnected()
+  nameWithType: IPenController.OnDisconnected()
+  fullName: Neosmartpen.Net.IPenController.OnDisconnected()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: OnDisconnected
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Client/IPenController.cs
+    startLine: 30
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  summary: Fired when a connection is destroyed, override to handle in your own code.
+  example: []
+  syntax:
+    content: void OnDisconnected()
+    content.vb: Sub OnDisconnected()
+  overload: Neosmartpen.Net.IPenController.OnDisconnected*
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: Neosmartpen.Net.IPenController.OnDataReceived*
+  commentId: Overload:Neosmartpen.Net.IPenController.OnDataReceived
+  href: Neosmartpen.Net.IPenController.html#Neosmartpen_Net_IPenController_OnDataReceived_System_Byte___
+  name: OnDataReceived
+  nameWithType: IPenController.OnDataReceived
+  fullName: Neosmartpen.Net.IPenController.OnDataReceived
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Neosmartpen.Net.IPenController.PenClient*
+  commentId: Overload:Neosmartpen.Net.IPenController.PenClient
+  href: Neosmartpen.Net.IPenController.html#Neosmartpen_Net_IPenController_PenClient
+  name: PenClient
+  nameWithType: IPenController.PenClient
+  fullName: Neosmartpen.Net.IPenController.PenClient
+- uid: Neosmartpen.Net.IPenClient
+  commentId: T:Neosmartpen.Net.IPenClient
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.IPenClient.html
+  name: IPenClient
+  nameWithType: IPenClient
+  fullName: Neosmartpen.Net.IPenClient
+- uid: Neosmartpen.Net.IPenController.Protocol*
+  commentId: Overload:Neosmartpen.Net.IPenController.Protocol
+  href: Neosmartpen.Net.IPenController.html#Neosmartpen_Net_IPenController_Protocol
+  name: Protocol
+  nameWithType: IPenController.Protocol
+  fullName: Neosmartpen.Net.IPenController.Protocol
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.IPenController.OnConnected*
+  commentId: Overload:Neosmartpen.Net.IPenController.OnConnected
+  href: Neosmartpen.Net.IPenController.html#Neosmartpen_Net_IPenController_OnConnected
+  name: OnConnected
+  nameWithType: IPenController.OnConnected
+  fullName: Neosmartpen.Net.IPenController.OnConnected
+- uid: Neosmartpen.Net.IPenController.OnDisconnected*
+  commentId: Overload:Neosmartpen.Net.IPenController.OnDisconnected
+  href: Neosmartpen.Net.IPenController.html#Neosmartpen_Net_IPenController_OnDisconnected
+  name: OnDisconnected
+  nameWithType: IPenController.OnDisconnected
+  fullName: Neosmartpen.Net.IPenController.OnDisconnected
+shouldSkipMarkup: true

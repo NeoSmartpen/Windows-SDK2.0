@@ -1,5 +1,6 @@
 ﻿namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class ImageProcessingInfo
     {
         public int DotCount { get; set; }

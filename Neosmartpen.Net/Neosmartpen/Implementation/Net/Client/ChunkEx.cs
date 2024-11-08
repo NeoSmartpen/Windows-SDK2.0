@@ -8,6 +8,7 @@ using Windows.Storage.Streams;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class ChunkEx
     {
         // chunk size is 0.5k

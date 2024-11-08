@@ -2,9 +2,7 @@
 
 namespace Neosmartpen.Net.Support
 {
-    /// <summary>
-    /// 바이트 버퍼를 대체 
-    /// </summary>
+    /// <exclude />
     public class ByteUtil
     {
         public const int DEF_LIMIT = 1000, DEF_GROWTH = 1000;

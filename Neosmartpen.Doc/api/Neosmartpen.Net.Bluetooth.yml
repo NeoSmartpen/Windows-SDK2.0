@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Bluetooth
+  commentId: N:Neosmartpen.Net.Bluetooth
+  id: Neosmartpen.Net.Bluetooth
+  children:
+  - Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  - Neosmartpen.Net.Bluetooth.GenericBluetoothPenClient
+  - Neosmartpen.Net.Bluetooth.PenInformation
+  - Neosmartpen.Net.Bluetooth.PenUpdateInformation
+  langs:
+  - csharp
+  - vb
+  name: Neosmartpen.Net.Bluetooth
+  nameWithType: Neosmartpen.Net.Bluetooth
+  fullName: Neosmartpen.Net.Bluetooth
+  type: Namespace
+  assemblies:
+  - Neosmartpen.Net
+references:
+- uid: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  commentId: T:Neosmartpen.Net.Bluetooth.BluetoothPenClient
+  href: Neosmartpen.Net.Bluetooth.BluetoothPenClient.html
+  name: BluetoothPenClient
+  nameWithType: BluetoothPenClient
+  fullName: Neosmartpen.Net.Bluetooth.BluetoothPenClient
+- uid: Neosmartpen.Net.Bluetooth.GenericBluetoothPenClient
+  commentId: T:Neosmartpen.Net.Bluetooth.GenericBluetoothPenClient
+  href: Neosmartpen.Net.Bluetooth.GenericBluetoothPenClient.html
+  name: GenericBluetoothPenClient
+  nameWithType: GenericBluetoothPenClient
+  fullName: Neosmartpen.Net.Bluetooth.GenericBluetoothPenClient
+- uid: Neosmartpen.Net.Bluetooth.PenInformation
+  commentId: T:Neosmartpen.Net.Bluetooth.PenInformation
+  parent: Neosmartpen.Net.Bluetooth
+  href: Neosmartpen.Net.Bluetooth.PenInformation.html
+  name: PenInformation
+  nameWithType: PenInformation
+  fullName: Neosmartpen.Net.Bluetooth.PenInformation
+- uid: Neosmartpen.Net.Bluetooth.PenUpdateInformation
+  commentId: T:Neosmartpen.Net.Bluetooth.PenUpdateInformation
+  parent: Neosmartpen.Net.Bluetooth
+  href: Neosmartpen.Net.Bluetooth.PenUpdateInformation.html
+  name: PenUpdateInformation
+  nameWithType: PenUpdateInformation
+  fullName: Neosmartpen.Net.Bluetooth.PenUpdateInformation
+- uid: Neosmartpen.Net.Bluetooth
+  commentId: N:Neosmartpen.Net.Bluetooth
+  href: Neosmartpen.html
+  name: Neosmartpen.Net.Bluetooth
+  nameWithType: Neosmartpen.Net.Bluetooth
+  fullName: Neosmartpen.Net.Bluetooth
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Bluetooth
+    name: Bluetooth
+    href: Neosmartpen.Net.Bluetooth.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Bluetooth
+    name: Bluetooth
+    href: Neosmartpen.Net.Bluetooth.html
+shouldSkipMarkup: true

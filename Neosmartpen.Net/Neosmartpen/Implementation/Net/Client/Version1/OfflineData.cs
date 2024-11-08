@@ -3,6 +3,7 @@ using System.IO;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public abstract class OfflineData
     {
         public static string CURRENT_DIR;

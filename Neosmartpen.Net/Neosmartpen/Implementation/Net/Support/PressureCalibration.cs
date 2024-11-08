@@ -2,7 +2,8 @@
 
 namespace Neosmartpen.Net.Support
 {
-	internal class PressureCalibration
+    /// <exclude />
+    internal class PressureCalibration
 	{
 		private static PressureCalibration instance;
 		private static object lockObject = new object();

@@ -2,6 +2,7 @@
 
 namespace Neosmartpen.Net.Support
 {
+    /// <exclude />
     public class Time
     {
         /// <summary>

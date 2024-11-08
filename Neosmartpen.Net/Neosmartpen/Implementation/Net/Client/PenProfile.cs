@@ -1,6 +1,7 @@
 ﻿namespace Neosmartpen.Net
 {
-	public class PenProfile
+    /// <exclude />
+    public class PenProfile
 	{
 		public static readonly int LIMIT_BYTE_LENGTH_PROFILE_NAME = 8;
 		public static readonly int LIMIT_BYTE_LENGTH_PASSWORD = 8;

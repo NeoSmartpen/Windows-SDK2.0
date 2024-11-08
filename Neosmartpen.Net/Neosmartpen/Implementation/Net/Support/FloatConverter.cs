@@ -3,7 +3,8 @@ using System.Globalization;
 
 namespace Neosmartpen.Net.Support
 {
-	class FloatConverter
+    /// <exclude />
+    class FloatConverter
 	{
 		private static CultureInfo convertCulture = new CultureInfo("en-US");
 		public static double ToDouble(string str)

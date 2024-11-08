@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class OfflineWorker : OfflineData
     {
         // 처리해야 할 노트 목록

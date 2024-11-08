@@ -13,6 +13,7 @@ using Windows.Storage;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class PenClientParserV2 : IPenClientParser
 	{
 		public class Const

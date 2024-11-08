@@ -2,7 +2,8 @@
 
 namespace Neosmartpen.Net.Filter
 {
-	class FilterForPaper
+    /// <exclude />
+    class FilterForPaper
 	{
 		#region Constants
 		private static readonly int DELTA = 10;

@@ -1,5 +1,6 @@
 ﻿namespace Neosmartpen.Net
 {
+    /// <exclude />
     public enum ErrorType
     {
         MissingPenUp = 1,
@@ -12,6 +13,7 @@
         MissingPenMove = 8
     }
 
+    /// <exclude />
     public sealed class ErrorDetectedEventArgs
     {
         internal ErrorDetectedEventArgs(ErrorType errorType, long ts)

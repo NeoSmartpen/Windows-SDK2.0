@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.UsbMode
+  commentId: T:Neosmartpen.Net.UsbMode
+  id: UsbMode
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.UsbMode.Bulk
+  - Neosmartpen.Net.UsbMode.Disk
+  langs:
+  - csharp
+  - vb
+  name: UsbMode
+  nameWithType: UsbMode
+  fullName: Neosmartpen.Net.UsbMode
+  type: Enum
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: UsbMode
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+    startLine: 2
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: 'public enum UsbMode : byte'
+    content.vb: Public Enum UsbMode As Byte
+- uid: Neosmartpen.Net.UsbMode.Disk
+  commentId: F:Neosmartpen.Net.UsbMode.Disk
+  id: Disk
+  parent: Neosmartpen.Net.UsbMode
+  langs:
+  - csharp
+  - vb
+  name: Disk
+  nameWithType: UsbMode.Disk
+  fullName: Neosmartpen.Net.UsbMode.Disk
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Disk
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+    startLine: 2
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: Disk = 0
+    return:
+      type: Neosmartpen.Net.UsbMode
+- uid: Neosmartpen.Net.UsbMode.Bulk
+  commentId: F:Neosmartpen.Net.UsbMode.Bulk
+  id: Bulk
+  parent: Neosmartpen.Net.UsbMode
+  langs:
+  - csharp
+  - vb
+  name: Bulk
+  nameWithType: UsbMode.Bulk
+  fullName: Neosmartpen.Net.UsbMode.Bulk
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Bulk
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Client/UsbMode.cs
+    startLine: 2
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: Bulk = 1
+    return:
+      type: Neosmartpen.Net.UsbMode
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: Neosmartpen.Net.UsbMode
+  commentId: T:Neosmartpen.Net.UsbMode
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.UsbMode.html
+  name: UsbMode
+  nameWithType: UsbMode
+  fullName: Neosmartpen.Net.UsbMode
+shouldSkipMarkup: true

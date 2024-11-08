@@ -2,6 +2,7 @@
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class OfflineDataInfo
     {
         public int Section { protected set; get; }
@@ -26,6 +27,7 @@ namespace Neosmartpen.Net
         }
     }
 
+    /// <exclude />
     public class OfflineDataFile
     {
         public int Section, Owner, Note;

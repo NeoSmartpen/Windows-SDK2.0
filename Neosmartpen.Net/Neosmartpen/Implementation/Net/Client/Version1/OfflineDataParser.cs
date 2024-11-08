@@ -8,7 +8,7 @@ using Neosmartpen.Net.Filter;
 
 namespace Neosmartpen.Net
 {
-    // 오프라인 데이터 파일을 파싱해서 도트묶음으로 반환
+    /// <exclude />
     public class OfflineDataParser : OfflineData
     {
         private byte[] mData, mBody;

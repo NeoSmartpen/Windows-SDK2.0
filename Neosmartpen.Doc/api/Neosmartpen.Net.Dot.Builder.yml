@@ -1,0 +1,928 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Dot.Builder
+  commentId: T:Neosmartpen.Net.Dot.Builder
+  id: Dot.Builder
+  parent: Neosmartpen.Net
+  children:
+  - Neosmartpen.Net.Dot.Builder.#ctor
+  - Neosmartpen.Net.Dot.Builder.#ctor(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.Build
+  - Neosmartpen.Net.Dot.Builder.color(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.coord(System.Single,System.Single)
+  - Neosmartpen.Net.Dot.Builder.dotType(Neosmartpen.Net.DotTypes)
+  - Neosmartpen.Net.Dot.Builder.force(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.note(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.owner(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.page(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.section(System.Int32)
+  - Neosmartpen.Net.Dot.Builder.tilt(System.Int32,System.Int32)
+  - Neosmartpen.Net.Dot.Builder.timestamp(System.Int64)
+  - Neosmartpen.Net.Dot.Builder.twist(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Dot.Builder
+  nameWithType: Dot.Builder
+  fullName: Neosmartpen.Net.Dot.Builder
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Builder
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 168
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public class Dot.Builder
+    content.vb: Public Class Dot.Builder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Dot.Builder.#ctor
+  commentId: M:Neosmartpen.Net.Dot.Builder.#ctor
+  id: '#ctor'
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: Builder()
+  nameWithType: Dot.Builder.Builder()
+  fullName: Neosmartpen.Net.Dot.Builder.Builder()
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 175
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Builder()
+    content.vb: Public Sub New()
+  overload: Neosmartpen.Net.Dot.Builder.#ctor*
+  nameWithType.vb: Dot.Builder.New()
+  fullName.vb: Neosmartpen.Net.Dot.Builder.New()
+  name.vb: New()
+- uid: Neosmartpen.Net.Dot.Builder.#ctor(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: Builder(int)
+  nameWithType: Dot.Builder.Builder(int)
+  fullName: Neosmartpen.Net.Dot.Builder.Builder(int)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 180
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Builder(int maxForce)
+    parameters:
+    - id: maxForce
+      type: System.Int32
+    content.vb: Public Sub New(maxForce As Integer)
+  overload: Neosmartpen.Net.Dot.Builder.#ctor*
+  nameWithType.vb: Dot.Builder.New(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.New(Integer)
+  name.vb: New(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.owner(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.owner(System.Int32)
+  id: owner(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: owner(int)
+  nameWithType: Dot.Builder.owner(int)
+  fullName: Neosmartpen.Net.Dot.Builder.owner(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: owner
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 186
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder owner(int owner)
+    parameters:
+    - id: owner
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function owner(owner As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.owner*
+  nameWithType.vb: Dot.Builder.owner(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.owner(Integer)
+  name.vb: owner(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.section(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.section(System.Int32)
+  id: section(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: section(int)
+  nameWithType: Dot.Builder.section(int)
+  fullName: Neosmartpen.Net.Dot.Builder.section(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: section
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 192
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder section(int section)
+    parameters:
+    - id: section
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function section(section As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.section*
+  nameWithType.vb: Dot.Builder.section(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.section(Integer)
+  name.vb: section(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.note(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.note(System.Int32)
+  id: note(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: note(int)
+  nameWithType: Dot.Builder.note(int)
+  fullName: Neosmartpen.Net.Dot.Builder.note(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: note
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 198
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder note(int note)
+    parameters:
+    - id: note
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function note(note As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.note*
+  nameWithType.vb: Dot.Builder.note(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.note(Integer)
+  name.vb: note(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.page(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.page(System.Int32)
+  id: page(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: page(int)
+  nameWithType: Dot.Builder.page(int)
+  fullName: Neosmartpen.Net.Dot.Builder.page(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: page
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 204
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder page(int page)
+    parameters:
+    - id: page
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function page(page As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.page*
+  nameWithType.vb: Dot.Builder.page(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.page(Integer)
+  name.vb: page(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.timestamp(System.Int64)
+  commentId: M:Neosmartpen.Net.Dot.Builder.timestamp(System.Int64)
+  id: timestamp(System.Int64)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: timestamp(long)
+  nameWithType: Dot.Builder.timestamp(long)
+  fullName: Neosmartpen.Net.Dot.Builder.timestamp(long)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: timestamp
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 210
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder timestamp(long timestamp)
+    parameters:
+    - id: timestamp
+      type: System.Int64
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function timestamp(timestamp As Long) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.timestamp*
+  nameWithType.vb: Dot.Builder.timestamp(Long)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.timestamp(Long)
+  name.vb: timestamp(Long)
+- uid: Neosmartpen.Net.Dot.Builder.coord(System.Single,System.Single)
+  commentId: M:Neosmartpen.Net.Dot.Builder.coord(System.Single,System.Single)
+  id: coord(System.Single,System.Single)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: coord(float, float)
+  nameWithType: Dot.Builder.coord(float, float)
+  fullName: Neosmartpen.Net.Dot.Builder.coord(float, float)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: coord
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 216
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder coord(float x, float y)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function coord(x As Single, y As Single) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.coord*
+  nameWithType.vb: Dot.Builder.coord(Single, Single)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.coord(Single, Single)
+  name.vb: coord(Single, Single)
+- uid: Neosmartpen.Net.Dot.Builder.tilt(System.Int32,System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.tilt(System.Int32,System.Int32)
+  id: tilt(System.Int32,System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: tilt(int, int)
+  nameWithType: Dot.Builder.tilt(int, int)
+  fullName: Neosmartpen.Net.Dot.Builder.tilt(int, int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: tilt
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 223
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder tilt(int x, int y)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function tilt(x As Integer, y As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.tilt*
+  nameWithType.vb: Dot.Builder.tilt(Integer, Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.tilt(Integer, Integer)
+  name.vb: tilt(Integer, Integer)
+- uid: Neosmartpen.Net.Dot.Builder.twist(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.twist(System.Int32)
+  id: twist(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: twist(int)
+  nameWithType: Dot.Builder.twist(int)
+  fullName: Neosmartpen.Net.Dot.Builder.twist(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: twist
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 230
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder twist(int twist)
+    parameters:
+    - id: twist
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function twist(twist As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.twist*
+  nameWithType.vb: Dot.Builder.twist(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.twist(Integer)
+  name.vb: twist(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.force(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.force(System.Int32)
+  id: force(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: force(int)
+  nameWithType: Dot.Builder.force(int)
+  fullName: Neosmartpen.Net.Dot.Builder.force(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: force
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 236
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder force(int force)
+    parameters:
+    - id: force
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function force(force As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.force*
+  nameWithType.vb: Dot.Builder.force(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.force(Integer)
+  name.vb: force(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.dotType(Neosmartpen.Net.DotTypes)
+  commentId: M:Neosmartpen.Net.Dot.Builder.dotType(Neosmartpen.Net.DotTypes)
+  id: dotType(Neosmartpen.Net.DotTypes)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: dotType(DotTypes)
+  nameWithType: Dot.Builder.dotType(DotTypes)
+  fullName: Neosmartpen.Net.Dot.Builder.dotType(Neosmartpen.Net.DotTypes)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: dotType
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 251
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder dotType(DotTypes dotType)
+    parameters:
+    - id: dotType
+      type: Neosmartpen.Net.DotTypes
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function dotType(dotType As DotTypes) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.dotType*
+- uid: Neosmartpen.Net.Dot.Builder.color(System.Int32)
+  commentId: M:Neosmartpen.Net.Dot.Builder.color(System.Int32)
+  id: color(System.Int32)
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: color(int)
+  nameWithType: Dot.Builder.color(int)
+  fullName: Neosmartpen.Net.Dot.Builder.color(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: color
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 257
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot.Builder color(int color)
+    parameters:
+    - id: color
+      type: System.Int32
+    return:
+      type: Neosmartpen.Net.Dot.Builder
+    content.vb: Public Function color(color As Integer) As Dot.Builder
+  overload: Neosmartpen.Net.Dot.Builder.color*
+  nameWithType.vb: Dot.Builder.color(Integer)
+  fullName.vb: Neosmartpen.Net.Dot.Builder.color(Integer)
+  name.vb: color(Integer)
+- uid: Neosmartpen.Net.Dot.Builder.Build
+  commentId: M:Neosmartpen.Net.Dot.Builder.Build
+  id: Build
+  parent: Neosmartpen.Net.Dot.Builder
+  langs:
+  - csharp
+  - vb
+  name: Build()
+  nameWithType: Dot.Builder.Build()
+  fullName: Neosmartpen.Net.Dot.Builder.Build()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Build
+    path: ../Neosmartpen.Net/Neosmartpen/Framework/Net/Data/Dot.cs
+    startLine: 263
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net
+  syntax:
+    content: public Dot Build()
+    return:
+      type: Neosmartpen.Net.Dot
+    content.vb: Public Function Build() As Dot
+  overload: Neosmartpen.Net.Dot.Builder.Build*
+references:
+- uid: Neosmartpen.Net
+  commentId: N:Neosmartpen.Net
+  href: Neosmartpen.html
+  name: Neosmartpen.Net
+  nameWithType: Neosmartpen.Net
+  fullName: Neosmartpen.Net
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Neosmartpen.Net.Dot.Builder.#ctor*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.#ctor
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder__ctor
+  name: Builder
+  nameWithType: Dot.Builder.Builder
+  fullName: Neosmartpen.Net.Dot.Builder.Builder
+  nameWithType.vb: Dot.Builder.New
+  fullName.vb: Neosmartpen.Net.Dot.Builder.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Neosmartpen.Net.Dot.Builder.owner*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.owner
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_owner_System_Int32_
+  name: owner
+  nameWithType: Dot.Builder.owner
+  fullName: Neosmartpen.Net.Dot.Builder.owner
+- uid: Neosmartpen.Net.Dot.Builder
+  commentId: T:Neosmartpen.Net.Dot.Builder
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.Dot.html
+  name: Dot.Builder
+  nameWithType: Dot.Builder
+  fullName: Neosmartpen.Net.Dot.Builder
+  spec.csharp:
+  - uid: Neosmartpen.Net.Dot
+    name: Dot
+    href: Neosmartpen.Net.Dot.html
+  - name: .
+  - uid: Neosmartpen.Net.Dot.Builder
+    name: Builder
+    href: Neosmartpen.Net.Dot.Builder.html
+  spec.vb:
+  - uid: Neosmartpen.Net.Dot
+    name: Dot
+    href: Neosmartpen.Net.Dot.html
+  - name: .
+  - uid: Neosmartpen.Net.Dot.Builder
+    name: Builder
+    href: Neosmartpen.Net.Dot.Builder.html
+- uid: Neosmartpen.Net.Dot.Builder.section*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.section
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_section_System_Int32_
+  name: section
+  nameWithType: Dot.Builder.section
+  fullName: Neosmartpen.Net.Dot.Builder.section
+- uid: Neosmartpen.Net.Dot.Builder.note*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.note
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_note_System_Int32_
+  name: note
+  nameWithType: Dot.Builder.note
+  fullName: Neosmartpen.Net.Dot.Builder.note
+- uid: Neosmartpen.Net.Dot.Builder.page*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.page
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_page_System_Int32_
+  name: page
+  nameWithType: Dot.Builder.page
+  fullName: Neosmartpen.Net.Dot.Builder.page
+- uid: Neosmartpen.Net.Dot.Builder.timestamp*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.timestamp
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_timestamp_System_Int64_
+  name: timestamp
+  nameWithType: Dot.Builder.timestamp
+  fullName: Neosmartpen.Net.Dot.Builder.timestamp
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Neosmartpen.Net.Dot.Builder.coord*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.coord
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_coord_System_Single_System_Single_
+  name: coord
+  nameWithType: Dot.Builder.coord
+  fullName: Neosmartpen.Net.Dot.Builder.coord
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Neosmartpen.Net.Dot.Builder.tilt*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.tilt
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_tilt_System_Int32_System_Int32_
+  name: tilt
+  nameWithType: Dot.Builder.tilt
+  fullName: Neosmartpen.Net.Dot.Builder.tilt
+- uid: Neosmartpen.Net.Dot.Builder.twist*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.twist
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_twist_System_Int32_
+  name: twist
+  nameWithType: Dot.Builder.twist
+  fullName: Neosmartpen.Net.Dot.Builder.twist
+- uid: Neosmartpen.Net.Dot.Builder.force*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.force
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_force_System_Int32_
+  name: force
+  nameWithType: Dot.Builder.force
+  fullName: Neosmartpen.Net.Dot.Builder.force
+- uid: Neosmartpen.Net.Dot.Builder.dotType*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.dotType
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_dotType_Neosmartpen_Net_DotTypes_
+  name: dotType
+  nameWithType: Dot.Builder.dotType
+  fullName: Neosmartpen.Net.Dot.Builder.dotType
+- uid: Neosmartpen.Net.DotTypes
+  commentId: T:Neosmartpen.Net.DotTypes
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.DotTypes.html
+  name: DotTypes
+  nameWithType: DotTypes
+  fullName: Neosmartpen.Net.DotTypes
+- uid: Neosmartpen.Net.Dot.Builder.color*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.color
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_color_System_Int32_
+  name: color
+  nameWithType: Dot.Builder.color
+  fullName: Neosmartpen.Net.Dot.Builder.color
+- uid: Neosmartpen.Net.Dot.Builder.Build*
+  commentId: Overload:Neosmartpen.Net.Dot.Builder.Build
+  href: Neosmartpen.Net.Dot.Builder.html#Neosmartpen_Net_Dot_Builder_Build
+  name: Build
+  nameWithType: Dot.Builder.Build
+  fullName: Neosmartpen.Net.Dot.Builder.Build
+- uid: Neosmartpen.Net.Dot
+  commentId: T:Neosmartpen.Net.Dot
+  parent: Neosmartpen.Net
+  href: Neosmartpen.Net.Dot.html
+  name: Dot
+  nameWithType: Dot
+  fullName: Neosmartpen.Net.Dot
+shouldSkipMarkup: true

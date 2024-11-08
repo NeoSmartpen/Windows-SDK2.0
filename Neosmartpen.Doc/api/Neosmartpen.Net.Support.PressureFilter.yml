@@ -1,0 +1,569 @@
+### YamlMime:ManagedReference
+items:
+- uid: Neosmartpen.Net.Support.PressureFilter
+  commentId: T:Neosmartpen.Net.Support.PressureFilter
+  id: PressureFilter
+  parent: Neosmartpen.Net.Support
+  children:
+  - Neosmartpen.Net.Support.PressureFilter.#ctor(System.Int32)
+  - Neosmartpen.Net.Support.PressureFilter.Filter(System.Int32)
+  - Neosmartpen.Net.Support.PressureFilter.RANGE
+  - Neosmartpen.Net.Support.PressureFilter.RANGE_MAX
+  - Neosmartpen.Net.Support.PressureFilter.RANGE_MIN
+  - Neosmartpen.Net.Support.PressureFilter.Reset
+  - Neosmartpen.Net.Support.PressureFilter.ToRate(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: PressureFilter
+  nameWithType: PressureFilter
+  fullName: Neosmartpen.Net.Support.PressureFilter
+  type: Class
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: PressureFilter
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 4
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public class PressureFilter
+    content.vb: Public Class PressureFilter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: Neosmartpen.Net.Support.PressureFilter.RANGE_MIN
+  commentId: F:Neosmartpen.Net.Support.PressureFilter.RANGE_MIN
+  id: RANGE_MIN
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: RANGE_MIN
+  nameWithType: PressureFilter.RANGE_MIN
+  fullName: Neosmartpen.Net.Support.PressureFilter.RANGE_MIN
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: RANGE_MIN
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 12
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public readonly int RANGE_MIN
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly RANGE_MIN As Integer
+- uid: Neosmartpen.Net.Support.PressureFilter.RANGE_MAX
+  commentId: F:Neosmartpen.Net.Support.PressureFilter.RANGE_MAX
+  id: RANGE_MAX
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: RANGE_MAX
+  nameWithType: PressureFilter.RANGE_MAX
+  fullName: Neosmartpen.Net.Support.PressureFilter.RANGE_MAX
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: RANGE_MAX
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 12
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public readonly int RANGE_MAX
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly RANGE_MAX As Integer
+- uid: Neosmartpen.Net.Support.PressureFilter.RANGE
+  commentId: F:Neosmartpen.Net.Support.PressureFilter.RANGE
+  id: RANGE
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: RANGE
+  nameWithType: PressureFilter.RANGE
+  fullName: Neosmartpen.Net.Support.PressureFilter.RANGE
+  type: Field
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: RANGE
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 14
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public readonly double RANGE
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly RANGE As Double
+- uid: Neosmartpen.Net.Support.PressureFilter.#ctor(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.PressureFilter.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: PressureFilter(int)
+  nameWithType: PressureFilter.PressureFilter(int)
+  fullName: Neosmartpen.Net.Support.PressureFilter.PressureFilter(int)
+  type: Constructor
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: .ctor
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 16
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public PressureFilter(int max)
+    parameters:
+    - id: max
+      type: System.Int32
+    content.vb: Public Sub New(max As Integer)
+  overload: Neosmartpen.Net.Support.PressureFilter.#ctor*
+  nameWithType.vb: PressureFilter.New(Integer)
+  fullName.vb: Neosmartpen.Net.Support.PressureFilter.New(Integer)
+  name.vb: New(Integer)
+- uid: Neosmartpen.Net.Support.PressureFilter.Filter(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.PressureFilter.Filter(System.Int32)
+  id: Filter(System.Int32)
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: Filter(int)
+  nameWithType: PressureFilter.Filter(int)
+  fullName: Neosmartpen.Net.Support.PressureFilter.Filter(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Filter
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 39
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public int Filter(int nPressure)
+    parameters:
+    - id: nPressure
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function Filter(nPressure As Integer) As Integer
+  overload: Neosmartpen.Net.Support.PressureFilter.Filter*
+  nameWithType.vb: PressureFilter.Filter(Integer)
+  fullName.vb: Neosmartpen.Net.Support.PressureFilter.Filter(Integer)
+  name.vb: Filter(Integer)
+- uid: Neosmartpen.Net.Support.PressureFilter.Reset
+  commentId: M:Neosmartpen.Net.Support.PressureFilter.Reset
+  id: Reset
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: PressureFilter.Reset()
+  fullName: Neosmartpen.Net.Support.PressureFilter.Reset()
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: Reset
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 66
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Neosmartpen.Net.Support.PressureFilter.Reset*
+- uid: Neosmartpen.Net.Support.PressureFilter.ToRate(System.Int32)
+  commentId: M:Neosmartpen.Net.Support.PressureFilter.ToRate(System.Int32)
+  id: ToRate(System.Int32)
+  parent: Neosmartpen.Net.Support.PressureFilter
+  langs:
+  - csharp
+  - vb
+  name: ToRate(int)
+  nameWithType: PressureFilter.ToRate(int)
+  fullName: Neosmartpen.Net.Support.PressureFilter.ToRate(int)
+  type: Method
+  source:
+    remote:
+      path: Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+      branch: le-integration
+      repo: https://github.com/NeoSmartpen/Windows-SDK2.0.git
+    id: ToRate
+    path: ../Neosmartpen.Net/Neosmartpen/Implementation/Net/Support/PressureFilter.cs
+    startLine: 71
+  assemblies:
+  - Neosmartpen.Net
+  namespace: Neosmartpen.Net.Support
+  syntax:
+    content: public double ToRate(int nPressure)
+    parameters:
+    - id: nPressure
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function ToRate(nPressure As Integer) As Double
+  overload: Neosmartpen.Net.Support.PressureFilter.ToRate*
+  nameWithType.vb: PressureFilter.ToRate(Integer)
+  fullName.vb: Neosmartpen.Net.Support.PressureFilter.ToRate(Integer)
+  name.vb: ToRate(Integer)
+references:
+- uid: Neosmartpen.Net.Support
+  commentId: N:Neosmartpen.Net.Support
+  href: Neosmartpen.html
+  name: Neosmartpen.Net.Support
+  nameWithType: Neosmartpen.Net.Support
+  fullName: Neosmartpen.Net.Support
+  spec.csharp:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+  spec.vb:
+  - uid: Neosmartpen
+    name: Neosmartpen
+    href: Neosmartpen.html
+  - name: .
+  - uid: Neosmartpen.Net
+    name: Net
+    href: Neosmartpen.Net.html
+  - name: .
+  - uid: Neosmartpen.Net.Support
+    name: Support
+    href: Neosmartpen.Net.Support.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Neosmartpen.Net.Support.PressureFilter.#ctor*
+  commentId: Overload:Neosmartpen.Net.Support.PressureFilter.#ctor
+  href: Neosmartpen.Net.Support.PressureFilter.html#Neosmartpen_Net_Support_PressureFilter__ctor_System_Int32_
+  name: PressureFilter
+  nameWithType: PressureFilter.PressureFilter
+  fullName: Neosmartpen.Net.Support.PressureFilter.PressureFilter
+  nameWithType.vb: PressureFilter.New
+  fullName.vb: Neosmartpen.Net.Support.PressureFilter.New
+  name.vb: New
+- uid: Neosmartpen.Net.Support.PressureFilter.Filter*
+  commentId: Overload:Neosmartpen.Net.Support.PressureFilter.Filter
+  href: Neosmartpen.Net.Support.PressureFilter.html#Neosmartpen_Net_Support_PressureFilter_Filter_System_Int32_
+  name: Filter
+  nameWithType: PressureFilter.Filter
+  fullName: Neosmartpen.Net.Support.PressureFilter.Filter
+- uid: Neosmartpen.Net.Support.PressureFilter.Reset*
+  commentId: Overload:Neosmartpen.Net.Support.PressureFilter.Reset
+  href: Neosmartpen.Net.Support.PressureFilter.html#Neosmartpen_Net_Support_PressureFilter_Reset
+  name: Reset
+  nameWithType: PressureFilter.Reset
+  fullName: Neosmartpen.Net.Support.PressureFilter.Reset
+- uid: Neosmartpen.Net.Support.PressureFilter.ToRate*
+  commentId: Overload:Neosmartpen.Net.Support.PressureFilter.ToRate
+  href: Neosmartpen.Net.Support.PressureFilter.html#Neosmartpen_Net_Support_PressureFilter_ToRate_System_Int32_
+  name: ToRate
+  nameWithType: PressureFilter.ToRate
+  fullName: Neosmartpen.Net.Support.PressureFilter.ToRate

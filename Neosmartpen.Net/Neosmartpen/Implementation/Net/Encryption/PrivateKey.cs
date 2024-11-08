@@ -4,7 +4,8 @@ using Windows.Storage.Streams;
 
 namespace Neosmartpen.Net.Encryption
 {
-	public class PrivateKey
+    /// <exclude />
+    public class PrivateKey
 	{
 		public int Version { get; private set; }
 		public IBuffer Modulus { get; private set; }

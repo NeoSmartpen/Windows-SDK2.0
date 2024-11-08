@@ -12,6 +12,7 @@ using Windows.Foundation;
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class PenClientParserV1 : IPenClientParser, OfflineWorkResponseHandler
     {
         public enum Cmd : byte

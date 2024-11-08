@@ -166,6 +166,7 @@ namespace Neosmartpen.Net
             return String.Format( "o:{0}, s:{1}, b:{2}, p:{3}, time:{4}, x:{5}, y:{6}, fx:{7}, fy:{8}, force:{9}, type:{10}", Owner, Section, Note, Page, Timestamp, X, Y, Force, DotType.ToString() );
         }
 
+        /// <exclude />
         public class Builder
         {
             private Dot mDot;

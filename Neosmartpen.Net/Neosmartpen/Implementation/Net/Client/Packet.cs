@@ -2,6 +2,7 @@
 
 namespace Neosmartpen.Net
 {
+    /// <exclude />
     public class Packet : IPacket
     {
         public int Cmd { protected set; get; }

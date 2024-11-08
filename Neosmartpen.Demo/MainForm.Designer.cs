@@ -65,14 +65,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.ConsoleTextbox = new System.Windows.Forms.TextBox();
-            this.GroupProfile = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ProfileValueTextbox = new System.Windows.Forms.TextBox();
-            this.ProfileKeyTextbox = new System.Windows.Forms.TextBox();
-            this.ProfileDeleteButton = new System.Windows.Forms.Button();
-            this.ProfileAddButton = new System.Windows.Forms.Button();
-            this.ProfileGetButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.GroupInfo.SuspendLayout();
@@ -80,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PowerOffTimeInput)).BeginInit();
             this.GroupConfig.SuspendLayout();
             this.GroupUpdate.SuspendLayout();
-            this.GroupProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,14 +166,14 @@
             this.GroupOffline.Enabled = false;
             this.GroupOffline.Location = new System.Drawing.Point(14, 355);
             this.GroupOffline.Name = "GroupOffline";
-            this.GroupOffline.Size = new System.Drawing.Size(276, 133);
+            this.GroupOffline.Size = new System.Drawing.Size(276, 233);
             this.GroupOffline.TabIndex = 36;
             this.GroupOffline.TabStop = false;
             this.GroupOffline.Text = "Offline Data";
             // 
             // OfflineDataDeleteButton
             // 
-            this.OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 105);
+            this.OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 204);
             this.OfflineDataDeleteButton.Name = "OfflineDataDeleteButton";
             this.OfflineDataDeleteButton.Size = new System.Drawing.Size(75, 23);
             this.OfflineDataDeleteButton.TabIndex = 2;
@@ -192,7 +183,7 @@
             // 
             // OfflineDataDownloadButton
             // 
-            this.OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 105);
+            this.OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 204);
             this.OfflineDataDownloadButton.Name = "OfflineDataDownloadButton";
             this.OfflineDataDownloadButton.Size = new System.Drawing.Size(75, 23);
             this.OfflineDataDownloadButton.TabIndex = 1;
@@ -207,7 +198,7 @@
             this.OfflineDataListbox.ItemHeight = 12;
             this.OfflineDataListbox.Location = new System.Drawing.Point(7, 21);
             this.OfflineDataListbox.Name = "OfflineDataListbox";
-            this.OfflineDataListbox.Size = new System.Drawing.Size(263, 74);
+            this.OfflineDataListbox.Size = new System.Drawing.Size(263, 170);
             this.OfflineDataListbox.TabIndex = 0;
             // 
             // PowerOffTimeInput
@@ -463,85 +454,6 @@
             this.ConsoleTextbox.Size = new System.Drawing.Size(543, 120);
             this.ConsoleTextbox.TabIndex = 40;
             // 
-            // GroupProfile
-            // 
-            this.GroupProfile.Controls.Add(this.label9);
-            this.GroupProfile.Controls.Add(this.label3);
-            this.GroupProfile.Controls.Add(this.ProfileValueTextbox);
-            this.GroupProfile.Controls.Add(this.ProfileKeyTextbox);
-            this.GroupProfile.Controls.Add(this.ProfileDeleteButton);
-            this.GroupProfile.Controls.Add(this.ProfileAddButton);
-            this.GroupProfile.Controls.Add(this.ProfileGetButton);
-            this.GroupProfile.Enabled = false;
-            this.GroupProfile.Location = new System.Drawing.Point(14, 490);
-            this.GroupProfile.Name = "GroupProfile";
-            this.GroupProfile.Size = new System.Drawing.Size(276, 98);
-            this.GroupProfile.TabIndex = 40;
-            this.GroupProfile.TabStop = false;
-            this.GroupProfile.Text = "Profile";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(87, 57);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 12);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Value";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Key";
-            // 
-            // ProfileValueTextbox
-            // 
-            this.ProfileValueTextbox.Location = new System.Drawing.Point(130, 52);
-            this.ProfileValueTextbox.Name = "ProfileValueTextbox";
-            this.ProfileValueTextbox.Size = new System.Drawing.Size(100, 21);
-            this.ProfileValueTextbox.TabIndex = 4;
-            // 
-            // ProfileKeyTextbox
-            // 
-            this.ProfileKeyTextbox.Location = new System.Drawing.Point(130, 27);
-            this.ProfileKeyTextbox.Name = "ProfileKeyTextbox";
-            this.ProfileKeyTextbox.Size = new System.Drawing.Size(100, 21);
-            this.ProfileKeyTextbox.TabIndex = 3;
-            // 
-            // ProfileDeleteButton
-            // 
-            this.ProfileDeleteButton.Location = new System.Drawing.Point(7, 67);
-            this.ProfileDeleteButton.Name = "ProfileDeleteButton";
-            this.ProfileDeleteButton.Size = new System.Drawing.Size(63, 23);
-            this.ProfileDeleteButton.TabIndex = 2;
-            this.ProfileDeleteButton.Text = "Delete";
-            this.ProfileDeleteButton.UseVisualStyleBackColor = true;
-            this.ProfileDeleteButton.Click += new System.EventHandler(this.ProfileDeleteButton_Click);
-            // 
-            // ProfileAddButton
-            // 
-            this.ProfileAddButton.Location = new System.Drawing.Point(7, 41);
-            this.ProfileAddButton.Name = "ProfileAddButton";
-            this.ProfileAddButton.Size = new System.Drawing.Size(63, 23);
-            this.ProfileAddButton.TabIndex = 1;
-            this.ProfileAddButton.Text = "Write";
-            this.ProfileAddButton.UseVisualStyleBackColor = true;
-            this.ProfileAddButton.Click += new System.EventHandler(this.ProfileAddButton_Click);
-            // 
-            // ProfileGetButton
-            // 
-            this.ProfileGetButton.Location = new System.Drawing.Point(7, 16);
-            this.ProfileGetButton.Name = "ProfileGetButton";
-            this.ProfileGetButton.Size = new System.Drawing.Size(63, 23);
-            this.ProfileGetButton.TabIndex = 0;
-            this.ProfileGetButton.Text = "Read";
-            this.ProfileGetButton.UseVisualStyleBackColor = true;
-            this.ProfileGetButton.Click += new System.EventHandler(this.ProfileGetButton_Click);
-            // 
             // pictureBox
             // 
             this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -561,7 +473,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 729);
-            this.Controls.Add(this.GroupProfile);
             this.Controls.Add(this.ConsoleTextbox);
             this.Controls.Add(this.GroupUpdate);
             this.Controls.Add(this.pictureBox);
@@ -584,8 +495,6 @@
             this.GroupConfig.PerformLayout();
             this.GroupUpdate.ResumeLayout(false);
             this.GroupUpdate.PerformLayout();
-            this.GroupProfile.ResumeLayout(false);
-            this.GroupProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -631,14 +540,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox NewPasswordTextbox;
         private System.Windows.Forms.TextBox ConsoleTextbox;
-        private System.Windows.Forms.GroupBox GroupProfile;
-        private System.Windows.Forms.Button ProfileAddButton;
-        private System.Windows.Forms.Button ProfileGetButton;
-        private System.Windows.Forms.Button ProfileDeleteButton;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ProfileValueTextbox;
-        private System.Windows.Forms.TextBox ProfileKeyTextbox;
         private System.Windows.Forms.Label label8;
     }
 }
