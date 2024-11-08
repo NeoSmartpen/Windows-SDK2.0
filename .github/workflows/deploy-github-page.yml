@@ -33,7 +33,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.x
-
+    
+    - run: pwd
+    - run: ls -lh
     - run: dotnet tool update -g docfx
     - run: docfx Neosmartpen.Doc/docfx.json --verbose
 
