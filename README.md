@@ -27,7 +27,7 @@ Click the link below to view a beginners guide to Ncode technology.
 - Microsoft.Windows.SDK.Contracts (10.0.26100.1742)
 - SharpZipLib (1.4.2)
 
-## Api References
+## API References
 SDK API references page : [References](https://neosmartpen.github.io/Windows-SDK2.0/api/Neosmartpen.Net.html)
 
 ## Getting started (Basic) 
