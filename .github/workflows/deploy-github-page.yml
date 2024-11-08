@@ -1,12 +1,10 @@
 name: deploy-github-page
 # Your GitHub workflow file under .github/workflows/
 # Trigger the action on push to main
-# on:
-#   push:
-#     branches:
-#       - master
 on:
-  pull_request:
+  push:
+    branches:
+      - master
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -29,6 +27,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
     - name: Dotnet Setup
       uses: actions/setup-dotnet@v4
       with:
@@ -40,8 +39,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        # Upload entire repository
         path: 'Neosmartpen.Doc/_site'
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
