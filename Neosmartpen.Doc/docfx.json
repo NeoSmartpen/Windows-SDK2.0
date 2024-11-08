@@ -10,7 +10,8 @@
         }
       ],
       "dest": "api",
-      "shouldSkipMarkup": true
+      "shouldSkipMarkup": true,
+      "allowCompilationErrors": true
     }
   ],
   "build": {
