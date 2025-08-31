@@ -70,7 +70,7 @@ namespace PenDemo.Models
                 sb.AppendFormat("{0}{{\r\n", indent2);
                 sb.AppendFormat("{0}\"color\": {1},\r\n", indent3, stroke.Color);
                 sb.AppendFormat("{0}\"startTime\": {1},\r\n", indent3, stroke.TimeStart);
-                sb.AppendFormat("{0}\"timeEnd\": {1},\r\n", indent3, stroke.TimeEnd);
+                sb.AppendFormat("{0}\"endTime\": {1},\r\n", indent3, stroke.TimeEnd);
                 sb.AppendFormat("{0}\"dotCount\": {1},\r\n", indent3, stroke.Count);
                 sb.AppendFormat("{0}\"dots\": \"{1}\"\r\n", indent3, stroke.DotsToBase64());
                 sb.AppendFormat("{0}}}", indent2);
