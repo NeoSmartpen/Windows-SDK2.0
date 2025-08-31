@@ -66,6 +66,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.ConsoleTextbox = new System.Windows.Forms.TextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.gbJsonView = new System.Windows.Forms.GroupBox();
+            this.btnConvertToJSON = new System.Windows.Forms.Button();
+            this.tbSerializingResult = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.GroupInfo.SuspendLayout();
             this.GroupOffline.SuspendLayout();
@@ -73,6 +76,7 @@
             this.GroupConfig.SuspendLayout();
             this.GroupUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.gbJsonView.SuspendLayout();
             this.SuspendLayout();
             // 
             // DevicesListbox
@@ -135,7 +139,7 @@
             this.groupBox1.Size = new System.Drawing.Size(490, 701);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " Write something on your NCode paper ";
+            this.groupBox1.Text = "Write something on your NCode paper ";
             // 
             // GroupInfo
             // 
@@ -456,9 +460,6 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BackgroundImage = global::PenDemo.Properties.Resources.background;
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -468,11 +469,43 @@
             this.pictureBox.TabIndex = 27;
             this.pictureBox.TabStop = false;
             // 
+            // gbJsonView
+            // 
+            this.gbJsonView.Controls.Add(this.btnConvertToJSON);
+            this.gbJsonView.Controls.Add(this.tbSerializingResult);
+            this.gbJsonView.Location = new System.Drawing.Point(1059, 13);
+            this.gbJsonView.Name = "gbJsonView";
+            this.gbJsonView.Size = new System.Drawing.Size(420, 701);
+            this.gbJsonView.TabIndex = 34;
+            this.gbJsonView.TabStop = false;
+            this.gbJsonView.Text = "Transform it into JSON format";
+            // 
+            // btnConvertToJSON
+            // 
+            this.btnConvertToJSON.Location = new System.Drawing.Point(7, 649);
+            this.btnConvertToJSON.Name = "btnConvertToJSON";
+            this.btnConvertToJSON.Size = new System.Drawing.Size(407, 37);
+            this.btnConvertToJSON.TabIndex = 1;
+            this.btnConvertToJSON.Text = "To JSON";
+            this.btnConvertToJSON.UseVisualStyleBackColor = true;
+            this.btnConvertToJSON.Click += new System.EventHandler(this.BtnConvertToJSON_Click);
+            // 
+            // tbSerializingResult
+            // 
+            this.tbSerializingResult.Location = new System.Drawing.Point(7, 20);
+            this.tbSerializingResult.Multiline = true;
+            this.tbSerializingResult.Name = "tbSerializingResult";
+            this.tbSerializingResult.ReadOnly = true;
+            this.tbSerializingResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbSerializingResult.Size = new System.Drawing.Size(407, 623);
+            this.tbSerializingResult.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 729);
+            this.ClientSize = new System.Drawing.Size(1491, 729);
+            this.Controls.Add(this.gbJsonView);
             this.Controls.Add(this.ConsoleTextbox);
             this.Controls.Add(this.GroupUpdate);
             this.Controls.Add(this.pictureBox);
@@ -496,6 +529,8 @@
             this.GroupUpdate.ResumeLayout(false);
             this.GroupUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.gbJsonView.ResumeLayout(false);
+            this.gbJsonView.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,6 +576,9 @@
         private System.Windows.Forms.TextBox NewPasswordTextbox;
         private System.Windows.Forms.TextBox ConsoleTextbox;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox gbJsonView;
+        private System.Windows.Forms.Button btnConvertToJSON;
+        private System.Windows.Forms.TextBox tbSerializingResult;
     }
 }
 
