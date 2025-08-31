@@ -174,6 +174,66 @@ private void offlineDownloadFinished(IPenClient sender, SimpleResultEventArgs ar
 }
 ```
 
+#### Convert the page to JSON format
+```cs
+using PenDemo.Models;
+
+// Create a page model that can contain the generated strokes.
+Page page = new Page();
+
+// Add stroke
+page.Add(stroke);
+
+// Convert to json text
+var json_page = page.ToJSON();
+
+```
+
+##### Page converted to JSON format
+```json
+{
+   "section": 3,
+   "owner": 27,
+   "note": 388,
+   "pageNumber": 1,
+   "strokes": [
+      {
+         "color": 16777215,
+         "startTime": 1756632798584,
+         "endTime": 1756632798746,
+         "dotCount": 9,
+         "dots": "eFX8AQAACtf/Qa5HM0IAAACOVfwBAAAAAABCPQo0QgAAAKVVAAAA"
+      },
+      {
+         "color": 16777215,
+         "startTime": 1756632799118,
+         "endTime": 1756632799406,
+         "dotCount": 15,
+         "dots": "jlf8AQAAH4UhQmZmPUIAAACjV/wBAAAzMyRCKVw7QgAAALQpYQgAAAK5Y/AEAAGZmOkI9ClhCAAAA"
+      },
+      {
+         "color": 16777215,
+         "startTime": 1756632799617,
+         "endTime": 1756632799871,
+         "dotCount": 13,
+         "dots": "gVn8AQAA16NYQoXrM0IAAACXWfwBAAApXFtCKVwAAAA="
+      }
+   ]
+}
+```
+##### Structure of one dot item of dots (It repeats dotCount times)
+| Name | Byte | Index | Description | etc |
+|:----------|-----------:|------------:|------|----------|
+| timeDelta | 2      | 0      | Time difference between previous dot and current dot | little endian      |
+| force | 4      | 2      | the pressure of the dot, float (0 ~ 1.0) | little endian      |
+| x | 4      | 6      | the x coordinates of NCode cell (float) | little endian      |
+| y | 4      | 10      | the y coordinates of NCode cell (float) | little endian      |
+| tx | 1      | 14      | the tilt x of the pen (0~180) |  |
+| ty | 1      | 15      | the tilt x of the pen (0~180) |  |
+| rotation | 1      | 16      | the rotation degree of the pen (0~180) |  |
+
+
+
 ## LICENSE
 
 Copyright©2017 by NeoLAB Convergence, Inc. All page content is property of NeoLAB Convergence Inc. <https://neolab.net> 
