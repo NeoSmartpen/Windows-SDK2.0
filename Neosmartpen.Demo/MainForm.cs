@@ -1,6 +1,7 @@
 ﻿using Neosmartpen.Net;
 using Neosmartpen.Net.Bluetooth;
 using Neosmartpen.Net.Support;
+using PenDemo.Models;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -11,8 +12,10 @@ namespace PenDemo
     {
         public static string DEFAULT_PASSWORD = "0000";
 
-        private readonly Bitmap canvasBitmap;
+        private Bitmap canvasBitmap;
         private Stroke currentStroke;
+
+        private Page page = new Page();
 
         private readonly int canvasWidth;
         private readonly int canvasHeight;
@@ -102,6 +105,14 @@ namespace PenDemo
             bluetooth.StartLEAdvertisementWatcher();
         }
 
+        private void BtnConvertToJSON_Click(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate ()
+            {
+                tbSerializingResult.Text = page.ToJSON();
+            }));
+        }
+
         #region Bluetooth Advertisement Event
 
         private void OnAddPenController(IPenClient sender, PenInformation args)
@@ -177,6 +188,24 @@ namespace PenDemo
 
         private void ProcessDot(Dot dot)
         {
+            if (
+                (currentStroke?.Section != dot.Section) ||
+                (currentStroke?.Owner != dot.Owner) ||
+                (currentStroke?.Note != dot.Note) ||
+                (currentStroke?.Page != dot.Page)
+            )
+            {
+                page?.Clear();
+                page = new Page();
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    lock (drawLock)
+                    {
+                        canvasBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+                    }
+                }));
+            }
+
             // TODO: Drawing sample code
             if (dot.DotType == DotTypes.PEN_DOWN)
             {
@@ -196,6 +225,7 @@ namespace PenDemo
 
         private void DrawStroke(Stroke stroke)
         {
+            page.Add(stroke);
             this.Invoke(new MethodInvoker(delegate ()
             {
                 lock (drawLock)
@@ -320,7 +350,7 @@ namespace PenDemo
                 PenCapPowerCheckbox.Checked = false;
                 PenTipPowerOnCheckbox.Checked = false;
                 PowerProgressBar.Value = 0;
-                StorageProgressBar.Value =0;
+                StorageProgressBar.Value = 0;
                 SetGroupVisiblity(false);
             }));
 
@@ -507,7 +537,7 @@ namespace PenDemo
             }
 
             controller.RequestFirmwareInstallation(
-                file: FirmwarePathTextbox.Text, 
+                file: FirmwarePathTextbox.Text,
                 version: FirmwareVersionTextbox.Text
             );
         }

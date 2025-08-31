@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Neosmartpen.Net
 {
@@ -74,6 +75,31 @@ namespace Neosmartpen.Net
             TimeEnd = dot.Timestamp;
 
             base.Add( dot );
+        }
+
+        /// <summary>
+        /// Convert to standard Dot Byte serialization format.
+        /// </summary>
+        public string DotsToBase64()
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                using (var binaryWriter = new BinaryWriter(memoryStream))
+                {
+                    foreach (var dot in this)
+                    {
+                        binaryWriter.Write((short)dot.Timestamp);   // 2 bytes
+                        binaryWriter.Write(dot.Force);              // 4 bytes
+                        binaryWriter.Write(dot.X);                  // 4 bytes
+                        binaryWriter.Write(dot.Y);                  // 4 bytes
+                        binaryWriter.Write((byte)dot.TiltX);        // 1 byte
+                        binaryWriter.Write((byte)dot.TiltY);        // 1 byte
+                        binaryWriter.Write((byte)dot.Twist);        // 1 byte
+                    }
+                }
+                byte[] byteArray = memoryStream.ToArray();
+                return Convert.ToBase64String(byteArray);
+            }
         }
 
         public override string ToString()
