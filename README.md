@@ -46,6 +46,16 @@ var controller = new PenController();
 // GenericBluetoothPenClient is implementation of bluetooth function.
 var client = new GenericBluetoothPenClient(controller);
 ```
+
+###### Check if Bluetooth adapter are available
+```cs
+// If true, it can be used; if false, it cannot be used.
+var available = await client.GetBluetoothIsEnabledAsync();
+
+// Get detailed information about your Bluetooth adapter
+var adapter = await client.GetBluetoothAdapter();
+```
+
 #### Find Bluetooth Devices
 
 You can find bluetooth device using below methods. And get **PenInformation** object that has bluetooth device information.

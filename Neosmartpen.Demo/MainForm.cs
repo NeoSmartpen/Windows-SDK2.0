@@ -98,8 +98,13 @@ namespace PenDemo
             }));
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private async void BtnSearch_Click(object sender, EventArgs e)
         {
+            if (!await bluetooth.GetBluetoothIsEnabledAsync())
+            {
+                MessageBox.Show("Bluetooth adapter is not available.");
+            }
+
             SearchButton.Enabled = false;
             DevicesListbox.Items.Clear();
             bluetooth.StartLEAdvertisementWatcher();
@@ -149,6 +154,11 @@ namespace PenDemo
 
         private async void ConnectButton_Click(object sender, EventArgs e)
         {
+            if (!await bluetooth.GetBluetoothIsEnabledAsync())
+            {
+                MessageBox.Show("Bluetooth adapter is not available.");
+            }
+
             ConnectButton.Enabled = false;
 
             if (!(DevicesListbox.SelectedItem is PenInformation selected))
@@ -172,6 +182,11 @@ namespace PenDemo
 
         private async void DisconnectButton_Click(object sender, EventArgs e)
         {
+            if (!await bluetooth.GetBluetoothIsEnabledAsync())
+            {
+                MessageBox.Show("Bluetooth adapter is not available.");
+            }
+
             try
             {
                 if (bluetooth.Alive)
