@@ -19,13 +19,15 @@ Click the link below to view a beginners guide to Ncode technology.
 ## Requirements
 -  Windows 10 or later
 -  Microsoft Visual Studio 2019 or later
--  Microsoft .NET Framework 4.6.2 or later
+-  Microsoft .NET 8.0 SDK or later
  - Standard Bluetooth Dongles (Bluetooth Specification Version 4.0 or later with Microsoft Bluetooth stack)
 -  SDK packages for Neo smartpen
 
 ## Dependencies
-- Microsoft.Windows.SDK.Contracts (10.0.26100.1742)
 - SharpZipLib (1.4.2)
+- System.Management (9.0.0)
+- System.IO.Ports (9.0.0)
+- System.Drawing.Common (9.0.0)
 
 ## API References
 SDK API references page : [References](https://neosmartpen.github.io/Windows-SDK2.0/api/Neosmartpen.Net.html)
