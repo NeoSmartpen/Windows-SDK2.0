@@ -7,9 +7,18 @@
     <AssemblyName>Neosmartpen.Net</AssemblyName>
     <ProjectGuid>{F74A67F4-3FD5-41B7-9CF2-6021E29EF40C}</ProjectGuid>
     <Deterministic>true</Deterministic>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
+    <Version>2.6.0.0</Version>
+    <AssemblyVersion>2.6.0.0</AssemblyVersion>
+    <FileVersion>2.6.0.0</FileVersion>
+    <InformationalVersion>2.6.0</InformationalVersion>
+    <Authors>NeoLAB Convergence</Authors>
+    <Company>NeoLAB Convergence Inc.</Company>
+    <Product>NeoSmartpen Windows SDK</Product>
+    <Copyright>Copyright © 2017-2026 NeoLAB Convergence Inc.</Copyright>
+    <Description>Neo smartpen Bluetooth SDK for Windows Platform</Description>
   </PropertyGroup>
 
   <ItemGroup>
