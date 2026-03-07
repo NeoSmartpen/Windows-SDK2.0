@@ -1,126 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F74A67F4-3FD5-41B7-9CF2-6021E29EF40C}</ProjectGuid>
+    <TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Neosmartpen.Net</RootNamespace>
     <AssemblyName>Neosmartpen.Net</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{F74A67F4-3FD5-41B7-9CF2-6021E29EF40C}</ProjectGuid>
     <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Neosmartpen\Framework\Net\Client\IPenClient.cs" />
-    <Compile Include="Neosmartpen\Framework\Net\Client\IPenController.cs" />
-    <Compile Include="Neosmartpen\Framework\Net\Data\Dot.cs" />
-    <Compile Include="Neosmartpen\Framework\Net\Data\Pds.cs" />
-    <Compile Include="Neosmartpen\Framework\Net\Data\Stroke.cs" />
-    <Compile Include="Neosmartpen\Framework\Net\IPacket.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\BluetoothPenClient.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\GenericBluetoothPenClient.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\Le\BluetoothLePenClient.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Bluetooth\PenInfomation.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Chunk.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\ChunkEx.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\DataTransmissionType.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\BatteryAlarmReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\ConnectedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\DotReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\ErrorDetectedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\IPenControllerEvent.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\OfflineDataListReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\OfflineStrokeReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PasswordRequestedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PdsReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileCreateEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileDeleteEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileDeleteValueEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileInfoEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileReadValueEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenProfile\PenProfileWriteValueEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\PenStatusReceivedEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\ProgressChangeEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Event\SimpleResultEventArgs.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\ImageProcessErrorInfo.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\ImageProcessingInfo.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\IPenClientParser.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\OfflineDataStructure.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Packet.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\PenClient.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\PenCommType.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\PenController.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\PenControllerEx.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\PenProfile.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Protocols.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\UsbMode.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineData.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineDataParser.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineDataSerializer.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\OfflineWorker.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version1\PenClientParserV1.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Client\Version2\PenClientParserV2.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Encryption\AES256Chiper.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Encryption\PrivateKey.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Encryption\PublicKey.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Encryption\RSAChiper.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Filter\FilterForPaper.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\ByteConverter.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\ByteUtil.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\Compression.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\FloatConverter.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\PressureCalibration.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\PressureFilter.cs" />
-    <Compile Include="Neosmartpen\Implementation\Net\Support\Time.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
-      <Version>10.0.26100.1742</Version>
-    </PackageReference>
-    <PackageReference Include="SharpZipLib">
-      <Version>1.4.2</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

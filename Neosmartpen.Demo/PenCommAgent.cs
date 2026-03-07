@@ -1,6 +1,5 @@
-﻿using Neosmartpen.Net.Bluetooth;
-using Neosmartpen.Net.Protocol.v1;
-using Neosmartpen.Net.Protocol.v2;
+using Neosmartpen.Net;
+using Neosmartpen.Net.Bluetooth;
 using System;
 using System.IO;
 
