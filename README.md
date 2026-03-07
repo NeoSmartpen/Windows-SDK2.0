@@ -1,42 +1,86 @@
 # [Neo smartpen SDK for Windows Platform](https://github.com/NeoSmartpen/Windows-SDK2.0/)
 
+![.NET](https://img.shields.io/badge/.NET-8.0%20LTS-512BD4?logo=dotnet)
+![Build](https://github.com/NeoSmartpen/Windows-SDK2.0/actions/workflows/msbuild.yml/badge.svg)
+![License](https://img.shields.io/github/license/NeoSmartpen/Windows-SDK2.0)
+
 ## Windows SDK
 
-Windows SDK for Windows. This open-source library allows you to integrate the Neo smartpen - Neo smartpen N2 and M1 - into your Windows program.  
+Windows SDK for Windows. This open-source library allows you to integrate the Neo smartpen - Neo smartpen N2 and M1 - into your Windows program.
 
-## About Neo smartpen 
+## About Neo smartpen
 
-The Neo smartpen is designed to seamlessly integrate the real and digital worlds by transforming what you write on paper - everything from sketches and designs to business meeting notes - to your iOS, Android and Windows devices. It works in tandem with N notebooks, powered by NeoLAB Convergence’s patented Ncode™ technology and the accompanying application, Neo Notes. Find out more at www.neosmartpen.com
+The Neo smartpen is designed to seamlessly integrate the real and digital worlds by transforming what you write on paper - everything from sketches and designs to business meeting notes - to your iOS, Android and Windows devices. It works in tandem with N notebooks, powered by NeoLAB Convergence's patented Ncode™ technology and the accompanying application, Neo Notes. Find out more at www.neosmartpen.com
 - Tutorial video - https://goo.gl/MQaVwY
 
-## About Ncode™: service development guide 
+## About Ncode™: service development guide
 
-‘Natural Handwriting’ technology based on Ncode™(Microscopic data patterns containing various types of data) is a handwriting stroke recovery technology that digitizes paper coordinates obtained by optical pen devices such as Neo smartpen. The coordinates then can be used to store handwriting stroke information, analyzed to extract meaning based on user preferences and serve as the basis for many other types of services. 
+'Natural Handwriting' technology based on Ncode™(Microscopic data patterns containing various types of data) is a handwriting stroke recovery technology that digitizes paper coordinates obtained by optical pen devices such as Neo smartpen. The coordinates then can be used to store handwriting stroke information, analyzed to extract meaning based on user preferences and serve as the basis for many other types of services.
 
-Click the link below to view a beginners guide to Ncode technology. 
+Click the link below to view a beginners guide to Ncode technology.
 [https://github.com/NeoSmartpen/Documentations/blob/master/Ncode™ Service Development Getting Started Guide v1.01.pdf](https://github.com/NeoSmartpen/Documentations/blob/master/Ncode%E2%84%A2%20Service%20Development%20Getting%20Started%20Guide%20v1.01.pdf)
 
+## Project Structure
+
+| Project | Type | Description |
+|:---|:---|:---|
+| `Neosmartpen.Net` | Class Library | Core SDK — Bluetooth communication, pen protocol implementation |
+| `Neosmartpen.Net.Usb` | Class Library | USB communication support for Neo smartpen |
+| `Neosmartpen.Demo` | WinForms App | Demo application using `Neosmartpen.Net` (Bluetooth) |
+| `Neosmartpen.Net.Usb.Demo` | WinForms App | Demo application using `Neosmartpen.Net.Usb` (USB) |
+
 ## Requirements
--  Windows 10 or later
--  Microsoft Visual Studio 2019 or later
--  Microsoft .NET 8.0 SDK or later
- - Standard Bluetooth Dongles (Bluetooth Specification Version 4.0 or later with Microsoft Bluetooth stack)
--  SDK packages for Neo smartpen
+
+- Windows 10 or later
+- Microsoft Visual Studio 2022 or later
+- Microsoft .NET 8.0 SDK or later
+- Standard Bluetooth Dongles (Bluetooth Specification Version 4.0 or later with Microsoft Bluetooth stack)
+- SDK packages for Neo smartpen
 
 ## Dependencies
+
 - SharpZipLib (1.4.2)
-- System.Management (9.0.0)
-- System.IO.Ports (9.0.0)
-- System.Drawing.Common (9.0.0)
+- System.Management (8.0.0)
+- System.IO.Ports (8.0.0)
+- System.Drawing.Common (8.0.0)
+
+## Build & Run
+
+Clone the repository and build using the .NET CLI:
+
+```sh
+git clone https://github.com/NeoSmartpen/Windows-SDK2.0.git
+cd Windows-SDK2.0
+
+# Restore NuGet packages
+dotnet restore NeosmartpenSDK.sln
+
+# Build the entire solution
+dotnet build NeosmartpenSDK.sln -c Release
+
+# Run the Bluetooth demo app
+dotnet run --project Neosmartpen.Demo/Neosmartpen.Net.Demo.csproj
+
+# Run the USB demo app
+dotnet run --project Neosmartpen.Net.Usb.Demo/Neosmartpen.Net.Usb.Demo.csproj
+```
+
+Or open `NeosmartpenSDK.sln` directly in **Visual Studio 2022** and press **F5**.
 
 ## API References
+
 SDK API references page : [References](https://neosmartpen.github.io/Windows-SDK2.0/api/Neosmartpen.Net.html)
 
-## Getting started (Basic) 
+## Getting started (Bluetooth)
 
 #### Notice
 
-SDK handle data and commucation with peer device in other thread. So if you want data get from pen to appear in UI,  than you have to execute in UI thread.
+SDK handles data and communication with the peer device on a separate thread. So if you want data received from the pen to appear in the UI, you must execute it on the UI thread.
+
+#### Prerequisites
+
+- Bluetooth adapter with Bluetooth 4.0 LE support (Microsoft Bluetooth stack)
+- Windows 10 version 1803 or later recommended for full BLE support
 
 #### Create GenericBluetoothPenClient and PenController instance
 ```cs
@@ -188,8 +232,6 @@ private void offlineDownloadFinished(IPenClient sender, SimpleResultEventArgs ar
 
 #### Convert the page to JSON format
 ```cs
-using PenDemo.Models;
-
 // Create a page model that can contain the generated strokes.
 Page page = new Page();
 
@@ -244,28 +286,52 @@ var json_page = page.ToJSON();
 | ty | 1      | 15      | the tilt x of the pen (0~180) |  |
 | rotation | 1      | 16      | the rotation degree of the pen (0~180) |  |
 
+---
 
+## Getting started (USB)
+
+The `Neosmartpen.Net.Usb` library provides USB serial communication support for Neo smartpen devices.
+
+```cs
+using Neosmartpen.Net.Usb;
+
+// Create UsbPenClient instance with the serial port name
+var client = new UsbPenClient("COM3");
+
+// Connect
+client.Connect();
+
+// Listen for data events
+client.DotReceived += (sender, args) =>
+{
+    // TODO: handle dot data
+};
+```
+
+> Refer to `Neosmartpen.Net.Usb.Demo` for a complete working example.
+
+---
 
 ## LICENSE
 
-Copyright©2017 by NeoLAB Convergence, Inc. All page content is property of NeoLAB Convergence Inc. <https://neolab.net> 
+Copyright©2017 by NeoLAB Convergence, Inc. All page content is property of NeoLAB Convergence Inc. <https://neolab.net>
 
 ### GPL License v3 - for non-commercial purpose
-    
-For non-commercial use, follow the terms of the GNU General Public License. 
 
-GPL License v3 is a free software: you can run, copy, redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. 
+For non-commercial use, follow the terms of the GNU General Public License.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+GPL License v3 is a free software: you can run, copy, redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
 
-You should have received a copy of the GNU General Public License along with the program. If not, see <https://www.gnu.org/licenses/>. 
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with the program. If not, see <https://www.gnu.org/licenses/>.
 
 
-### Commercial license - for commercial purpose 
+### Commercial license - for commercial purpose
 
-For commercial use, it is not necessary or required to open up your source code. Technical support from NeoLAB Convergence, inc is available upon your request. 
+For commercial use, it is not necessary or required to open up your source code. Technical support from NeoLAB Convergence, inc is available upon your request.
 
-Please contact our support team via email for the terms and conditions of this license. 
+Please contact our support team via email for the terms and conditions of this license.
 
 - Global: global@neolab.net
 - Korea: biz1@neolab.net
