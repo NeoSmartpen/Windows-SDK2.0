@@ -3,6 +3,8 @@
 *.userosscache
 *.sln.docstates
 .vs/
+*.csproj.user
+google*.html
 
 [Dd]ebug/
 [Rr]elease/
