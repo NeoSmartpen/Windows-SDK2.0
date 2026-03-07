@@ -18,12 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Legacy wrapper file referencing non-existent PenCommV1/V2/BluetoothAdapter types -->
-    <Compile Remove="PenCommAgent.cs" />
-    <Compile Remove="Log.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Resources\note_603.nproj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
