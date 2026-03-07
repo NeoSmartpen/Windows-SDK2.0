@@ -1,10 +1,12 @@
-﻿using System;
+using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Neosmartpen.Net.Usb.Demo
 {
     public partial class UpdateForm : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string PortName { get; set; }
 
         public delegate void OnClickedUpdate(string portName, string filePath, string firmwareVersion);
