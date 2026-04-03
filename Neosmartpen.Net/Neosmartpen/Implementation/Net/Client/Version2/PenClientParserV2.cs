@@ -153,6 +153,9 @@ namespace Neosmartpen.Net
 
 		public int PressureSensorType { get; private set; }
 
+		/// <summary>
+		/// Whether the device supports set pressure sensitivity.
+		/// </summary>
         public bool CanSetPressureSensitivity { get; private set; } = false;
 
         public byte[] DeviceColorTypeId { get; private set; }
