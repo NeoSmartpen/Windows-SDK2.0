@@ -728,8 +728,8 @@ namespace Neosmartpen.Net
                 {
                     throw new NotSupportedException("The device does not support set FSC sensitivity.");
                 }
-                mClientV2.ReqSetupPenFscSensitivity( step );
-            } );
+                mClientV2.ReqSetupPenFscSensitivity(step);
+            });
         }
 
         /// <summary>
