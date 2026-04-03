@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using Windows.Foundation;
 using Windows.Storage;
@@ -723,7 +723,13 @@ namespace Neosmartpen.Net
         /// <param name="step">the value of sensitivity. (0~4, 0 means maximum sensitivity)</param>
         public void SetFscSensitivity(short step)
         {
-            Request(null, () => mClientV2.ReqSetupPenFscSensitivity(step));
+            Request(null, () => {
+                if (!mClientV2.CanSetPressureSensitivity)
+                {
+                    throw new NotSupportedException("The device does not support set FSC sensitivity.");
+                }
+                mClientV2.ReqSetupPenFscSensitivity(step);
+            });
         }
 
         /// <summary>

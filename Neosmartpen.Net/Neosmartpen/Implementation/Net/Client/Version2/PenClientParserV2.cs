@@ -1,4 +1,4 @@
-﻿using Neosmartpen.Net.Encryption;
+using Neosmartpen.Net.Encryption;
 using Neosmartpen.Net.Filter;
 using Neosmartpen.Net.Support;
 using System;
@@ -152,6 +152,11 @@ namespace Neosmartpen.Net
 		public ushort DeviceType { get; private set; }
 
 		public int PressureSensorType { get; private set; }
+
+		/// <summary>
+		/// Whether the device supports set pressure sensitivity.
+		/// </summary>
+        public bool CanSetPressureSensitivity { get; private set; } = false;
 
         public byte[] DeviceColorTypeId { get; private set; }
 
@@ -346,11 +351,17 @@ namespace Neosmartpen.Net
 						// 오프라인 데이터 저장 기능 사용 여부
 						bool useOffline = packet.GetByteToInt() == 1;
 
-						// 필압 단계 설정 (0~4) 0이 가장 민감
-						short fsrStep = (short)packet.GetByteToInt();
+                        // 필압 단계 설정 (0~4) 0이 가장 민감
+                        var fsrStepByte = packet.GetByte();
+                        short fsrStep = -1;
+                        if (fsrStepByte != 0xFF)
+                        {
+                            CanSetPressureSensitivity = true;
+                            fsrStep = (short)(fsrStepByte & 0xFF);
+                        }
 
-						// 최초 연결시
-						if (MaxForce == -1)
+                        // 최초 연결시
+                        if (MaxForce == -1)
 						{
 							MaxForce = maxForce;
 
