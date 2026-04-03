@@ -28,512 +28,573 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DevicesListbox = new System.Windows.Forms.ListBox();
-            this.SearchButton = new System.Windows.Forms.Button();
-            this.ConnectButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DisconnectButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.GroupInfo = new System.Windows.Forms.GroupBox();
-            this.PenInfoTextbox = new System.Windows.Forms.TextBox();
-            this.GroupOffline = new System.Windows.Forms.GroupBox();
-            this.OfflineDataDeleteButton = new System.Windows.Forms.Button();
-            this.OfflineDataDownloadButton = new System.Windows.Forms.Button();
-            this.OfflineDataListbox = new System.Windows.Forms.ListBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.PowerOffTimeInput = new System.Windows.Forms.NumericUpDown();
-            this.PenCapPowerCheckbox = new System.Windows.Forms.CheckBox();
-            this.PenTipPowerOnCheckbox = new System.Windows.Forms.CheckBox();
-            this.BeepCheckbox = new System.Windows.Forms.CheckBox();
-            this.OfflineDataCheckbox = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.PowerProgressBar = new System.Windows.Forms.ProgressBar();
-            this.StorageProgressBar = new System.Windows.Forms.ProgressBar();
-            this.btnUpgrade = new System.Windows.Forms.Button();
-            this.FirmwarePathTextbox = new System.Windows.Forms.TextBox();
-            this.FirmwareVersionTextbox = new System.Windows.Forms.TextBox();
-            this.GroupConfig = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnPwdChange = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.OldPasswordTextbox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NewPasswordTextbox = new System.Windows.Forms.TextBox();
-            this.GroupUpdate = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ConsoleTextbox = new System.Windows.Forms.TextBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.gbJsonView = new System.Windows.Forms.GroupBox();
-            this.btnConvertToJSON = new System.Windows.Forms.Button();
-            this.tbSerializingResult = new System.Windows.Forms.TextBox();
-            this.groupBox2.SuspendLayout();
-            this.GroupInfo.SuspendLayout();
-            this.GroupOffline.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PowerOffTimeInput)).BeginInit();
-            this.GroupConfig.SuspendLayout();
-            this.GroupUpdate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.gbJsonView.SuspendLayout();
-            this.SuspendLayout();
+            DevicesListbox = new System.Windows.Forms.ListBox();
+            SearchButton = new System.Windows.Forms.Button();
+            ConnectButton = new System.Windows.Forms.Button();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            DisconnectButton = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            GroupInfo = new System.Windows.Forms.GroupBox();
+            PenInfoTextbox = new System.Windows.Forms.TextBox();
+            GroupOffline = new System.Windows.Forms.GroupBox();
+            OfflineDataDeleteButton = new System.Windows.Forms.Button();
+            OfflineDataDownloadButton = new System.Windows.Forms.Button();
+            OfflineDataListbox = new System.Windows.Forms.ListBox();
+            colorDialog1 = new System.Windows.Forms.ColorDialog();
+            PowerOffTimeInput = new System.Windows.Forms.NumericUpDown();
+            PenCapPowerCheckbox = new System.Windows.Forms.CheckBox();
+            PenTipPowerOnCheckbox = new System.Windows.Forms.CheckBox();
+            BeepCheckbox = new System.Windows.Forms.CheckBox();
+            OfflineDataCheckbox = new System.Windows.Forms.CheckBox();
+            label1 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            PowerProgressBar = new System.Windows.Forms.ProgressBar();
+            StorageProgressBar = new System.Windows.Forms.ProgressBar();
+            btnUpgrade = new System.Windows.Forms.Button();
+            FirmwarePathTextbox = new System.Windows.Forms.TextBox();
+            FirmwareVersionTextbox = new System.Windows.Forms.TextBox();
+            GroupConfig = new System.Windows.Forms.GroupBox();
+            label3 = new System.Windows.Forms.Label();
+            PressureSensorStep = new System.Windows.Forms.NumericUpDown();
+            label11 = new System.Windows.Forms.Label();
+            btnPwdChange = new System.Windows.Forms.Button();
+            label7 = new System.Windows.Forms.Label();
+            OldPasswordTextbox = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
+            NewPasswordTextbox = new System.Windows.Forms.TextBox();
+            GroupUpdate = new System.Windows.Forms.GroupBox();
+            label2 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            ConsoleTextbox = new System.Windows.Forms.TextBox();
+            pictureBox = new System.Windows.Forms.PictureBox();
+            gbJsonView = new System.Windows.Forms.GroupBox();
+            btnConvertToJSON = new System.Windows.Forms.Button();
+            tbSerializingResult = new System.Windows.Forms.TextBox();
+            groupBox2.SuspendLayout();
+            GroupInfo.SuspendLayout();
+            GroupOffline.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PowerOffTimeInput).BeginInit();
+            GroupConfig.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PressureSensorStep).BeginInit();
+            GroupUpdate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+            gbJsonView.SuspendLayout();
+            SuspendLayout();
             // 
             // DevicesListbox
             // 
-            this.DevicesListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DevicesListbox.FormattingEnabled = true;
-            this.DevicesListbox.ItemHeight = 12;
-            this.DevicesListbox.Location = new System.Drawing.Point(11, 20);
-            this.DevicesListbox.Name = "DevicesListbox";
-            this.DevicesListbox.Size = new System.Drawing.Size(428, 158);
-            this.DevicesListbox.TabIndex = 23;
+            DevicesListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            DevicesListbox.FormattingEnabled = true;
+            DevicesListbox.ItemHeight = 15;
+            DevicesListbox.Location = new System.Drawing.Point(11, 25);
+            DevicesListbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            DevicesListbox.Name = "DevicesListbox";
+            DevicesListbox.Size = new System.Drawing.Size(428, 197);
+            DevicesListbox.TabIndex = 23;
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(445, 20);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(84, 23);
-            this.SearchButton.TabIndex = 22;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.BtnSearch_Click);
+            SearchButton.Location = new System.Drawing.Point(445, 25);
+            SearchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            SearchButton.Name = "SearchButton";
+            SearchButton.Size = new System.Drawing.Size(84, 29);
+            SearchButton.TabIndex = 22;
+            SearchButton.Text = "Search";
+            SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += BtnSearch_Click;
             // 
             // ConnectButton
             // 
-            this.ConnectButton.Location = new System.Drawing.Point(445, 126);
-            this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(84, 23);
-            this.ConnectButton.TabIndex = 17;
-            this.ConnectButton.Text = "Connect";
-            this.ConnectButton.UseVisualStyleBackColor = true;
-            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
+            ConnectButton.Location = new System.Drawing.Point(445, 158);
+            ConnectButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ConnectButton.Name = "ConnectButton";
+            ConnectButton.Size = new System.Drawing.Size(84, 29);
+            ConnectButton.TabIndex = 17;
+            ConnectButton.Text = "Connect";
+            ConnectButton.UseVisualStyleBackColor = true;
+            ConnectButton.Click += ConnectButton_Click;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.DisconnectButton);
-            this.groupBox2.Controls.Add(this.ConnectButton);
-            this.groupBox2.Controls.Add(this.DevicesListbox);
-            this.groupBox2.Controls.Add(this.SearchButton);
-            this.groupBox2.Location = new System.Drawing.Point(14, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(540, 184);
-            this.groupBox2.TabIndex = 32;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " Search and select your device ";
+            groupBox2.Controls.Add(DisconnectButton);
+            groupBox2.Controls.Add(ConnectButton);
+            groupBox2.Controls.Add(DevicesListbox);
+            groupBox2.Controls.Add(SearchButton);
+            groupBox2.Location = new System.Drawing.Point(14, 16);
+            groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            groupBox2.Size = new System.Drawing.Size(540, 230);
+            groupBox2.TabIndex = 32;
+            groupBox2.TabStop = false;
+            groupBox2.Text = " Search and select your device ";
             // 
             // DisconnectButton
             // 
-            this.DisconnectButton.Location = new System.Drawing.Point(445, 155);
-            this.DisconnectButton.Name = "DisconnectButton";
-            this.DisconnectButton.Size = new System.Drawing.Size(84, 23);
-            this.DisconnectButton.TabIndex = 24;
-            this.DisconnectButton.Text = "Disconnect";
-            this.DisconnectButton.UseVisualStyleBackColor = true;
-            this.DisconnectButton.Click += new System.EventHandler(this.DisconnectButton_Click);
+            DisconnectButton.Location = new System.Drawing.Point(445, 194);
+            DisconnectButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            DisconnectButton.Name = "DisconnectButton";
+            DisconnectButton.Size = new System.Drawing.Size(84, 29);
+            DisconnectButton.TabIndex = 24;
+            DisconnectButton.Text = "Disconnect";
+            DisconnectButton.UseVisualStyleBackColor = true;
+            DisconnectButton.Click += DisconnectButton_Click;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(563, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 701);
-            this.groupBox1.TabIndex = 33;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Write something on your NCode paper ";
+            groupBox1.Location = new System.Drawing.Point(563, 16);
+            groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            groupBox1.Size = new System.Drawing.Size(490, 876);
+            groupBox1.TabIndex = 33;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Write something on your NCode paper ";
             // 
             // GroupInfo
             // 
-            this.GroupInfo.Controls.Add(this.PenInfoTextbox);
-            this.GroupInfo.Enabled = false;
-            this.GroupInfo.Location = new System.Drawing.Point(14, 200);
-            this.GroupInfo.Name = "GroupInfo";
-            this.GroupInfo.Size = new System.Drawing.Size(276, 153);
-            this.GroupInfo.TabIndex = 37;
-            this.GroupInfo.TabStop = false;
-            this.GroupInfo.Text = "Information";
+            GroupInfo.Controls.Add(PenInfoTextbox);
+            GroupInfo.Enabled = false;
+            GroupInfo.Location = new System.Drawing.Point(14, 250);
+            GroupInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupInfo.Name = "GroupInfo";
+            GroupInfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupInfo.Size = new System.Drawing.Size(276, 191);
+            GroupInfo.TabIndex = 37;
+            GroupInfo.TabStop = false;
+            GroupInfo.Text = "Information";
             // 
             // PenInfoTextbox
             // 
-            this.PenInfoTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PenInfoTextbox.Location = new System.Drawing.Point(18, 23);
-            this.PenInfoTextbox.Multiline = true;
-            this.PenInfoTextbox.Name = "PenInfoTextbox";
-            this.PenInfoTextbox.ReadOnly = true;
-            this.PenInfoTextbox.Size = new System.Drawing.Size(241, 120);
-            this.PenInfoTextbox.TabIndex = 0;
+            PenInfoTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            PenInfoTextbox.Location = new System.Drawing.Point(18, 29);
+            PenInfoTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PenInfoTextbox.Multiline = true;
+            PenInfoTextbox.Name = "PenInfoTextbox";
+            PenInfoTextbox.ReadOnly = true;
+            PenInfoTextbox.Size = new System.Drawing.Size(241, 150);
+            PenInfoTextbox.TabIndex = 0;
             // 
             // GroupOffline
             // 
-            this.GroupOffline.Controls.Add(this.OfflineDataDeleteButton);
-            this.GroupOffline.Controls.Add(this.OfflineDataDownloadButton);
-            this.GroupOffline.Controls.Add(this.OfflineDataListbox);
-            this.GroupOffline.Enabled = false;
-            this.GroupOffline.Location = new System.Drawing.Point(14, 355);
-            this.GroupOffline.Name = "GroupOffline";
-            this.GroupOffline.Size = new System.Drawing.Size(276, 233);
-            this.GroupOffline.TabIndex = 36;
-            this.GroupOffline.TabStop = false;
-            this.GroupOffline.Text = "Offline Data";
+            GroupOffline.Controls.Add(OfflineDataDeleteButton);
+            GroupOffline.Controls.Add(OfflineDataDownloadButton);
+            GroupOffline.Controls.Add(OfflineDataListbox);
+            GroupOffline.Enabled = false;
+            GroupOffline.Location = new System.Drawing.Point(14, 444);
+            GroupOffline.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupOffline.Name = "GroupOffline";
+            GroupOffline.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupOffline.Size = new System.Drawing.Size(276, 291);
+            GroupOffline.TabIndex = 36;
+            GroupOffline.TabStop = false;
+            GroupOffline.Text = "Offline Data";
             // 
             // OfflineDataDeleteButton
             // 
-            this.OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 204);
-            this.OfflineDataDeleteButton.Name = "OfflineDataDeleteButton";
-            this.OfflineDataDeleteButton.Size = new System.Drawing.Size(75, 23);
-            this.OfflineDataDeleteButton.TabIndex = 2;
-            this.OfflineDataDeleteButton.Text = "Delete";
-            this.OfflineDataDeleteButton.UseVisualStyleBackColor = true;
-            this.OfflineDataDeleteButton.Click += new System.EventHandler(this.OfflineDataDeleteButton_Click);
+            OfflineDataDeleteButton.Location = new System.Drawing.Point(195, 255);
+            OfflineDataDeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            OfflineDataDeleteButton.Name = "OfflineDataDeleteButton";
+            OfflineDataDeleteButton.Size = new System.Drawing.Size(75, 29);
+            OfflineDataDeleteButton.TabIndex = 2;
+            OfflineDataDeleteButton.Text = "Delete";
+            OfflineDataDeleteButton.UseVisualStyleBackColor = true;
+            OfflineDataDeleteButton.Click += OfflineDataDeleteButton_Click;
             // 
             // OfflineDataDownloadButton
             // 
-            this.OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 204);
-            this.OfflineDataDownloadButton.Name = "OfflineDataDownloadButton";
-            this.OfflineDataDownloadButton.Size = new System.Drawing.Size(75, 23);
-            this.OfflineDataDownloadButton.TabIndex = 1;
-            this.OfflineDataDownloadButton.Text = "Download";
-            this.OfflineDataDownloadButton.UseVisualStyleBackColor = true;
-            this.OfflineDataDownloadButton.Click += new System.EventHandler(this.OfflineDataDownloadButton_Click);
+            OfflineDataDownloadButton.Location = new System.Drawing.Point(7, 255);
+            OfflineDataDownloadButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            OfflineDataDownloadButton.Name = "OfflineDataDownloadButton";
+            OfflineDataDownloadButton.Size = new System.Drawing.Size(75, 29);
+            OfflineDataDownloadButton.TabIndex = 1;
+            OfflineDataDownloadButton.Text = "Download";
+            OfflineDataDownloadButton.UseVisualStyleBackColor = true;
+            OfflineDataDownloadButton.Click += OfflineDataDownloadButton_Click;
             // 
             // OfflineDataListbox
             // 
-            this.OfflineDataListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OfflineDataListbox.FormattingEnabled = true;
-            this.OfflineDataListbox.ItemHeight = 12;
-            this.OfflineDataListbox.Location = new System.Drawing.Point(7, 21);
-            this.OfflineDataListbox.Name = "OfflineDataListbox";
-            this.OfflineDataListbox.Size = new System.Drawing.Size(263, 170);
-            this.OfflineDataListbox.TabIndex = 0;
+            OfflineDataListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            OfflineDataListbox.FormattingEnabled = true;
+            OfflineDataListbox.ItemHeight = 15;
+            OfflineDataListbox.Location = new System.Drawing.Point(7, 26);
+            OfflineDataListbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            OfflineDataListbox.Name = "OfflineDataListbox";
+            OfflineDataListbox.Size = new System.Drawing.Size(263, 212);
+            OfflineDataListbox.TabIndex = 0;
             // 
             // PowerOffTimeInput
             // 
-            this.PowerOffTimeInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PowerOffTimeInput.Location = new System.Drawing.Point(155, 23);
-            this.PowerOffTimeInput.Maximum = new decimal(new int[] {
-            -1486618624,
-            232830643,
-            0,
-            0});
-            this.PowerOffTimeInput.Name = "PowerOffTimeInput";
-            this.PowerOffTimeInput.Size = new System.Drawing.Size(83, 21);
-            this.PowerOffTimeInput.TabIndex = 0;
-            this.PowerOffTimeInput.ValueChanged += new System.EventHandler(this.PowerOffTimeInput_ValueChanged);
+            PowerOffTimeInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            PowerOffTimeInput.Location = new System.Drawing.Point(155, 23);
+            PowerOffTimeInput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PowerOffTimeInput.Maximum = new decimal(new int[] { -1486618624, 232830643, 0, 0 });
+            PowerOffTimeInput.Name = "PowerOffTimeInput";
+            PowerOffTimeInput.Size = new System.Drawing.Size(83, 23);
+            PowerOffTimeInput.TabIndex = 0;
+            PowerOffTimeInput.ValueChanged += PowerOffTimeInput_ValueChanged;
             // 
             // PenCapPowerCheckbox
             // 
-            this.PenCapPowerCheckbox.AutoSize = true;
-            this.PenCapPowerCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PenCapPowerCheckbox.Location = new System.Drawing.Point(22, 50);
-            this.PenCapPowerCheckbox.Name = "PenCapPowerCheckbox";
-            this.PenCapPowerCheckbox.Size = new System.Drawing.Size(149, 16);
-            this.PenCapPowerCheckbox.TabIndex = 1;
-            this.PenCapPowerCheckbox.Text = "Pen cap power control";
-            this.PenCapPowerCheckbox.UseVisualStyleBackColor = true;
-            this.PenCapPowerCheckbox.CheckedChanged += new System.EventHandler(this.PenCapPowerCheckbox_CheckedChanged);
+            PenCapPowerCheckbox.AutoSize = true;
+            PenCapPowerCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            PenCapPowerCheckbox.Location = new System.Drawing.Point(22, 51);
+            PenCapPowerCheckbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PenCapPowerCheckbox.Name = "PenCapPowerCheckbox";
+            PenCapPowerCheckbox.Size = new System.Drawing.Size(145, 19);
+            PenCapPowerCheckbox.TabIndex = 1;
+            PenCapPowerCheckbox.Text = "Pen cap power control";
+            PenCapPowerCheckbox.UseVisualStyleBackColor = true;
+            PenCapPowerCheckbox.CheckedChanged += PenCapPowerCheckbox_CheckedChanged;
             // 
             // PenTipPowerOnCheckbox
             // 
-            this.PenTipPowerOnCheckbox.AutoSize = true;
-            this.PenTipPowerOnCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PenTipPowerOnCheckbox.Location = new System.Drawing.Point(22, 72);
-            this.PenTipPowerOnCheckbox.Name = "PenTipPowerOnCheckbox";
-            this.PenTipPowerOnCheckbox.Size = new System.Drawing.Size(135, 16);
-            this.PenTipPowerOnCheckbox.TabIndex = 2;
-            this.PenTipPowerOnCheckbox.Text = "Power on by pen tip";
-            this.PenTipPowerOnCheckbox.UseVisualStyleBackColor = true;
-            this.PenTipPowerOnCheckbox.CheckedChanged += new System.EventHandler(this.PenTipPowerOnCheckbox_CheckedChanged);
+            PenTipPowerOnCheckbox.AutoSize = true;
+            PenTipPowerOnCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            PenTipPowerOnCheckbox.Location = new System.Drawing.Point(22, 75);
+            PenTipPowerOnCheckbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PenTipPowerOnCheckbox.Name = "PenTipPowerOnCheckbox";
+            PenTipPowerOnCheckbox.Size = new System.Drawing.Size(133, 19);
+            PenTipPowerOnCheckbox.TabIndex = 2;
+            PenTipPowerOnCheckbox.Text = "Power on by pen tip";
+            PenTipPowerOnCheckbox.UseVisualStyleBackColor = true;
+            PenTipPowerOnCheckbox.CheckedChanged += PenTipPowerOnCheckbox_CheckedChanged;
             // 
             // BeepCheckbox
             // 
-            this.BeepCheckbox.AutoSize = true;
-            this.BeepCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BeepCheckbox.Location = new System.Drawing.Point(22, 95);
-            this.BeepCheckbox.Name = "BeepCheckbox";
-            this.BeepCheckbox.Size = new System.Drawing.Size(89, 16);
-            this.BeepCheckbox.TabIndex = 3;
-            this.BeepCheckbox.Text = "Beep sound";
-            this.BeepCheckbox.UseVisualStyleBackColor = true;
-            this.BeepCheckbox.CheckedChanged += new System.EventHandler(this.BeepCheckbox_CheckedChanged);
+            BeepCheckbox.AutoSize = true;
+            BeepCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            BeepCheckbox.Location = new System.Drawing.Point(22, 100);
+            BeepCheckbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            BeepCheckbox.Name = "BeepCheckbox";
+            BeepCheckbox.Size = new System.Drawing.Size(86, 19);
+            BeepCheckbox.TabIndex = 3;
+            BeepCheckbox.Text = "Beep sound";
+            BeepCheckbox.UseVisualStyleBackColor = true;
+            BeepCheckbox.CheckedChanged += BeepCheckbox_CheckedChanged;
             // 
             // OfflineDataCheckbox
             // 
-            this.OfflineDataCheckbox.AutoSize = true;
-            this.OfflineDataCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OfflineDataCheckbox.Location = new System.Drawing.Point(22, 118);
-            this.OfflineDataCheckbox.Name = "OfflineDataCheckbox";
-            this.OfflineDataCheckbox.Size = new System.Drawing.Size(84, 16);
-            this.OfflineDataCheckbox.TabIndex = 5;
-            this.OfflineDataCheckbox.Text = "Offline data";
-            this.OfflineDataCheckbox.UseVisualStyleBackColor = true;
-            this.OfflineDataCheckbox.CheckedChanged += new System.EventHandler(this.OfflineDataCheckbox_CheckedChanged);
+            OfflineDataCheckbox.AutoSize = true;
+            OfflineDataCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            OfflineDataCheckbox.Location = new System.Drawing.Point(22, 126);
+            OfflineDataCheckbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            OfflineDataCheckbox.Name = "OfflineDataCheckbox";
+            OfflineDataCheckbox.Size = new System.Drawing.Size(86, 19);
+            OfflineDataCheckbox.TabIndex = 5;
+            OfflineDataCheckbox.Text = "Offline data";
+            OfflineDataCheckbox.UseVisualStyleBackColor = true;
+            OfflineDataCheckbox.CheckedChanged += OfflineDataCheckbox_CheckedChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Auto power off time ";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(18, 26);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(121, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Auto power off time ";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 150);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Power";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(15, 191);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(40, 15);
+            label4.TabIndex = 11;
+            label4.Text = "Power";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 179);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 12);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Storage";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(8, 227);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(48, 15);
+            label5.TabIndex = 12;
+            label5.Text = "Storage";
             // 
             // PowerProgressBar
             // 
-            this.PowerProgressBar.Location = new System.Drawing.Point(59, 144);
-            this.PowerProgressBar.Name = "PowerProgressBar";
-            this.PowerProgressBar.Size = new System.Drawing.Size(175, 23);
-            this.PowerProgressBar.TabIndex = 13;
+            PowerProgressBar.Location = new System.Drawing.Point(59, 183);
+            PowerProgressBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PowerProgressBar.Name = "PowerProgressBar";
+            PowerProgressBar.Size = new System.Drawing.Size(175, 29);
+            PowerProgressBar.TabIndex = 13;
             // 
             // StorageProgressBar
             // 
-            this.StorageProgressBar.Location = new System.Drawing.Point(59, 173);
-            this.StorageProgressBar.Name = "StorageProgressBar";
-            this.StorageProgressBar.Size = new System.Drawing.Size(175, 23);
-            this.StorageProgressBar.TabIndex = 14;
+            StorageProgressBar.Location = new System.Drawing.Point(59, 219);
+            StorageProgressBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            StorageProgressBar.Name = "StorageProgressBar";
+            StorageProgressBar.Size = new System.Drawing.Size(175, 29);
+            StorageProgressBar.TabIndex = 14;
             // 
             // btnUpgrade
             // 
-            this.btnUpgrade.Location = new System.Drawing.Point(168, 58);
-            this.btnUpgrade.Name = "btnUpgrade";
-            this.btnUpgrade.Size = new System.Drawing.Size(75, 21);
-            this.btnUpgrade.TabIndex = 18;
-            this.btnUpgrade.Text = "Update";
-            this.btnUpgrade.UseVisualStyleBackColor = true;
-            this.btnUpgrade.Click += new System.EventHandler(this.UpgradeButton_Click);
+            btnUpgrade.Location = new System.Drawing.Point(168, 72);
+            btnUpgrade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnUpgrade.Name = "btnUpgrade";
+            btnUpgrade.Size = new System.Drawing.Size(75, 26);
+            btnUpgrade.TabIndex = 18;
+            btnUpgrade.Text = "Update";
+            btnUpgrade.UseVisualStyleBackColor = true;
+            btnUpgrade.Click += UpgradeButton_Click;
             // 
             // FirmwarePathTextbox
             // 
-            this.FirmwarePathTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwarePathTextbox.Location = new System.Drawing.Point(69, 31);
-            this.FirmwarePathTextbox.Name = "FirmwarePathTextbox";
-            this.FirmwarePathTextbox.Size = new System.Drawing.Size(174, 21);
-            this.FirmwarePathTextbox.TabIndex = 19;
-            this.FirmwarePathTextbox.Click += new System.EventHandler(this.FirmwarePathTextbox_Click);
+            FirmwarePathTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            FirmwarePathTextbox.Location = new System.Drawing.Point(69, 39);
+            FirmwarePathTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            FirmwarePathTextbox.Name = "FirmwarePathTextbox";
+            FirmwarePathTextbox.Size = new System.Drawing.Size(174, 23);
+            FirmwarePathTextbox.TabIndex = 19;
+            FirmwarePathTextbox.Click += FirmwarePathTextbox_Click;
             // 
             // FirmwareVersionTextbox
             // 
-            this.FirmwareVersionTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirmwareVersionTextbox.Location = new System.Drawing.Point(69, 58);
-            this.FirmwareVersionTextbox.Name = "FirmwareVersionTextbox";
-            this.FirmwareVersionTextbox.Size = new System.Drawing.Size(93, 21);
-            this.FirmwareVersionTextbox.TabIndex = 20;
+            FirmwareVersionTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            FirmwareVersionTextbox.Location = new System.Drawing.Point(69, 72);
+            FirmwareVersionTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            FirmwareVersionTextbox.Name = "FirmwareVersionTextbox";
+            FirmwareVersionTextbox.Size = new System.Drawing.Size(93, 23);
+            FirmwareVersionTextbox.TabIndex = 20;
             // 
             // GroupConfig
             // 
-            this.GroupConfig.Controls.Add(this.label11);
-            this.GroupConfig.Controls.Add(this.btnPwdChange);
-            this.GroupConfig.Controls.Add(this.PenCapPowerCheckbox);
-            this.GroupConfig.Controls.Add(this.label4);
-            this.GroupConfig.Controls.Add(this.label7);
-            this.GroupConfig.Controls.Add(this.label5);
-            this.GroupConfig.Controls.Add(this.OldPasswordTextbox);
-            this.GroupConfig.Controls.Add(this.label1);
-            this.GroupConfig.Controls.Add(this.label6);
-            this.GroupConfig.Controls.Add(this.PowerProgressBar);
-            this.GroupConfig.Controls.Add(this.NewPasswordTextbox);
-            this.GroupConfig.Controls.Add(this.StorageProgressBar);
-            this.GroupConfig.Controls.Add(this.OfflineDataCheckbox);
-            this.GroupConfig.Controls.Add(this.BeepCheckbox);
-            this.GroupConfig.Controls.Add(this.PenTipPowerOnCheckbox);
-            this.GroupConfig.Controls.Add(this.PowerOffTimeInput);
-            this.GroupConfig.Enabled = false;
-            this.GroupConfig.Location = new System.Drawing.Point(296, 200);
-            this.GroupConfig.Name = "GroupConfig";
-            this.GroupConfig.Size = new System.Drawing.Size(258, 288);
-            this.GroupConfig.TabIndex = 35;
-            this.GroupConfig.TabStop = false;
-            this.GroupConfig.Text = "Configuration";
+            GroupConfig.Controls.Add(label3);
+            GroupConfig.Controls.Add(PressureSensorStep);
+            GroupConfig.Controls.Add(label11);
+            GroupConfig.Controls.Add(btnPwdChange);
+            GroupConfig.Controls.Add(PenCapPowerCheckbox);
+            GroupConfig.Controls.Add(label4);
+            GroupConfig.Controls.Add(label7);
+            GroupConfig.Controls.Add(label5);
+            GroupConfig.Controls.Add(OldPasswordTextbox);
+            GroupConfig.Controls.Add(label1);
+            GroupConfig.Controls.Add(label6);
+            GroupConfig.Controls.Add(PowerProgressBar);
+            GroupConfig.Controls.Add(NewPasswordTextbox);
+            GroupConfig.Controls.Add(StorageProgressBar);
+            GroupConfig.Controls.Add(OfflineDataCheckbox);
+            GroupConfig.Controls.Add(BeepCheckbox);
+            GroupConfig.Controls.Add(PenTipPowerOnCheckbox);
+            GroupConfig.Controls.Add(PowerOffTimeInput);
+            GroupConfig.Enabled = false;
+            GroupConfig.Location = new System.Drawing.Point(296, 250);
+            GroupConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupConfig.Name = "GroupConfig";
+            GroupConfig.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupConfig.Size = new System.Drawing.Size(258, 360);
+            GroupConfig.TabIndex = 35;
+            GroupConfig.TabStop = false;
+            GroupConfig.Text = "Configuration";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(19, 155);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(107, 15);
+            label3.TabIndex = 20;
+            label3.Text = "Pressure sensitivity";
+            // 
+            // PressureSensorStep
+            // 
+            PressureSensorStep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            PressureSensorStep.Location = new System.Drawing.Point(156, 151);
+            PressureSensorStep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            PressureSensorStep.Maximum = new decimal(new int[] { -1486618624, 232830643, 0, 0 });
+            PressureSensorStep.Name = "PressureSensorStep";
+            PressureSensorStep.Size = new System.Drawing.Size(83, 23);
+            PressureSensorStep.TabIndex = 19;
+            PressureSensorStep.ValueChanged += PressureSensorStep_ValueChanged;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 206);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 12);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "* Setup password:";
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(18, 258);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(104, 15);
+            label11.TabIndex = 18;
+            label11.Text = "* Setup password:";
             // 
             // btnPwdChange
             // 
-            this.btnPwdChange.Location = new System.Drawing.Point(168, 250);
-            this.btnPwdChange.Name = "btnPwdChange";
-            this.btnPwdChange.Size = new System.Drawing.Size(70, 23);
-            this.btnPwdChange.TabIndex = 17;
-            this.btnPwdChange.Text = "Change";
-            this.btnPwdChange.UseVisualStyleBackColor = true;
-            this.btnPwdChange.Click += new System.EventHandler(this.PasswordChangeButton_Click);
+            btnPwdChange.Location = new System.Drawing.Point(168, 312);
+            btnPwdChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnPwdChange.Name = "btnPwdChange";
+            btnPwdChange.Size = new System.Drawing.Size(70, 29);
+            btnPwdChange.TabIndex = 17;
+            btnPwdChange.Text = "Change";
+            btnPwdChange.UseVisualStyleBackColor = true;
+            btnPwdChange.Click += PasswordChangeButton_Click;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 255);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "new";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(23, 319);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(29, 15);
+            label7.TabIndex = 16;
+            label7.Text = "new";
             // 
             // OldPasswordTextbox
             // 
-            this.OldPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OldPasswordTextbox.Location = new System.Drawing.Point(57, 224);
-            this.OldPasswordTextbox.Name = "OldPasswordTextbox";
-            this.OldPasswordTextbox.Size = new System.Drawing.Size(105, 21);
-            this.OldPasswordTextbox.TabIndex = 0;
+            OldPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            OldPasswordTextbox.Location = new System.Drawing.Point(57, 280);
+            OldPasswordTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            OldPasswordTextbox.Name = "OldPasswordTextbox";
+            OldPasswordTextbox.Size = new System.Drawing.Size(105, 23);
+            OldPasswordTextbox.TabIndex = 0;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 228);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 12);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "old";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(30, 285);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(24, 15);
+            label6.TabIndex = 15;
+            label6.Text = "old";
             // 
             // NewPasswordTextbox
             // 
-            this.NewPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NewPasswordTextbox.Location = new System.Drawing.Point(57, 251);
-            this.NewPasswordTextbox.Name = "NewPasswordTextbox";
-            this.NewPasswordTextbox.Size = new System.Drawing.Size(105, 21);
-            this.NewPasswordTextbox.TabIndex = 0;
+            NewPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            NewPasswordTextbox.Location = new System.Drawing.Point(57, 314);
+            NewPasswordTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            NewPasswordTextbox.Name = "NewPasswordTextbox";
+            NewPasswordTextbox.Size = new System.Drawing.Size(105, 23);
+            NewPasswordTextbox.TabIndex = 0;
             // 
             // GroupUpdate
             // 
-            this.GroupUpdate.Controls.Add(this.label2);
-            this.GroupUpdate.Controls.Add(this.label8);
-            this.GroupUpdate.Controls.Add(this.btnUpgrade);
-            this.GroupUpdate.Controls.Add(this.FirmwareVersionTextbox);
-            this.GroupUpdate.Controls.Add(this.FirmwarePathTextbox);
-            this.GroupUpdate.Enabled = false;
-            this.GroupUpdate.Location = new System.Drawing.Point(296, 490);
-            this.GroupUpdate.Name = "GroupUpdate";
-            this.GroupUpdate.Size = new System.Drawing.Size(261, 98);
-            this.GroupUpdate.TabIndex = 39;
-            this.GroupUpdate.TabStop = false;
-            this.GroupUpdate.Text = "Firmware Update";
+            GroupUpdate.Controls.Add(label2);
+            GroupUpdate.Controls.Add(label8);
+            GroupUpdate.Controls.Add(btnUpgrade);
+            GroupUpdate.Controls.Add(FirmwareVersionTextbox);
+            GroupUpdate.Controls.Add(FirmwarePathTextbox);
+            GroupUpdate.Enabled = false;
+            GroupUpdate.Location = new System.Drawing.Point(296, 612);
+            GroupUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupUpdate.Name = "GroupUpdate";
+            GroupUpdate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            GroupUpdate.Size = new System.Drawing.Size(261, 122);
+            GroupUpdate.TabIndex = 39;
+            GroupUpdate.TabStop = false;
+            GroupUpdate.Text = "Firmware Update";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 12);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "File";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(40, 44);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(25, 15);
+            label2.TabIndex = 22;
+            label2.Text = "File";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 12);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Version";
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(17, 78);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(47, 15);
+            label8.TabIndex = 21;
+            label8.Text = "Version";
             // 
             // ConsoleTextbox
             // 
-            this.ConsoleTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ConsoleTextbox.Cursor = System.Windows.Forms.Cursors.No;
-            this.ConsoleTextbox.Location = new System.Drawing.Point(14, 594);
-            this.ConsoleTextbox.Multiline = true;
-            this.ConsoleTextbox.Name = "ConsoleTextbox";
-            this.ConsoleTextbox.ReadOnly = true;
-            this.ConsoleTextbox.Size = new System.Drawing.Size(543, 120);
-            this.ConsoleTextbox.TabIndex = 40;
+            ConsoleTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            ConsoleTextbox.Cursor = System.Windows.Forms.Cursors.No;
+            ConsoleTextbox.Location = new System.Drawing.Point(14, 742);
+            ConsoleTextbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ConsoleTextbox.Multiline = true;
+            ConsoleTextbox.Name = "ConsoleTextbox";
+            ConsoleTextbox.ReadOnly = true;
+            ConsoleTextbox.Size = new System.Drawing.Size(543, 150);
+            ConsoleTextbox.TabIndex = 40;
             // 
             // pictureBox
             // 
-            this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.BackgroundImage = global::PenDemo.Properties.Resources.background;
-            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox.Location = new System.Drawing.Point(581, 35);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(457, 664);
-            this.pictureBox.TabIndex = 27;
-            this.pictureBox.TabStop = false;
+            pictureBox.BackColor = System.Drawing.Color.White;
+            pictureBox.BackgroundImage = Properties.Resources.background;
+            pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            pictureBox.Location = new System.Drawing.Point(581, 44);
+            pictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new System.Drawing.Size(457, 830);
+            pictureBox.TabIndex = 27;
+            pictureBox.TabStop = false;
             // 
             // gbJsonView
             // 
-            this.gbJsonView.Controls.Add(this.btnConvertToJSON);
-            this.gbJsonView.Controls.Add(this.tbSerializingResult);
-            this.gbJsonView.Location = new System.Drawing.Point(1059, 13);
-            this.gbJsonView.Name = "gbJsonView";
-            this.gbJsonView.Size = new System.Drawing.Size(420, 701);
-            this.gbJsonView.TabIndex = 34;
-            this.gbJsonView.TabStop = false;
-            this.gbJsonView.Text = "Transform it into JSON format";
+            gbJsonView.Controls.Add(btnConvertToJSON);
+            gbJsonView.Controls.Add(tbSerializingResult);
+            gbJsonView.Location = new System.Drawing.Point(1059, 16);
+            gbJsonView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            gbJsonView.Name = "gbJsonView";
+            gbJsonView.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            gbJsonView.Size = new System.Drawing.Size(420, 876);
+            gbJsonView.TabIndex = 34;
+            gbJsonView.TabStop = false;
+            gbJsonView.Text = "Transform it into JSON format";
             // 
             // btnConvertToJSON
             // 
-            this.btnConvertToJSON.Location = new System.Drawing.Point(7, 649);
-            this.btnConvertToJSON.Name = "btnConvertToJSON";
-            this.btnConvertToJSON.Size = new System.Drawing.Size(407, 37);
-            this.btnConvertToJSON.TabIndex = 1;
-            this.btnConvertToJSON.Text = "To JSON";
-            this.btnConvertToJSON.UseVisualStyleBackColor = true;
-            this.btnConvertToJSON.Click += new System.EventHandler(this.BtnConvertToJSON_Click);
+            btnConvertToJSON.Location = new System.Drawing.Point(7, 811);
+            btnConvertToJSON.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnConvertToJSON.Name = "btnConvertToJSON";
+            btnConvertToJSON.Size = new System.Drawing.Size(407, 46);
+            btnConvertToJSON.TabIndex = 1;
+            btnConvertToJSON.Text = "To JSON";
+            btnConvertToJSON.UseVisualStyleBackColor = true;
+            btnConvertToJSON.Click += BtnConvertToJSON_Click;
             // 
             // tbSerializingResult
             // 
-            this.tbSerializingResult.Location = new System.Drawing.Point(7, 20);
-            this.tbSerializingResult.Multiline = true;
-            this.tbSerializingResult.Name = "tbSerializingResult";
-            this.tbSerializingResult.ReadOnly = true;
-            this.tbSerializingResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbSerializingResult.Size = new System.Drawing.Size(407, 623);
-            this.tbSerializingResult.TabIndex = 0;
+            tbSerializingResult.Location = new System.Drawing.Point(7, 25);
+            tbSerializingResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tbSerializingResult.Multiline = true;
+            tbSerializingResult.Name = "tbSerializingResult";
+            tbSerializingResult.ReadOnly = true;
+            tbSerializingResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            tbSerializingResult.Size = new System.Drawing.Size(407, 778);
+            tbSerializingResult.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1491, 729);
-            this.Controls.Add(this.gbJsonView);
-            this.Controls.Add(this.ConsoleTextbox);
-            this.Controls.Add(this.GroupUpdate);
-            this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.GroupInfo);
-            this.Controls.Add(this.GroupOffline);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.GroupConfig);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.TransparencyKey = System.Drawing.Color.Blue;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            this.groupBox2.ResumeLayout(false);
-            this.GroupInfo.ResumeLayout(false);
-            this.GroupInfo.PerformLayout();
-            this.GroupOffline.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PowerOffTimeInput)).EndInit();
-            this.GroupConfig.ResumeLayout(false);
-            this.GroupConfig.PerformLayout();
-            this.GroupUpdate.ResumeLayout(false);
-            this.GroupUpdate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.gbJsonView.ResumeLayout(false);
-            this.gbJsonView.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1491, 911);
+            Controls.Add(gbJsonView);
+            Controls.Add(ConsoleTextbox);
+            Controls.Add(GroupUpdate);
+            Controls.Add(pictureBox);
+            Controls.Add(GroupInfo);
+            Controls.Add(GroupOffline);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(GroupConfig);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "MainForm";
+            TransparencyKey = System.Drawing.Color.Blue;
+            FormClosed += MainForm_FormClosed;
+            groupBox2.ResumeLayout(false);
+            GroupInfo.ResumeLayout(false);
+            GroupInfo.PerformLayout();
+            GroupOffline.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PowerOffTimeInput).EndInit();
+            GroupConfig.ResumeLayout(false);
+            GroupConfig.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PressureSensorStep).EndInit();
+            GroupUpdate.ResumeLayout(false);
+            GroupUpdate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+            gbJsonView.ResumeLayout(false);
+            gbJsonView.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -579,6 +640,8 @@
         private System.Windows.Forms.GroupBox gbJsonView;
         private System.Windows.Forms.Button btnConvertToJSON;
         private System.Windows.Forms.TextBox tbSerializingResult;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown PressureSensorStep;
     }
 }
 

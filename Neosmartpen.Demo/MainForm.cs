@@ -409,6 +409,17 @@ namespace PenDemo
                 PenCapPowerCheckbox.Checked = args.PenCapPower;
                 PenTipPowerOnCheckbox.Checked = args.AutoPowerOn;
 
+                if (args.PenSensitivity < 0)
+                {
+                    PressureSensorStep.Value = 0;
+                    PressureSensorStep.Enabled = false;
+                }
+                else
+                {
+                    PressureSensorStep.Value = args.PenSensitivity;
+                    PressureSensorStep.Enabled = true;
+                }
+
                 PowerProgressBar.Maximum = 100;
                 PowerProgressBar.Value = args.Battery > 100 ? 100 : args.Battery;
 
@@ -523,6 +534,11 @@ namespace PenDemo
         private void BeepCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             controller.SetBeepSoundEnable(BeepCheckbox.Checked);
+        }
+
+        private void PressureSensorStep_ValueChanged(object sender, EventArgs e)
+        {
+            controller.SetFscSensitivity((short)PressureSensorStep.Value);
         }
 
         private void OfflineDataCheckbox_CheckedChanged(object sender, EventArgs e)
